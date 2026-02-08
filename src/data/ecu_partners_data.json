@@ -1,0 +1,299 @@
+{
+    "partners": [
+        {
+            "id": 1,
+            "country_code": "IT",
+            "country_name": "Italy",
+            "organization": "Be The Change",
+            "pid": "E10011851",
+            "city": "Messina",
+            "role": "Coordinator",
+            "color": "rose",
+            "icon": "Heart",
+            "mission": "Promoting education, cultural exchange, and personal growth through Erasmus+ and non-formal education at international and local levels.",
+            "description": "Be The Change is a non-profit organization based in Messina, Italy, founded in 2017. We promote active European citizenship, solidarity, tolerance, and personal development among young people. Our work focuses on international mobility, cultural exchange, sustainable living, and creating positive impact in communities.",
+            "focus_areas": [
+                "Active European Citizenship",
+                "Intercultural Dialogue",
+                "Youth Empowerment",
+                "Sustainable Living",
+                "Social Inclusion"
+            ],
+            "key_people": [
+                {
+                    "name": "Emanuel Caristi",
+                    "role": "Legal Representative & Facilitator",
+                    "bio": "Experienced project coordinator and registered trainer on Salto Youth. Expert in facilitation, workshop design, and non-formal education. Passionate about youth empowerment, sustainability, and digital skills development.",
+                    "ecu_contribution": "Main facilitator for opening, closing, and final evaluation sessions, ensuring pedagogical coherence throughout the exchange."
+                },
+                {
+                    "name": "Rocco Burdino",
+                    "role": "Contact Person & Logistics",
+                    "bio": "Experienced in non-formal education and project development. Expert in social media management and partner communication.",
+                    "ecu_contribution": "Manages partner communication and supports practical activities, coordinating the Maker Lab and local volunteer actions (Day 6 - Hands)."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 2,
+            "country_code": "DE",
+            "country_name": "Germany",
+            "organization": "Future Makers Alliance",
+            "pid": "E10411410",
+            "city": "Germany",
+            "role": "Partner",
+            "color": "amber",
+            "icon": "Lightbulb",
+            "mission": "Empowering young people through non-formal education, intercultural learning, and active social participation.",
+            "description": "Future Makers Alliance is an informal youth group founded in 2025 by young individuals with significant Erasmus+ experience. We focus on creating safe and inclusive learning environments where youth from diverse backgrounds can share ideas and actively promote positive social change.",
+            "focus_areas": [
+                "Youth Empowerment",
+                "Intercultural Learning",
+                "Sustainability & Recycling",
+                "Social Inclusion",
+                "Active Participation"
+            ],
+            "key_people": [
+                {
+                    "name": "Moiz Ahmad",
+                    "role": "Founder & Legal Representative",
+                    "bio": "Brings vision and leadership to the group, ensuring youth empowerment is at the center of all activities.",
+                    "ecu_contribution": "Facilitates the 'Emotional Mapping' workshop (Day 4 - Heart), helping participants explore the connection between emotions and body."
+                },
+                {
+                    "name": "Mohsin Mushtaq",
+                    "role": "Project Manager",
+                    "bio": "Manages operational aspects, ensuring smooth coordination and effective communication.",
+                    "ecu_contribution": "Supports outdoor mindfulness sessions, integrating relaxation and body awareness techniques."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 3,
+            "country_code": "MK",
+            "country_name": "North Macedonia",
+            "organization": "Level Up",
+            "pid": "E10351436",
+            "city": "Skopje",
+            "role": "Partner",
+            "color": "emerald",
+            "icon": "TrendingUp",
+            "mission": "Developing citizens of all ages through diverse activities, innovative methods, and transformative workshops.",
+            "description": "Association Level Up International is dedicated to advancing social growth through creative methods and engaging workshops. We've participated in over 30 Erasmus+ projects since 2019, focusing on skill development, healthy lifestyles, and sustainable development goals.",
+            "focus_areas": [
+                "Skills Development",
+                "Healthy Lifestyles & Sport",
+                "Digital Literacy",
+                "Social Entrepreneurship",
+                "Sustainability & SDGs"
+            ],
+            "key_people": [
+                {
+                    "name": "Viktor Krstevski",
+                    "role": "President & Project Coordinator",
+                    "bio": "Erasmus+ coordinator, trainer, and facilitator since 2019. Former National Karate Team member with medals in Balkan, Mediterranean, and European tournaments. Background in Engineering and Environmental Protection.",
+                    "ecu_contribution": "Coordinates the 'Fact-Checking Lab' and 'News Factory' simulation (Day 5 - Head), guiding participants in critical information analysis."
+                },
+                {
+                    "name": "Sara Krstevska",
+                    "role": "Board Member & Marketing Manager",
+                    "bio": "BTL marketing manager and former Balkan Karate Champion (2017). Dedicated to promoting Erasmus+ opportunities.",
+                    "ecu_contribution": "Contributes marketing expertise to dissemination phase and supports digital content creation during the project."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 4,
+            "country_code": "GR",
+            "country_name": "Greece",
+            "organization": "DefiniTely Maybe",
+            "pid": "E10294116",
+            "city": "Greece",
+            "role": "Partner",
+            "color": "blue",
+            "icon": "Users",
+            "mission": "Promoting solidarity, supporting youth with fewer opportunities, and raising awareness on social, environmental, and artistic issues.",
+            "description": "DefiniTely Maybe is a youth group founded by 5 young people living in Greece who were active youth workers in NGOs. We organize projects, become partners internationally, and help young people experience Erasmus+ opportunities, with a focus on reaching youth with fewer opportunities.",
+            "focus_areas": [
+                "Solidarity & Respect",
+                "Inclusion of Youth with Fewer Opportunities",
+                "Active Volunteering",
+                "Arts & Culture",
+                "Environmental Awareness"
+            ],
+            "key_people": [
+                {
+                    "name": "Panagiotis Zafeiropoulos",
+                    "role": "Legal Representative",
+                    "bio": "Background in music studies with extensive European program participation. Experienced in teaching children and working in dynamic environments. Strong interpersonal and communication skills, skilled in social media management.",
+                    "ecu_contribution": "Uses artistic and communication skills to facilitate 'Body Mapping' sessions (Day 1 - Skin) and 'Theatre of the Oppressed' (Day 4 - Heart), fostering creative expression."
+                },
+                {
+                    "name": "Dimitrios Katsoulas",
+                    "role": "Contact Person",
+                    "bio": "Background in computer science with experience in numerous European projects. Trained in developing youth exchanges and activity facilitation. Works well under pressure with strong interpersonal skills.",
+                    "ecu_contribution": "Supports logistical organization of creative activities and manages technical aspects during presentations."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 5,
+            "country_code": "FR",
+            "country_name": "France",
+            "organization": "Autarcie Productions",
+            "pid": "E10316737",
+            "city": "Paris",
+            "role": "Partner",
+            "color": "violet",
+            "icon": "Film",
+            "mission": "Empowering young people from disadvantaged urban areas through creative projects, multimedia production, and digital storytelling.",
+            "description": "Autarcie Productions is a Paris-based association specializing in empowering youth from disadvantaged urban areas. We manage a recording studio and web TV, support young artists (mainly in urban music and rap), and offer resources for digital content creation. Accredited for various Erasmus+ projects.",
+            "focus_areas": [
+                "Multimedia Content Creation",
+                "Digital Storytelling",
+                "Music Production & Web TV",
+                "Social Inclusion",
+                "Intercultural Communication"
+            ],
+            "key_people": [
+                {
+                    "name": "Grégoire Dorville",
+                    "role": "Coordinator & Contact Person",
+                    "bio": "Project coordinator with experience managing youth and creative projects. Deep understanding of urban youth group dynamics and coordination of local/international initiatives.",
+                    "ecu_contribution": "Brings technical experience to guide the 'Food Chain' energizer and 'Carbon Footprint' workshop (Day 3 - Stomach), using multimedia tools to make topics engaging."
+                },
+                {
+                    "name": "Mohamed Ali Ghouayel",
+                    "role": "President & Legal Representative",
+                    "bio": "Leads the organization with a vision focused on youth empowerment through art and culture, ensuring the organization remains true to its mission of supporting disadvantaged youth.",
+                    "ecu_contribution": "Provides organizational leadership and strategic oversight."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 6,
+            "country_code": "PT",
+            "country_name": "Portugal",
+            "organization": "Autonomia e Descoberta",
+            "pid": "E10086084",
+            "city": "Beja",
+            "role": "Partner",
+            "color": "pink",
+            "icon": "Compass",
+            "mission": "Promoting volunteerism, youth mobility, and peace culture as tools to transform society and develop key competencies.",
+            "description": "Autonomia e Descoberta (A&D) actively promotes Volunteering, Youth Mobility, and Peace Culture. We use non-formal, intercultural, and experiential learning methods to encourage active youth participation. We've organized over 8 Erasmus+ activities in Portugal and participated in 50+ projects across 20+ countries.",
+            "focus_areas": [
+                "Volunteerism & Active Citizenship",
+                "Youth Mobility",
+                "Non-Formal Education",
+                "Intercultural Learning",
+                "Peace Culture"
+            ],
+            "key_people": [
+                {
+                    "name": "Francisco Pedro Torrão",
+                    "role": "President & Contact Person",
+                    "bio": "Youth worker and trainer from Portugal specializing in international youth cooperation. Involved in interactive teaching and environmental education. Expert in experiential learning-based adventure programs and team performance enhancement.",
+                    "ecu_contribution": "Uses extensive storytelling experience to facilitate the 'Where we come from, where we're going' workshop (Day 2 - Feet), helping participants connect personal stories to European mobility themes."
+                },
+                {
+                    "name": "Bernardete Cambada",
+                    "role": "Youth Worker",
+                    "bio": "Discovered non-formal education as an exchange student at 18. Active volunteer focusing on intercultural learning, completed Job Shadowing in Spain, and joined A&D team working on intercultural learning, personal development, and active citizenship.",
+                    "ecu_contribution": "Supports intercultural activities and participant engagement."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 7,
+            "country_code": "RO",
+            "country_name": "Romania",
+            "organization": "Asociația Bradul",
+            "pid": "E10283181",
+            "city": "Tara Dornelor",
+            "role": "Partner",
+            "color": "cyan",
+            "icon": "Mountain",
+            "mission": "Applying Erasmus+ principles in underserved areas, turning youth dreams into reality through cooperation and empowerment.",
+            "description": "Asociația Bradul, Muntele și Neagra (BMN) was created to bring Erasmus+ principles to places where they've never been heard. We focus on local, national, and international youth networks, connecting young people regardless of education level or life experiences. Topics include NFE, sport, ecology, cultural exchanges, and sustainability.",
+            "focus_areas": [
+                "Youth from Rural Areas",
+                "Non-Formal Education",
+                "Sport & Outdoor Activities",
+                "Ecology & Sustainability",
+                "Community Building"
+            ],
+            "key_people": [
+                {
+                    "name": "Paul Iordache",
+                    "role": "President",
+                    "bio": "Over 4 years of Erasmus+ experience, part of logistics teams implementing youth mobilities in Romania and abroad. Graduate in Political Science and Education Studies. Participated in 14+ youth exchanges, trainings, and study visits.",
+                    "ecu_contribution": "Brings expertise in participatory design to guide the 'From Global to Local' workshop (Day 6 - Hands), supporting participants in creating concrete actions for their communities."
+                },
+                {
+                    "name": "Andreea Florescu",
+                    "role": "Vice President & Project Manager",
+                    "bio": "7 years of volunteer experience at the library transformed into an educational hub. Led projects on language workshops, children, environment, culture, and traditions. Believes in time management, creativity, and freedom of expression.",
+                    "ecu_contribution": "Facilitates the World Café 'Food and Culture' (Day 3 - Stomach), using socio-cultural animation experience to stimulate intercultural dialogue."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        },
+        {
+            "id": 8,
+            "country_code": "TR",
+            "country_name": "Turkey",
+            "organization": "BEKGED",
+            "pid": "E10330778",
+            "city": "Istanbul",
+            "role": "Partner",
+            "color": "orange",
+            "icon": "Anchor",
+            "mission": "Supporting and empowering youth through non-formal education, promoting inclusion, intercultural learning, and climate awareness.",
+            "description": "Bosphorus Education Culture and Development Association (BEKGED) is a vibrant newcomer in youth work based in Istanbul. We use non-formal education methods to develop civil society and provide opportunities to youth with limited social access. We've participated in 8 international Erasmus+ projects between 2024-2025.",
+            "focus_areas": [
+                "Youth with Limited Access",
+                "Non-Formal Education",
+                "Social Inclusion",
+                "Intercultural Learning",
+                "Climate Change Awareness"
+            ],
+            "key_people": [
+                {
+                    "name": "Muhammed Berkan Demiral",
+                    "role": "President",
+                    "bio": "28 years old with 6+ years in Erasmus+ projects. Experienced youth worker, educator, and project manager focused on social inclusion, youth empowerment, digital transformation, and intercultural learning. Leadership positions in youth-oriented CSOs since 2021. Degree in Public Relations and Advertising from Marmara University.",
+                    "ecu_contribution": "Shares digital transformation expertise facilitating the 'Algorithms and Bubbles' workshop and 'Digital Cleanup Session' (Day 5 - Head), helping participants understand and manage their digital footprint."
+                },
+                {
+                    "name": "Damla Keleş",
+                    "role": "Vice President",
+                    "bio": "24 years old, graduate of Law Faculty at Akdeniz University, pursuing Master's in Private Law. Participated in ESC 'Seeds of Solidarity' in Romania (6 months), 'Youth Summer Fest' volunteer team (1 month), and Erasmus+ internship in Germany. Ensures activities comply with Erasmus+ rules and national legislation.",
+                    "ecu_contribution": "Supports legal compliance and administrative coordination."
+                }
+            ],
+            "participants": 4,
+            "group_leader": "To be confirmed"
+        }
+    ],
+    "project_team": {
+        "facilitator": "Emanuel Caristi (IT - Be The Change)",
+        "total_participants": 32,
+        "total_group_leaders": 8,
+        "total_staff": 40,
+        "representation": "8 countries, 50% participants with fewer opportunities"
+    }
+}

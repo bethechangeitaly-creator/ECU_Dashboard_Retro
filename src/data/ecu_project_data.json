@@ -1,0 +1,850 @@
+{
+    "project": {
+        "title": "Esplorando il Corpo Umano",
+        "acronym": "ECU",
+        "type": "Erasmus+ KA152 Youth Exchange",
+        "dates": {
+            "apv": "22-25 July 2026",
+            "arrival": "14 September 2026",
+            "exchange_start": "15 September 2026",
+            "exchange_end": "21 September 2026",
+            "departure": "22 September 2026"
+        },
+        "location": {
+            "venue": "Tindari Village",
+            "city": "Furnari",
+            "province": "Messina",
+            "region": "Sicily",
+            "country": "Italy"
+        },
+        "description": "A transformative 7-day Youth Exchange using the human body as a metaphor to address mental health, misinformation, mobility, and sustainability through non-formal education.",
+        "stats": {
+            "total_participants": 40,
+            "youth": 32,
+            "group_leaders": 8,
+            "facilitator": 1,
+            "partner_countries": 8,
+            "days_duration": 7,
+            "activity_days": 7,
+            "inclusion_rate": "50%",
+            "fewer_opportunities_youth": 16
+        },
+        "genesis": "Born from the Youth Exchange 'Green, Sustainable and Healthy Living' in Denmark (December 2024), ECU emerged from the shared vision of creating a holistic approach to youth empowerment through the body metaphor.",
+        "body_metaphor_rationale": "The human body serves as a universal, accessible metaphor that connects abstract societal challenges to concrete personal experience. Each body part represents both a physiological function and a societal dimension, making complex topics tangible and relatable."
+    },
+    "days": [
+        {
+            "day": 1,
+            "date": "15/09/2026",
+            "body_part": "The Skin",
+            "theme": "Identity & Boundaries",
+            "icon": "Hand",
+            "color": "rose",
+            "lead_partner": {
+                "country": "GR",
+                "organization": "DefiniTely Maybe"
+            },
+            "metaphor_explanation": "The skin is the boundary between 'Me' and 'You', between inner self and external world. It's the first point of contact, where identity meets diversity, where stereotypes are formed and can be deconstructed.",
+            "key_objectives": [
+                "Develop intercultural awareness in 80% of participants",
+                "Deconstruct at least one specific stereotype per person",
+                "Create a safe and inclusive group space",
+                "Establish community guidelines through participatory process"
+            ],
+            "eu_youth_goal": {
+                "number": 3,
+                "title": "Inclusive Societies",
+                "connection": "Addressing diversity, deconstructing stereotypes, and creating inclusive spaces"
+            },
+            "youthpass_competencies": [
+                "Cultural awareness and expression",
+                "Personal and social competences"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-10:30",
+                    "period": "AM",
+                    "title": "Opening Ceremony",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Symbolic ritual",
+                        "Circle work"
+                    ],
+                    "learning_type": "Non-formal + Informal",
+                    "description": "The opening ceremony officially introduces the ECU youth exchange and the human body metaphor that will guide the entire educational journey. The session takes place in plenary in a circle to foster equality, visibility, and active participation. Through a shared symbolic ritual, participants immediately build a sense of belonging to the European group and an emotional connection with the project."
+                },
+                {
+                    "time": "10:45-12:30",
+                    "period": "AM",
+                    "title": "Ice-Breaking: Names & Stories",
+                    "facilitator": "Team IT",
+                    "methods": [
+                        "Cooperative games",
+                        "Energizers",
+                        "Storytelling",
+                        "Human map of Europe"
+                    ],
+                    "learning_type": "Experiential + Peer learning",
+                    "description": "This session uses cooperative games, movement activities and personal storytelling to facilitate mutual acquaintance and break down initial barriers. Through physical energizers, name games and the creation of a human map of Europe, participants learn through direct experience, the body and storytelling."
+                },
+                {
+                    "time": "13:30-15:00",
+                    "period": "PM",
+                    "title": "Workshop: La Pelle come Confine e Contatto",
+                    "facilitator": "Team GR",
+                    "methods": [
+                        "Reflection circles",
+                        "Small group work",
+                        "Active listening",
+                        "Community agreement building"
+                    ],
+                    "learning_type": "Non-formal + Participatory",
+                    "description": "This session uses the metaphor of skin as a boundary and contact point to guide the group in building the Youth Exchange coexistence agreement. Through individual reflection and work in mixed small groups, participants explore their personal boundaries, fears, and expectations related to the intercultural context."
+                },
+                {
+                    "time": "15:15-17:00",
+                    "period": "PM",
+                    "title": "Body Mapping Individuale",
+                    "facilitator": "Team GR",
+                    "methods": [
+                        "Body Mapping",
+                        "Art-based learning",
+                        "Visual storytelling"
+                    ],
+                    "learning_type": "Experiential + Art-based",
+                    "description": "Through an art-based learning methodology, participants create a personal body map to explore identity, emotions, competences, roots, and aspirations. The body silhouette becomes a visual and symbolic tool to reflect on oneself, going beyond verbal language."
+                },
+                {
+                    "time": "17:15-18:00",
+                    "period": "PM",
+                    "title": "Reflection Families Formation",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Peer groups",
+                        "Guided reflection"
+                    ],
+                    "learning_type": "Peer learning",
+                    "description": "The structure of Reflection Families is introduced - small stable groups that will accompany participants throughout the week. Through dialogic explanation and participatory group formation, participants understand the value of daily reflection as an integral part of the learning process."
+                },
+                {
+                    "time": "20:00-22:00",
+                    "period": "PM",
+                    "title": "Intercultural Evening",
+                    "facilitator": "IT, DE, MK, GR",
+                    "methods": [
+                        "Cultural exchange",
+                        "Food",
+                        "Music",
+                        "Dance",
+                        "Storytelling"
+                    ],
+                    "learning_type": "Informal",
+                    "description": "The intercultural evening represents a key moment of informal learning. Through food, music, dance, games, and storytelling, participants share elements of their cultures in a spontaneous and participatory way."
+                }
+            ]
+        },
+        {
+            "day": 2,
+            "date": "16/09/2026",
+            "body_part": "The Feet",
+            "theme": "Mobility & Roots",
+            "icon": "Footprints",
+            "color": "amber",
+            "lead_partner": {
+                "country": "PT",
+                "organization": "Autonomia e Descoberta"
+            },
+            "metaphor_explanation": "Feet carry us forward, connecting us to our roots while enabling movement. They symbolize migration, mobility as a European value, and the paths that shape our identities.",
+            "key_objectives": [
+                "Understand mobility as both a right and an educational tool",
+                "Map personal and family migration stories",
+                "Explore European identity through movement",
+                "75% of participants feel 'more European' after activities"
+            ],
+            "eu_youth_goal": {
+                "number": 6,
+                "title": "Moving Rural Youth Forward",
+                "connection": "Addressing geographical barriers through mobility experiences"
+            },
+            "youthpass_competencies": [
+                "Cultural awareness",
+                "Citizenship"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-10:00",
+                    "period": "AM",
+                    "title": "Energizer: Moving Bodies",
+                    "facilitator": "Team PT",
+                    "methods": [
+                        "Physical energizers",
+                        "The Wind Blows",
+                        "Cross the Line"
+                    ],
+                    "learning_type": "Kinesthetic + Experiential",
+                    "description": "The day opens with a physical energizer based on movement. Through games like The Wind Blows and Cross the Line, participants move, change positions, and visually observe who shares similar experiences."
+                },
+                {
+                    "time": "10:15-12:00",
+                    "period": "AM",
+                    "title": "Workshop: Da dove veniamo, dove andiamo",
+                    "facilitator": "Team PT",
+                    "methods": [
+                        "Visual mapping",
+                        "Storytelling",
+                        "Collaborative installation"
+                    ],
+                    "learning_type": "Non-formal + Collaborative",
+                    "description": "The workshop uses visual mapping, storytelling, and learning by doing to explore personal and family mobility stories. Participants collectively build a large map of Europe on the ground, tracing with colored threads the paths of grandparents, parents, themselves, and future desires for movement."
+                },
+                {
+                    "time": "12:15-13:30",
+                    "period": "AM",
+                    "title": "Simulation Game: European Paths",
+                    "facilitator": "Team MK",
+                    "methods": [
+                        "Role play",
+                        "Simulation",
+                        "De-roling",
+                        "Structured debriefing"
+                    ],
+                    "learning_type": "Experiential + Simulation-based",
+                    "description": "This session uses simulation-based learning and role play to let participants experience mobility and migration in Europe. Through fictitious characters and thematic stations (border, work, home, bureaucracy, community), participants make decisions, face obstacles and experience privileges or discrimination."
+                },
+                {
+                    "time": "14:30-17:30",
+                    "period": "PM",
+                    "title": "Visita Outdoor: Messina Crocevia del Mediterraneo",
+                    "facilitator": "Team IT",
+                    "methods": [
+                        "Urban trekking",
+                        "Place-based learning",
+                        "Photo storytelling"
+                    ],
+                    "learning_type": "Outdoor + Experiential",
+                    "description": "The activity uses place-based learning and outdoor learning to connect the theme of mobility to history and the host territory. Through a narrative urban trek, participants explore symbolic places in Messina linked to journeys, cultural encounters, and historical migrations."
+                },
+                {
+                    "time": "17:45-18:30",
+                    "period": "PM",
+                    "title": "Reflection Families",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Guided reflection",
+                        "Peer sharing",
+                        "Creative expression"
+                    ],
+                    "learning_type": "Reflective + Peer learning",
+                    "description": "In the small stable reflection groups (Reflection Families), participants process the intense experiences of the day, particularly the simulation and the outdoor visit."
+                },
+                {
+                    "time": "20:00-22:00",
+                    "period": "PM",
+                    "title": "Intercultural Evening",
+                    "facilitator": "FR, PT, RO, TR",
+                    "methods": [
+                        "Cultural performances",
+                        "Traditional games",
+                        "Food sharing"
+                    ],
+                    "learning_type": "Informal",
+                    "description": "The intercultural evening represents a powerful moment of informal learning, where participants discover diverse cultures through music, dance, games, food, and storytelling."
+                }
+            ]
+        },
+        {
+            "day": 3,
+            "date": "17/09/2026",
+            "body_part": "The Stomach",
+            "theme": "Sustainability & Consumption",
+            "icon": "Leaf",
+            "color": "emerald",
+            "lead_partner": {
+                "country": "DE",
+                "organization": "Future Makers Alliance"
+            },
+            "metaphor_explanation": "The stomach digests what we consume, transforming it into energy. It represents our relationship with food, resources, and the environment - what we take in and how we process it.",
+            "key_objectives": [
+                "Promote sustainable food habits",
+                "70% commit to changing at least one food-related behavior",
+                "Calculate carbon footprint of food choices",
+                "100% participation in Green Commitment ceremony"
+            ],
+            "eu_youth_goal": {
+                "number": 10,
+                "title": "Sustainable Green Europe",
+                "connection": "Promoting environmental sustainability through food and consumption awareness"
+            },
+            "youthpass_competencies": [
+                "Science and technology",
+                "Citizenship"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-09:30",
+                    "period": "AM",
+                    "title": "Energizer: Food Chain Game",
+                    "facilitator": "Team FR",
+                    "methods": [
+                        "Physical game",
+                        "System visualization",
+                        "Cooperative dynamics"
+                    ],
+                    "learning_type": "Kinesthetic + Experiential",
+                    "description": "The day opens with a thematic energizer using movement, games, and visualization to introduce the topic of sustainable food. Through creating a physical food chain network, participants experience the interdependence between natural resources, production, consumption, and waste in a playful and embodied way."
+                },
+                {
+                    "time": "09:45-11:30",
+                    "period": "AM",
+                    "title": "Workshop: Carbon Footprint del Cibo",
+                    "facilitator": "Team FR",
+                    "methods": [
+                        "Data analysis",
+                        "Problem-based learning",
+                        "Group calculations"
+                    ],
+                    "learning_type": "Non-formal + Analytical",
+                    "description": "The workshop uses problem-based learning, simplified data analysis, and learning by doing to make the environmental impact of daily food choices understandable. Participants work in national groups analyzing a typical shopping cart, calculating its CO2 footprint, and identifying high and low impact foods."
+                },
+                {
+                    "time": "11:45-13:00",
+                    "period": "AM",
+                    "title": "World Café: Cibo e Cultura",
+                    "facilitator": "Team RO",
+                    "methods": [
+                        "World Café",
+                        "Structured dialogue",
+                        "Visual synthesis"
+                    ],
+                    "learning_type": "Participatory + Dialogic",
+                    "description": "Through the World Café methodology, participants explore food as an element of identity, culture, and society. Thematic tables allow for structured reflection on memory, tradition, sustainability, and the future of food."
+                },
+                {
+                    "time": "14:00-17:30",
+                    "period": "PM",
+                    "title": "Visita Mercato Locale + Cooking Workshop Km0",
+                    "facilitator": "Team IT + Local Chef",
+                    "methods": [
+                        "Field visit",
+                        "Hands-on cooking",
+                        "Cooperative learning"
+                    ],
+                    "learning_type": "Experiential + Practical",
+                    "description": "This session uses learning by doing, outdoor learning and cooperative learning to connect theory and practice. Participants visit a local market and a supermarket in Furnari guided by a chef, interacting directly with producers to understand seasonality, short supply chain and Km0 value. Subsequently they work in mixed teams to prepare traditional dishes using local ingredients."
+                },
+                {
+                    "time": "18:00-20:00",
+                    "period": "PM",
+                    "title": "Cena Collettiva KM0 + Green Commitment Ceremony",
+                    "facilitator": "All Teams",
+                    "methods": [
+                        "Public commitment",
+                        "Ritual",
+                        "Storytelling"
+                    ],
+                    "learning_type": "Transformative + Ceremonial",
+                    "description": "The collective KM0 dinner represents a powerful moment of informal learning and storytelling. Participants present the dishes prepared, describing ingredients, origins, and processes. This is followed by the Green Commitment ceremony where each participant formulates a personal pledge related to sustainable food or environmental choices."
+                }
+            ]
+        },
+        {
+            "day": 4,
+            "date": "18/09/2026",
+            "body_part": "The Heart",
+            "theme": "Emotions & Mental Health",
+            "icon": "Heart",
+            "color": "rose",
+            "lead_partner": {
+                "country": "TR",
+                "organization": "BEKGED"
+            },
+            "metaphor_explanation": "The heart is the emotional center, pumping life force through the body. It represents vulnerability, empathy, emotional intelligence, and the courage to address mental health openly.",
+            "key_objectives": [
+                "85% learn at least 2 self-regulation techniques",
+                "Develop emotional vocabulary and awareness",
+                "Create safe spaces for emotional expression",
+                "Address mental health stigma"
+            ],
+            "eu_youth_goal": {
+                "number": 5,
+                "title": "Mental Health and Wellbeing",
+                "connection": "Providing tools for emotional regulation and mental health awareness"
+            },
+            "youthpass_competencies": [
+                "Personal and social competences",
+                "Learning to learn"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-09:45",
+                    "period": "AM",
+                    "title": "Check-in Emotivo: Meteo Interiore",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Body scan",
+                        "Circle of voices",
+                        "Metaphorical expression"
+                    ],
+                    "learning_type": "Body-based + Reflective",
+                    "description": "The day opens with a structured emotional check-in using body awareness practices and symbolic sharing to create an atmosphere of safety and trust. Through a brief guided body scan and the use of weather metaphors to describe their emotional state, participants learn to recognize and name emotions without judgment."
+                },
+                {
+                    "time": "10:00-12:00",
+                    "period": "AM",
+                    "title": "Workshop: Emotional Mapping",
+                    "facilitator": "Team DE",
+                    "methods": [
+                        "Emotion wheel",
+                        "Visual mapping",
+                        "Pair work",
+                        "Body sensations mapping"
+                    ],
+                    "learning_type": "Experiential + Visual",
+                    "description": "The workshop uses experiential learning, visual learning, and self-reflection to explore the relationship between emotions and the body. Through the use of the Emotion Wheel and graphic mapping of bodily sensations, participants develop emotional awareness and expand their emotional vocabulary."
+                },
+                {
+                    "time": "12:15-13:30",
+                    "period": "AM",
+                    "title": "Theatre of the Oppressed",
+                    "facilitator": "Team GR",
+                    "methods": [
+                        "Forum Theatre",
+                        "Role play",
+                        "Collective problem-solving"
+                    ],
+                    "learning_type": "Transformative + Art-based",
+                    "description": "This session uses the Theatre of the Oppressed method as a tool for non-formal education and social transformation. Through Forum Theatre, participants explore real situations of exclusion, discrimination and conflict. Learning is highly experiential and based on role play."
+                },
+                {
+                    "time": "14:30-15:30",
+                    "period": "PM",
+                    "title": "Mid-Term Evaluation: Pizza Evaluation",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Visual evaluation",
+                        "Participatory feedback",
+                        "Pizza metaphor"
+                    ],
+                    "learning_type": "Participatory + Reflective",
+                    "description": "The mid-term evaluation uses a participatory and visual methodology to collect qualitative and quantitative feedback. Through the pizza metaphor, participants reflect on the program, group dynamics, personal well-being, and learning."
+                },
+                {
+                    "time": "16:00-17:30",
+                    "period": "PM",
+                    "title": "Safe Space Circle",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Circle work",
+                        "Active listening",
+                        "Voluntary sharing"
+                    ],
+                    "learning_type": "Informal + Emotionally-focused",
+                    "description": "The Safe Space Circle is a protected space for emotional sharing that uses circle work practices, active listening, and voluntariness. Participants can share personal experiences, emotions, or deep reflections, without pressure to intervene."
+                },
+                {
+                    "time": "17:45-18:30",
+                    "period": "PM",
+                    "title": "Reflection Families",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Peer support",
+                        "Guided reflection",
+                        "Emotional processing"
+                    ],
+                    "learning_type": "Reflective + Supportive",
+                    "description": "In the stable Reflection Families groups, participants deeply process the day's emotionally intense experiences. Through guided questions, sharing, and peer support, they develop self-reflection and emotional regulation skills."
+                },
+                {
+                    "time": "21:00-22:00",
+                    "period": "PM",
+                    "title": "Mindfulness: Chiaro di Luna",
+                    "facilitator": "Facilitator + Team DE",
+                    "methods": [
+                        "Guided meditation",
+                        "Body scan",
+                        "Outdoor contemplation"
+                    ],
+                    "learning_type": "Experiential + Contemplative",
+                    "description": "The day concludes with an outdoor mindfulness session using body-based learning, outdoor education, and contemplative practices. Through guided breathing, body scan, and meditation, participants experience concrete self-regulation and relaxation techniques by moonlight."
+                }
+            ]
+        },
+        {
+            "day": 5,
+            "date": "19/09/2026",
+            "body_part": "The Head",
+            "theme": "Media Literacy & Critical Thinking",
+            "icon": "Brain",
+            "color": "violet",
+            "lead_partner": {
+                "country": "MK",
+                "organization": "Level Up"
+            },
+            "metaphor_explanation": "The head processes information, distinguishes truth from noise, and makes sense of the world. It represents critical thinking, media literacy, and the ability to navigate the digital information landscape.",
+            "key_objectives": [
+                "80% identify at least 3 disinformation signals",
+                "Develop fact-checking skills",
+                "Understand algorithmic bias and filter bubbles",
+                "Practice digital hygiene"
+            ],
+            "eu_youth_goal": {
+                "number": 4,
+                "title": "Information and Constructive Dialogue",
+                "connection": "Promoting media literacy and critical thinking in the digital age"
+            },
+            "youthpass_competencies": [
+                "Digital competence",
+                "Critical thinking"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-09:30",
+                    "period": "AM",
+                    "title": "Energizer: True or False?",
+                    "facilitator": "Team MK",
+                    "methods": [
+                        "Movement game",
+                        "Quick decision-making",
+                        "Peer discussion"
+                    ],
+                    "learning_type": "Kinesthetic + Interactive",
+                    "description": "The day opens with an interactive energizer based on movement in space and a participatory quiz. Participants are invited to physically take a position regarding true or false statements related to fake news, cognitive biases, and online information."
+                },
+                {
+                    "time": "09:45-11:30",
+                    "period": "AM",
+                    "title": "Workshop: Fact-Checking Lab",
+                    "facilitator": "Team MK",
+                    "methods": [
+                        "Inquiry-based learning",
+                        "Hands-on verification",
+                        "Real case analysis"
+                    ],
+                    "learning_type": "Practical + Analytical",
+                    "description": "This practical lab uses inquiry-based learning, problem solving, and learning by doing to develop concrete information verification skills. Participants learn red flags of fake news and experiment with real fact-checking tools by applying them to authentic cases."
+                },
+                {
+                    "time": "11:45-13:00",
+                    "period": "AM",
+                    "title": "Simulation Game: News Factory",
+                    "facilitator": "Team MK",
+                    "methods": [
+                        "Role play",
+                        "Competitive simulation",
+                        "Ethical debriefing"
+                    ],
+                    "learning_type": "Simulation-based + Critical",
+                    "description": "Through a competitive role-playing game, participants experience the process of creating fake news to understand its internal mechanisms. Using simulation-based learning and role play, groups create manipulated news and subsequently try to unmask those of others."
+                },
+                {
+                    "time": "14:00-15:30",
+                    "period": "PM",
+                    "title": "Workshop: Algoritmi e Bolle",
+                    "facilitator": "Team TR",
+                    "methods": [
+                        "Feed analysis",
+                        "Discovery learning",
+                        "Comparative discussion"
+                    ],
+                    "learning_type": "Experiential + Digital",
+                    "description": "The workshop uses learning by discovery and experiential learning to make visible the functioning of social media algorithms and the concept of echo chambers. Participants analyze their digital feeds, compare results, and reflect on the consequences of content personalization."
+                },
+                {
+                    "time": "15:45-17:00",
+                    "period": "PM",
+                    "title": "Digital Cleanup Session",
+                    "facilitator": "Team TR",
+                    "methods": [
+                        "Hands-on cleanup",
+                        "Gamification",
+                        "Sustainability awareness"
+                    ],
+                    "learning_type": "Practical + Action-oriented",
+                    "description": "This practical session uses learning by doing and gamification to promote sustainable digital habits. Participants concretely clean up their devices (email, cloud, apps, notifications), connecting digital wellbeing to the environmental impact of digital technology."
+                },
+                {
+                    "time": "17:15-18:00",
+                    "period": "PM",
+                    "title": "Reflection Families",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Critical reflection",
+                        "Peer discussion",
+                        "Personal action planning"
+                    ],
+                    "learning_type": "Reflective + Metacognitive",
+                    "description": "In the stable Reflection Families groups, participants deeply reflect on themes of critical thinking, information, and digital citizenship. Through guided questions and peer learning, they connect the day's activities to Youthpass competences."
+                },
+                {
+                    "time": "20:00-22:00",
+                    "period": "PM",
+                    "title": "Digital Detox & Analog Board Games Night",
+                    "facilitator": "All Teams",
+                    "methods": [
+                        "Screen-free socializing",
+                        "Traditional games",
+                        "Face-to-face interaction"
+                    ],
+                    "learning_type": "Informal + Experiential",
+                    "description": "The tech-free evening represents an experience of informal learning and well-being. Through analog games, music, storytelling, and direct interaction, participants experience modes of relationship not mediated by screens."
+                }
+            ]
+        },
+        {
+            "day": 6,
+            "date": "20/09/2026",
+            "body_part": "The Hands",
+            "theme": "Civic Action & Creativity",
+            "icon": "HandsHelping",
+            "color": "blue",
+            "lead_partner": {
+                "country": "FR",
+                "organization": "Autarcie Productions"
+            },
+            "metaphor_explanation": "Hands are tools of creation and transformation. They represent agency, doing, making, and shaping reality through civic action and creative expression.",
+            "key_objectives": [
+                "100% create local action plans",
+                "Develop project management skills",
+                "Experience service learning",
+                "Prepare for 8 multiplier events"
+            ],
+            "eu_youth_goal": {
+                "number": 9,
+                "title": "Space and Participation for All",
+                "connection": "Empowering youth for active citizenship and democratic participation"
+            },
+            "youthpass_competencies": [
+                "Initiative and entrepreneurship",
+                "Citizenship"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-09:30",
+                    "period": "AM",
+                    "title": "Energizer: Human Machine",
+                    "facilitator": "Team PT",
+                    "methods": [
+                        "Embodied creativity",
+                        "Cooperative performance",
+                        "Sound and movement"
+                    ],
+                    "learning_type": "Kinesthetic + Creative",
+                    "description": "The day starts with a creative and bodily energizer. Participants, divided into groups, build a 'human machine' made of movements, sounds, and interactions, connected to the themes addressed in previous days."
+                },
+                {
+                    "time": "09:45-11:30",
+                    "period": "AM",
+                    "title": "Workshop: From Global to Local",
+                    "facilitator": "Team RO",
+                    "methods": [
+                        "Problem Tree",
+                        "Solution Tree",
+                        "Cause-effect analysis"
+                    ],
+                    "learning_type": "Analytical + Strategic",
+                    "description": "This workshop uses project-based learning and problem analysis to help participants connect European priorities and global project themes with their local realities. Through visual tools like Problem Tree and Solution Tree, groups analyze causes and consequences of local issues."
+                },
+                {
+                    "time": "11:45-13:30",
+                    "period": "AM",
+                    "title": "National Action Planning",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "SMART goal setting",
+                        "Collaborative planning",
+                        "Resource mapping"
+                    ],
+                    "learning_type": "Project-based + Strategic",
+                    "description": "Participants work in national groups to transform ideas into concrete action plans to implement after the exchange. Using project-based learning, each group defines SMART objectives, target groups, activities, resources, and responsibilities."
+                },
+                {
+                    "time": "14:30-16:30",
+                    "period": "PM",
+                    "title": "Maker Lab",
+                    "facilitator": "Team FR + Team IT",
+                    "methods": [
+                        "Video production",
+                        "Graphic design",
+                        "Content creation",
+                        "Digital tools"
+                    ],
+                    "learning_type": "Creative + Hands-on",
+                    "description": "The Maker Lab is a practical space for learning by doing and creative learning where participants produce concrete outputs for project dissemination and follow-up. Through thematic stations (video, graphic design, writing, photography), they experiment with digital and analog tools."
+                },
+                {
+                    "time": "16:45-18:00",
+                    "period": "PM",
+                    "title": "Hands Together: Community Action",
+                    "facilitator": "Team IT",
+                    "methods": [
+                        "Service learning",
+                        "Community engagement",
+                        "Hands-on volunteering"
+                    ],
+                    "learning_type": "Experiential + Civic",
+                    "description": "This service learning activity allows participants to experience active citizenship through concrete action for the benefit of the local community. Working together, they apply values of solidarity, civic responsibility, and cooperation."
+                },
+                {
+                    "time": "18:30-19:30",
+                    "period": "PM",
+                    "title": "Presentation of Action Plans",
+                    "facilitator": "All Teams",
+                    "methods": [
+                        "Public presentation",
+                        "Peer feedback",
+                        "Commitment ceremony"
+                    ],
+                    "learning_type": "Performative + Social",
+                    "description": "In plenary, national groups present their Action Plans, making their commitment public. Using public commitment and peer learning, participants reinforce their motivation for future implementation."
+                },
+                {
+                    "time": "20:00-21:00",
+                    "period": "PM",
+                    "title": "Reflection Families + Green Challenge Finale",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Reflective dialogue",
+                        "Celebration",
+                        "Commitment reinforcement"
+                    ],
+                    "learning_type": "Reflective + Celebratory",
+                    "description": "The day closes with a reflection allowing processing of the action experience and connecting it to sustainability values. Through reflective learning and celebration, participants evaluate their contribution and confirm their commitments."
+                }
+            ]
+        },
+        {
+            "day": 7,
+            "date": "21/09/2026",
+            "body_part": "The Whole Body",
+            "theme": "Holistic Integration & Recognition",
+            "icon": "User",
+            "color": "indigo",
+            "lead_partner": {
+                "country": "IT",
+                "organization": "Be The Change"
+            },
+            "metaphor_explanation": "The whole body represents the integration of all parts - mind, heart, hands, and soul working together. It's about holistic wellbeing, balance, and recognizing the complete journey.",
+            "key_objectives": [
+                "100% complete Youthpass self-assessment",
+                "Reflect on the full learning journey",
+                "Celebrate achievements collectively",
+                "Close the experience with recognition and emotional closure"
+            ],
+            "eu_youth_goal": {
+                "number": null,
+                "title": "Comprehensive Learning Recognition",
+                "connection": "Integrating all EU Youth Goals addressed throughout the week"
+            },
+            "youthpass_competencies": [
+                "All 8 key competencies"
+            ],
+            "sessions": [
+                {
+                    "time": "09:00-09:45",
+                    "period": "AM",
+                    "title": "Good Morning Body: Risveglio Olistico",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Movement meditation",
+                        "Breathwork",
+                        "Body integration"
+                    ],
+                    "learning_type": "Holistic + Body-based",
+                    "description": "The final day begins with an activity guiding participants to reconnect with their whole body. Through gentle movements, conscious breathing, and micro-exercises linked to previous days' themes (feet, stomach, heart, head, hands), participants integrate body, mind, and emotions."
+                },
+                {
+                    "time": "10:00-12:30",
+                    "period": "AM",
+                    "title": "Youthpass Workshop",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Self-assessment",
+                        "Peer feedback",
+                        "Competency mapping"
+                    ],
+                    "learning_type": "Metacognitive + Reflective",
+                    "description": "Structured session dedicated to final reflection on learnings and recognition of competences developed. Through guided self-assessment, participants analyze activities performed and link them to the 8 key European competences."
+                },
+                {
+                    "time": "12:45-14:00",
+                    "period": "AM",
+                    "title": "Body Maps Gallery",
+                    "facilitator": "Team GR",
+                    "methods": [
+                        "Exhibition",
+                        "Visual reflection",
+                        "Collective narrative"
+                    ],
+                    "learning_type": "Visual + Reflective",
+                    "description": "The space is transformed into an exhibition gallery gathering all materials produced during the week. Using visual learning and reflective learning, participants explore the collective journey through Body Maps, posters, action plans, and creative content."
+                },
+                {
+                    "time": "15:00-16:30",
+                    "period": "PM",
+                    "title": "Final Evaluation: River of Learning",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Narrative evaluation",
+                        "Visual metaphor",
+                        "Collective storytelling"
+                    ],
+                    "learning_type": "Participatory + Narrative",
+                    "description": "The final evaluation uses the river metaphor to represent experience as a learning journey. Through participatory evaluation and narrative reflection, participants build a large collective 'river', identifying moments of challenge, discovery, and growth."
+                },
+                {
+                    "time": "16:45-17:30",
+                    "period": "PM",
+                    "title": "Echo Circle: Cerchio di Chiusura",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Circle practice",
+                        "Ritual closing",
+                        "Voluntary sharing"
+                    ],
+                    "learning_type": "Ceremonial + Emotional",
+                    "description": "Final emotional closing circle. Each participant is invited, voluntarily, to share a word, a thank you, and a commitment for the future."
+                },
+                {
+                    "time": "17:45-18:30",
+                    "period": "PM",
+                    "title": "Reflection Families Finale",
+                    "facilitator": "Group Leaders",
+                    "methods": [
+                        "Final reflections",
+                        "Peer bonding",
+                        "Future connections"
+                    ],
+                    "learning_type": "Peer-based + Relational",
+                    "description": "Last meeting of Reflection Families, dedicated to closing the small groups. Participants reflect on what they take home from the experience, personal learnings, and bonds built."
+                },
+                {
+                    "time": "19:00-20:00",
+                    "period": "PM",
+                    "title": "Closing Ceremony",
+                    "facilitator": "Be The Change",
+                    "methods": [
+                        "Ritual celebration",
+                        "Certificate distribution",
+                        "Recognition"
+                    ],
+                    "learning_type": "Ceremonial + Celebratory",
+                    "description": "Official project closing ceremony. Through symbolic moments, video recaps, thank yous, and certificate distribution, participants see their learning path recognized."
+                },
+                {
+                    "time": "20:30-24:00",
+                    "period": "PM",
+                    "title": "Farewell Party",
+                    "facilitator": "All Participants",
+                    "methods": [
+                        "Free celebration",
+                        "Music",
+                        "Dance",
+                        "Spontaneous rituals"
+                    ],
+                    "learning_type": "Informal + Relational",
+                    "description": "Final farewell party dedicated to celebrating the relationships built. Through music, dance, conversations, and spontaneous rituals, participants consolidate intercultural bonds."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,242 @@
+{
+    "project_objectives": {
+        "overall_mission": "Offering young people spaces and tools to regain balance, awareness, and the capacity to act in an increasingly fragmented context.",
+        "genesis": "Born from Youth Exchange 'Green, Sustainable and Healthy Living' in Denmark (2024), where Italian and Macedonian youth recognized the deep connections between mental health, misinformation, mobility, and sustainability.",
+        "approach": "Using the human body as a metaphor to explore interconnections and transform them into learning and action."
+    },
+    "smart_objectives": [
+        {
+            "id": 1,
+            "day": 1,
+            "body_part": "The Skin",
+            "title": "Identity & Intercultural Awareness",
+            "objective": "Increase identity and intercultural awareness, deconstructing stereotypes through body mapping and creating shared guidelines.",
+            "target": "At least 80% of participants develop a deeper understanding of differences.",
+            "metrics": {
+                "baseline": "Pre-exchange stereotypes self-assessment",
+                "measurement": "Post-workshop reflection questionnaires",
+                "success_criteria": "80% report increased intercultural understanding"
+            },
+            "methods": [
+                "Body Mapping",
+                "Intercultural Workshops",
+                "Shared Group Agreement"
+            ],
+            "color": "rose"
+        },
+        {
+            "id": 2,
+            "day": 2,
+            "body_part": "The Feet",
+            "title": "European Belonging & Mobility",
+            "objective": "Develop a sense of European belonging by exploring mobility and tracing personal and family migration stories.",
+            "target": "75% of participants feel 'more European' at the end of the experience.",
+            "metrics": {
+                "baseline": "Pre-exchange European identity survey",
+                "measurement": "Post-exchange belonging assessment",
+                "success_criteria": "75% report stronger European identity"
+            },
+            "methods": [
+                "Migration Mapping",
+                "Storytelling",
+                "European Paths Simulation Game"
+            ],
+            "color": "amber"
+        },
+        {
+            "id": 3,
+            "day": 3,
+            "body_part": "The Stomach",
+            "title": "Sustainable Food Practices",
+            "objective": "Promote concrete sustainable food practices, such as km0 cooking and carbon footprint calculation.",
+            "target": "70% of participants modify their habits and 100% formulate a personal commitment.",
+            "metrics": {
+                "baseline": "Pre-exchange food habit questionnaire",
+                "measurement": "Personal green commitments signed",
+                "success_criteria": "70% adopt new practices, 100% commit to change"
+            },
+            "methods": [
+                "Carbon Footprint Workshop",
+                "Km0 Cooking",
+                "Zero-Waste Challenge",
+                "World Café"
+            ],
+            "color": "emerald"
+        },
+        {
+            "id": 4,
+            "day": 4,
+            "body_part": "The Heart",
+            "title": "Emotional Intelligence & Resilience",
+            "objective": "Improve emotional intelligence skills by providing emotion management and resilience tools.",
+            "target": "85% of participants acquire at least 2 new self-regulation techniques.",
+            "metrics": {
+                "baseline": "Pre-exchange emotional wellbeing assessment",
+                "measurement": "Technique adoption self-report",
+                "success_criteria": "85% use 2+ new emotional regulation techniques"
+            },
+            "methods": [
+                "Emotional Mapping",
+                "Theater of the Oppressed",
+                "Mindfulness",
+                "Body Awareness"
+            ],
+            "color": "blue"
+        },
+        {
+            "id": 5,
+            "day": 5,
+            "body_part": "The Head",
+            "title": "Critical Thinking & Media Literacy",
+            "objective": "Strengthen critical thinking and media literacy through fact-checking labs.",
+            "target": "80% of participants can identify at least 3 signs of online disinformation.",
+            "metrics": {
+                "baseline": "Pre-exchange media literacy quiz",
+                "measurement": "Post-workshop fact-checking test",
+                "success_criteria": "80% identify 3+ disinformation signals"
+            },
+            "methods": [
+                "Fact-Checking Lab",
+                "News Factory Simulation",
+                "Algorithms & Bubbles Workshop",
+                "Digital Cleanup"
+            ],
+            "color": "violet"
+        },
+        {
+            "id": 6,
+            "day": 6,
+            "body_part": "The Hands",
+            "title": "Civic Action & Local Impact",
+            "objective": "Transform learning into civic action, supporting each national team in developing a local action plan.",
+            "target": "All 8 teams create action plans and realize at least one multiplier event within three months.",
+            "metrics": {
+                "baseline": "Workshop brainstorming sessions",
+                "measurement": "Documented action plans + multiplier events reports",
+                "success_criteria": "8/8 teams complete action plans, 8/8 organize events (min 160 total reach)"
+            },
+            "methods": [
+                "From Global to Local Workshop",
+                "Community Action",
+                "Maker Lab",
+                "Action Plan Design"
+            ],
+            "color": "pink"
+        },
+        {
+            "id": 7,
+            "day": 7,
+            "body_part": "The Whole Body",
+            "title": "Holistic Learning Recognition",
+            "objective": "Recognize acquired learning in a holistic vision, ensuring all participants receive Youthpass certification.",
+            "target": "100% of participants receive their Youthpass certificate.",
+            "metrics": {
+                "baseline": "Daily reflection families tracking",
+                "measurement": "Youthpass certificate issuance record",
+                "success_criteria": "100% certification rate (32/32 participants)"
+            },
+            "methods": [
+                "Youthpass Reflection",
+                "Final Evaluation",
+                "Closing Ceremony"
+            ],
+            "color": "cyan"
+        }
+    ],
+    "eu_youth_goals": [
+        {
+            "number": 3,
+            "title": "Inclusive Societies",
+            "connection": "Day 1 (The Skin) addresses identity, stereotypes, and diversity through body mapping and intercultural workshops. With 50% participants with fewer opportunities, inclusion is at the core.",
+            "color": "rose",
+            "icon": "Users"
+        },
+        {
+            "number": 4,
+            "title": "Information and Constructive Dialogue",
+            "connection": "Day 5 (The Head) develops media literacy with fact-checking labs and News Factory simulation. Responds to 76% of youth encountering disinformation and 34% considering it the main threat to democracy.",
+            "color": "violet",
+            "icon": "MessageSquare"
+        },
+        {
+            "number": 5,
+            "title": "Mental Health and Wellbeing",
+            "connection": "Day 4 (The Heart) offers emotional awareness tools, Theatre of the Oppressed, and mindfulness. Nearly 50% of European youth report emotional difficulties.",
+            "color": "blue",
+            "icon": "Heart"
+        },
+        {
+            "number": 6,
+            "title": "Moving Rural Youth Forward",
+            "connection": "Participation of youth from rural areas (Romania, Portugal, North Macedonia) reduces geographic isolation through mobility. NEET rate in rural areas: 12.3% vs 11.0% EU average.",
+            "color": "amber",
+            "icon": "Footprints"
+        },
+        {
+            "number": 9,
+            "title": "Space and Participation for All",
+            "connection": "Day 6 (The Hands) creates real spaces for active citizenship and participatory decision-making, connecting international experience to concrete territorial actions through 8 Local Multiplier Events.",
+            "color": "pink",
+            "icon": "Hammer"
+        },
+        {
+            "number": 10,
+            "title": "Sustainable Green Europe",
+            "connection": "Day 3 (The Stomach) combines sustainability and food with carbon footprint calculation, km0 cooking, and zero-waste practices. 85% of EU citizens demand climate priority, 33% of youth list environment as a priority.",
+            "color": "emerald",
+            "icon": "Leaf"
+        }
+    ],
+    "erasmus_priorities": [
+        {
+            "name": "Inclusion and Diversity",
+            "description": "50% of participants face economic, geographical, or social barriers. Inclusive methodologies (body expression, art, movement) don't require high language skills. Venue is accessible with budget support for specific needs.",
+            "impact_percentage": 50,
+            "color": "indigo"
+        },
+        {
+            "name": "Environmental Sustainability",
+            "description": "Beyond Day 3, sustainable practices permeate the entire exchange: green travel, km0 meals, paperless workflow, daily zero-waste challenge.",
+            "impact_percentage": 100,
+            "color": "emerald"
+        },
+        {
+            "name": "Digital Transformation",
+            "description": "Day 5 addresses media literacy and digital citizenship. Participants use digital tools for preparation, documentation, and dissemination, developing a critical relationship with technology.",
+            "impact_percentage": 80,
+            "color": "blue"
+        },
+        {
+            "name": "Participation in Democratic Life",
+            "description": "Youth-led approach, participatory decision-making processes, and design of local actions translate democratic values into concrete practices through Local Multiplier Events.",
+            "impact_percentage": 100,
+            "color": "purple"
+        }
+    ],
+    "impact_indicators": {
+        "direct_participants": {
+            "total": 40,
+            "youth_18_25": 32,
+            "with_fewer_opportunities": 16,
+            "group_leaders": 8,
+            "facilitator": 1,
+            "countries": 8
+        },
+        "expected_outcomes": {
+            "intercultural_understanding": "80%",
+            "european_identity": "75%",
+            "sustainable_habits": "70%",
+            "emotional_regulation_skills": "85%",
+            "media_literacy": "80%",
+            "local_action_plans": "8/8",
+            "youthpass_certification": "100%"
+        },
+        "multiplier_effect": {
+            "local_events": 8,
+            "minimum_reach": 160,
+            "expected_reach": "200+",
+            "digital_content": "Videos, toolkits, social media campaigns",
+            "timeline": "Within 3 months post-exchange"
+        }
+    }
+}
