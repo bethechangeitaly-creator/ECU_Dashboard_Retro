@@ -268,6 +268,7 @@ const RetroBadge = ({ icon, text }) => (
 
 // Partnership Network Component (FIXED)
 const PartnershipNetwork = () => {
+    const navigate = useNavigate();
     const partners = [
         { country: 'IT', flag: '🇮🇹', org: 'Be The Change', role: 'Coordinator' },
         { country: 'DE', flag: '🇩🇪', org: 'Future Makers Alliance', role: 'Partner' },
@@ -308,7 +309,7 @@ const PartnershipNetwork = () => {
 
             <div className="mt-4 pt-2 border-t-4 border-black border-dashed">
                 <button
-                    onClick={() => window.location.href = '/partners'}
+                    onClick={() => navigate('/partners')}
                     className="w-full px-4 py-2 bg-retro-green text-black border-2 border-black font-bold hover:bg-white transition flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
                 >
                     <Users size={18} />
@@ -349,6 +350,7 @@ const HighlightCard = ({ icon: Icon, title, description, color, onClick }) => {
 
 // Quick Module Card Component
 const QuickModuleCard = ({ title, description, icon: Icon, href, color }) => {
+    const navigate = useNavigate();
     const bgColors = {
         indigo: 'bg-retro-blue',
         amber: 'bg-retro-orange',
@@ -360,7 +362,7 @@ const QuickModuleCard = ({ title, description, icon: Icon, href, color }) => {
 
     return (
         <div
-            onClick={() => window.location.href = href}
+            onClick={() => navigate(href)}
             className={`cursor-pointer ${bgColor} border-4 border-white p-6 text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 transition-all`}
         >
             <Icon size={32} className="mb-3" />
