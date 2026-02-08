@@ -17,8 +17,8 @@ const Header = ({ onMenuClick }) => {
                 </button>
 
                 <div>
-                    <h2 className="text-xl lg:text-2xl font-bold text-gray-800">Dashboard</h2>
-                    <p className="text-xs lg:text-sm text-gray-500 hidden sm:block">Overview of the ECU Youth Exchange</p>
+                    <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-white">Dashboard</h2>
+                    <p className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 hidden sm:block">Overview of the ECU Youth Exchange</p>
                 </div>
             </div>
 
@@ -28,14 +28,14 @@ const Header = ({ onMenuClick }) => {
                     className="relative cursor-pointer group hidden md:block"
                     onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
                 >
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-gray-600 transition-colors" size={20} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-hover:text-gray-600 dark:text-gray-500 dark:group-hover:text-gray-300 transition-colors" size={20} />
                     <input
                         type="text"
                         placeholder="Search... (Cmd+K)"
                         readOnly
-                        className="pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none w-48 lg:w-64 shadow-sm text-gray-500 cursor-pointer hover:border-gray-300 transition-colors"
+                        className="pl-10 pr-4 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm focus:outline-none w-48 lg:w-64 shadow-sm text-gray-500 dark:text-gray-300 cursor-pointer hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                     />
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-100 px-2 py-0.5 rounded text-xs text-gray-500 font-mono group-hover:bg-gray-200 transition-colors">⌘K</div>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-xs text-gray-500 dark:text-gray-400 font-mono group-hover:bg-gray-200 dark:group-hover:bg-gray-600 transition-colors">⌘K</div>
                 </div>
 
                 {/* Mobile search button */}

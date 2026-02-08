@@ -55,7 +55,7 @@ const DashboardPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-3xl shadow-xl p-8 md:p-12 text-white relative overflow-hidden"
+                className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600 rounded-3xl shadow-xl p-8 md:p-12 text-white relative overflow-hidden"
             >
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
@@ -138,8 +138,8 @@ const DashboardPage = () => {
                     <div>
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900">The 7-Day Journey</h2>
-                                <p className="text-slate-600">Explore the body metaphor program</p>
+                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">The 7-Day Journey</h2>
+                                <p className="text-slate-600 dark:text-slate-400">Explore the body metaphor program</p>
                             </div>
                             <button
                                 onClick={() => navigate('/journey')}
@@ -178,8 +178,8 @@ const DashboardPage = () => {
             </div>
 
             {/* Project Highlights */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Project Highlights</h2>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-8">
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Project Highlights</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <HighlightCard
                         icon={Sparkles}
@@ -207,7 +207,7 @@ const DashboardPage = () => {
 
             {/* Quick Access Modules */}
             <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">Explore More</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Explore More</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <QuickModuleCard
                         title="Impact Lab"
@@ -241,7 +241,7 @@ const DashboardPage = () => {
             </div>
 
             {/* Location Card */}
-            <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl shadow-xl p-8 text-white">
+            <div className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 rounded-2xl shadow-xl p-8 text-white">
                 <div className="flex items-start gap-6">
                     <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl border border-white/30">
                         <MapPin size={40} />
@@ -284,14 +284,14 @@ const PartnershipNetwork = () => {
     ];
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 h-full flex flex-col">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-6 h-full flex flex-col">
             <div className="flex items-center justify-between mb-4">
                 <div>
-                    <h3 className="text-xl font-bold text-slate-900">Partnership Network</h3>
-                    <p className="text-sm text-slate-600">8 Countries Consortium</p>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">Partnership Network</h3>
+                    <p className="text-sm text-slate-600 dark:text-gray-400">8 Countries Consortium</p>
                 </div>
-                <div className="bg-emerald-100 px-3 py-1 rounded-full">
-                    <p className="text-emerald-700 font-bold text-sm">8</p>
+                <div className="bg-emerald-100 dark:bg-emerald-900/30 px-3 py-1 rounded-full">
+                    <p className="text-emerald-700 dark:text-emerald-400 font-bold text-sm">8</p>
                 </div>
             </div>
 
@@ -299,12 +299,12 @@ const PartnershipNetwork = () => {
                 {partners.map((partner, index) => (
                     <div
                         key={partner.country}
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition border border-slate-100"
+                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-700 transition border border-slate-100 dark:border-gray-700"
                     >
                         <div className="text-3xl">{partner.flag}</div>
                         <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-slate-900 truncate text-sm">{partner.org}</p>
-                            <p className="text-xs text-slate-500">{partner.country}{index === 0 && ' • Coordinator'}</p>
+                            <p className="font-semibold text-slate-900 dark:text-gray-100 truncate text-sm">{partner.org}</p>
+                            <p className="text-xs text-slate-500 dark:text-gray-400">{partner.country}{index === 0 && ' • Coordinator'}</p>
                         </div>
                     </div>
                 ))}
@@ -313,7 +313,7 @@ const PartnershipNetwork = () => {
             <div className="mt-4 pt-2">
                 <button
                     onClick={() => window.location.href = '/partners'}
-                    className="w-full px-4 py-2 bg-emerald-50 text-emerald-700 rounded-xl font-semibold hover:bg-emerald-100 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl font-semibold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition flex items-center justify-center gap-2"
                 >
                     <Users size={18} />
                     View All Partners
@@ -326,19 +326,19 @@ const PartnershipNetwork = () => {
 // Highlight Card Component
 const HighlightCard = ({ icon: Icon, title, description, color, onClick }) => {
     const cardStyles = {
-        amber: 'bg-amber-50 border-amber-200 hover:border-amber-300',
-        indigo: 'bg-indigo-50 border-indigo-200 hover:border-indigo-300',
-        emerald: 'bg-emerald-50 border-emerald-200 hover:border-emerald-300',
-        purple: 'bg-purple-50 border-purple-200 hover:border-purple-300',
-        pink: 'bg-pink-50 border-pink-200 hover:border-pink-300',
+        amber: 'bg-amber-50 dark:bg-amber-900/10 border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:hover:border-amber-700',
+        indigo: 'bg-indigo-50 dark:bg-indigo-900/10 border-indigo-200 dark:border-indigo-800 hover:border-indigo-300 dark:hover:border-indigo-700',
+        emerald: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800 hover:border-emerald-300 dark:hover:border-emerald-700',
+        purple: 'bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700',
+        pink: 'bg-pink-50 dark:bg-pink-900/10 border-pink-200 dark:border-pink-800 hover:border-pink-300 dark:hover:border-pink-700',
     };
 
     const iconColors = {
-        amber: 'text-amber-600',
-        indigo: 'text-indigo-600',
-        emerald: 'text-emerald-600',
-        purple: 'text-purple-600',
-        pink: 'text-pink-600',
+        amber: 'text-amber-600 dark:text-amber-400',
+        indigo: 'text-indigo-600 dark:text-indigo-400',
+        emerald: 'text-emerald-600 dark:text-emerald-400',
+        purple: 'text-purple-600 dark:text-purple-400',
+        pink: 'text-pink-600 dark:text-pink-400',
     };
 
     return (
@@ -346,11 +346,11 @@ const HighlightCard = ({ icon: Icon, title, description, color, onClick }) => {
             onClick={onClick}
             className={`p-6 rounded-2xl border ${cardStyles[color]} h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer`}
         >
-            <div className={`mb-4 p-3 bg-white/60 rounded-xl inline-block ${iconColors[color]}`}>
+            <div className={`mb-4 p-3 bg-white/60 dark:bg-gray-800/60 rounded-xl inline-block ${iconColors[color]}`}>
                 <Icon size={32} />
             </div>
-            <h4 className="font-bold text-slate-900 mb-2 text-lg">{title}</h4>
-            <p className="text-sm text-slate-700 leading-relaxed">{description}</p>
+            <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-lg">{title}</h4>
+            <p className="text-sm text-slate-700 dark:text-gray-300 leading-relaxed">{description}</p>
         </div>
     );
 };

@@ -121,19 +121,19 @@ const DayDetailView = ({ day }) => {
     const color = day.color || 'indigo';
 
     return (
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 overflow-hidden">
             {/* Header */}
-            <div className={`bg-${color}-50 border-b border-${color}-100 p-8`}>
+            <div className={`bg-${color}-50 dark:bg-${color}-900/30 border-b border-${color}-100 dark:border-${color}-900/50 p-8`}>
                 <div className="flex items-start justify-between">
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
-                            <span className={`px-3 py-1 bg-white text-${color}-600 text-sm font-bold rounded-lg shadow-sm uppercase tracking-wide`}>
+                            <span className={`px-3 py-1 bg-white dark:bg-gray-900 text-${color}-600 dark:text-${color}-400 text-sm font-bold rounded-lg shadow-sm uppercase tracking-wide`}>
                                 Day {day.day}
                             </span>
-                            <span className="text-slate-500 font-medium">{day.date}</span>
+                            <span className="text-slate-500 dark:text-gray-400 font-medium">{day.date}</span>
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900 mb-2">{day.theme}</h2>
-                        <p className={`text-${color}-700 font-semibold text-lg`}>{day.body_part}</p>
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{day.theme}</h2>
+                        <p className={`text-${color}-700 dark:text-${color}-300 font-semibold text-lg`}>{day.body_part}</p>
                     </div>
                     <div className={`bg-gradient-to-br from-${color}-500 to-${color}-600 p-4 rounded-2xl shadow-lg`}>
                         <Calendar size={40} className="text-white" />
@@ -142,15 +142,15 @@ const DayDetailView = ({ day }) => {
             </div>
 
             {/* Tabs */}
-            <div className="border-b border-slate-200">
+            <div className="border-b border-slate-200 dark:border-gray-700">
                 <div className="flex overflow-x-auto">
                     {['overview', 'activities', 'methods', 'impact'].map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`px-6 py-4 font-semibold text-sm uppercase tracking-wide transition-all border-b-2 ${activeTab === tab
-                                ? `border-${color}-500 text-${color}-600`
-                                : 'border-transparent text-slate-500 hover:text-slate-700'
+                                ? `border-${color}-500 text-${color}-600 dark:text-${color}-400`
+                                : 'border-transparent text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-200'
                                 }`}
                         >
                             {tab}
@@ -175,12 +175,12 @@ const OverviewTab = ({ day }) => (
     <div className="space-y-8">
         {/* Metaphor Explanation */}
         {day.metaphor_explanation && (
-            <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 border border-slate-200">
-                <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <div className="bg-gradient-to-br from-slate-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-slate-200 dark:border-gray-700">
+                <h3 className="text-sm font-bold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
                     <Globe size={18} className="text-indigo-500" />
                     The Metaphor
                 </h3>
-                <p className="text-slate-700 leading-relaxed text-lg italic">
+                <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg italic">
                     "{day.metaphor_explanation}"
                 </p>
             </div>
@@ -188,44 +188,44 @@ const OverviewTab = ({ day }) => (
 
         {/* Theme Description */}
         <div>
-            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Theme Description</h3>
-            <p className="text-slate-700 leading-relaxed text-lg">{day.description}</p>
+            <h3 className="text-sm font-bold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-3">Theme Description</h3>
+            <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg">{day.description}</p>
         </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Key Objectives */}
-            <div className="bg-white rounded-xl p-6 border-2 border-indigo-100">
-                <h3 className="text-sm font-bold text-indigo-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-2 border-indigo-100 dark:border-indigo-900/50">
+                <h3 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <Target size={18} />
                     Key Objectives
                 </h3>
                 <ul className="space-y-3">
                     {(day.key_objectives || []).map((obj, i) => (
                         <li key={i} className="flex items-start gap-3">
-                            <div className="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-xs font-bold text-indigo-600">{i + 1}</span>
+                            <div className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{i + 1}</span>
                             </div>
-                            <span className="text-slate-700 leading-relaxed">{obj}</span>
+                            <span className="text-slate-700 dark:text-gray-300 leading-relaxed">{obj}</span>
                         </li>
                     ))}
                 </ul>
             </div>
 
             {/* Lead Partner */}
-            <div className="bg-white rounded-xl p-6 border-2 border-emerald-100">
-                <h3 className="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-2 border-emerald-100 dark:border-emerald-900/50">
+                <h3 className="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <Users size={18} />
                     Lead Partner
                 </h3>
                 <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
                             <span className="text-2xl">{getCountryFlag(day.lead_partner?.country)}</span>
                         </div>
                         <div>
-                            <p className="font-bold text-slate-900 text-lg">{day.lead_partner?.organization}</p>
-                            <p className="text-sm text-slate-600">{day.lead_partner?.country} • Facilitating Day {day.day}</p>
+                            <p className="font-bold text-slate-900 dark:text-white text-lg">{day.lead_partner?.organization}</p>
+                            <p className="text-sm text-slate-600 dark:text-gray-400">{day.lead_partner?.country} • Facilitating Day {day.day}</p>
                         </div>
                     </div>
                 </div>
@@ -234,13 +234,13 @@ const OverviewTab = ({ day }) => (
 
         {/* Youthpass Competencies */}
         {day.youthpass_competencies && day.youthpass_competencies.length > 0 && (
-            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
-                <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wider mb-3">
+            <div className="bg-amber-50 dark:bg-amber-900/30 rounded-xl p-6 border border-amber-200 dark:border-amber-800">
+                <h3 className="text-sm font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-3">
                     Youthpass Competencies Developed
                 </h3>
                 <div className="flex flex-wrap gap-2">
                     {day.youthpass_competencies.map((comp, i) => (
-                        <span key={i} className="px-3 py-1.5 bg-white text-amber-700 text-sm font-semibold rounded-lg border border-amber-200">
+                        <span key={i} className="px-3 py-1.5 bg-white dark:bg-gray-800 text-amber-700 dark:text-amber-400 text-sm font-semibold rounded-lg border border-amber-200 dark:border-amber-900">
                             {comp}
                         </span>
                     ))}
