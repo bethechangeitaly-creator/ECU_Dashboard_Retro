@@ -13,7 +13,7 @@ const MainLayout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans flex text-slate-800">
+        <div className="min-h-screen bg-slate-50 dark:bg-gray-900 font-sans flex text-slate-800 dark:text-gray-100 transition-colors duration-200">
             <CommandPalette />
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             <div className="flex-1 lg:ml-64 flex flex-col h-screen overflow-hidden">
