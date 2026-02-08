@@ -4,6 +4,172 @@
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-white;
+    @apply bg-retro-light-gray text-black antialiased font-pixel-body;
+    background-image: radial-gradient(#aaa 1px, transparent 1px);
+    background-size: 4px 4px;
+    image-rendering: pixelated;
   }
+
+  /* Retro Scrollbar */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #aaaaaa;
+    /* retro-light-gray */
+    border-left: 2px solid #555555;
+    /* retro-gray */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #555555;
+    /* retro-gray */
+    border: 2px solid #ffffff;
+    /* retro-white */
+    box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+    /* retro-black */
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #aaaaaa;
+  }
+}
+
+@layer utilities {
+  .text-shadow-retro {
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 5px currentColor;
+  }
+
+  .box-shadow-hard {
+    box-shadow: 4px 4px 0px 0px #000000;
+  }
+
+  .retro-shadow {
+    text-shadow: 3px 3px 0px #000000;
+  }
+
+  /* CRT Effect Overlay - Pointer events none to not block interaction */
+  .crt-overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.05) 50%);
+    /* Reduced opacity from 0.1 to 0.05 */
+    background-size: 100% 4px;
+    /* Scanline size */
+    animation: scanline 10s linear infinite;
+    mix-blend-mode: multiply;
+    /* Better blending */
+  }
+
+  /* Optional: slight flicker */
+  .crt-flicker {
+    animation: flicker 0.15s infinite;
+  }
+
+  /* Retro Animations */
+  .animate-retro-blink {
+    animation: retro-blink 1s step-end infinite;
+  }
+
+  .animate-retro-shake {
+    animation: retro-shake 0.3s steps(4) infinite;
+  }
+
+  .animate-pixel-float {
+    animation: pixel-float 2s steps(4) infinite;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.995;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.995;
+  }
+}
+
+@keyframes retro-blink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes retro-shake {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-2px, 2px);
+  }
+
+  50% {
+    transform: translate(2px, -2px);
+  }
+
+  75% {
+    transform: translate(-2px, -2px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pixel-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Custom Selection Color */
+::selection {
+  background: #5555ff;
+  /* retro-blue */
+  color: white;
 }

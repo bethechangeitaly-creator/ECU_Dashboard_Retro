@@ -43,57 +43,46 @@ const DashboardPage = () => {
     }, []);
 
     const CountdownUnit = ({ value, label }) => (
-        <div className="bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/10 min-w-[70px]">
-            <span className="block text-xl font-bold font-mono">{String(value).padStart(2, '0')}</span>
-            <span className="text-[10px] text-slate-400 uppercase tracking-wider">{label}</span>
+        <div className="bg-retro-black p-2 border-2 border-retro-gray min-w-[70px] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
+            <span className="block text-xl font-bold font-pixel-header text-retro-green">{String(value).padStart(2, '0')}</span>
+            <span className="text-xs text-retro-light-gray uppercase tracking-widest font-pixel-body">{label}</span>
         </div>
     );
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 font-pixel-body">
             {/* Hero Section - Project Title */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 dark:from-indigo-600 dark:via-purple-600 dark:to-pink-600 rounded-3xl shadow-xl p-8 md:p-12 text-white relative overflow-hidden"
+                className="bg-retro-dark-blue border-4 border-retro-white p-8 md:p-12 text-white relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
                 {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
-                </div>
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)', backgroundSize: '10px 10px', backgroundPosition: '0 0, 5px 5px' }}></div>
 
                 <div className="relative z-10 flex items-start justify-between">
                     <div className="flex-1">
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
+                        <h1 className="text-3xl md:text-5xl font-bold tracking-widest mb-4 font-pixel-header retro-shadow text-white">
                             Esplorando il Corpo Umano
                         </h1>
-                        <p className="text-xl text-white/90 mb-6">
-                            Youth Exchange • Erasmus+ KA152 • September 2026
+                        <p className="text-xl text-retro-cyan mb-6 font-bold uppercase tracking-wide">
+                            &gt; Youth Exchange • Erasmus+ KA152 • September 2026
                         </p>
-                        <p className="text-white/80 max-w-2xl leading-relaxed mb-6">
+                        <p className="text-retro-light-gray max-w-2xl leading-relaxed mb-6 font-bold bg-black/50 p-4 border border-retro-gray text-white">
                             A transformative 7-day Youth Exchange using the human body as a metaphor
                             to address mental health, misinformation, mobility, and sustainability through
                             non-formal education.
                         </p>
-                        <div className="flex flex-wrap gap-3">
-                            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/30">
-                                🌍 8 Countries
-                            </span>
-                            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/30">
-                                👥 40 Participants
-                            </span>
-                            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/30">
-                                📅 7 Days in Sicily
-                            </span>
-                            <span className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/30">
-                                💜 50% Fewer Opportunities
-                            </span>
+                        <div className="flex flex-wrap gap-4">
+                            <RetroBadge icon="🌍" text="8 Countries" />
+                            <RetroBadge icon="👥" text="40 Participants" />
+                            <RetroBadge icon="📅" text="7 Days in Sicily" />
+                            <RetroBadge icon="💜" text="50% Fewer Opportunities" />
                         </div>
                     </div>
                     <div className="hidden md:block">
-                        <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 shadow-2xl">
-                            <Heart size={64} className="text-white" fill="white" />
+                        <div className="bg-retro-red p-6 border-4 border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-pulse">
+                            <Heart size={64} className="text-white fill-white" />
                         </div>
                     </div>
                 </div>
@@ -105,14 +94,16 @@ const DashboardPage = () => {
                     title="Participants"
                     value={stats.total_participants || 40}
                     icon={Users}
-                    color="bg-indigo-500"
+                    color="bg-emerald-500" // Mapped inside stats card if needed, or visually handled there
+                    trend="+100%"
                     subtitle="Youth + Leaders"
                 />
                 <StatsCard
                     title="Countries"
                     value={stats.partner_countries || 8}
                     icon={Globe}
-                    color="bg-emerald-500"
+                    color="bg-blue-500"
+                    trend="active"
                     subtitle="European Partners"
                 />
                 <StatsCard
@@ -136,16 +127,16 @@ const DashboardPage = () => {
                 {/* Left: Journey Slider (2/3) */}
                 <div className="lg:col-span-2 flex flex-col gap-6 h-full">
                     <div>
-                        <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center justify-between mb-4 border-b-4 border-retro-gray pb-2 bg-retro-light-gray dark:bg-retro-black p-2 transition-colors">
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">The 7-Day Journey</h2>
-                                <p className="text-slate-600 dark:text-slate-400">Explore the body metaphor program</p>
+                                <h2 className="text-xl font-bold text-black dark:text-retro-white font-pixel-header uppercase">The 7-Day Journey</h2>
+                                <p className="text-retro-gray dark:text-retro-light-gray text-xs uppercase tracking-wider">&gt; Explore the body metaphor program</p>
                             </div>
                             <button
                                 onClick={() => navigate('/journey')}
-                                className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition"
+                                className="flex items-center gap-2 px-4 py-2 bg-retro-blue text-white font-bold hover:bg-white hover:text-black hover:border-retro-blue border-2 border-white transition shadow-[2px_2px_0px_0px_#fff]"
                             >
-                                View All Days
+                                <span className="uppercase">View All</span>
                                 <ArrowRight size={18} />
                             </button>
                         </div>
@@ -153,14 +144,15 @@ const DashboardPage = () => {
                     </div>
 
                     {/* Countdown / Next Up Card */}
-                    <div className="flex-1 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between shadow-lg min-h-[140px] gap-4">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    <div className="flex-1 bg-retro-black border-4 border-retro-gray p-6 text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] min-h-[140px] gap-4">
+                        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(0deg, transparent 24%, #fff 25%, #fff 26%, transparent 27%, transparent 74%, #fff 75%, #fff 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #fff 25%, #fff 26%, transparent 27%, transparent 74%, #fff 75%, #fff 76%, transparent 77%, transparent)', backgroundSize: '30px 30px' }}></div>
+
                         <div className="relative z-10 text-center md:text-left">
-                            <h3 className="text-xl font-bold mb-1 flex items-center justify-center md:justify-start gap-2">
-                                <Rocket className="text-amber-400" size={20} />
+                            <h3 className="text-xl font-bold mb-1 flex items-center justify-center md:justify-start gap-2 font-pixel-header text-retro-yellow">
+                                <Rocket className="text-retro-yellow" size={20} />
                                 Coming Soon
                             </h3>
-                            <p className="text-slate-300 text-sm">September 15, 2026 • Sicily, Italy</p>
+                            <p className="text-retro-light-gray text-sm uppercase tracking-widest">&gt; September 15, 2026 • Sicily, Italy</p>
                         </div>
                         <div className="relative z-10 flex flex-wrap justify-center gap-3 text-center">
                             <CountdownUnit value={timeLeft.days} label="Days" />
@@ -178,27 +170,27 @@ const DashboardPage = () => {
             </div>
 
             {/* Project Highlights */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-8">
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Project Highlights</h2>
+            <div className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 className="text-xl font-bold text-black mb-6 font-pixel-header uppercase border-b-4 border-black pb-2 inline-block">Project Highlights</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <HighlightCard
                         icon={Sparkles}
                         title="Body Metaphor"
-                        description="Each day explores a body part as a metaphor for societal challenges and personal growth."
+                        description="Each day explores a body part as a metaphor for societal challenges."
                         color="purple"
                         onClick={() => navigate('/dna')}
                     />
                     <HighlightCard
                         icon={Target}
                         title="EU Youth Goals"
-                        description="Aligned with EU Youth Strategy pillars: ENGAGE, CONNECT, and EMPOWER young people."
+                        description="Aligned with EU Youth Strategy pillars: ENGAGE, CONNECT, and EMPOWER."
                         color="indigo"
                         onClick={() => navigate('/impact', { state: { activeTab: 'goals' } })}
                     />
                     <HighlightCard
                         icon={Globe}
                         title="Multiplier Events"
-                        description="8 local events reaching 160+ people, extending the project's impact across Europe."
+                        description="8 local events reaching 160+ people, extending impact across Europe."
                         color="emerald"
                         onClick={() => navigate('/followup')}
                     />
@@ -207,7 +199,7 @@ const DashboardPage = () => {
 
             {/* Quick Access Modules */}
             <div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Explore More</h2>
+                <h2 className="text-xl font-bold text-black dark:text-retro-white mb-4 font-pixel-header uppercase bg-retro-light-gray dark:bg-retro-black inline-block p-2 border-2 border-black dark:border-retro-gray transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Explore More</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <QuickModuleCard
                         title="Impact Lab"
@@ -239,28 +231,26 @@ const DashboardPage = () => {
                     />
                 </div>
             </div>
-
-            {/* Location Card */}
-            <div className="bg-gradient-to-r from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 rounded-2xl shadow-xl p-8 text-white">
+            {/* Location styled in retro way */}
+            <div className="bg-retro-cyan border-4 border-black p-8 text-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <div className="flex items-start gap-6">
-                    <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl border border-white/30">
+                    <div className="bg-white p-4 border-2 border-black">
                         <MapPin size={40} />
                     </div>
                     <div className="flex-1">
-                        <h3 className="text-2xl font-bold mb-2">Venue: Furnari, Sicily</h3>
-                        <p className="text-white/90 leading-relaxed mb-4">
-                            The Youth Exchange will take place at <strong>Tindari Village</strong> in Furnari,
-                            Messina, Sicily, Italy. A beautiful coastal location providing the perfect setting
-                            for learning, connection, and transformation.
+                        <h3 className="text-xl font-bold mb-2 font-pixel-header uppercase">Venue: Furnari, Sicily</h3>
+                        <p className="leading-relaxed mb-4 font-bold border-l-4 border-black pl-4">
+                            The Youth Exchange will take place at <strong className="uppercase decoration-2 underline">Tindari Village</strong> in Furnari,
+                            Messina, Sicily, Italy.
                         </p>
                         <div className="flex gap-4">
-                            <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                                <p className="text-sm font-semibold">Arrival Day</p>
-                                <p className="text-lg">September 14, 2026</p>
+                            <div className="px-4 py-2 bg-white border-2 border-black">
+                                <p className="text-xs font-bold uppercase">Arrival Day</p>
+                                <p className="text-lg font-bold">Sept 14, 2026</p>
                             </div>
-                            <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg border border-white/30">
-                                <p className="text-sm font-semibold">Departure Day</p>
-                                <p className="text-lg">September 22, 2026</p>
+                            <div className="px-4 py-2 bg-white border-2 border-black">
+                                <p className="text-xs font-bold uppercase">Departure Day</p>
+                                <p className="text-lg font-bold">Sept 22, 2026</p>
                             </div>
                         </div>
                     </div>
@@ -269,6 +259,12 @@ const DashboardPage = () => {
         </div>
     );
 };
+
+const RetroBadge = ({ icon, text }) => (
+    <span className="px-4 py-2 bg-black text-white text-xs font-bold font-pixel-body border-2 border-retro-gray shadow-[2px_2px_0px_0px_#aaa] hover:translate-y-px hover:shadow-none transition-all cursor-default">
+        {icon} {text}
+    </span>
+);
 
 // Partnership Network Component (FIXED)
 const PartnershipNetwork = () => {
@@ -284,14 +280,14 @@ const PartnershipNetwork = () => {
     ];
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-6 h-full flex flex-col">
-            <div className="flex items-center justify-between mb-4">
+        <div className="bg-retro-white border-4 border-retro-gray p-6 h-full flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div className="flex items-center justify-between mb-4 border-b-4 border-black pb-2">
                 <div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">Partnership Network</h3>
-                    <p className="text-sm text-slate-600 dark:text-gray-400">8 Countries Consortium</p>
+                    <h3 className="text-lg font-bold text-black font-pixel-header uppercase">Partners_Net</h3>
+                    <p className="text-xs text-retro-gray font-bold uppercase">&gt; 8 Countries Consortium</p>
                 </div>
-                <div className="bg-emerald-100 dark:bg-emerald-900/30 px-3 py-1 rounded-full">
-                    <p className="text-emerald-700 dark:text-emerald-400 font-bold text-sm">8</p>
+                <div className="bg-retro-green px-3 py-1 border-2 border-black">
+                    <p className="text-black font-bold text-sm font-pixel-header">08</p>
                 </div>
             </div>
 
@@ -299,24 +295,24 @@ const PartnershipNetwork = () => {
                 {partners.map((partner, index) => (
                     <div
                         key={partner.country}
-                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-gray-700 transition border border-slate-100 dark:border-gray-700"
+                        className="flex items-center gap-3 p-3 bg-white hover:bg-retro-yellow transition border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)] cursor-pointer"
                     >
-                        <div className="text-3xl">{partner.flag}</div>
+                        <div className="text-xl flex p-1 border border-gray-400 bg-gray-100">{partner.flag}</div>
                         <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-slate-900 dark:text-gray-100 truncate text-sm">{partner.org}</p>
-                            <p className="text-xs text-slate-500 dark:text-gray-400">{partner.country}{index === 0 && ' • Coordinator'}</p>
+                            <p className="font-bold text-black truncate text-sm uppercase">{partner.org}</p>
+                            <p className="text-xs text-retro-gray font-bold">{partner.country}{index === 0 && ' <COORDINATOR>'}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div className="mt-4 pt-2">
+            <div className="mt-4 pt-2 border-t-4 border-black border-dashed">
                 <button
                     onClick={() => window.location.href = '/partners'}
-                    className="w-full px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl font-semibold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition flex items-center justify-center gap-2"
+                    className="w-full px-4 py-2 bg-retro-green text-black border-2 border-black font-bold hover:bg-white transition flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
                 >
                     <Users size={18} />
-                    View All Partners
+                    <span className="uppercase">View Database</span>
                 </button>
             </div>
         </div>
@@ -325,56 +321,55 @@ const PartnershipNetwork = () => {
 
 // Highlight Card Component
 const HighlightCard = ({ icon: Icon, title, description, color, onClick }) => {
-    const cardStyles = {
-        amber: 'bg-amber-50 dark:bg-amber-900/10 border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:hover:border-amber-700',
-        indigo: 'bg-indigo-50 dark:bg-indigo-900/10 border-indigo-200 dark:border-indigo-800 hover:border-indigo-300 dark:hover:border-indigo-700',
-        emerald: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800 hover:border-emerald-300 dark:hover:border-emerald-700',
-        purple: 'bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700',
-        pink: 'bg-pink-50 dark:bg-pink-900/10 border-pink-200 dark:border-pink-800 hover:border-pink-300 dark:hover:border-pink-700',
+    // Rough mapping to retro colors
+    const borderColors = {
+        amber: 'border-retro-orange',
+        indigo: 'border-retro-blue',
+        emerald: 'border-retro-green',
+        purple: 'border-retro-magenta',
+        pink: 'border-retro-red',
     };
 
-    const iconColors = {
-        amber: 'text-amber-600 dark:text-amber-400',
-        indigo: 'text-indigo-600 dark:text-indigo-400',
-        emerald: 'text-emerald-600 dark:text-emerald-400',
-        purple: 'text-purple-600 dark:text-purple-400',
-        pink: 'text-pink-600 dark:text-pink-400',
-    };
+    // Fallback
+    const borderColor = borderColors[color] || 'border-black';
 
     return (
         <div
             onClick={onClick}
-            className={`p-6 rounded-2xl border ${cardStyles[color]} h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer`}
+            className={`p-6 bg-white border-4 ${borderColor} h-full transition-all duration-0 hover:translate-y-1 hover:shadow-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] cursor-pointer`}
         >
-            <div className={`mb-4 p-3 bg-white/60 dark:bg-gray-800/60 rounded-xl inline-block ${iconColors[color]}`}>
+            <div className={`mb-4 p-3 bg-black text-white border-2 border-gray-500 inline-block`}>
                 <Icon size={32} />
             </div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-lg">{title}</h4>
-            <p className="text-sm text-slate-700 dark:text-gray-300 leading-relaxed">{description}</p>
+            <h4 className="font-bold text-black mb-2 text-lg font-pixel-header uppercase">{title}</h4>
+            <p className="text-sm text-retro-gray font-bold font-pixel-body leading-relaxed">{description}</p>
         </div>
     );
 };
 
 // Quick Module Card Component
 const QuickModuleCard = ({ title, description, icon: Icon, href, color }) => {
-    const colorMap = {
-        indigo: 'from-indigo-500 to-indigo-600 hover:from-indigo-600 hover:to-indigo-700',
-        amber: 'from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700',
-        purple: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
-        rose: 'from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700',
-        pink: 'from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700',
+    const bgColors = {
+        indigo: 'bg-retro-blue',
+        amber: 'bg-retro-orange',
+        purple: 'bg-retro-magenta',
+        rose: 'bg-retro-red',
+        pink: 'bg-retro-dark-magenta'
     };
+    const bgColor = bgColors[color] || 'bg-black';
 
     return (
         <div
             onClick={() => window.location.href = href}
-            className={`cursor-pointer bg-gradient-to-br ${colorMap[color]} rounded-2xl p-6 text-white shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1`}
+            className={`cursor-pointer ${bgColor} border-4 border-white p-6 text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 transition-all`}
         >
             <Icon size={32} className="mb-3" />
-            <h3 className="font-bold text-lg mb-1">{title}</h3>
-            <p className="text-white/90 text-sm">{description}</p>
+            <h3 className="font-bold text-lg mb-1 font-pixel-header uppercase">{title}</h3>
+            <p className="text-white/80 text-sm font-pixel-body font-bold">&gt; {description}</p>
         </div>
     );
 };
+
+
 
 export default DashboardPage;

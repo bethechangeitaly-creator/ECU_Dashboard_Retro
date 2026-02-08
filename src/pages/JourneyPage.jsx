@@ -37,37 +37,40 @@ const JourneyPage = () => {
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 font-pixel-body">
             {/* Page Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between border-b-4 border-black pb-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900 dark:text-white">The Journey</h1>
-                    <p className="text-slate-600 dark:text-gray-400 mt-1">7 Days • 7 Themes • 1 Body</p>
+                    <h1 className="text-3xl font-bold text-black dark:text-retro-white font-pixel-header retro-shadow">The Journey</h1>
+                    <p className="text-retro-cyan mt-1 font-bold bg-black inline-block px-2 border-2 border-retro-gray">&gt; 7 Days • 7 Themes • 1 Body</p>
                 </div>
             </div>
 
             {/* Day Selector Stepper */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-6">
-                <div className="flex items-center justify-between gap-2 overflow-x-auto">
+            <div className="bg-retro-black border-4 border-retro-gray p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex items-center justify-between gap-2 overflow-x-auto custom-scrollbar pb-2">
                     {days.map((day, index) => (
                         <button
                             key={day.day}
                             onClick={() => goToDay(index)}
-                            className={`flex-1 min-w-[120px] p-4 rounded-xl border-2 transition-all ${index === currentDayIndex
-                                ? `border-${day.color}-500 bg-${day.color}-50 dark:bg-${day.color}-900/20 shadow-md`
-                                : 'border-slate-200 dark:border-gray-700 hover:border-slate-300 dark:hover:border-gray-600 hover:bg-slate-50 dark:hover:bg-gray-700'
+                            className={`flex-1 min-w-[120px] p-2 border-2 transition-all relative ${index === currentDayIndex
+                                ? `bg-white border-white -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`
+                                : 'bg-retro-gray border-black hover:bg-retro-light-gray hover:border-white text-gray-400 hover:text-black'
                                 }`}
                         >
                             <div className="text-center">
-                                <div className={`text-xs font-bold uppercase tracking-wider ${index === currentDayIndex ? `text-${day.color}-600 dark:text-${day.color}-400` : 'text-slate-400 dark:text-gray-500'
+                                <div className={`text-xs font-bold uppercase tracking-wider font-pixel-body ${index === currentDayIndex ? `text-black` : 'text-black'
                                     }`}>
                                     Day {day.day}
                                 </div>
-                                <div className={`text-sm font-semibold mt-1 ${index === currentDayIndex ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-gray-400'
+                                <div className={`text-sm font-bold mt-1 font-pixel-header uppercase ${index === currentDayIndex ? 'text-black' : 'text-black/50'
                                     }`}>
                                     {['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'][index]}
                                 </div>
                             </div>
+                            {index === currentDayIndex && (
+                                <div className="absolute top-0 left-0 w-2 h-2 bg-black"></div>
+                            )}
                         </button>
                     ))}
                 </div>
@@ -77,37 +80,40 @@ const JourneyPage = () => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentDay.day}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.2, ease: "steps(4)" }}
                 >
                     <DayDetailView day={currentDay} />
                 </motion.div>
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between">
+            <div className="flex justify-between pt-4 border-t-4 border-retro-gray border-dashed">
                 <button
                     onClick={prevDay}
                     disabled={currentDayIndex === 0}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${currentDayIndex === 0
-                        ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-600 cursor-not-allowed'
-                        : 'bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 text-slate-700 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400'
+                    className={`flex items-center gap-2 px-6 py-3 font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === 0
+                        ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
+                        : 'bg-white text-black border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
                         }`}
                 >
                     <ChevronLeft size={20} />
-                    Previous Day
+                    Prev
                 </button>
+                <div className="text-center">
+                    <p className="text-retro-light-gray text-xs uppercase pt-2">Page {currentDayIndex + 1} of {days.length}</p>
+                </div>
                 <button
                     onClick={nextDay}
                     disabled={currentDayIndex === days.length - 1}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${currentDayIndex === days.length - 1
-                        ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-600 cursor-not-allowed'
-                        : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-md'
+                    className={`flex items-center gap-2 px-6 py-3 font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === days.length - 1
+                        ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
+                        : 'bg-retro-blue text-white border-white hover:bg-retro-cyan hover:text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
                         }`}
                 >
-                    Next Day
+                    Next
                     <ChevronRight size={20} />
                 </button>
             </div>
@@ -120,47 +126,53 @@ const DayDetailView = ({ day }) => {
     const [activeTab, setActiveTab] = useState('overview');
     const color = day.color || 'indigo';
 
+    const tabBorders = {
+        'overview': 'border-retro-blue',
+        'activities': 'border-retro-green',
+        'methods': 'border-retro-orange',
+        'impact': 'border-retro-magenta'
+    };
+
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-retro-white border-4 border-retro-gray shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
             {/* Header */}
-            <div className={`bg-${color}-50 dark:bg-${color}-900/30 border-b border-${color}-100 dark:border-${color}-900/50 p-8`}>
-                <div className="flex items-start justify-between">
+            <div className={`bg-retro-light-gray border-b-4 border-retro-gray p-6 relative overflow-hidden`}>
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+                <div className="flex items-start justify-between relative z-10">
                     <div className="flex-1">
                         <div className="flex items-center gap-3 mb-3">
-                            <span className={`px-3 py-1 bg-white dark:bg-gray-900 text-${color}-600 dark:text-${color}-400 text-sm font-bold rounded-lg shadow-sm uppercase tracking-wide`}>
+                            <span className={`px-3 py-1 bg-black text-white text-sm font-bold border-2 border-white uppercase tracking-wide shadow-[2px_2px_0px_0px_#fff]`}>
                                 Day {day.day}
                             </span>
-                            <span className="text-slate-500 dark:text-gray-400 font-medium">{day.date}</span>
+                            <span className="text-black font-bold uppercase bg-white px-2 border border-black">{day.date}</span>
                         </div>
-                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">{day.theme}</h2>
-                        <p className={`text-${color}-700 dark:text-${color}-300 font-semibold text-lg`}>{day.body_part}</p>
+                        <h2 className="text-2xl md:text-3xl font-bold text-black mb-2 font-pixel-header uppercase">{day.theme}</h2>
+                        <p className={`text-black font-bold text-lg border-l-4 border-black pl-4`}>&gt; {day.body_part}</p>
                     </div>
-                    <div className={`bg-gradient-to-br from-${color}-500 to-${color}-600 p-4 rounded-2xl shadow-lg`}>
-                        <Calendar size={40} className="text-white" />
+                    <div className={`hidden md:flex bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+                        <Calendar size={40} className="text-black" />
                     </div>
                 </div>
             </div>
 
             {/* Tabs */}
-            <div className="border-b border-slate-200 dark:border-gray-700">
-                <div className="flex overflow-x-auto">
-                    {['overview', 'activities', 'methods', 'impact'].map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
-                            className={`px-6 py-4 font-semibold text-sm uppercase tracking-wide transition-all border-b-2 ${activeTab === tab
-                                ? `border-${color}-500 text-${color}-600 dark:text-${color}-400`
-                                : 'border-transparent text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-200'
-                                }`}
-                        >
-                            {tab}
-                        </button>
-                    ))}
-                </div>
+            <div className="border-b-4 border-retro-gray bg-retro-gray px-4 pt-4 flex gap-2 overflow-x-auto">
+                {['overview', 'activities', 'methods', 'impact'].map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`px-4 py-2 font-bold text-sm uppercase tracking-wide transition-all border-t-4 border-l-4 border-r-4 ${activeTab === tab
+                            ? `bg-retro-white border-retro-gray text-black -mb-1 pb-3 z-10 relative`
+                            : 'bg-retro-dark-gray border-black text-retro-light-gray hover:bg-retro-light-gray hover:text-black mt-2'
+                            }`}
+                    >
+                        {tab}
+                    </button>
+                ))}
             </div>
 
             {/* Tab Content */}
-            <div className="p-8">
+            <div className="p-6 md:p-8 min-h-[400px]">
                 {activeTab === 'overview' && <OverviewTab day={day} />}
                 {activeTab === 'activities' && <ActivitiesTab day={day} />}
                 {activeTab === 'methods' && <MethodsTab day={day} />}
@@ -172,15 +184,15 @@ const DayDetailView = ({ day }) => {
 
 // Tab Components
 const OverviewTab = ({ day }) => (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-in fade-in duration-300">
         {/* Metaphor Explanation */}
         {day.metaphor_explanation && (
-            <div className="bg-gradient-to-br from-slate-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-slate-200 dark:border-gray-700">
-                <h3 className="text-sm font-bold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                    <Globe size={18} className="text-indigo-500" />
+            <div className="bg-retro-cyan border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="text-sm font-bold text-black uppercase tracking-wider mb-2 flex items-center gap-2 bg-white inline-block px-2 border-2 border-black">
+                    <Globe size={18} />
                     The Metaphor
                 </h3>
-                <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg italic">
+                <p className="text-black leading-relaxed text-lg font-bold font-pixel-body">
                     "{day.metaphor_explanation}"
                 </p>
             </div>
@@ -188,45 +200,41 @@ const OverviewTab = ({ day }) => (
 
         {/* Theme Description */}
         <div>
-            <h3 className="text-sm font-bold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-3">Theme Description</h3>
-            <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-lg">{day.description}</p>
+            <h3 className="text-sm font-bold text-retro-gray uppercase tracking-wider mb-3 bg-black text-white inline-block px-2 py-1">Theme Description</h3>
+            <p className="text-black leading-relaxed text-lg font-bold border-l-4 border-black pl-4">{day.description}</p>
         </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Key Objectives */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-2 border-indigo-100 dark:border-indigo-900/50">
-                <h3 className="text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Target size={18} />
+            <div className="bg-white p-6 border-4 border-retro-blue shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="text-sm font-bold text-white bg-retro-blue inline-block px-2 py-1 uppercase tracking-wider mb-4 border-2 border-black">
                     Key Objectives
                 </h3>
                 <ul className="space-y-3">
                     {(day.key_objectives || []).map((obj, i) => (
                         <li key={i} className="flex items-start gap-3">
-                            <div className="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400">{i + 1}</span>
+                            <div className="w-6 h-6 bg-retro-blue text-white font-bold flex items-center justify-center border-2 border-black flex-shrink-0">
+                                <span className="text-xs">{i + 1}</span>
                             </div>
-                            <span className="text-slate-700 dark:text-gray-300 leading-relaxed">{obj}</span>
+                            <span className="text-black font-bold leading-relaxed">{obj}</span>
                         </li>
                     ))}
                 </ul>
             </div>
 
             {/* Lead Partner */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border-2 border-emerald-100 dark:border-emerald-900/50">
-                <h3 className="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Users size={18} />
+            <div className="bg-white p-6 border-4 border-retro-green shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <h3 className="text-sm font-bold text-white bg-retro-green inline-block px-2 py-1 uppercase tracking-wider mb-4 border-2 border-black">
                     Lead Partner
                 </h3>
-                <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
-                            <span className="text-2xl">{getCountryFlag(day.lead_partner?.country)}</span>
-                        </div>
-                        <div>
-                            <p className="font-bold text-slate-900 dark:text-white text-lg">{day.lead_partner?.organization}</p>
-                            <p className="text-sm text-slate-600 dark:text-gray-400">{day.lead_partner?.country} • Facilitating Day {day.day}</p>
-                        </div>
+                <div className="flex items-center gap-4 border-2 border-black p-4 bg-retro-light-gray/20">
+                    <div className="w-12 h-12 bg-white flex items-center justify-center border-2 border-black">
+                        <span className="text-2xl">{getCountryFlag(day.lead_partner?.country)}</span>
+                    </div>
+                    <div>
+                        <p className="font-bold text-black text-lg font-pixel-header uppercase">{day.lead_partner?.organization}</p>
+                        <p className="text-sm text-retro-gray font-bold">{day.lead_partner?.country}</p>
                     </div>
                 </div>
             </div>
@@ -234,13 +242,13 @@ const OverviewTab = ({ day }) => (
 
         {/* Youthpass Competencies */}
         {day.youthpass_competencies && day.youthpass_competencies.length > 0 && (
-            <div className="bg-amber-50 dark:bg-amber-900/30 rounded-xl p-6 border border-amber-200 dark:border-amber-800">
-                <h3 className="text-sm font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-3">
-                    Youthpass Competencies Developed
+            <div className="bg-retro-yellow/20 p-6 border-4 border-retro-orange border-dashed">
+                <h3 className="text-sm font-bold text-black bg-retro-orange inline-block px-2 py-1 uppercase tracking-wider mb-3 border-2 border-black">
+                    Youthpass Competencies
                 </h3>
                 <div className="flex flex-wrap gap-2">
                     {day.youthpass_competencies.map((comp, i) => (
-                        <span key={i} className="px-3 py-1.5 bg-white dark:bg-gray-800 text-amber-700 dark:text-amber-400 text-sm font-semibold rounded-lg border border-amber-200 dark:border-amber-900">
+                        <span key={i} className="px-3 py-1.5 bg-white text-black text-sm font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-px hover:shadow-none transition-all cursor-default">
                             {comp}
                         </span>
                     ))}
@@ -268,49 +276,49 @@ const ActivitiesTab = ({ day }) => {
         const isExpanded = expandedSessions[index];
 
         return (
-            <div className="bg-white rounded-xl p-5 border-2 border-slate-200 hover:border-indigo-300 transition-all">
+            <div className={`bg-white p-4 border-4 border-black hover:border-retro-blue transition-all mb-4 ${isExpanded ? 'shadow-[4px_4px_0px_0px_#000]' : 'shadow-[2px_2px_0px_0px_#aaa]'}`}>
                 {/* Session Header */}
-                <div className="flex items-start justify-between gap-4 mb-3">
+                <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="text-xs text-slate-500">{session.learning_type}</span>
+                        <div className="flex items-center gap-2 mb-1">
+                            <span className="text-xs font-bold bg-black text-white px-1 font-pixel-body uppercase">{session.learning_type}</span>
                         </div>
-                        <h4 className="text-lg font-bold text-slate-900">{session.title}</h4>
+                        <h4 className="text-lg font-bold text-black font-pixel-header uppercase">{session.title}</h4>
                     </div>
                     <button
                         onClick={() => toggleSession(index)}
-                        className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-lg transition-colors"
+                        className="px-2 py-1 bg-retro-light-gray border-2 border-black text-xs font-bold uppercase hover:bg-white hover:shadow-[2px_2px_0px_0px_#000] active:translate-y-px active:shadow-none"
                     >
-                        {isExpanded ? 'Hide Details' : 'View Details'}
+                        {isExpanded ? '[-]' : '[+]'}
                     </button>
                 </div>
 
                 {/* Session Quick Info */}
-                <div className="flex flex-wrap gap-3 text-sm">
-                    <div className="flex items-center gap-1.5">
-                        <Users size={16} className="text-emerald-600" />
-                        <span className="text-slate-600">{session.facilitator}</span>
+                <div className="flex flex-wrap gap-3 text-sm mt-2 border-t-2 border-dashed border-gray-300 pt-2">
+                    <div className="flex items-center gap-1.5 font-bold text-retro-dark-gray">
+                        <span className="text-retro-green">●</span>
+                        <span>{session.facilitator}</span>
                     </div>
                     {session.methods && (
-                        <div className="flex items-center gap-1.5">
-                            <Target size={16} className="text-violet-600" />
-                            <span className="text-slate-600">{session.methods.slice(0, 2).join(', ')}</span>
-                            {session.methods.length > 2 && <span className="text-slate-400">+{session.methods.length - 2} more</span>}
+                        <div className="flex items-center gap-1.5 font-bold text-retro-dark-gray">
+                            <span className="text-retro-magenta">●</span>
+                            <span>{session.methods.slice(0, 2).join(', ')}</span>
+                            {session.methods.length > 2 && <span className="text-retro-gray">+{session.methods.length - 2}</span>}
                         </div>
                     )}
                 </div>
 
                 {/* Expanded Description */}
                 {isExpanded && (
-                    <div className="mt-4 pt-4 border-t border-slate-200">
-                        <p className="text-slate-700 leading-relaxed mb-4">{session.description}</p>
+                    <div className="mt-4 pt-4 border-t-2 border-black bg-retro-light-gray/20 -mx-4 px-4 pb-2">
+                        <p className="text-black leading-relaxed mb-4 font-bold font-pixel-body">{session.description}</p>
 
                         {session.methods && session.methods.length > 0 && (
                             <div>
-                                <p className="text-xs font-bold text-slate-400 uppercase mb-2">Methods Used:</p>
+                                <p className="text-xs font-bold text-retro-gray uppercase mb-2">[ METHODS ]</p>
                                 <div className="flex flex-wrap gap-2">
                                     {session.methods.map((method, i) => (
-                                        <span key={i} className="px-2 py-1 bg-violet-50 text-violet-700 text-xs font-medium rounded border border-violet-200">
+                                        <span key={i} className="px-2 py-1 bg-white text-black text-xs font-bold border border-black shadow-[1px_1px_0px_0px_#000]">
                                             {method}
                                         </span>
                                     ))}
@@ -324,20 +332,17 @@ const ActivitiesTab = ({ day }) => {
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-6 animate-in fade-in duration-300">
             {/* Morning Sessions */}
             {amSessions.length > 0 && (
-                <div>
+                <div className="border-l-4 border-retro-yellow pl-4">
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
-                            <Sun className="text-amber-600" size={24} />
+                        <div className="w-8 h-8 bg-retro-yellow border-2 border-black flex items-center justify-center">
+                            <Sun className="text-black" size={20} />
                         </div>
-                        <div>
-                            <h3 className="font-bold text-amber-700 text-lg">Morning Sessions</h3>
-                            <p className="text-sm text-slate-500">{amSessions.length} activities</p>
-                        </div>
+                        <h3 className="font-bold text-black text-lg font-pixel-header uppercase">Morning</h3>
                     </div>
-                    <div className="space-y-3">
+                    <div>
                         {amSessions.map((session, i) => (
                             <SessionCard key={`am-${i}`} session={session} index={`am-${i}`} />
                         ))}
@@ -347,17 +352,14 @@ const ActivitiesTab = ({ day }) => {
 
             {/* Afternoon/Evening Sessions */}
             {pmSessions.length > 0 && (
-                <div>
+                <div className="border-l-4 border-retro-blue pl-4">
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center">
-                            <Moon className="text-indigo-600" size={24} />
+                        <div className="w-8 h-8 bg-retro-blue border-2 border-black flex items-center justify-center">
+                            <Moon className="text-white" size={20} />
                         </div>
-                        <div>
-                            <h3 className="font-bold text-indigo-700 text-lg">Afternoon & Evening Sessions</h3>
-                            <p className="text-sm text-slate-500">{pmSessions.length} activities</p>
-                        </div>
+                        <h3 className="font-bold text-black text-lg font-pixel-header uppercase">Afternoon</h3>
                     </div>
-                    <div className="space-y-3">
+                    <div>
                         {pmSessions.map((session, i) => (
                             <SessionCard key={`pm-${i}`} session={session} index={`pm-${i}`} />
                         ))}
@@ -365,11 +367,8 @@ const ActivitiesTab = ({ day }) => {
                 </div>
             )}
 
-            {/* Session Count Summary */}
-            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
-                <p className="text-center text-slate-600">
-                    <span className="font-bold text-slate-900">{(day.sessions || []).length} sessions</span> carefully designed using non-formal education methodologies
-                </p>
+            <div className="bg-black text-retro-green p-2 font-pixel-body text-center text-xs uppercase border-2 border-retro-gray">
+                &gt; Total Sessions: {(day.sessions || []).length} _
             </div>
         </div>
     );
@@ -417,40 +416,41 @@ const MethodsTab = ({ day }) => {
     }, {});
 
     const categoryColors = {
-        'Art-Based': 'rose',
-        'Participatory': 'emerald',
-        'Simulation': 'amber',
-        'Experiential': 'blue',
-        'Reflective': 'violet',
-        'Digital': 'cyan',
-        'Mind-Body': 'pink',
-        'Other NFE': 'slate'
+        'Art-Based': 'text-retro-red',
+        'Participatory': 'text-retro-green',
+        'Simulation': 'text-retro-orange',
+        'Experiential': 'text-retro-blue',
+        'Reflective': 'text-retro-magenta',
+        'Digital': 'text-retro-cyan',
+        'Mind-Body': 'text-pink-500',
+        'Other NFE': 'text-retro-gray'
     };
 
     return (
-        <div className="space-y-6">
-            <div className="bg-indigo-50 rounded-xl p-6 border border-indigo-200">
-                <h3 className="text-sm font-bold text-indigo-700 uppercase tracking-wider mb-2">Non-Formal Education Methods</h3>
-                <p className="text-indigo-900">
-                    This day utilizes <span className="font-bold">{allMethods.length} unique NFE methodologies</span> across {(day.sessions || []).length} sessions
+        <div className="space-y-6 animate-in fade-in duration-300">
+            <div className="bg-retro-blue/10 p-4 border-2 border-retro-blue border-dashed">
+                <h3 className="text-sm font-bold text-retro-blue uppercase tracking-wider mb-2">[ SYSTEM_INFO ]</h3>
+                <p className="text-black font-bold font-pixel-body">
+                    Active Methodologies: <span className="bg-retro-blue text-white px-2">{allMethods.length}</span>
                 </p>
             </div>
 
             {/* Methods by Category */}
             {Object.entries(methodsByCategory).map(([category, methods]) => (
                 <div key={category} className="space-y-3">
-                    <h4 className={`text-sm font-bold text-${categoryColors[category]}-600 uppercase tracking-wider flex items-center gap-2`}>
-                        <div className={`w-3 h-3 rounded-full bg-${categoryColors[category]}-500`}></div>
+                    <h4 className={`text-sm font-bold ${categoryColors[category]} uppercase tracking-wider flex items-center gap-2 border-b-2 border-black pb-1`}>
+                        <div className={`w-3 h-3 bg-black`}></div>
                         {category}
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {methods.map((method, i) => (
-                            <div key={i} className="bg-white rounded-lg p-4 border-2 border-slate-200 hover:border-indigo-300 transition-all">
-                                <p className="font-semibold text-slate-900 mb-2">{method.name}</p>
-                                <p className="text-xs text-slate-500">
-                                    Used in: <span className="text-slate-700 font-medium">{method.usedIn[0]}</span>
-                                    {method.usedIn.length > 1 && <span className="ml-1">+{method.usedIn.length - 1} more</span>}
-                                </p>
+                            <div key={i} className="bg-white p-4 border-2 border-black hover:bg-yellow-50 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] hover:shadow-none hover:translate-y-1">
+                                <p className="font-bold text-black mb-2 font-pixel-body decoration-2 underline">{method.name}</p>
+                                <div className="text-xs text-retro-gray font-bold">
+                                    <span className="bg-black text-white px-1 mr-1">USED IN:</span>
+                                    {method.usedIn[0]}
+                                    {method.usedIn.length > 1 && <span className="ml-1">+{method.usedIn.length - 1}</span>}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -458,16 +458,16 @@ const MethodsTab = ({ day }) => {
             ))}
 
             {/* Link to Methodology Hub */}
-            <div className="bg-gradient-to-r from-violet-50 to-indigo-50 rounded-xl p-6 border border-violet-200">
-                <h4 className="font-bold text-violet-900 mb-2">Want to learn more?</h4>
-                <p className="text-violet-700 text-sm mb-4">
-                    Visit the Methodology Hub for detailed descriptions, learning theories, and best practices for each method.
+            <div className="bg-black p-6 border-4 border-retro-magenta shadow-[8px_8px_0px_0px_rgba(255,0,255,0.2)]">
+                <h4 className="font-bold text-retro-magenta mb-2 font-pixel-header uppercase">Want to learn more?</h4>
+                <p className="text-white text-sm mb-4 font-bold font-pixel-body">
+                    &gt; Access the central Methodology Hub database...
                 </p>
                 <button
                     onClick={() => navigate('/methodology')}
-                    className="px-4 py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition-colors"
+                    className="px-4 py-2 bg-retro-magenta text-white font-bold border-2 border-white hover:bg-white hover:text-retro-magenta transition-colors uppercase font-pixel-body"
                 >
-                    Explore Methodology Hub →
+                    [ EXECUTE: GOTO_METHODOLOGY ]
                 </button>
             </div>
         </div>
@@ -475,20 +475,20 @@ const MethodsTab = ({ day }) => {
 };
 
 const ImpactTab = ({ day }) => (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-in fade-in duration-300">
         {/* EU Youth Goal */}
         {day.eu_youth_goal && (
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-2 border-blue-200">
+            <div className="bg-retro-blue/10 p-6 border-4 border-retro-blue">
                 <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center flex-shrink-0">
-                        <span className="text-2xl font-bold text-white">#{day.eu_youth_goal.number}</span>
+                    <div className="w-12 h-12 bg-retro-blue flex items-center justify-center flex-shrink-0 border-2 border-black shadow-[4px_4px_0px_0px_#000]">
+                        <span className="text-xl font-bold text-white font-pixel-header">#{day.eu_youth_goal.number}</span>
                     </div>
                     <div className="flex-1">
-                        <h3 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2">
-                            European Youth Goal Addressed
+                        <h3 className="text-sm font-bold text-retro-blue uppercase tracking-wider mb-2 bg-white inline-block px-1 border border-black">
+                            European Youth Goal
                         </h3>
-                        <p className="text-xl font-bold text-blue-900 mb-2">{day.eu_youth_goal.title}</p>
-                        <p className="text-blue-700 leading-relaxed">{day.eu_youth_goal.connection}</p>
+                        <p className="text-xl font-bold text-black mb-2 font-pixel-header uppercase">{day.eu_youth_goal.title}</p>
+                        <p className="text-black font-bold font-pixel-body border-l-4 border-retro-blue pl-4">{day.eu_youth_goal.connection}</p>
                     </div>
                 </div>
             </div>
@@ -496,49 +496,40 @@ const ImpactTab = ({ day }) => (
 
         {/* Erasmus+ Priorities Grid */}
         <div>
-            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Erasmus+ Horizontal Priorities</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div className="bg-white rounded-xl p-4 border-2 border-emerald-200 text-center">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-emerald-100 flex items-center justify-center">
-                        <span className="text-xl">🌍</span>
-                    </div>
-                    <p className="font-semibold text-emerald-900 text-sm">Inclusion & Diversity</p>
+            <h3 className="text-sm font-bold text-retro-gray uppercase tracking-wider mb-4 border-b-2 border-retro-gray inline-block">Horizontal Priorities</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
+                    <div className="text-2xl mb-2">🌍</div>
+                    <p className="font-bold text-black text-sm uppercase">Inclusion & Diversity</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 border-2 border-green-200 text-center">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-green-100 flex items-center justify-center">
-                        <span className="text-xl">♻️</span>
-                    </div>
-                    <p className="font-semibold text-green-900 text-sm">Environment & Sustainability</p>
+                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
+                    <div className="text-2xl mb-2">♻️</div>
+                    <p className="font-bold text-black text-sm uppercase">Sustainability</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 border-2 border-cyan-200 text-center">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-cyan-100 flex items-center justify-center">
-                        <span className="text-xl">💻</span>
-                    </div>
-                    <p className="font-semibold text-cyan-900 text-sm">Digital Transformation</p>
+                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
+                    <div className="text-2xl mb-2">💻</div>
+                    <p className="font-bold text-black text-sm uppercase">Digital Transf.</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 border-2 border-violet-200 text-center">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-violet-100 flex items-center justify-center">
-                        <span className="text-xl">🗳️</span>
-                    </div>
-                    <p className="font-semibold text-violet-900 text-sm">Participation in Democracy</p>
+                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
+                    <div className="text-2xl mb-2">🗳️</div>
+                    <p className="font-bold text-black text-sm uppercase">Democracy</p>
                 </div>
             </div>
         </div>
 
-        {/* Learning Outcomes / Youthpass */}
+        {/* Youthpass */}
         {day.youthpass_competencies && day.youthpass_competencies.length > 0 && (
-            <div className="bg-amber-50 rounded-xl p-6 border border-amber-200">
-                <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Target size={18} />
-                    Youthpass Competencies Developed
+            <div className="bg-retro-orange/20 p-6 border-4 border-retro-orange shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)]">
+                <h3 className="text-sm font-bold text-black bg-retro-orange inline-block px-2 py-1 uppercase tracking-wider mb-4 border-2 border-black">
+                    Competencies
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {day.youthpass_competencies.map((comp, i) => (
-                        <div key={i} className="flex items-start gap-3 bg-white rounded-lg p-3 border border-amber-200">
-                            <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-xs font-bold text-white">{i + 1}</span>
+                        <div key={i} className="flex items-start gap-3 bg-white p-3 border-2 border-black">
+                            <div className="w-6 h-6 bg-black text-white flex items-center justify-center flex-shrink-0">
+                                <span className="text-xs font-bold">{i + 1}</span>
                             </div>
-                            <span className="text-slate-800 font-medium">{comp}</span>
+                            <span className="text-black font-bold text-sm uppercase">{comp}</span>
                         </div>
                     ))}
                 </div>
@@ -547,13 +538,13 @@ const ImpactTab = ({ day }) => (
 
         {/* Key Objectives Recap */}
         {day.key_objectives && day.key_objectives.length > 0 && (
-            <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-4">Day Objectives Recap</h3>
+            <div className="bg-retro-light-gray p-6 border-4 border-retro-gray">
+                <h3 className="text-sm font-bold text-black uppercase tracking-wider mb-4 border-b-2 border-black inline-block">Day Checklist</h3>
                 <ul className="space-y-2">
                     {day.key_objectives.map((obj, i) => (
-                        <li key={i} className="flex items-start gap-2 text-slate-700">
-                            <span className="text-indigo-500 font-bold">•</span>
-                            <span>{obj}</span>
+                        <li key={i} className="flex items-start gap-2 text-black font-pixel-body">
+                            <span className="text-retro-green font-bold">[OK]</span>
+                            <span className="font-bold uppercase text-xs pt-1">{obj}</span>
                         </li>
                     ))}
                 </ul>

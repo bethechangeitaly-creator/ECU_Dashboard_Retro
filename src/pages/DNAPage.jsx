@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Lightbulb, Heart, Users, Target, Sparkles, Calendar, MapPin, Flag, Brain, TrendingUp } from 'lucide-react';
 
 /**
- * Project DNA Page - Genesis, Values, and Vision
+ * Project DNA Page - Genesis, Values, and Vision - Retro Edition
  */
 const DNAPage = () => {
     const genesis = {
@@ -18,25 +18,25 @@ const DNAPage = () => {
             icon: Heart,
             title: "Youth-Led Empowerment",
             description: "Young people co-design activities, facilitate sessions, and create content. Participants are not just recipients—they become facilitators, communicators, and local activators.",
-            color: "rose"
+            color: "retro-red"
         },
         {
             icon: Users,
             title: "Radical Inclusion",
             description: "50% of participants face economic, geographical, or social barriers. Inclusive methodologies (body expression, art, movement) don't require high language skills.",
-            color: "indigo"
+            color: "retro-blue"
         },
         {
             icon: Lightbulb,
             title: "Learning by Doing",
             description: "Non-formal education through workshops, simulations, and outdoor learning. Experience first, reflect second, conceptualize third.",
-            color: "amber"
+            color: "retro-yellow"
         },
         {
             icon: Sparkles,
             title: "Holistic Growth",
             description: "The body metaphor is universal and accessible. When all parts function as an interconnected system, harmony emerges—just like in society.",
-            color: "purple"
+            color: "retro-magenta"
         }
     ];
 
@@ -49,22 +49,22 @@ const DNAPage = () => {
     const impact_philosophy = {
         title: "Beyond Participants",
         description: "ECU is designed to produce impact beyond the 40 direct participants (32 youth + 8 Group Leaders) and 8 partner organizations. Participants become facilitators, communicators, and local activators in their own communities.",
-        multiplier: "1 exchange → 32 participants → 8 countries → 8 local events → 160+ people reached → Open-source toolkit → Infinite reach"
     };
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 font-pixel-body">
             {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white relative overflow-hidden"
+                className="bg-retro-magenta border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+                {/* Dithering pattern overlay */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
                 <div className="relative z-10">
-                    <h1 className="text-4xl font-bold mb-3">Project DNA</h1>
-                    <p className="text-white/90 text-lg">
-                        The genesis, values, and vision behind Esplorando il Corpo Umano
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4 font-pixel-header tracking-widest uppercase retro-shadow">Project DNA</h1>
+                    <p className="text-white text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan">
+                        &gt; Genesis, Values & Vision
                     </p>
                 </div>
             </motion.div>
@@ -74,45 +74,56 @@ const DNAPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-8"
+                className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 relative"
             >
+                {/* Window Title Bar */}
+                <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-2 -mt-2">
+                    <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider pl-2">
+                        Origin_Story.txt
+                    </span>
+                    <div className="flex gap-1">
+                        <div className="w-4 h-4 bg-retro-light-gray border border-white shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></div>
+                        <div className="w-4 h-4 bg-retro-light-gray border border-white shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"></div>
+                    </div>
+                </div>
+
                 <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Sparkles size={28} className="text-purple-600 dark:text-purple-400" />
+                    <div className="w-16 h-16 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0">
+                        <Sparkles size={32} className="text-retro-magenta" />
                     </div>
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">The Genesis</h2>
-                        <p className="text-slate-600 dark:text-gray-400">Where it all began</p>
+                        <h2 className="text-2xl font-bold text-black mb-2 font-pixel-header uppercase">The Genesis</h2>
+                        <p className="text-retro-dark-gray font-bold uppercase text-xs tracking-wider">Where it all began</p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
-                        <div className="flex items-center space-x-2 mb-3">
-                            <Flag size={20} className="text-purple-600 dark:text-purple-400" />
-                            <p className="font-semibold text-slate-900 dark:text-white">Origin Event</p>
+                    <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black pb-2">
+                            <Flag size={20} className="text-retro-blue" />
+                            <p className="font-bold text-black font-pixel-header text-sm uppercase">Origin Event</p>
                         </div>
-                        <p className="text-slate-700 dark:text-gray-300">{genesis.origin}</p>
+                        <p className="text-black font-bold text-sm leading-relaxed">{genesis.origin}</p>
                     </div>
-                    <div className="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6">
-                        <div className="flex items-center space-x-2 mb-3">
-                            <MapPin size={20} className="text-pink-600 dark:text-pink-400" />
-                            <p className="font-semibold text-slate-900 dark:text-white">Location & Time</p>
+                    <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black pb-2">
+                            <MapPin size={20} className="text-retro-red" />
+                            <p className="font-bold text-black font-pixel-header text-sm uppercase">Location & Time</p>
                         </div>
-                        <p className="text-slate-700 dark:text-gray-300">{genesis.location}</p>
+                        <p className="text-black font-bold text-sm leading-relaxed">{genesis.location}</p>
                     </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6">
-                    <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center space-x-2">
-                        <Heart size={20} className="text-rose-600 dark:text-rose-400" />
+                <div className="bg-retro-magenta/20 border-2 border-retro-magenta border-dashed p-6 relative">
+                    <h3 className="font-bold text-retro-magenta mb-3 flex items-center space-x-2 uppercase font-pixel-header">
+                        <Heart size={20} />
                         <span>The Spark</span>
                     </h3>
-                    <p className="text-slate-700 dark:text-gray-300 leading-relaxed mb-4">
-                        {genesis.spark}
+                    <p className="text-black font-bold leading-relaxed mb-6 font-pixel-body text-sm">
+                        "{genesis.spark}"
                     </p>
-                    <h3 className="font-bold text-slate-900 dark:text-white mb-2">Vision</h3>
-                    <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
+                    <h3 className="font-bold text-retro-magenta mb-2 uppercase font-pixel-header">Vision</h3>
+                    <p className="text-black font-bold leading-relaxed font-pixel-body text-sm bg-white p-2 border-2 border-black">
                         {genesis.vision}
                     </p>
                 </div>
@@ -124,23 +135,41 @@ const DNAPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Core Values</h2>
+                <div className="bg-black text-white p-2 mb-6 inline-block border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                    <h2 className="text-xl font-bold font-pixel-header uppercase px-2">Core Values</h2>
+                </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {coreValues.map((value, idx) => {
                         const IconComponent = value.icon;
+
+                        // Map retro colors
+                        const colorMap = {
+                            "retro-red": "text-retro-red",
+                            "retro-blue": "text-retro-blue",
+                            "retro-yellow": "text-retro-yellow",
+                            "retro-magenta": "text-retro-magenta",
+                            "indigo": "text-retro-blue",
+                            "amber": "text-retro-orange",
+                            "purple": "text-retro-magenta",
+                            "rose": "text-retro-red"
+
+                        };
+                        const textColor = colorMap[value.color] || "text-black";
+
                         return (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 + idx * 0.1 }}
-                                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6"
+                                className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
                             >
-                                <div className={`w-12 h-12 bg-${value.color}-100 dark:bg-${value.color}-900/30 rounded-xl flex items-center justify-center mb-4`}>
-                                    <IconComponent size={24} className={`text-${value.color}-600 dark:text-${value.color}-400`} />
+                                <div className={`w-12 h-12 bg-black border-2 border-white flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]`}>
+                                    <IconComponent size={24} className={textColor} />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{value.title}</h3>
-                                <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
+                                <h3 className="text-lg font-bold text-black mb-3 font-pixel-header uppercase border-b-2 border-gray-300 pb-2">{value.title}</h3>
+                                <p className="text-black font-bold text-sm leading-relaxed font-pixel-body">
                                     {value.description}
                                 </p>
                             </motion.div>
@@ -156,23 +185,21 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="bg-gradient-to-br from-amber-500 to-orange-600 dark:from-amber-900 dark:to-orange-950 rounded-2xl shadow-lg p-1 text-white h-full"
+                    className="bg-retro-blue border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-1 h-full"
                 >
-                    <div className="bg-white/10 h-full w-full rounded-xl p-8 backdrop-blur-sm border border-white/20 flex flex-col justify-between">
+                    <div className="bg-retro-blue h-full w-full p-6 flex flex-col justify-between border-2 border-white border-dashed">
                         <div>
-                            <div className="flex items-center space-x-3 mb-6">
-                                <div className="p-3 bg-white/20 rounded-lg">
-                                    <Brain size={24} className="text-white" />
-                                </div>
-                                <h2 className="text-2xl font-bold">{methodology.approach}</h2>
+                            <div className="flex items-center space-x-3 mb-6 bg-black p-3 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                                <Brain size={24} className="text-retro-cyan" />
+                                <h2 className="text-xl font-bold text-white font-pixel-header uppercase">{methodology.approach}</h2>
                             </div>
-                            <p className="text-white/90 leading-relaxed mb-8 text-lg">
+                            <p className="text-white font-bold leading-relaxed mb-8 text-sm md:text-base font-pixel-body">
                                 {methodology.rationale}
                             </p>
                         </div>
                         <div className="mt-auto">
-                            <div className="bg-black/20 dark:bg-black/40 rounded-xl p-4 border border-white/10">
-                                <p className="font-mono font-bold text-center text-lg tracking-wide">{methodology.structure}</p>
+                            <div className="bg-retro-black border-2 border-white p-4 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                                <p className="font-pixel-header text-retro-yellow text-sm md:text-base tracking-wide uppercase">{methodology.structure}</p>
                             </div>
                         </div>
                     </div>
@@ -183,33 +210,54 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-slate-100 dark:border-gray-700 p-8 h-full relative overflow-hidden group"
+                    className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 h-full relative"
                 >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 dark:bg-emerald-900/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/20 transition-colors duration-700"></div>
-
                     <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-start space-x-4 mb-6">
-                            <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                                <Target size={28} className="text-emerald-600 dark:text-emerald-400" />
+                            <div className="w-14 h-14 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <Target size={28} className="text-black" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{impact_philosophy.title}</h2>
-                                <div className="h-1 w-20 bg-emerald-500 rounded-full"></div>
+                                <h2 className="text-2xl font-bold text-black mb-2 font-pixel-header uppercase">{impact_philosophy.title}</h2>
+                                <div className="h-2 w-20 bg-retro-green border-2 border-black"></div>
                             </div>
                         </div>
 
-                        <p className="text-slate-600 dark:text-gray-300 text-lg leading-relaxed mb-8 flex-1">
+                        <p className="text-black font-bold text-sm md:text-base leading-relaxed mb-8 flex-1 font-pixel-body">
                             {impact_philosophy.description}
                         </p>
 
-                        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 border border-emerald-100 dark:border-emerald-900/30">
-                            <div className="flex items-center gap-3 text-emerald-800 dark:text-emerald-400 font-semibold">
-                                <TrendingUp size={20} />
-                                <span>The Multiplier Chain</span>
+                        <div className="bg-retro-light-gray border-2 border-black p-6 relative">
+                            <div className="absolute top-0 left-0 bg-black text-white px-2 py-1 text-xs font-bold uppercase -mt-3 ml-4 border border-black">
+                                Multiplier Chain
                             </div>
-                            <p className="mt-3 text-slate-700 dark:text-gray-300 font-medium">
-                                {impact_philosophy.multiplier}
-                            </p>
+                            <div className="flex items-center gap-3 text-black font-bold mb-4">
+                                <TrendingUp size={20} className="text-retro-green" />
+                                <span className="uppercase font-pixel-header text-sm">Exponential Reach</span>
+                            </div>
+
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-2 text-xs font-bold">
+                                    <div className="w-2 h-2 bg-retro-green border border-black"></div>
+                                    <span>1 Exchange</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs font-bold pl-4">
+                                    <div className="w-px h-2 bg-black"></div>
+                                    <span>32 Participants</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs font-bold pl-8">
+                                    <div className="w-px h-2 bg-black"></div>
+                                    <span>8 Countries</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs font-bold pl-12">
+                                    <div className="w-px h-2 bg-black"></div>
+                                    <span>160+ People</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-xs font-bold pl-16 text-retro-magenta">
+                                    <div className="w-px h-2 bg-black"></div>
+                                    <span>&gt;&gt; INFINITE REACH</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </motion.div>

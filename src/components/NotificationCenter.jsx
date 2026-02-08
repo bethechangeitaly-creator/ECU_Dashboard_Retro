@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bell, Bookmark, MessageSquare, Info } from 'lucide-react';
+import { Bell, Bookmark, MessageSquare, Info, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NotificationCenter = () => {
@@ -8,11 +8,11 @@ const NotificationCenter = () => {
         {
             id: 1,
             type: 'info',
-            title: 'Project Status Update',
-            message: 'Bookmark this page to check for project approval status updates.',
-            time: 'Just now',
-            icon: Bell,
-            color: 'blue'
+            title: 'System Update',
+            message: 'Project status check required. Please bookmark this page.',
+            time: 'JUST NOW',
+            icon: Info,
+            color: 'retro-blue'
         }
     ]);
 
@@ -22,16 +22,21 @@ const NotificationCenter = () => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative font-pixel-body">
             {/* Bell Trigger */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-gray-800 text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-200 transition w-12 h-12 flex items-center justify-center"
+                className={`relative p-2 border-2 transition-all ${isOpen
+                    ? 'bg-retro-blue border-white text-white shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.5)] translate-y-1'
+                    : 'bg-retro-light-gray border-white text-black hover:bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
+                    }`}
             >
                 <div className="relative">
                     <Bell size={20} />
                     {notifications.length > 0 && (
-                        <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-gray-900 rounded-full"></span>
+                        <span className="absolute -top-2 -right-2 bg-retro-red text-white text-[10px] font-bold px-1.5 border border-black animate-pulse">
+                            {notifications.length}
+                        </span>
                     )}
                 </div>
             </button>
@@ -50,43 +55,64 @@ const NotificationCenter = () => {
                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-slate-200 dark:border-gray-700 z-50 overflow-hidden"
+                            transition={{ duration: 0.1 }}
+                            className="absolute right-0 mt-4 w-80 bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden"
                         >
-                            <div className="bg-slate-50 dark:bg-gray-900 px-4 py-3 border-b border-slate-100 dark:border-gray-700 flex justify-between items-center">
-                                <h3 className="font-semibold text-slate-800 dark:text-white">Notifications</h3>
-                                {notifications.length > 0 && (
-                                    <span className="text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">{notifications.length} New</span>
+                            {/* Window Title Bar */}
+                            <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray">
+                                <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider">
+                                    System_Messages
+                                </span>
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="w-4 h-4 bg-retro-light-gray border border-white shadow-[1px_1px_0px_0px_#000] flex items-center justify-center active:border-t-black active:border-l-black active:bg-gray-400 active:shadow-none"
+                                >
+                                    <X size={10} className="text-black" />
+                                </button>
+                            </div>
+
+                            <div className="bg-white border-2 border-black border-t-0 max-h-[300px] overflow-y-auto p-2">
+                                {notifications.length > 0 ? notifications.map((notif) => {
+                                    const Icon = notif.icon;
+                                    // Map retro colors
+                                    const colorMap = {
+                                        "retro-blue": "text-retro-blue",
+                                        "retro-red": "text-retro-red",
+                                        "retro-green": "text-retro-green",
+                                        "retro-yellow": "text-retro-yellow",
+                                        "blue": "text-retro-blue"
+                                    };
+                                    const iconColor = colorMap[notif.color] || "text-black";
+
+                                    return (
+                                        <div key={notif.id} className="mb-2 last:mb-0 relative group">
+                                            <div className="bg-retro-light-gray border-2 border-retro-gray p-3 hover:bg-white hover:border-black transition-colors cursor-default shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]">
+                                                <div className="flex gap-3">
+                                                    <div className={`mt-0.5 w-6 h-6 border-2 border-black bg-white flex items-center justify-center flex-shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
+                                                        <Icon size={14} className={iconColor} />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-xs font-bold text-black uppercase mb-1 font-pixel-header">{notif.title}</h4>
+                                                        <p className="text-xs text-black leading-tight mb-2 font-bold">{notif.message}</p>
+                                                        <span className="text-[10px] text-retro-dark-gray font-bold bg-white px-1 border border-retro-gray">{notif.time}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                }) : (
+                                    <div className="p-4 text-center text-retro-dark-gray font-bold text-xs uppercase">
+                                        No new messages.
+                                    </div>
                                 )}
                             </div>
 
-                            <div className="max-h-[300px] overflow-y-auto">
-                                {notifications.map((notif) => {
-                                    const Icon = notif.icon;
-                                    return (
-                                        <div key={notif.id} className="p-4 border-b border-slate-50 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700/50 transition-colors last:border-0 relative group">
-                                            <div className="flex gap-3">
-                                                <div className={`mt-1 w-8 h-8 rounded-full bg-${notif.color}-100 dark:bg-${notif.color}-900/30 flex items-center justify-center flex-shrink-0`}>
-                                                    <Icon size={14} className={`text-${notif.color}-600 dark:text-${notif.color}-400`} />
-                                                </div>
-                                                <div>
-                                                    <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">{notif.title}</h4>
-                                                    <p className="text-xs text-slate-600 dark:text-gray-300 leading-relaxed mb-1">{notif.message}</p>
-                                                    <span className="text-[10px] text-slate-400 dark:text-gray-500 font-medium">{notif.time}</span>
-                                                </div>
-                                            </div>
-                                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-
-                            <div className="bg-slate-50 dark:bg-gray-900 px-4 py-2 border-t border-slate-100 dark:border-gray-700 text-center">
+                            <div className="bg-retro-light-gray p-2 border-t-4 border-retro-white text-center">
                                 <button
                                     onClick={markAllAsRead}
-                                    className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                                    className="px-4 py-1 bg-retro-gray text-white text-xs font-bold uppercase border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black hover:border-black active:translate-y-1 active:shadow-none"
                                 >
-                                    Clear notifications
+                                    Clear All
                                 </button>
                             </div>
                         </motion.div>

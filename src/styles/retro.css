@@ -1,0 +1,171 @@
+/* Retro Global Styles */
+
+:root {
+    --scanline-color: rgba(0, 0, 0, 0.1);
+    --crt-flicker: rgba(255, 255, 255, 0.02);
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'VT323', monospace;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+    /* Essential for retro look */
+}
+
+/* CRT Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(to bottom,
+            var(--scanline-color) 50%,
+            rgba(0, 0, 0, 0) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: scanlines 0.2s linear infinite;
+}
+
+/* CRT Flicker Effect */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 9998;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes scanlines {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.02790601300538006;
+    }
+
+    5% {
+        opacity: 0.03350293026362086;
+    }
+
+    10% {
+        opacity: 0.04359489437152061;
+    }
+
+    15% {
+        opacity: 0.0886542616223126;
+    }
+
+    20% {
+        opacity: 0.01021487050302307;
+    }
+
+    25% {
+        opacity: 0.09312217621451003;
+    }
+
+    30% {
+        opacity: 0.01955745426540306;
+    }
+
+    35% {
+        opacity: 0.03859664539659039;
+    }
+
+    40% {
+        opacity: 0.024887309536835157;
+    }
+
+    45% {
+        opacity: 0.02100877993414841;
+    }
+
+    50% {
+        opacity: 0.04347717618239014;
+    }
+
+    55% {
+        opacity: 0.07630737400326588;
+    }
+
+    60% {
+        opacity: 0.08632616477085731;
+    }
+
+    65% {
+        opacity: 0.04018252277873111;
+    }
+
+    70% {
+        opacity: 0.03215907474447477;
+    }
+
+    75% {
+        opacity: 0.06381005230761358;
+    }
+
+    80% {
+        opacity: 0.02640237123910397;
+    }
+
+    85% {
+        opacity: 0.0911765045330386;
+    }
+
+    90% {
+        opacity: 0.03606553833772279;
+    }
+
+    95% {
+        opacity: 0.03157579698379654;
+    }
+
+    100% {
+        opacity: 0.06323891460914972;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+    border-left: 2px solid #555;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border: 2px solid #fff;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Utility for text shadow */
+.retro-shadow {
+    text-shadow: 2px 2px 0px #000;
+}

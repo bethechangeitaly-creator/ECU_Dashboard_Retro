@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Map, FileText, Heart, Brain, BookOpen, Rocket, X, ArrowRight } from 'lucide-react';
+import { Search, Map, FileText, Heart, Brain, BookOpen, Rocket, X, ArrowRight, Command } from 'lucide-react';
 
 const CommandPalette = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -102,7 +102,7 @@ const CommandPalette = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsOpen(false)}
-                        className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity"
+                        className="fixed inset-0 bg-retro-black/50 backdrop-blur-sm z-50 transition-opacity"
                     />
 
                     {/* Palette */}
@@ -111,29 +111,41 @@ const CommandPalette = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.1 }}
-                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-slate-200 dark:border-gray-700 z-50 overflow-hidden flex flex-col"
+                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl bg-retro-light-gray border-4 border-retro-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden flex flex-col font-pixel-body"
                     >
-                        {/* Search Input */}
-                        <div className="flex items-center px-4 py-4 border-b border-slate-100 dark:border-gray-700">
-                            <Search className="text-slate-400 dark:text-gray-500 mr-3" size={20} />
-                            <input
-                                autoFocus
-                                type="text"
-                                placeholder="Search pages, days, or resources..."
-                                className="flex-1 bg-transparent border-none outline-none text-lg text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-500"
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
-                            />
+                        {/* Window Title Bar */}
+                        <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray">
+                            <div className="flex items-center gap-2">
+                                <Command size={16} className="text-white" />
+                                <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider">
+                                    Run_Command.exe
+                                </span>
+                            </div>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-1 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-md text-slate-400 transition-colors"
+                                className="w-5 h-5 bg-retro-light-gray border-2 border-white shadow-[1px_1px_0px_0px_#000] flex items-center justify-center active:border-t-black active:border-l-black active:bg-gray-400 active:shadow-none"
                             >
-                                <span className="text-xs font-semibold px-2 py-1 bg-slate-100 dark:bg-gray-700 rounded border border-slate-200 dark:border-gray-600">ESC</span>
+                                <X size={12} className="text-black" />
                             </button>
                         </div>
 
+                        {/* Search Input */}
+                        <div className="p-4 bg-retro-light-gray">
+                            <div className="flex items-center px-4 py-3 bg-white border-2 border-retro-dark-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]">
+                                <Search className="text-black mr-3" size={20} />
+                                <input
+                                    autoFocus
+                                    type="text"
+                                    placeholder="Type a command or search..."
+                                    className="flex-1 bg-transparent border-none outline-none text-lg text-black placeholder-retro-gray font-bold font-pixel-body uppercase"
+                                    value={query}
+                                    onChange={(e) => setQuery(e.target.value)}
+                                />
+                            </div>
+                        </div>
+
                         {/* Results */}
-                        <div className="max-h-[60vh] overflow-y-auto p-2">
+                        <div className="max-h-[60vh] overflow-y-auto p-2 bg-retro-light-gray border-t-2 border-white">
                             {filteredItems.length > 0 ? (
                                 <div className="space-y-1">
                                     {filteredItems.map((item, index) => {
@@ -147,36 +159,41 @@ const CommandPalette = () => {
                                                     setIsOpen(false);
                                                 }}
                                                 onMouseEnter={() => setSelectedIndex(index)}
-                                                className={`flex items-center px-4 py-3 rounded-lg cursor-pointer transition-colors ${isSelected ? 'bg-indigo-50 dark:bg-indigo-900/30' : 'hover:bg-slate-50 dark:hover:bg-gray-700/50'
+                                                className={`flex items-center px-4 py-2 cursor-pointer transition-colors border-2 ${isSelected
+                                                    ? 'bg-retro-blue border-white text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                                                    : 'bg-transparent border-transparent text-black hover:bg-white hover:border-black'
                                                     }`}
                                             >
-                                                <div className={`p-2 rounded-lg mr-4 ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300' : 'bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400'}`}>
+                                                <div className={`mr-4 ${isSelected ? 'text-retro-yellow' : 'text-black'}`}>
                                                     <Icon size={18} />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className={`text-sm font-medium ${isSelected ? 'text-indigo-900 dark:text-indigo-100' : 'text-slate-700 dark:text-gray-300'}`}>
+                                                    <h4 className={`text-sm font-bold font-pixel-body uppercase ${isSelected ? 'text-white' : 'text-black'}`}>
                                                         {item.name}
                                                     </h4>
-                                                    <span className="text-xs text-slate-400 dark:text-gray-500">{item.category}</span>
+                                                    <span className={`text-xs font-bold ${isSelected ? 'text-retro-light-gray' : 'text-retro-dark-gray'}`}>{item.category}</span>
                                                 </div>
                                                 {isSelected && (
-                                                    <ArrowRight size={16} className="text-indigo-400" />
+                                                    <ArrowRight size={16} className="text-white animate-pulse" />
                                                 )}
                                             </div>
                                         );
                                     })}
                                 </div>
                             ) : (
-                                <div className="px-6 py-12 text-center text-slate-500 dark:text-gray-400">
-                                    <p>No results found for "{query}"</p>
+                                <div className="px-6 py-12 text-center text-retro-dark-gray">
+                                    <p className="font-bold font-pixel-body uppercase">No matching files found.</p>
                                 </div>
                             )}
                         </div>
 
                         {/* Footer Hints */}
-                        <div className="px-4 py-2 bg-slate-50 dark:bg-gray-900 border-t border-slate-100 dark:border-gray-700 flex items-center justify-end space-x-4 text-xs text-slate-400 dark:text-gray-500">
-                            <span className="flex items-center"><span className="mr-1">↑↓</span> to navigate</span>
-                            <span className="flex items-center"><span className="mr-1">↵</span> to select</span>
+                        <div className="px-4 py-2 bg-retro-light-gray border-t-2 border-retro-gray flex items-center justify-between text-xs text-black font-bold font-pixel-body">
+                            <div className="flex gap-4">
+                                <span className="flex items-center uppercase"><span className="bg-white border border-black px-1 mr-1 shadow-[1px_1px_0px_0px_#000]">↑↓</span> Navigate</span>
+                                <span className="flex items-center uppercase"><span className="bg-white border border-black px-1 mr-1 shadow-[1px_1px_0px_0px_#000]">↵</span> Select</span>
+                            </div>
+                            <span className="uppercase">Retro_OS v1.0</span>
                         </div>
                     </motion.div>
                 </>

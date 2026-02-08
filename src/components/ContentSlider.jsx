@@ -55,26 +55,28 @@ const ContentSlider = ({ days, onExplore }) => {
     };
 
     return (
-        <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 h-[500px] overflow-hidden flex">
+        <div className="relative bg-retro-white border-4 border-retro-gray shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] h-[500px] overflow-hidden flex font-pixel-body">
             {/* Left Decoration / Image Area */}
-            <div className={`w-1/3 h-full bg-${currentDay.color}-50 dark:bg-${currentDay.color}-900/30 flex items-center justify-center relative transition-colors duration-500`}>
-                <div className={`absolute top-0 right-0 w-64 h-64 bg-${currentDay.color}-200 dark:bg-${currentDay.color}-800 rounded-full filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2`}></div>
+            <div className={`w-1/3 h-full bg-${currentDay.color}-500 border-r-4 border-retro-gray flex items-center justify-center relative`}>
+                {/* Pixel Pattern Overlay */}
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+
                 <motion.div
                     key={`icon-${currentIndex}`}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.5, ease: "steps(4)" }}
                 >
-                    <IconComponent size={120} className={`text-${currentDay.color}-600 dark:text-${currentDay.color}-400 drop-shadow-md`} strokeWidth={1.5} />
+                    <IconComponent size={120} className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]" strokeWidth={2} />
                 </motion.div>
 
-                <div className="absolute bottom-6 left-6">
-                    <span className="text-4xl font-bold text-slate-900/10 dark:text-white/10 select-none">0{currentDay.day}</span>
+                <div className="absolute bottom-6 left-6 border-2 border-white bg-black p-2">
+                    <span className="text-4xl font-bold font-pixel-header text-white select-none">0{currentDay.day}</span>
                 </div>
             </div>
 
             {/* Right Content Area */}
-            <div className="w-2/3 p-10 flex flex-col justify-center relative">
+            <div className="w-2/3 p-10 flex flex-col justify-center relative bg-retro-white text-black">
                 <AnimatePresence mode='wait'>
                     <motion.div
                         key={currentIndex}
@@ -82,42 +84,42 @@ const ContentSlider = ({ days, onExplore }) => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="space-y-4"
+                        className="space-y-6"
                     >
-                        <div className="flex items-center space-x-3">
-                            <span className={`px-3 py-1 bg-${currentDay.color}-100 dark:bg-${currentDay.color}-900/50 text-${currentDay.color}-700 dark:text-${currentDay.color}-400 text-xs font-semibold rounded-full uppercase tracking-wider`}>
+                        <div className="flex items-center space-x-3 border-b-2 border-retro-gray pb-2">
+                            <span className={`px-3 py-1 bg-black text-white text-xs font-bold border-2 border-retro-gray uppercase tracking-wider`}>
                                 Day {currentDay.day} • {currentDay.date}
                             </span>
-                            <span className="text-slate-400 text-sm">|</span>
-                            <span className="text-slate-500 dark:text-gray-400 text-sm font-medium">{currentDay.body_part}</span>
+                            <span className="text-retro-gray text-lg">|</span>
+                            <span className="text-retro-gray text-sm font-bold uppercase">{currentDay.body_part}</span>
                         </div>
 
-                        <h2 className="text-3xl font-bold text-slate-800 dark:text-white tracking-tight leading-tight">
+                        <h2 className="text-3xl font-bold font-pixel-header text-black tracking-tight leading-tight uppercase">
                             {currentDay.theme}
                         </h2>
 
-                        <p className="text-slate-600 dark:text-gray-300 text-lg leading-relaxed max-w-lg">
+                        <p className="text-retro-gray text-lg leading-relaxed max-w-lg font-bold">
                             {currentDay.description}
                         </p>
 
-                        <div className="pt-2">
-                            <h4 className="text-xs font-semibold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-2">Key Sessions</h4>
-                            <ul className="space-y-1">
+                        <div className="pt-2 bg-retro-light-gray/20 p-4 border-2 border-retro-light-gray border-dashed">
+                            <h4 className="text-xs font-bold text-retro-gray uppercase tracking-widest mb-2">[ SESSION_LOG ]</h4>
+                            <ul className="space-y-2">
                                 {(currentDay.sessions || []).slice(0, 3).map((session, idx) => (
-                                    <li key={idx} className="flex items-center text-slate-700 dark:text-gray-300 text-sm">
-                                        <span className={`w-1.5 h-1.5 bg-${currentDay.color}-500 rounded-full mr-2`}></span>
+                                    <li key={idx} className="flex items-center text-black text-sm font-bold">
+                                        <span className="w-2 h-2 bg-black mr-3"></span>
                                         {session.title}
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
-                        <div className="pt-6">
+                        <div className="pt-4">
                             <button
                                 onClick={() => onExplore(currentDay)}
-                                className={`group flex items-center space-x-2 text-${currentDay.color}-600 dark:text-${currentDay.color}-400 font-semibold text-sm hover:text-${currentDay.color}-700 dark:hover:text-${currentDay.color}-300 transition-colors`}
+                                className={`group flex items-center space-x-2 bg-retro-blue text-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none transition-all`}
                             >
-                                <span>Explore Module</span>
+                                <span className="uppercase font-bold">Explore Module</span>
                                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
@@ -126,24 +128,24 @@ const ContentSlider = ({ days, onExplore }) => {
                 </AnimatePresence>
 
                 {/* Navigation Controls */}
-                <div className="absolute bottom-6 right-8 flex space-x-3">
+                <div className="absolute bottom-6 right-8 flex space-x-4">
                     <button
                         onClick={prevSlide}
-                        className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-gray-700 text-slate-400 hover:text-slate-600 dark:hover:text-gray-200 transition-all border border-transparent hover:border-slate-200 dark:hover:border-gray-600"
+                        className="p-2 bg-retro-light-gray text-black border-2 border-black hover:bg-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
                     >
                         <ChevronLeft size={20} />
                     </button>
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-2">
                         {days.map((_, idx) => (
                             <div
                                 key={idx}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-6 bg-slate-800 dark:bg-white' : 'w-1.5 bg-slate-200 dark:bg-gray-600'}`}
+                                className={`h-3 w-3 border-2 border-black transition-all duration-0 ${idx === currentIndex ? 'bg-black' : 'bg-white'}`}
                             />
                         ))}
                     </div>
                     <button
                         onClick={nextSlide}
-                        className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-gray-700 text-slate-400 hover:text-slate-600 dark:hover:text-gray-200 transition-all border border-transparent hover:border-slate-200 dark:hover:border-gray-600"
+                        className="p-2 bg-retro-light-gray text-black border-2 border-black hover:bg-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
                     >
                         <ChevronRight size={20} />
                     </button>

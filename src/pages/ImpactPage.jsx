@@ -12,8 +12,60 @@ const goalIcons = {
     Users, Heart, MessageSquare, Footprints, Hammer, Leaf
 };
 
+// Helper to get retro colors
+const getRetroColorClasses = (color) => {
+    const variants = {
+        rose: {
+            bg: 'bg-retro-red',
+            text: 'text-retro-red',
+            lightBg: 'bg-retro-light-gray',
+        },
+        amber: {
+            bg: 'bg-retro-orange',
+            text: 'text-retro-orange',
+            lightBg: 'bg-retro-light-gray',
+        },
+        emerald: {
+            bg: 'bg-retro-green',
+            text: 'text-retro-green',
+            lightBg: 'bg-retro-light-gray',
+        },
+        blue: {
+            bg: 'bg-retro-blue',
+            text: 'text-retro-blue',
+            lightBg: 'bg-retro-light-gray',
+        },
+        violet: {
+            bg: 'bg-retro-magenta',
+            text: 'text-retro-magenta',
+            lightBg: 'bg-retro-light-gray',
+        },
+        pink: {
+            bg: 'bg-retro-magenta',
+            text: 'text-retro-magenta',
+            lightBg: 'bg-retro-light-gray',
+        },
+        cyan: {
+            bg: 'bg-retro-cyan',
+            text: 'text-retro-cyan',
+            lightBg: 'bg-retro-light-gray',
+        },
+        indigo: {
+            bg: 'bg-retro-blue',
+            text: 'text-retro-blue',
+            lightBg: 'bg-retro-light-gray',
+        },
+        purple: {
+            bg: 'bg-retro-magenta',
+            text: 'text-retro-magenta',
+            lightBg: 'bg-retro-light-gray',
+        }
+    };
+    return variants[color] || variants.rose;
+};
+
 /**
- * Impact Lab Page - Complete Implementation
+ * Impact Lab Page - Retro Edition
  * SMART Objectives, EU Youth Goals, and Measurable Impact
  */
 const ImpactPage = () => {
@@ -36,62 +88,68 @@ const ImpactPage = () => {
     ];
 
     return (
-        <div className="space-y-8">
+        <div className="space-y-8 font-pixel-body">
             {/* Header Section */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-700 dark:to-purple-700 rounded-2xl p-8 text-white relative overflow-hidden"
+                className="bg-retro-blue border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
+                {/* Dithering pattern overlay */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+
                 <div className="relative z-10">
-                    <h1 className="text-4xl font-bold mb-3">Impact Lab</h1>
-                    <p className="text-white/90 text-lg mb-6">
-                        Measurable objectives, EU alignment, and transformative outcomes
+                    <h1 className="text-3xl md:text-4xl font-bold mb-4 font-pixel-header tracking-widest uppercase retro-shadow">Impact Lab</h1>
+                    <p className="text-white text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan">
+                        &gt; Measurable objectives & outcomes
                     </p>
-                    <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                            <Target size={18} />
-                            <span className="font-semibold">7 SMART Objectives</span>
+                    <div className="flex flex-wrap gap-4 text-xs md:text-sm">
+                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <Target size={18} className="text-retro-cyan" />
+                            <span className="font-bold text-retro-cyan uppercase">7 SMART Objectives</span>
                         </div>
-                        <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                            <Globe size={18} />
-                            <span className="font-semibold">6 EU Youth Goals</span>
+                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <Globe size={18} className="text-retro-green" />
+                            <span className="font-bold text-retro-green uppercase">6 EU Youth Goals</span>
                         </div>
-                        <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                            <TrendingUp size={18} />
-                            <span className="font-semibold">100% Measurable</span>
+                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <TrendingUp size={18} className="text-retro-yellow" />
+                            <span className="font-bold text-retro-yellow uppercase">100% Measurable</span>
                         </div>
                     </div>
                 </div>
             </motion.div>
 
             {/* Tabs Navigation */}
-            <div className="flex space-x-2 overflow-x-auto pb-2">
-                {tabs.map(tab => {
-                    const IconComponent = tab.icon;
-                    return (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${activeTab === tab.id
-                                ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-lg'
-                                : 'bg-white dark:bg-gray-800 text-slate-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-gray-700 border border-slate-200 dark:border-gray-700'
-                                }`}
-                        >
-                            <IconComponent size={20} />
-                            <span>{tab.label}</span>
-                        </button>
-                    );
-                })}
+            <div className="bg-retro-black border-4 border-retro-gray p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-x-auto custom-scrollbar">
+                <div className="flex space-x-2 pb-1 min-w-max">
+                    {tabs.map(tab => {
+                        const IconComponent = tab.icon;
+                        return (
+                            <button
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`flex items-center space-x-2 px-6 py-3 font-bold uppercase font-pixel-header text-xs transition-all border-2 border-b-4 active:border-b-2 active:translate-y-1 ${activeTab === tab.id
+                                    ? 'bg-retro-blue text-white border-white shadow-none'
+                                    : 'bg-retro-light-gray text-retro-dark-gray border-retro-gray hover:bg-white hover:text-black hover:border-white'
+                                    }`}
+                            >
+                                <IconComponent size={16} />
+                                <span>{tab.label}</span>
+                            </button>
+                        );
+                    })}
+                </div>
             </div>
 
             {/* Tab Content */}
             <AnimatePresence mode="wait">
-                {activeTab === 'objectives' && <ObjectivesTab objectives={smart_objectives} />}
-                {activeTab === 'goals' && <GoalsTab goals={eu_youth_goals} />}
-                {activeTab === 'priorities' && <PrioritiesTab priorities={erasmus_priorities} />}
-                {activeTab === 'indicators' && <IndicatorsTab indicators={impact_indicators} />}
+                <div className="bg-retro-light-gray border-4 border-retro-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] min-h-[400px]">
+                    {activeTab === 'objectives' && <ObjectivesTab objectives={smart_objectives} />}
+                    {activeTab === 'goals' && <GoalsTab goals={eu_youth_goals} />}
+                    {activeTab === 'priorities' && <PrioritiesTab priorities={erasmus_priorities} />}
+                    {activeTab === 'indicators' && <IndicatorsTab indicators={impact_indicators} />}
+                </div>
             </AnimatePresence>
         </div>
     );
@@ -101,69 +159,6 @@ const ImpactPage = () => {
  * SMART Objectives Tab
  */
 const ObjectivesTab = ({ objectives }) => {
-    // Helper for color classes
-    const getObjColorClasses = (color) => {
-        const variants = {
-            rose: {
-                borderStart: 'border-rose-500',
-                badgeBg: 'bg-rose-100 dark:bg-rose-900/30',
-                badgeText: 'text-rose-700 dark:text-rose-400',
-                targetBg: 'bg-rose-50 dark:bg-rose-900/20',
-                targetIcon: 'text-rose-600 dark:text-rose-400',
-                targetText: 'text-rose-900 dark:text-rose-200'
-            },
-            amber: {
-                borderStart: 'border-amber-500',
-                badgeBg: 'bg-amber-100 dark:bg-amber-900/30',
-                badgeText: 'text-amber-700 dark:text-amber-400',
-                targetBg: 'bg-amber-50 dark:bg-amber-900/20',
-                targetIcon: 'text-amber-600 dark:text-amber-400',
-                targetText: 'text-amber-900 dark:text-amber-200'
-            },
-            emerald: {
-                borderStart: 'border-emerald-500',
-                badgeBg: 'bg-emerald-100 dark:bg-emerald-900/30',
-                badgeText: 'text-emerald-700 dark:text-emerald-400',
-                targetBg: 'bg-emerald-50 dark:bg-emerald-900/20',
-                targetIcon: 'text-emerald-600 dark:text-emerald-400',
-                targetText: 'text-emerald-900 dark:text-emerald-200'
-            },
-            blue: {
-                borderStart: 'border-blue-500',
-                badgeBg: 'bg-blue-100 dark:bg-blue-900/30',
-                badgeText: 'text-blue-700 dark:text-blue-400',
-                targetBg: 'bg-blue-50 dark:bg-blue-900/20',
-                targetIcon: 'text-blue-600 dark:text-blue-400',
-                targetText: 'text-blue-900 dark:text-blue-200'
-            },
-            violet: {
-                borderStart: 'border-violet-500',
-                badgeBg: 'bg-violet-100 dark:bg-violet-900/30',
-                badgeText: 'text-violet-700 dark:text-violet-400',
-                targetBg: 'bg-violet-50 dark:bg-violet-900/20',
-                targetIcon: 'text-violet-600 dark:text-violet-400',
-                targetText: 'text-violet-900 dark:text-violet-200'
-            },
-            pink: {
-                borderStart: 'border-pink-500',
-                badgeBg: 'bg-pink-100 dark:bg-pink-900/30',
-                badgeText: 'text-pink-700 dark:text-pink-400',
-                targetBg: 'bg-pink-50 dark:bg-pink-900/20',
-                targetIcon: 'text-pink-600 dark:text-pink-400',
-                targetText: 'text-pink-900 dark:text-pink-200'
-            },
-            cyan: {
-                borderStart: 'border-cyan-500',
-                badgeBg: 'bg-cyan-100 dark:bg-cyan-900/30',
-                badgeText: 'text-cyan-700 dark:text-cyan-400',
-                targetBg: 'bg-cyan-50 dark:bg-cyan-900/20',
-                targetIcon: 'text-cyan-600 dark:text-cyan-400',
-                targetText: 'text-cyan-900 dark:text-cyan-200'
-            }
-        };
-        return variants[color] || variants.rose;
-    };
-
     return (
         <motion.div
             key="objectives"
@@ -173,63 +168,65 @@ const ObjectivesTab = ({ objectives }) => {
             className="space-y-6"
         >
             {objectives.map((obj, idx) => {
-                const colors = getObjColorClasses(obj.color);
+                const colors = getRetroColorClasses(obj.color);
                 return (
                     <motion.div
                         key={obj.id}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border-l-4 ${colors.borderStart} p-6`}
+                        className={`bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all`}
                     >
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex-1">
                                 <div className="flex items-center space-x-3 mb-2">
-                                    <span className={`px-3 py-1 ${colors.badgeBg} ${colors.badgeText} text-xs font-bold rounded-full`}>
+                                    <span className={`px-2 py-1 bg-black text-white text-xs font-bold font-pixel-header uppercase border-2 border-retro-gray`}>
                                         DAY {obj.day}
                                     </span>
-                                    <span className="text-sm text-slate-500 dark:text-gray-400 font-medium">{obj.body_part}</span>
+                                    <span className="text-sm text-retro-gray font-bold uppercase">&gt; {obj.body_part}</span>
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{obj.title}</h3>
-                                <p className="text-slate-700 dark:text-gray-300 leading-relaxed mb-4">
+                                <h3 className="text-lg md:text-xl font-bold text-black mb-2 font-pixel-header uppercase">{obj.title}</h3>
+                                <p className="text-black leading-relaxed mb-4 font-bold border-l-4 border-retro-light-gray pl-4">
                                     {obj.objective}
                                 </p>
                             </div>
                         </div>
 
                         {/* Target */}
-                        <div className={`${colors.targetBg} rounded-lg p-4 mb-4`}>
+                        <div className={`${colors.bg} border-2 border-black p-4 mb-4 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
                             <div className="flex items-start space-x-3">
-                                <Target className={`${colors.targetIcon} flex-shrink-0 mt-1`} size={20} />
+                                <div className="bg-white border-2 border-black p-1">
+                                    <Target className={`${colors.text} flex-shrink-0`} size={20} />
+                                </div>
                                 <div>
-                                    <p className="text-xs font-semibold text-slate-600 dark:text-gray-400 uppercase tracking-wider mb-1">Target</p>
-                                    <p className={`${colors.targetText} font-semibold`}>{obj.target}</p>
+                                    <p className="text-xs font-bold text-black uppercase tracking-wider mb-1 bg-white inline-block px-1 border border-black">Target</p>
+                                    <p className="text-white font-bold font-pixel-header text-sm drop-shadow-md">{obj.target}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Metrics Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-4">
-                                <p className="text-xs font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-1">Baseline</p>
-                                <p className="text-sm text-slate-700 dark:text-gray-300">{obj.metrics.baseline}</p>
+                            <div className="bg-retro-light-gray border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                                <p className="text-xs font-bold text-retro-dark-gray uppercase tracking-wider mb-1 underline">Baseline</p>
+                                <p className="text-xs font-bold text-black font-mono">{obj.metrics.baseline}</p>
                             </div>
-                            <div className="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-4">
-                                <p className="text-xs font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-1">Measurement</p>
-                                <p className="text-sm text-slate-700 dark:text-gray-300">{obj.metrics.measurement}</p>
+                            <div className="bg-retro-light-gray border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                                <p className="text-xs font-bold text-retro-dark-gray uppercase tracking-wider mb-1 underline">Measurement</p>
+                                <p className="text-xs font-bold text-black font-mono">{obj.metrics.measurement}</p>
                             </div>
-                            <div className="bg-slate-50 dark:bg-gray-700/50 rounded-lg p-4">
-                                <p className="text-xs font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-1">Success</p>
-                                <p className="text-sm text-slate-700 dark:text-gray-300">{obj.metrics.success_criteria}</p>
+                            <div className="bg-white border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                                <p className="text-xs font-bold text-retro-green uppercase tracking-wider mb-1 underline">Success Criteria</p>
+                                <p className="text-xs font-bold text-black font-mono">{obj.metrics.success_criteria}</p>
                             </div>
                         </div>
 
                         {/* Methods */}
-                        <div className="mt-4">
-                            <p className="text-xs font-semibold text-slate-400 dark:text-gray-500 uppercase tracking-wider mb-2">Methods Used</p>
+                        <div className="mt-4 pt-4 border-t-2 border-dashed border-gray-400">
+                            <p className="text-xs font-bold text-retro-gray uppercase tracking-wider mb-2">[ Methods Used ]</p>
                             <div className="flex flex-wrap gap-2">
                                 {obj.methods.map((method, midx) => (
-                                    <span key={midx} className="px-3 py-1 bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-300 text-sm rounded-lg">
+                                    <span key={midx} className="px-2 py-1 bg-white border border-black text-black text-xs font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                                         {method}
                                     </span>
                                 ))}
@@ -246,16 +243,6 @@ const ObjectivesTab = ({ objectives }) => {
  * EU Youth Goals Tab
  */
 const GoalsTab = ({ goals }) => {
-    // Color mappings to avoid dynamic Tailwind class issues
-    const colorClasses = {
-        rose: { top: 'bg-rose-500', icon: 'bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400', badge: 'bg-rose-600' },
-        violet: { top: 'bg-violet-500', icon: 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400', badge: 'bg-violet-600' },
-        blue: { top: 'bg-blue-500', icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400', badge: 'bg-blue-600' },
-        amber: { top: 'bg-amber-500', icon: 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400', badge: 'bg-amber-600' },
-        pink: { top: 'bg-pink-500', icon: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400', badge: 'bg-pink-600' },
-        emerald: { top: 'bg-emerald-500', icon: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400', badge: 'bg-emerald-600' },
-    };
-
     return (
         <motion.div
             key="goals"
@@ -266,31 +253,33 @@ const GoalsTab = ({ goals }) => {
         >
             {goals.map((goal, idx) => {
                 const IconComponent = goalIcons[goal.icon] || Target;
-                const colors = colorClasses[goal.color] || colorClasses.rose;
+                const colors = getRetroColorClasses(goal.color);
                 return (
                     <motion.div
                         key={goal.number}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 overflow-hidden"
+                        className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full"
                     >
-                        <div className={`h-2 ${colors.top}`}></div>
-                        <div className="p-6">
+                        <div className={`h-4 ${colors.bg} border-b-4 border-black`}></div>
+                        <div className="p-6 flex-1 flex flex-col">
                             <div className="flex items-start space-x-4 mb-4">
-                                <div className={`w-12 h-12 ${colors.icon} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                                    <IconComponent size={24} />
+                                <div className={`w-12 h-12 bg-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0`}>
+                                    <IconComponent size={24} className={`${colors.text}`} />
                                 </div>
                                 <div className="flex-1">
-                                    <div className={`inline-flex items-center justify-center w-8 h-8 ${colors.badge} text-white rounded-full font-bold text-sm mb-2`}>
+                                    <div className={`inline-flex items-center justify-center w-auto min-w-[2rem] px-2 h-8 ${colors.bg} text-white border-2 border-black font-bold text-sm mb-2 font-pixel-header`}>
                                         #{goal.number}
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{goal.title}</h3>
+                                    <h3 className="text-lg font-bold text-black mb-2 font-pixel-header uppercase leading-tight">{goal.title}</h3>
                                 </div>
                             </div>
-                            <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
-                                {goal.connection}
-                            </p>
+                            <div className="bg-retro-light-gray/30 border-2 border-black p-3 flex-1">
+                                <p className="text-black font-bold font-pixel-body leading-relaxed text-sm">
+                                    {goal.connection}
+                                </p>
+                            </div>
                         </div>
                     </motion.div>
                 );
@@ -303,14 +292,6 @@ const GoalsTab = ({ goals }) => {
  * Erasmus+ Priorities Tab
  */
 const PrioritiesTab = ({ priorities }) => {
-    // Color mappings to avoid dynamic Tailwind class issues
-    const colorClasses = {
-        indigo: { bg: 'bg-indigo-100 dark:bg-indigo-900/30', text: 'text-indigo-600 dark:text-indigo-400', bar: 'bg-indigo-500' },
-        emerald: { bg: 'bg-emerald-100 dark:bg-emerald-900/30', text: 'text-emerald-600 dark:text-emerald-400', bar: 'bg-emerald-500' },
-        blue: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-600 dark:text-blue-400', bar: 'bg-blue-500' },
-        purple: { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-600 dark:text-purple-400', bar: 'bg-purple-500' },
-    };
-
     return (
         <motion.div
             key="priorities"
@@ -320,33 +301,39 @@ const PrioritiesTab = ({ priorities }) => {
             className="space-y-6"
         >
             {priorities.map((priority, idx) => {
-                const colors = colorClasses[priority.color] || colorClasses.indigo;
+                const colors = getRetroColorClasses(priority.color);
                 return (
                     <motion.div
                         key={idx}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6"
+                        className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6"
                     >
-                        <div className="flex items-start justify-between mb-4">
+                        <div className="flex flex-col md:flex-row items-start justify-between mb-4 gap-4">
                             <div className="flex-1">
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{priority.name}</h3>
-                                <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
+                                <h3 className="text-xl font-bold text-black mb-3 font-pixel-header uppercase">{priority.name}</h3>
+                                <p className="text-black font-bold font-pixel-body leading-relaxed border-l-4 border-retro-gray pl-4">
                                     {priority.description}
                                 </p>
                             </div>
-                            <div className={`ml-6 flex-shrink-0 ${colors.bg} rounded-xl p-4 text-center`}>
-                                <p className={`text-3xl font-bold ${colors.text}`}>{priority.impact_percentage}%</p>
-                                <p className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1">Impact</p>
+                            <div className={`flex-shrink-0 ${colors.bg} border-2 border-black p-4 text-center min-w-[100px] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
+                                <p className={`text-2xl font-bold text-white font-pixel-header`}>{priority.impact_percentage}%</p>
+                                <p className="text-[10px] text-white font-bold uppercase mt-1 bg-black px-1">Impact Level</p>
                             </div>
                         </div>
-                        {/* Progress Bar */}
-                        <div className="w-full bg-slate-100 dark:bg-gray-700 rounded-full h-2">
+                        {/* Retro Progress Bar */}
+                        <div className="w-full bg-retro-light-gray border-2 border-black h-6 p-0.5 relative">
+                            {/* Ticks */}
+                            <div className="absolute inset-0 flex justify-between px-1 pointer-events-none">
+                                {[...Array(10)].map((_, i) => <div key={i} className="w-0.5 h-full bg-gray-300"></div>)}
+                            </div>
                             <div
-                                className={`${colors.bar} h-2 rounded-full transition-all`}
+                                className={`${colors.bg} h-full border-r-2 border-black transition-all relative z-10`}
                                 style={{ width: `${priority.impact_percentage}%` }}
-                            ></div>
+                            >
+                                {/* Striped pattern css would happen here or via image, keeping it simple solid for now */}
+                            </div>
                         </div>
                     </motion.div>
                 );
@@ -364,29 +351,29 @@ const IndicatorsTab = ({ indicators }) => (
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
-        className="space-y-6"
+        className="space-y-8"
     >
         {/* Direct Participants */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-2">
-                <Users size={28} className="text-indigo-600 dark:text-indigo-400" />
-                <span>Direct Participants</span>
+        <div className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
+            <h3 className="text-xl font-bold text-black mb-6 flex items-center space-x-2 border-b-4 border-retro-blue pb-2">
+                <Users size={24} className="text-retro-blue" />
+                <span className="font-pixel-header uppercase">Direct Participants</span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {Object.entries(indicators.direct_participants).map(([key, value]) => (
-                    <div key={key} className="bg-indigo-50 dark:bg-indigo-900/20 rounded-lg p-4 text-center">
-                        <p className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">{value}</p>
-                        <p className="text-xs text-slate-600 dark:text-gray-400 font-semibold capitalize">{key.replace(/_/g, ' ')}</p>
+                    <div key={key} className="bg-retro-black border-2 border-retro-gray p-4 text-center">
+                        <p className="text-3xl font-bold text-retro-green font-pixel-header mb-1 text-shadow-glow">{value}</p>
+                        <p className="text-[10px] text-retro-white font-bold uppercase tracking-wider">{key.replace(/_/g, ' ')}</p>
                     </div>
                 ))}
             </div>
         </div>
 
         {/* Expected Outcomes */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center space-x-2">
-                <CheckCircle2 size={28} className="text-emerald-600 dark:text-emerald-400" />
-                <span>Expected Outcomes</span>
+        <div className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
+            <h3 className="text-xl font-bold text-black mb-6 flex items-center space-x-2 border-b-4 border-retro-green pb-2">
+                <CheckCircle2 size={24} className="text-retro-green" />
+                <span className="font-pixel-header uppercase">Expected Outcomes</span>
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {Object.entries(indicators.expected_outcomes).map(([key, value]) => {
@@ -402,15 +389,17 @@ const IndicatorsTab = ({ indicators }) => (
                     };
 
                     return (
-                        <div key={key} className="flex items-start space-x-3 bg-slate-50 dark:bg-gray-700/50 rounded-lg p-4">
-                            <CheckCircle2 size={20} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                        <div key={key} className="flex items-start space-x-3 bg-retro-light-gray/20 border-2 border-black p-4 hover:bg-retro-green/10 transition-colors">
+                            <div className="w-5 h-5 bg-retro-green border border-black flex items-center justify-center flex-shrink-0 mt-1">
+                                <div className="w-2.5 h-1.5 bg-transparent border-b-2 border-l-2 border-white -rotate-45 -mt-0.5"></div>
+                            </div>
                             <div>
-                                <p className="text-sm font-semibold text-slate-700 dark:text-gray-300 capitalize mb-1">
+                                <p className="text-sm font-bold text-black font-pixel-body capitalize mb-1 underline decoration-retro-gray">
                                     {key.replace(/_/g, ' ')}
                                 </p>
-                                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-1">{value}</p>
-                                <p className="text-xs text-slate-500 dark:text-gray-400 leading-tight">
-                                    {descriptions[key] || "Measurable project outcome"}
+                                <p className="text-2xl font-bold text-retro-green font-pixel-header mb-1">{value}</p>
+                                <p className="text-xs text-retro-dark-gray font-bold leading-tight">
+                                    &gt; {descriptions[key] || "Measurable outcomes"}
                                 </p>
                             </div>
                         </div>
@@ -420,26 +409,27 @@ const IndicatorsTab = ({ indicators }) => (
         </div>
 
         {/* Multiplier Effect */}
-        <div className="bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 rounded-xl shadow-lg p-6 text-white">
-            <h3 className="text-2xl font-bold mb-6 flex items-center space-x-2">
-                <TrendingUp size={28} />
-                <span>Multiplier Effect</span>
+        <div className="bg-retro-magenta border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 text-white relative overflow-hidden">
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+            <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 border-b-4 border-white pb-2 relative z-10">
+                <TrendingUp size={24} className="text-white" />
+                <span className="font-pixel-header uppercase">Multiplier Effect</span>
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                    <p className="text-white/80 text-sm font-semibold mb-2">Local Events</p>
-                    <p className="text-4xl font-bold">{indicators.multiplier_effect.local_events}</p>
-                    <p className="text-white/70 text-sm mt-1">Events across 8 countries</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                <div className="bg-black border-2 border-white p-4 text-center">
+                    <p className="text-retro-magenta text-xs font-bold uppercase mb-2 bg-white inline-block px-1">Local Events</p>
+                    <p className="text-4xl font-bold font-pixel-header text-retro-yellow">{indicators.multiplier_effect.local_events}</p>
+                    <p className="text-white text-xs mt-1 font-bold">Events across 8 countries</p>
                 </div>
-                <div>
-                    <p className="text-white/80 text-sm font-semibold mb-2">Expected Reach</p>
-                    <p className="text-4xl font-bold">{indicators.multiplier_effect.expected_reach}</p>
-                    <p className="text-white/70 text-sm mt-1">People impacted locally</p>
+                <div className="bg-black border-2 border-white p-4 text-center">
+                    <p className="text-retro-magenta text-xs font-bold uppercase mb-2 bg-white inline-block px-1">Expected Reach</p>
+                    <p className="text-4xl font-bold font-pixel-header text-retro-cyan">{indicators.multiplier_effect.expected_reach}</p>
+                    <p className="text-white text-xs mt-1 font-bold">People impacted locally</p>
                 </div>
-                <div>
-                    <p className="text-white/80 text-sm font-semibold mb-2">Timeline</p>
-                    <p className="text-2xl font-bold">{indicators.multiplier_effect.timeline}</p>
-                    <p className="text-white/70 text-sm mt-1">{indicators.multiplier_effect.digital_content}</p>
+                <div className="bg-black border-2 border-white p-4 text-center">
+                    <p className="text-retro-magenta text-xs font-bold uppercase mb-2 bg-white inline-block px-1">Timeline</p>
+                    <p className="text-xl font-bold font-pixel-header text-retro-green pt-2">{indicators.multiplier_effect.timeline}</p>
+                    <p className="text-white text-xs mt-1 font-bold pt-1">{indicators.multiplier_effect.digital_content}</p>
                 </div>
             </div>
         </div>
