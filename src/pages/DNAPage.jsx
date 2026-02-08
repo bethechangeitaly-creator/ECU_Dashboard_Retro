@@ -74,45 +74,45 @@ const DNAPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-xl shadow-sm border border-slate-200 p-8"
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-8"
             >
                 <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Sparkles size={28} className="text-purple-600" />
+                    <div className="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Sparkles size={28} className="text-purple-600 dark:text-purple-400" />
                     </div>
                     <div>
-                        <h2 className="text-2xl font-bold text-slate-900 mb-2">The Genesis</h2>
-                        <p className="text-slate-600">Where it all began</p>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">The Genesis</h2>
+                        <p className="text-slate-600 dark:text-gray-400">Where it all began</p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-purple-50 rounded-lg p-6">
+                    <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-6">
                         <div className="flex items-center space-x-2 mb-3">
-                            <Flag size={20} className="text-purple-600" />
-                            <p className="font-semibold text-slate-900">Origin Event</p>
+                            <Flag size={20} className="text-purple-600 dark:text-purple-400" />
+                            <p className="font-semibold text-slate-900 dark:text-white">Origin Event</p>
                         </div>
-                        <p className="text-slate-700">{genesis.origin}</p>
+                        <p className="text-slate-700 dark:text-gray-300">{genesis.origin}</p>
                     </div>
-                    <div className="bg-pink-50 rounded-lg p-6">
+                    <div className="bg-pink-50 dark:bg-pink-900/20 rounded-lg p-6">
                         <div className="flex items-center space-x-2 mb-3">
-                            <MapPin size={20} className="text-pink-600" />
-                            <p className="font-semibold text-slate-900">Location & Time</p>
+                            <MapPin size={20} className="text-pink-600 dark:text-pink-400" />
+                            <p className="font-semibold text-slate-900 dark:text-white">Location & Time</p>
                         </div>
-                        <p className="text-slate-700">{genesis.location}</p>
+                        <p className="text-slate-700 dark:text-gray-300">{genesis.location}</p>
                     </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6">
-                    <h3 className="font-bold text-slate-900 mb-3 flex items-center space-x-2">
-                        <Heart size={20} className="text-rose-600" />
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl p-6">
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center space-x-2">
+                        <Heart size={20} className="text-rose-600 dark:text-rose-400" />
                         <span>The Spark</span>
                     </h3>
-                    <p className="text-slate-700 leading-relaxed mb-4">
+                    <p className="text-slate-700 dark:text-gray-300 leading-relaxed mb-4">
                         {genesis.spark}
                     </p>
-                    <h3 className="font-bold text-slate-900 mb-2">Vision</h3>
-                    <p className="text-slate-700 leading-relaxed">
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-2">Vision</h3>
+                    <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
                         {genesis.vision}
                     </p>
                 </div>
@@ -124,7 +124,7 @@ const DNAPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
             >
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Core Values</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Core Values</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {coreValues.map((value, idx) => {
                         const IconComponent = value.icon;
@@ -134,13 +134,13 @@ const DNAPage = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 + idx * 0.1 }}
-                                className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+                                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6"
                             >
-                                <div className={`w-12 h-12 bg-${value.color}-100 rounded-xl flex items-center justify-center mb-4`}>
-                                    <IconComponent size={24} className={`text-${value.color}-600`} />
+                                <div className={`w-12 h-12 bg-${value.color}-100 dark:bg-${value.color}-900/30 rounded-xl flex items-center justify-center mb-4`}>
+                                    <IconComponent size={24} className={`text-${value.color}-600 dark:text-${value.color}-400`} />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">{value.title}</h3>
-                                <p className="text-slate-700 leading-relaxed">
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{value.title}</h3>
+                                <p className="text-slate-700 dark:text-gray-300 leading-relaxed">
                                     {value.description}
                                 </p>
                             </motion.div>
@@ -156,7 +156,7 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl shadow-lg p-1 text-white h-full"
+                    className="bg-gradient-to-br from-amber-500 to-orange-600 dark:from-amber-900 dark:to-orange-950 rounded-2xl shadow-lg p-1 text-white h-full"
                 >
                     <div className="bg-white/10 h-full w-full rounded-xl p-8 backdrop-blur-sm border border-white/20 flex flex-col justify-between">
                         <div>
@@ -171,7 +171,7 @@ const DNAPage = () => {
                             </p>
                         </div>
                         <div className="mt-auto">
-                            <div className="bg-black/20 rounded-xl p-4 border border-white/10">
+                            <div className="bg-black/20 dark:bg-black/40 rounded-xl p-4 border border-white/10">
                                 <p className="font-mono font-bold text-center text-lg tracking-wide">{methodology.structure}</p>
                             </div>
                         </div>
@@ -183,31 +183,31 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8 h-full relative overflow-hidden group"
+                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-slate-100 dark:border-gray-700 p-8 h-full relative overflow-hidden group"
                 >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:bg-emerald-100 transition-colors duration-700"></div>
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 dark:bg-emerald-900/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/20 transition-colors duration-700"></div>
 
                     <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-start space-x-4 mb-6">
-                            <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                                <Target size={28} className="text-emerald-600" />
+                            <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <Target size={28} className="text-emerald-600 dark:text-emerald-400" />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900 mb-2">{impact_philosophy.title}</h2>
+                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{impact_philosophy.title}</h2>
                                 <div className="h-1 w-20 bg-emerald-500 rounded-full"></div>
                             </div>
                         </div>
 
-                        <p className="text-slate-600 text-lg leading-relaxed mb-8 flex-1">
+                        <p className="text-slate-600 dark:text-gray-300 text-lg leading-relaxed mb-8 flex-1">
                             {impact_philosophy.description}
                         </p>
 
-                        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-100">
-                            <div className="flex items-center gap-3 text-emerald-800 font-semibold">
+                        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6 border border-emerald-100 dark:border-emerald-900/30">
+                            <div className="flex items-center gap-3 text-emerald-800 dark:text-emerald-400 font-semibold">
                                 <TrendingUp size={20} />
                                 <span>The Multiplier Chain</span>
                             </div>
-                            <p className="mt-3 text-slate-700 font-medium">
+                            <p className="mt-3 text-slate-700 dark:text-gray-300 font-medium">
                                 {impact_philosophy.multiplier}
                             </p>
                         </div>

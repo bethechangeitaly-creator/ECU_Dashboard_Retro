@@ -26,12 +26,12 @@ const MessageCenter = () => {
             {/* Mail Trigger */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="relative p-2 rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-700 transition w-12 h-12 flex items-center justify-center"
+                className="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-gray-800 text-slate-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-gray-200 transition w-12 h-12 flex items-center justify-center"
             >
                 <div className="relative">
                     <Mail size={20} />
                     {messages.length > 0 && (
-                        <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 border-2 border-white rounded-full"></span>
+                        <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-gray-900 rounded-full"></span>
                     )}
                 </div>
             </button>
@@ -51,12 +51,12 @@ const MessageCenter = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-slate-200 z-50 overflow-hidden"
+                            className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-slate-200 dark:border-gray-700 z-50 overflow-hidden"
                         >
-                            <div className="bg-slate-50 px-4 py-3 border-b border-slate-100 flex justify-between items-center">
-                                <h3 className="font-semibold text-slate-800">Messages</h3>
+                            <div className="bg-slate-50 dark:bg-gray-900 px-4 py-3 border-b border-slate-100 dark:border-gray-700 flex justify-between items-center">
+                                <h3 className="font-semibold text-slate-800 dark:text-white">Messages</h3>
                                 {messages.length > 0 && (
-                                    <span className="text-xs font-medium bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">{messages.length} New</span>
+                                    <span className="text-xs font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full">{messages.length} New</span>
                                 )}
                             </div>
 
@@ -65,15 +65,15 @@ const MessageCenter = () => {
                                     messages.map((msg) => {
                                         const Icon = msg.icon;
                                         return (
-                                            <div key={msg.id} className="p-4 border-b border-slate-50 hover:bg-slate-50 transition-colors last:border-0 relative group">
+                                            <div key={msg.id} className="p-4 border-b border-slate-50 dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700/50 transition-colors last:border-0 relative group">
                                                 <div className="flex gap-3">
-                                                    <div className={`mt-1 w-8 h-8 rounded-full bg-${msg.color}-100 flex items-center justify-center flex-shrink-0`}>
-                                                        <Icon size={14} className={`text-${msg.color}-600`} />
+                                                    <div className={`mt-1 w-8 h-8 rounded-full bg-${msg.color}-100 dark:bg-${msg.color}-900/30 flex items-center justify-center flex-shrink-0`}>
+                                                        <Icon size={14} className={`text-${msg.color}-600 dark:text-${msg.color}-400`} />
                                                     </div>
                                                     <div>
-                                                        <h4 className="text-sm font-semibold text-slate-900 mb-1">{msg.title}</h4>
-                                                        <p className="text-xs text-slate-600 leading-relaxed mb-1">{msg.message}</p>
-                                                        <span className="text-[10px] text-slate-400 font-medium">{msg.time}</span>
+                                                        <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-1">{msg.title}</h4>
+                                                        <p className="text-xs text-slate-600 dark:text-gray-300 leading-relaxed mb-1">{msg.message}</p>
+                                                        <span className="text-[10px] text-slate-400 dark:text-gray-500 font-medium">{msg.time}</span>
                                                     </div>
                                                 </div>
                                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-amber-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -81,17 +81,17 @@ const MessageCenter = () => {
                                         );
                                     })
                                 ) : (
-                                    <div className="p-8 text-center text-slate-500">
+                                    <div className="p-8 text-center text-slate-500 dark:text-gray-400">
                                         <p className="text-sm">No new messages</p>
                                     </div>
                                 )}
                             </div>
 
                             {messages.length > 0 && (
-                                <div className="bg-slate-50 px-4 py-2 border-t border-slate-100 text-center">
+                                <div className="bg-slate-50 dark:bg-gray-900 px-4 py-2 border-t border-slate-100 dark:border-gray-700 text-center">
                                     <button
                                         onClick={markAllAsRead}
-                                        className="text-xs font-semibold text-blue-600 hover:text-blue-700"
+                                        className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
                                     >
                                         Clear messages
                                     </button>

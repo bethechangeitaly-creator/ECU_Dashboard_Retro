@@ -137,7 +137,7 @@ const FollowUpPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-pink-600 to-rose-600 rounded-2xl p-8 text-white relative overflow-hidden"
+                className="bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-700 dark:to-rose-700 rounded-2xl p-8 text-white relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
                 <div className="relative z-10">
@@ -164,7 +164,7 @@ const FollowUpPage = () => {
 
             {/* Timeline */}
             <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Follow-Up Timeline</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Follow-Up Timeline</h2>
                 <div className="space-y-6">
                     {timeline.map((phase, idx) => {
                         const IconComponent = phase.icon;
@@ -174,19 +174,19 @@ const FollowUpPage = () => {
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+                                className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6"
                             >
                                 <div className="flex items-start space-x-4">
-                                    <div className={`w-12 h-12 bg-${phase.color}-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1`}>
-                                        <IconComponent size={24} className={`text-${phase.color}-600`} />
+                                    <div className={`w-12 h-12 bg-${phase.color}-100 dark:bg-${phase.color}-900/30 rounded-xl flex items-center justify-center flex-shrink-0 mt-1`}>
+                                        <IconComponent size={24} className={`text-${phase.color}-600 dark:text-${phase.color}-400`} />
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl font-bold text-slate-900 mb-3">{phase.phase}</h3>
+                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{phase.phase}</h3>
                                         <ul className="space-y-2">
                                             {phase.actions.map((action, aidx) => (
                                                 <li key={aidx} className="flex items-start space-x-2">
-                                                    <CheckCircle2 size={18} className={`text-${phase.color}-600 flex-shrink-0 mt-0.5`} />
-                                                    <span className="text-slate-700">{action}</span>
+                                                    <CheckCircle2 size={18} className={`text-${phase.color}-600 dark:text-${phase.color}-400 flex-shrink-0 mt-0.5`} />
+                                                    <span className="text-slate-700 dark:text-gray-300">{action}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -200,7 +200,7 @@ const FollowUpPage = () => {
 
             {/* Local Multiplier Events */}
             <div className="relative">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6">Local Multiplier Events</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Local Multiplier Events</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
                     {multiplierEvents.map((event, idx) => (
                         <motion.div
@@ -208,33 +208,33 @@ const FollowUpPage = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.05 }}
-                            className={`bg-white rounded-xl shadow-sm border-l-4 border-${event.color}-500 p-6`}
+                            className={`bg-white dark:bg-gray-800 rounded-xl shadow-sm border-l-4 border-${event.color}-500 p-6`}
                         >
                             <div className="flex items-start justify-between mb-3">
-                                <span className={`px-3 py-1 bg-${event.color}-100 text-${event.color}-700 text-sm font-bold rounded-full`}>
+                                <span className={`px-3 py-1 bg-${event.color}-100 dark:bg-${event.color}-900/30 text-${event.color}-700 dark:text-${event.color}-400 text-sm font-bold rounded-full`}>
                                     {event.country}
                                 </span>
-                                <div className={`flex items-center space-x-1 bg-${event.color}-50 px-3 py-1 rounded-full`}>
-                                    <Users size={16} className={`text-${event.color}-600`} />
-                                    <span className={`text-sm font-semibold text-${event.color}-700`}>{event.expected_reach}+</span>
+                                <div className={`flex items-center space-x-1 bg-${event.color}-50 dark:bg-${event.color}-900/20 px-3 py-1 rounded-full`}>
+                                    <Users size={16} className={`text-${event.color}-600 dark:text-${event.color}-400`} />
+                                    <span className={`text-sm font-semibold text-${event.color}-700 dark:text-${event.color}-300`}>{event.expected_reach}+</span>
                                 </div>
                             </div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">{event.title}</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{event.title}</h3>
+                            <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed">
                                 {event.description}
                             </p>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Frosted Glass Overlay */}
-                <div className="absolute inset-0 top-16 backdrop-blur-sm bg-white/20 rounded-2xl flex items-center justify-center z-10 border-2 border-slate-200/30">
-                    <div className="text-center px-8 py-12 bg-white/60 p-8 rounded-2xl shadow-sm backdrop-blur-sm">
+                {/* Frosted Glass Overlay - Adjusted for Dark Mode */}
+                <div className="absolute inset-0 top-16 backdrop-blur-sm bg-white/20 dark:bg-black/40 rounded-2xl flex items-center justify-center z-10 border-2 border-slate-200/30 dark:border-gray-700/30">
+                    <div className="text-center px-8 py-12 bg-white/60 dark:bg-gray-800/80 p-8 rounded-2xl shadow-sm backdrop-blur-sm">
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500 rounded-full mb-4 shadow-lg">
                             <Calendar className="text-white" size={32} />
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-900 mb-2">To Be Planned During Project</h3>
-                        <p className="text-slate-800 font-medium text-lg max-w-md mx-auto">
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">To Be Planned During Project</h3>
+                        <p className="text-slate-800 dark:text-gray-200 font-medium text-lg max-w-md mx-auto">
                             Specific local events will be designed collaboratively by participants during the exchange (October-December 2026)
                         </p>
                     </div>
@@ -245,7 +245,7 @@ const FollowUpPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl shadow-lg p-8 text-white"
+                className="bg-gradient-to-br from-indigo-500 to-purple-500 dark:from-indigo-700 dark:to-purple-700 rounded-xl shadow-lg p-8 text-white"
             >
                 <h2 className="text-2xl font-bold mb-6 flex items-center space-x-2">
                     <TrendingUp size={28} />

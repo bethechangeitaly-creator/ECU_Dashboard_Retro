@@ -12,8 +12,7 @@ const BodyPart = ({ id, d, color, onClick, label }) => {
             <path
                 d={d}
                 fill="currentColor"
-                className={`${color} opacity-80 group-hover:opacity-100 transition-opacity duration-300`}
-                stroke="white"
+                className={`${color} opacity-80 group-hover:opacity-100 transition-opacity duration-300 stroke-white dark:stroke-gray-800`}
                 strokeWidth="2"
             />
             {/* Simplified Tooltip for Widget View */}

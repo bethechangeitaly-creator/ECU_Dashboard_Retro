@@ -41,29 +41,29 @@ const JourneyPage = () => {
             {/* Page Header */}
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-900">The Journey</h1>
-                    <p className="text-slate-600 mt-1">7 Days • 7 Themes • 1 Body</p>
+                    <h1 className="text-3xl font-bold text-slate-900 dark:text-white">The Journey</h1>
+                    <p className="text-slate-600 dark:text-gray-400 mt-1">7 Days • 7 Themes • 1 Body</p>
                 </div>
             </div>
 
             {/* Day Selector Stepper */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-slate-200 dark:border-gray-700 p-6">
                 <div className="flex items-center justify-between gap-2 overflow-x-auto">
                     {days.map((day, index) => (
                         <button
                             key={day.day}
                             onClick={() => goToDay(index)}
                             className={`flex-1 min-w-[120px] p-4 rounded-xl border-2 transition-all ${index === currentDayIndex
-                                ? `border-${day.color}-500 bg-${day.color}-50 shadow-md`
-                                : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                                ? `border-${day.color}-500 bg-${day.color}-50 dark:bg-${day.color}-900/20 shadow-md`
+                                : 'border-slate-200 dark:border-gray-700 hover:border-slate-300 dark:hover:border-gray-600 hover:bg-slate-50 dark:hover:bg-gray-700'
                                 }`}
                         >
                             <div className="text-center">
-                                <div className={`text-xs font-bold uppercase tracking-wider ${index === currentDayIndex ? `text-${day.color}-600` : 'text-slate-400'
+                                <div className={`text-xs font-bold uppercase tracking-wider ${index === currentDayIndex ? `text-${day.color}-600 dark:text-${day.color}-400` : 'text-slate-400 dark:text-gray-500'
                                     }`}>
                                     Day {day.day}
                                 </div>
-                                <div className={`text-sm font-semibold mt-1 ${index === currentDayIndex ? 'text-slate-900' : 'text-slate-600'
+                                <div className={`text-sm font-semibold mt-1 ${index === currentDayIndex ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-gray-400'
                                     }`}>
                                     {['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'][index]}
                                 </div>
@@ -92,8 +92,8 @@ const JourneyPage = () => {
                     onClick={prevDay}
                     disabled={currentDayIndex === 0}
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${currentDayIndex === 0
-                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
-                        : 'bg-white border-2 border-slate-200 text-slate-700 hover:border-indigo-500 hover:text-indigo-600'
+                        ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-600 cursor-not-allowed'
+                        : 'bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 text-slate-700 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400'
                         }`}
                 >
                     <ChevronLeft size={20} />
@@ -103,7 +103,7 @@ const JourneyPage = () => {
                     onClick={nextDay}
                     disabled={currentDayIndex === days.length - 1}
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${currentDayIndex === days.length - 1
-                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed'
+                        ? 'bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-600 cursor-not-allowed'
                         : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-md'
                         }`}
                 >

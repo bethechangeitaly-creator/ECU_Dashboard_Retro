@@ -88,7 +88,7 @@ const ResourcesPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-cyan-600 to-blue-600 rounded-2xl p-8 text-white relative overflow-hidden"
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-700 dark:to-blue-700 rounded-2xl p-8 text-white relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
                 <div className="relative z-10">
@@ -114,12 +114,12 @@ const ResourcesPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start space-x-3"
+                className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm flex items-start space-x-3"
             >
                 <AlertTriangle className="text-amber-500 mt-0.5 flex-shrink-0" size={24} />
                 <div>
-                    <h3 className="text-amber-800 font-bold text-lg mb-1">Demonstration Mode</h3>
-                    <p className="text-amber-700 leading-relaxed">
+                    <h3 className="text-amber-800 dark:text-amber-300 font-bold text-lg mb-1">Demonstration Mode</h3>
+                    <p className="text-amber-700 dark:text-amber-200 leading-relaxed">
                         These resources are currently illustrative for demonstration purposes.
                         Full access and download functionality will be activated upon official project approval.
                     </p>
@@ -135,15 +135,15 @@ const ResourcesPage = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+                        className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6"
                     >
                         <div className="flex items-center space-x-3 mb-6">
-                            <div className={`w-12 h-12 bg-${category.color}-100 rounded-xl flex items-center justify-center`}>
-                                <IconComponent size={24} className={`text-${category.color}-600`} />
+                            <div className={`w-12 h-12 bg-${category.color}-100 dark:bg-${category.color}-900/30 rounded-xl flex items-center justify-center`}>
+                                <IconComponent size={24} className={`text-${category.color}-600 dark:text-${category.color}-400`} />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-bold text-slate-900">{category.title}</h2>
-                                <p className="text-sm text-slate-500">{category.resources.length} resources available</p>
+                                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{category.title}</h2>
+                                <p className="text-sm text-slate-500 dark:text-gray-400">{category.resources.length} resources available</p>
                             </div>
                         </div>
 
@@ -151,19 +151,19 @@ const ResourcesPage = () => {
                             {category.resources.map((resource, ridx) => (
                                 <div
                                     key={ridx}
-                                    className={`flex items-start justify-between p-4 bg-slate-50 rounded-lg hover:bg-${category.color}-50 transition-colors group`}
+                                    className={`flex items-start justify-between p-4 bg-slate-50 dark:bg-gray-700/50 rounded-lg hover:bg-${category.color}-50 dark:hover:bg-${category.color}-900/20 transition-colors group`}
                                 >
                                     <div className="flex-1">
                                         <div className="flex items-center space-x-2 mb-1">
-                                            <h3 className="font-bold text-slate-900">{resource.name}</h3>
-                                            <span className={`px-2 py-0.5 bg-${category.color}-100 text-${category.color}-700 text-xs font-semibold rounded`}>
+                                            <h3 className="font-bold text-slate-900 dark:text-white">{resource.name}</h3>
+                                            <span className={`px-2 py-0.5 bg-${category.color}-100 dark:bg-${category.color}-900/30 text-${category.color}-700 dark:text-${category.color}-300 text-xs font-semibold rounded`}>
                                                 {resource.type}
                                             </span>
                                         </div>
-                                        <p className="text-sm text-slate-600 mb-1">{resource.description}</p>
-                                        <p className="text-xs text-slate-400">{resource.size}</p>
+                                        <p className="text-sm text-slate-600 dark:text-gray-300 mb-1">{resource.description}</p>
+                                        <p className="text-xs text-slate-400 dark:text-gray-500">{resource.size}</p>
                                     </div>
-                                    <button className={`ml-4 flex-shrink-0 p-2 bg-slate-100 text-slate-400 rounded-lg cursor-not-allowed`} title="Locked until project approval">
+                                    <button className={`ml-4 flex-shrink-0 p-2 bg-slate-100 dark:bg-gray-800 text-slate-400 dark:text-gray-500 rounded-lg cursor-not-allowed border border-transparent dark:border-gray-700`} title="Locked until project approval">
                                         <Lock size={20} />
                                     </button>
                                 </div>
@@ -177,7 +177,7 @@ const ResourcesPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl shadow-lg p-8 text-white"
+                className="bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 rounded-xl shadow-lg p-8 text-white"
             >
                 <div className="flex items-start space-x-4">
                     <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">

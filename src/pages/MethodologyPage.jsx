@@ -67,7 +67,7 @@ const MethodologyPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden"
+                className="bg-gradient-to-r from-violet-600 to-purple-600 dark:from-violet-700 dark:to-purple-700 rounded-2xl p-8 text-white relative overflow-hidden"
             >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full opacity-10 transform translate-x-1/3 -translate-y-1/3"></div>
                 <div className="relative z-10">
@@ -83,16 +83,16 @@ const MethodologyPage = () => {
             </motion.div>
 
             {/* Search & Filter */}
-            <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-1 relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={20} />
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-gray-500" size={20} />
                         <input
                             type="text"
                             placeholder="Search methods..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                            className="w-full pl-10 pr-4 py-3 border border-slate-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-slate-900 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder-slate-400 dark:placeholder-gray-400"
                         />
                     </div>
                 </div>
@@ -104,7 +104,7 @@ const MethodologyPage = () => {
                             onClick={() => setSelectedCategory(cat.id)}
                             className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${selectedCategory === cat.id
                                 ? `bg-${cat.color}-600 text-white`
-                                : `bg-${cat.color}-100 text-${cat.color}-700 hover:bg-${cat.color}-200`
+                                : `bg-${cat.color}-100 dark:bg-${cat.color}-900/30 text-${cat.color}-700 dark:text-${cat.color}-300 hover:bg-${cat.color}-200 dark:hover:bg-${cat.color}-900/50`
                                 }`}
                         >
                             {cat.name} ({cat.count})
@@ -123,16 +123,16 @@ const MethodologyPage = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ delay: idx * 0.05 }}
-                            className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-shadow"
+                            className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-slate-200 dark:border-gray-700 p-6 hover:shadow-lg transition-shadow"
                         >
                             <div className={`h-1 bg-${method.color}-500 rounded-t-xl mb-4 -mx-6 -mt-6`}></div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">{method.name}</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{method.name}</h3>
+                            <p className="text-sm text-slate-600 dark:text-gray-300 leading-relaxed mb-4">
                                 {method.description}
                             </p>
                             <div className="flex flex-wrap gap-1">
                                 {method.days.map(day => (
-                                    <span key={day} className={`px-2 py-1 bg-${method.color}-100 text-${method.color}-700 text-xs font-semibold rounded`}>
+                                    <span key={day} className={`px-2 py-1 bg-${method.color}-100 dark:bg-${method.color}-900/30 text-${method.color}-700 dark:text-${method.color}-300 text-xs font-semibold rounded`}>
                                         Day {day}
                                     </span>
                                 ))}

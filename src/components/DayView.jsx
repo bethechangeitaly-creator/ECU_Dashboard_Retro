@@ -38,10 +38,10 @@ const DayView = ({ dayData, onClose, partners }) => {
                 initial={{ scale: 0.95, opacity: 0, y: 20 }}
                 animate={{ scale: 1, opacity: 1, y: 0 }}
                 exit={{ scale: 0.95, opacity: 0, y: 20 }}
-                className="relative bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl z-10 font-sans"
+                className="relative bg-white dark:bg-gray-800 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl z-10 font-sans"
             >
                 {/* Header Section */}
-                <div className={`relative p-8 text-white bg-gradient-to-r from-gray-800 to-gray-900 border-b-4 border-${dayData.color}`}>
+                <div className={`relative p-8 text-white bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black border-b-4 border-${dayData.color}`}>
                     <button
                         onClick={onClose}
                         className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-white"
@@ -66,36 +66,36 @@ const DayView = ({ dayData, onClose, partners }) => {
                 <div className="p-8 space-y-8">
 
                     {/* Partner Info */}
-                    <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4">
-                        <div className="p-3 bg-white rounded-lg shadow-sm text-gray-700">
+                    <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl border border-gray-100 dark:border-gray-700 flex items-start gap-4">
+                        <div className="p-3 bg-white dark:bg-gray-800 rounded-lg shadow-sm text-gray-700 dark:text-gray-200">
                             <User size={24} />
                         </div>
                         <div>
-                            <h3 className="font-bold text-gray-900 text-lg">Lead Partner: {leadPartner.name} ({leadPartner.code})</h3>
-                            <p className="text-gray-600 leading-relaxed mt-1">{leadPartner.focus}</p>
+                            <h3 className="font-bold text-gray-900 dark:text-white text-lg">Lead Partner: {leadPartner.name} ({leadPartner.code})</h3>
+                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mt-1">{leadPartner.focus}</p>
                         </div>
                     </div>
 
                     {/* Schedule / Timeline */}
                     <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                            <Clock className="text-gray-500" /> Daily Statistics & Schedule
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                            <Clock className="text-gray-500 dark:text-gray-400" /> Daily Statistics & Schedule
                         </h3>
 
-                        <div className="relative pl-4 border-l-2 border-gray-200 space-y-8">
+                        <div className="relative pl-4 border-l-2 border-gray-200 dark:border-gray-700 space-y-8">
                             {dayData.activities.map((act, idx) => (
                                 <div key={idx} className="relative pl-6">
                                     {/* Timeline dot */}
-                                    <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-gray-300"></span>
+                                    <span className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-gray-800 border-4 border-gray-300 dark:border-gray-600"></span>
 
                                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                                        <h4 className="font-bold text-gray-800 text-lg">{act.title}</h4>
-                                        <span className="text-xs font-bold uppercase tracking-wider text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                                        <h4 className="font-bold text-gray-800 dark:text-white text-lg">{act.title}</h4>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
                                             {act.time}
                                         </span>
                                     </div>
-                                    <p className="text-sm text-gray-500 mt-1">
-                                        Facilitated by <span className="font-semibold text-gray-700">{act.lead}</span>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                        Facilitated by <span className="font-semibold text-gray-700 dark:text-gray-300">{act.lead}</span>
                                     </p>
                                 </div>
                             ))}
@@ -105,10 +105,10 @@ const DayView = ({ dayData, onClose, partners }) => {
                 </div>
 
                 {/* Footer */}
-                <div className="p-6 border-t bg-gray-50 flex justify-end">
+                <div className="p-6 border-t dark:border-gray-700 bg-gray-50 dark:bg-gray-900 flex justify-end">
                     <button
                         onClick={onClose}
-                        className="px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
+                        className="px-6 py-2.5 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-medium rounded-lg transition-colors shadow-lg hover:shadow-xl"
                     >
                         Close Dashboard
                     </button>

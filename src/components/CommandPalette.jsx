@@ -111,24 +111,24 @@ const CommandPalette = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.1 }}
-                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl bg-white rounded-xl shadow-2xl border border-slate-200 z-50 overflow-hidden flex flex-col"
+                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-slate-200 dark:border-gray-700 z-50 overflow-hidden flex flex-col"
                     >
                         {/* Search Input */}
-                        <div className="flex items-center px-4 py-4 border-b border-slate-100">
-                            <Search className="text-slate-400 mr-3" size={20} />
+                        <div className="flex items-center px-4 py-4 border-b border-slate-100 dark:border-gray-700">
+                            <Search className="text-slate-400 dark:text-gray-500 mr-3" size={20} />
                             <input
                                 autoFocus
                                 type="text"
                                 placeholder="Search pages, days, or resources..."
-                                className="flex-1 bg-transparent border-none outline-none text-lg text-slate-800 placeholder-slate-400"
+                                className="flex-1 bg-transparent border-none outline-none text-lg text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-500"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-1 hover:bg-slate-100 rounded-md text-slate-400 transition-colors"
+                                className="p-1 hover:bg-slate-100 dark:hover:bg-gray-700 rounded-md text-slate-400 transition-colors"
                             >
-                                <span className="text-xs font-semibold px-2 py-1 bg-slate-100 rounded border border-slate-200">ESC</span>
+                                <span className="text-xs font-semibold px-2 py-1 bg-slate-100 dark:bg-gray-700 rounded border border-slate-200 dark:border-gray-600">ESC</span>
                             </button>
                         </div>
 
@@ -147,17 +147,17 @@ const CommandPalette = () => {
                                                     setIsOpen(false);
                                                 }}
                                                 onMouseEnter={() => setSelectedIndex(index)}
-                                                className={`flex items-center px-4 py-3 rounded-lg cursor-pointer transition-colors ${isSelected ? 'bg-indigo-50' : 'hover:bg-slate-50'
+                                                className={`flex items-center px-4 py-3 rounded-lg cursor-pointer transition-colors ${isSelected ? 'bg-indigo-50 dark:bg-indigo-900/30' : 'hover:bg-slate-50 dark:hover:bg-gray-700/50'
                                                     }`}
                                             >
-                                                <div className={`p-2 rounded-lg mr-4 ${isSelected ? 'bg-indigo-100 text-indigo-600' : 'bg-slate-100 text-slate-500'}`}>
+                                                <div className={`p-2 rounded-lg mr-4 ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-300' : 'bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400'}`}>
                                                     <Icon size={18} />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className={`text-sm font-medium ${isSelected ? 'text-indigo-900' : 'text-slate-700'}`}>
+                                                    <h4 className={`text-sm font-medium ${isSelected ? 'text-indigo-900 dark:text-indigo-100' : 'text-slate-700 dark:text-gray-300'}`}>
                                                         {item.name}
                                                     </h4>
-                                                    <span className="text-xs text-slate-400">{item.category}</span>
+                                                    <span className="text-xs text-slate-400 dark:text-gray-500">{item.category}</span>
                                                 </div>
                                                 {isSelected && (
                                                     <ArrowRight size={16} className="text-indigo-400" />
@@ -167,14 +167,14 @@ const CommandPalette = () => {
                                     })}
                                 </div>
                             ) : (
-                                <div className="px-6 py-12 text-center text-slate-500">
+                                <div className="px-6 py-12 text-center text-slate-500 dark:text-gray-400">
                                     <p>No results found for "{query}"</p>
                                 </div>
                             )}
                         </div>
 
                         {/* Footer Hints */}
-                        <div className="px-4 py-2 bg-slate-50 border-t border-slate-100 flex items-center justify-end space-x-4 text-xs text-slate-400">
+                        <div className="px-4 py-2 bg-slate-50 dark:bg-gray-900 border-t border-slate-100 dark:border-gray-700 flex items-center justify-end space-x-4 text-xs text-slate-400 dark:text-gray-500">
                             <span className="flex items-center"><span className="mr-1">↑↓</span> to navigate</span>
                             <span className="flex items-center"><span className="mr-1">↵</span> to select</span>
                         </div>
