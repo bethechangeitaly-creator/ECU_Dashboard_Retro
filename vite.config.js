@@ -4,6 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/ECU_Dashboard/',
   plugins: [react()],
   resolve: {
     alias: {

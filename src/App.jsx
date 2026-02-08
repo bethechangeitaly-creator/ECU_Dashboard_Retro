@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import DashboardPage from './pages/DashboardPage';
 import JourneyPage from './pages/JourneyPage';
@@ -16,7 +16,7 @@ import FollowUpPage from './pages/FollowUpPage';
  */
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           {/* Main Dashboard Modules */}
@@ -31,7 +31,7 @@ function App() {
           <Route path="followup" element={<FollowUpPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
