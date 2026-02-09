@@ -141,7 +141,7 @@ const PartnersPage = () => {
                                 <div className={`w-16 h-16 ${colors.lightBg} border-2 border-black flex items-center justify-center mb-2 group-hover:scale-105 transition-transform duration-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] mx-auto overflow-hidden`}>
                                     {partner.logo_url ? (
                                         <img
-                                            src={partner.logo_url}
+                                            src={`${import.meta.env.BASE_URL}${partner.logo_url}`}
                                             alt={`${partner.organization} logo`}
                                             className="w-full h-full object-contain image-pixelated"
                                             style={{ imageRendering: 'pixelated' }}
