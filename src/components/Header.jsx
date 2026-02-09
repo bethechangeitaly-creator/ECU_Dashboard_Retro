@@ -39,9 +39,9 @@ const Header = ({ onMenuClick }) => {
                     <button
                         onClick={(e) => { handleClick(); onMenuClick(e); }}
                         onMouseEnter={handleMouseEnter}
-                        className="lg:hidden mr-1 p-1 border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white bg-retro-light-gray shrink-0 text-black"
+                        className="lg:hidden mr-2 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white bg-retro-light-gray shrink-0 text-black relative z-50"
                     >
-                        <Menu size={20} />
+                        <Menu size={24} />
                     </button>
 
 
@@ -108,7 +108,7 @@ const Header = ({ onMenuClick }) => {
                         </span>
                     </div>
                 </div>
-            </header>
+            </header >
         </>
     );
 };

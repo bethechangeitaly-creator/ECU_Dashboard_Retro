@@ -343,13 +343,13 @@ const PartnershipNetwork = () => {
             {/* Partner Detail Modal */}
             <AnimatePresence>
                 {selectedPartner && (
-                    <div className="fixed top-16 left-0 lg:left-72 right-0 bottom-0 z-40 flex items-center justify-center p-4">
+                    <div className="fixed top-0 left-0 right-0 bottom-0 z-[60] flex items-start pt-16 lg:pt-0 lg:items-center justify-center p-4">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 0.5 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setSelectedPartner(null)}
-                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                            className="absolute inset-0 bg-black/80 backdrop-blur-sm z-50"
                         />
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0, y: 20 }}
