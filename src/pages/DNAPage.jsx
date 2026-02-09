@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Heart, Users, Target, Sparkles, Calendar, MapPin, Flag, Brain, TrendingUp } from 'lucide-react';
+import { Lightbulb, Heart, Users, Target, Sparkles, Calendar, MapPin, Flag, Brain, TrendingUp, Globe } from 'lucide-react';
 
 /**
  * Project DNA Page - Genesis, Values, and Vision - Retro Edition
@@ -57,13 +57,13 @@ const DNAPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-magenta border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                className="bg-retro-magenta border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
                 {/* Dithering pattern overlay */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
                 <div className="relative z-10">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-4 font-pixel-header tracking-widest uppercase retro-shadow">Project DNA</h1>
-                    <p className="text-white text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan">
+                    <h1 className="text-base xs:text-lg lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Project DNA</h1>
+                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
                         &gt; Genesis, Values & Vision
                     </p>
                 </div>
@@ -74,10 +74,10 @@ const DNAPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 relative"
+                className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 relative"
             >
                 {/* Window Title Bar */}
-                <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-2 -mt-2">
+                <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-4 xs:-mx-6 -mt-4 xs:-mt-6">
                     <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider pl-2">
                         Origin_Story.txt
                     </span>
@@ -87,17 +87,17 @@ const DNAPage = () => {
                     </div>
                 </div>
 
-                <div className="flex items-start space-x-4 mb-6">
-                    <div className="w-16 h-16 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0 mb-2 sm:mb-0">
                         <Sparkles size={32} className="text-retro-magenta" />
                     </div>
-                    <div>
-                        <h2 className="text-2xl font-bold text-black mb-2 font-pixel-header uppercase">The Genesis</h2>
-                        <p className="text-retro-dark-gray font-bold uppercase text-xs tracking-wider">Where it all began</p>
+                    <div className="min-w-0 flex-1">
+                        <h2 className="text-2xl font-bold text-black mb-1 md:mb-2 font-pixel-header uppercase truncate sm:whitespace-normal">The Genesis</h2>
+                        <p className="text-retro-dark-gray font-bold uppercase text-[10px] sm:text-xs tracking-wider">Where it all began</p>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-6 mb-6">
                     <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
                         <div className="flex items-center space-x-2 mb-3 border-b-2 border-black pb-2">
                             <Flag size={20} className="text-retro-blue" />
@@ -139,7 +139,7 @@ const DNAPage = () => {
                     <h2 className="text-xl font-bold font-pixel-header uppercase px-2">Core Values</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-6">
                     {coreValues.map((value, idx) => {
                         const IconComponent = value.icon;
 
@@ -179,7 +179,7 @@ const DNAPage = () => {
             </motion.div>
 
             {/* Methodology & Impact Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-8">
                 {/* Methodology Card */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -210,15 +210,18 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 h-full relative"
+                    className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 md:p-8 h-full relative"
                 >
                     <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex items-start space-x-4 mb-6">
-                            <div className="w-14 h-14 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
+                            <div className="w-14 h-14 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-2 sm:mb-0">
                                 <Target size={28} className="text-black" />
                             </div>
-                            <div>
-                                <h2 className="text-2xl font-bold text-black mb-2 font-pixel-header uppercase">{impact_philosophy.title}</h2>
+                            <div className="min-w-0 flex-1">
+                                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-black mb-2 font-pixel-header uppercase break-words leading-tight overflow-hidden">
+                                    <span className="md:hidden">BEYOND</span>
+                                    <span className="hidden md:inline">{impact_philosophy.title}</span>
+                                </h2>
                                 <div className="h-2 w-20 bg-retro-green border-2 border-black"></div>
                             </div>
                         </div>
@@ -227,35 +230,74 @@ const DNAPage = () => {
                             {impact_philosophy.description}
                         </p>
 
-                        <div className="bg-retro-light-gray border-2 border-black p-6 relative">
-                            <div className="absolute top-0 left-0 bg-black text-white px-2 py-1 text-xs font-bold uppercase -mt-3 ml-4 border border-black">
-                                Multiplier Chain
-                            </div>
-                            <div className="flex items-center gap-3 text-black font-bold mb-4">
-                                <TrendingUp size={20} className="text-retro-green" />
-                                <span className="uppercase font-pixel-header text-sm">Exponential Reach</span>
-                            </div>
+                        <div className="bg-retro-light-gray border-4 border-black p-4 xs:p-6 relative overflow-hidden">
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-3 text-black font-bold mb-6 border-b-2 border-black pb-4 border-dashed">
+                                    <div className="w-12 h-12 bg-retro-green border-2 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                        <TrendingUp size={24} className="text-black" />
+                                    </div>
+                                    <div>
+                                        <h3 className="uppercase font-pixel-header text-base leading-none">Exponential Impact</h3>
+                                        <p className="text-[10px] uppercase font-bold text-retro-gray mt-1">Growth Projection Matrix</p>
+                                    </div>
+                                </div>
 
-                            <div className="flex flex-col gap-2">
-                                <div className="flex items-center gap-2 text-xs font-bold">
-                                    <div className="w-2 h-2 bg-retro-green border border-black"></div>
-                                    <span>1 Exchange</span>
+                                {/* The Infographic Flow */}
+                                <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-1">
+                                    {/* Step 1 */}
+                                    <div className="w-full lg:flex-1 bg-retro-green border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-black text-center min-h-[100px]">
+                                        <Sparkles size={20} />
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 01</span>
+                                            <span className="text-xs font-bold uppercase bg-white px-2 border-2 border-black leading-tight block">1 Exchange</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Connection Arrow */}
+                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+
+                                    {/* Step 2 */}
+                                    <div className="w-full lg:flex-1 bg-retro-blue border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">
+                                        <Users size={20} />
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 02</span>
+                                            <span className="text-xs font-bold uppercase bg-black px-2 border-2 border-white leading-tight block">40 Participants</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Connection Arrow */}
+                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+
+                                    {/* Step 3 */}
+                                    <div className="w-full lg:flex-1 bg-retro-cyan border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-black text-center min-h-[100px]">
+                                        <Globe size={20} />
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 03</span>
+                                            <span className="text-xs font-bold uppercase bg-white px-2 border-2 border-black leading-tight block">8 Countries</span>
+                                        </div>
+                                    </div>
+
+                                    {/* Connection Arrow */}
+                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+
+                                    {/* Step 4 */}
+                                    <div className="w-full lg:flex-1 bg-retro-magenta border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">
+                                        <TrendingUp size={20} />
+                                        <div className="space-y-1">
+                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 04</span>
+                                            <span className="text-xs font-bold uppercase bg-black px-2 border-2 border-white leading-tight block">160+ Local People</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-2 text-xs font-bold pl-4">
-                                    <div className="w-px h-2 bg-black"></div>
-                                    <span>32 Participants</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-xs font-bold pl-8">
-                                    <div className="w-px h-2 bg-black"></div>
-                                    <span>8 Countries</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-xs font-bold pl-12">
-                                    <div className="w-px h-2 bg-black"></div>
-                                    <span>160+ People</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-xs font-bold pl-16 text-retro-magenta">
-                                    <div className="w-px h-2 bg-black"></div>
-                                    <span>&gt;&gt; INFINITE REACH</span>
+
+                                {/* The Ultimate Vision */}
+                                <div className="mt-8 bg-black p-4 border-4 border-retro-magenta text-center relative shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)]">
+                                    {/* Scanline pattern */}
+                                    <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
+                                    <span className="block text-[9px] text-retro-magenta font-bold uppercase tracking-[0.3em] mb-2 font-pixel-header">Future_Horizon: Unlocked</span>
+                                    <p className="text-white font-pixel-header text-base xs:text-xl animate-pulse tracking-tighter">
+                                        &gt; <span className="text-retro-magenta">INFINITE</span> REACH & IMPACT
+                                    </p>
                                 </div>
                             </div>
                         </div>

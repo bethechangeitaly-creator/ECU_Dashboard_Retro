@@ -67,25 +67,25 @@ const MethodologyPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-magenta border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                className="bg-retro-magenta border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
                 {/* Dithering pattern overlay */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
 
                 <div className="relative z-10">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-4 font-pixel-header tracking-widest uppercase retro-shadow">Methodology Hub</h1>
-                    <p className="text-white text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan">
+                    <h1 className="text-base xs:text-lg lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Methodology Hub</h1>
+                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
                         &gt; NFE Methods Library v1.0
                     </p>
-                    <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-fit">
-                        <BookOpen size={18} className="text-retro-yellow" />
-                        <span className="font-bold text-retro-yellow uppercase">{methods.length} Methods | 7 Categories</span>
+                    <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-fit">
+                        <BookOpen size={16} className="text-retro-yellow" />
+                        <span className="font-bold text-retro-yellow uppercase text-xs xs:text-sm">{methods.length} Methods | 7 Categories</span>
                     </div>
                 </div>
             </motion.div>
 
             {/* Search & Filter */}
-            <div className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
+            <div className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6">
                 {/* Window Title Bar */}
                 <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-2 -mt-2">
                     <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider pl-2">
@@ -97,7 +97,7 @@ const MethodologyPage = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-4 mb-6">
-                    <div className="flex-1 relative">
+                    <div className="flex-1 relative min-w-0">
                         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                             <Search className="text-black" size={20} />
                         </div>
@@ -139,7 +139,7 @@ const MethodologyPage = () => {
             </div>
 
             {/* Methods Grid */}
-            <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 xs:gap-6">
                 <AnimatePresence>
                     {filteredMethods.map((method, idx) => {
                         // Map colors
@@ -170,8 +170,8 @@ const MethodologyPage = () => {
                                     <div className="w-2 h-2 bg-white rounded-full"></div>
                                 </div>
 
-                                <div className="p-6 flex-1 flex flex-col">
-                                    <h3 className="text-lg font-bold text-black mb-3 font-pixel-header uppercase leading-tight">{method.name}</h3>
+                                <div className="p-4 xs:p-6 flex-1 flex flex-col">
+                                    <h3 className="text-lg font-bold text-black mb-3 font-pixel-header uppercase leading-tight break-words">{method.name}</h3>
                                     <div className="bg-retro-light-gray border-2 border-black p-3 mb-4 flex-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1)]">
                                         <p className="text-sm text-black font-bold leading-relaxed font-pixel-body">
                                             {method.description}

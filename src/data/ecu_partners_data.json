@@ -10,6 +10,10 @@
             "role": "Coordinator",
             "color": "rose",
             "icon": "Heart",
+            "logo_url": "assets/logos/logo_it_btc_v2.png",
+            "website": "https://www.bethechangeitaly.com",
+            "instagram": "https://www.instagram.com/bethechange_it",
+            "email": "bethechangeitaly@gmail.com",
             "mission": "Promoting education, cultural exchange, and personal growth through Erasmus+ and non-formal education at international and local levels.",
             "description": "Be The Change is a non-profit organization based in Messina, Italy, founded in 2017. We promote active European citizenship, solidarity, tolerance, and personal development among young people. Our work focuses on international mobility, cultural exchange, sustainable living, and creating positive impact in communities.",
             "focus_areas": [
@@ -46,6 +50,8 @@
             "role": "Partner",
             "color": "amber",
             "icon": "Lightbulb",
+            "logo_url": "assets/logos/logo_de_fma.png",
+            "instagram": "https://www.instagram.com/future_makers_alliance/",
             "mission": "Empowering young people through non-formal education, intercultural learning, and active social participation.",
             "description": "Future Makers Alliance is an informal youth group founded in 2025 by young individuals with significant Erasmus+ experience. We focus on creating safe and inclusive learning environments where youth from diverse backgrounds can share ideas and actively promote positive social change.",
             "focus_areas": [
@@ -82,6 +88,9 @@
             "role": "Partner",
             "color": "emerald",
             "icon": "TrendingUp",
+            "logo_url": "assets/logos/logo_mk_levelup.png",
+            "website": "https://www.ngolevelup.com/",
+            "instagram": "https://www.instagram.com/ngo.levelup/",
             "mission": "Developing citizens of all ages through diverse activities, innovative methods, and transformative workshops.",
             "description": "Association Level Up International is dedicated to advancing social growth through creative methods and engaging workshops. We've participated in over 30 Erasmus+ projects since 2019, focusing on skill development, healthy lifestyles, and sustainable development goals.",
             "focus_areas": [
@@ -118,6 +127,8 @@
             "role": "Partner",
             "color": "blue",
             "icon": "Users",
+            "logo_url": "assets/logos/logo_gr_dtm.png",
+            "instagram": "https://www.instagram.com/dtm_greece/",
             "mission": "Promoting solidarity, supporting youth with fewer opportunities, and raising awareness on social, environmental, and artistic issues.",
             "description": "DefiniTely Maybe is a youth group founded by 5 young people living in Greece who were active youth workers in NGOs. We organize projects, become partners internationally, and help young people experience Erasmus+ opportunities, with a focus on reaching youth with fewer opportunities.",
             "focus_areas": [
@@ -154,6 +165,9 @@
             "role": "Partner",
             "color": "violet",
             "icon": "Film",
+            "logo_url": "assets/logos/logo_fr_autarcie.png",
+            "website": "https://www.autarcieprod.fr/",
+            "instagram": "https://www.instagram.com/autarcie_prod/",
             "mission": "Empowering young people from disadvantaged urban areas through creative projects, multimedia production, and digital storytelling.",
             "description": "Autarcie Productions is a Paris-based association specializing in empowering youth from disadvantaged urban areas. We manage a recording studio and web TV, support young artists (mainly in urban music and rap), and offer resources for digital content creation. Accredited for various Erasmus+ projects.",
             "focus_areas": [
@@ -190,6 +204,8 @@
             "role": "Partner",
             "color": "pink",
             "icon": "Compass",
+            "logo_url": "assets/logos/logo_pt_autonomia.png",
+            "instagram": "https://www.instagram.com/autonomiaedescoberta/",
             "mission": "Promoting volunteerism, youth mobility, and peace culture as tools to transform society and develop key competencies.",
             "description": "Autonomia e Descoberta (A&D) actively promotes Volunteering, Youth Mobility, and Peace Culture. We use non-formal, intercultural, and experiential learning methods to encourage active youth participation. We've organized over 8 Erasmus+ activities in Portugal and participated in 50+ projects across 20+ countries.",
             "focus_areas": [
@@ -226,6 +242,8 @@
             "role": "Partner",
             "color": "cyan",
             "icon": "Mountain",
+            "logo_url": "assets/logos/logo_ro_bmn.png",
+            "instagram": "https://www.instagram.com/bmnngo/",
             "mission": "Applying Erasmus+ principles in underserved areas, turning youth dreams into reality through cooperation and empowerment.",
             "description": "Asociația Bradul, Muntele și Neagra (BMN) was created to bring Erasmus+ principles to places where they've never been heard. We focus on local, national, and international youth networks, connecting young people regardless of education level or life experiences. Topics include NFE, sport, ecology, cultural exchanges, and sustainability.",
             "focus_areas": [
@@ -262,6 +280,8 @@
             "role": "Partner",
             "color": "orange",
             "icon": "Anchor",
+            "logo_url": "assets/logos/logo_tr_bekged_v3.png",
+            "instagram": "https://www.instagram.com/bekgedernegi/",
             "mission": "Supporting and empowering youth through non-formal education, promoting inclusion, intercultural learning, and climate awareness.",
             "description": "Bosphorus Education Culture and Development Association (BEKGED) is a vibrant newcomer in youth work based in Istanbul. We use non-formal education methods to develop civil society and provide opportunities to youth with limited social access. We've participated in 8 international Erasmus+ projects between 2024-2025.",
             "focus_areas": [

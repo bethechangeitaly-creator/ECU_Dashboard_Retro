@@ -1,106 +1,137 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Calendar, Users, FileText, BarChart3, Lightbulb, BookOpen, Rocket, Heart, X, Moon, Sun } from 'lucide-react';
-import useDarkMode from '../hooks/useDarkMode';
+import {
+    LayoutDashboard, Map, Users, Target, Dna, BookOpen, FileText,
+    ArrowRightLeft, Power, Settings, Heart, Volume2, VolumeX, Moon, Sun
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { gameAudio } from '../utils/gameAudio';
 
 const Sidebar = ({ isOpen, onClose }) => {
-    const [colorTheme, setTheme] = useDarkMode();
+    const [isMuted, setIsMuted] = useState(false);
 
-    const menuItems = [
-        { id: 'dashboard', path: '/', icon: LayoutDashboard, label: 'Dashboard' },
-        { id: 'journey', path: '/journey', icon: Calendar, label: 'The Journey' },
-        { id: 'partners', path: '/partners', icon: Users, label: 'Partners & People' },
-        { id: 'impact', path: '/impact', icon: BarChart3, label: 'Impact Lab' },
-        { id: 'dna', path: '/dna', icon: Lightbulb, label: 'Project DNA' },
-        { id: 'methodology', path: '/methodology', icon: BookOpen, label: 'Methodology Hub' },
-        { id: 'resources', path: '/resources', icon: FileText, label: 'Resource Center' },
-        { id: 'followup', path: '/followup', icon: Rocket, label: 'Follow-Up' },
+    const toggleMute = () => {
+        const muted = gameAudio.toggleMute();
+        setIsMuted(muted);
+        if (!muted) gameAudio.playClick();
+    };
+
+    const handleMouseEnter = () => {
+        if (!isMuted) gameAudio.playHover();
+    };
+
+    const handleClick = () => {
+        if (window.innerWidth < 1024) onClose();
+    };
+
+    const navItems = [
+        { path: '/', label: 'System_Dash', icon: LayoutDashboard },
+        { path: '/journey', label: 'Journey_Log', icon: Map },
+        { path: '/partners', label: 'Partners_DB', icon: Users },
+        { path: '/impact', label: 'Impact_Lab', icon: Target },
+        { path: '/dna', label: 'Project_DNA', icon: Dna },
+        { path: '/methodology', label: 'Method_Hub', icon: BookOpen },
+        { path: '/resources', label: 'Res_Center', icon: FileText },
+        { path: '/followup', label: 'Action_Plan', icon: ArrowRightLeft },
     ];
 
     return (
         <>
-            {/* Mobile overlay */}
+            {/* Backdrop for mobile */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/80 z-40 lg:hidden font-pixel-body"
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
                     onClick={onClose}
                 />
             )}
 
-            {/* Sidebar */}
-            <div className={`
-                w-72 bg-retro-black h-screen border-r-4 border-retro-white flex flex-col fixed left-0 top-0 z-50
-                transform transition-transform duration-300 ease-steps-start
-                ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-                lg:translate-x-0 font-pixel-body
-            `}>
-                {/* Logo Area */}
-                <div className="p-6 lg:p-8 flex items-center justify-between border-b-4 border-retro-gray bg-retro-dark-blue">
-                    <div className="flex items-center gap-4">
-                        <div className="bg-retro-red p-2 border-2 border-white text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Heart size={24} fill="currentColor" strokeWidth={3} />
+            {/* Sidebar Container */}
+            <aside
+                className={`fixed top-0 left-0 z-50 h-screen w-72 bg-retro-light-gray dark:bg-black border-r-4 border-retro-gray transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+                    } flex flex-col shadow-2xl`}
+            >
+                {/* Header */}
+                <div className="h-16 flex items-center justify-between px-6 bg-retro-light-gray dark:bg-retro-black border-b-4 border-retro-gray">
+                    <div className="flex items-center gap-3">
+                        <div className="bg-retro-red p-2 border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]">
+                            <Heart size={20} className="text-white fill-white" />
                         </div>
-                        <div>
-                            <h1 className="font-pixel-header text-sm text-retro-white tracking-widest uppercase retro-shadow">ECU SYSTEM</h1>
-                            <span className="text-[10px] text-retro-green bg-retro-black px-2 py-0.5 border border-retro-green mt-1 inline-block">V.1.0_READY</span>
-                        </div>
+                        <h1 className="font-pixel-header font-bold text-sm uppercase tracking-wider text-black dark:text-white">
+                            ECU SYSTEM
+                        </h1>
                     </div>
-                    {/* Close button for mobile */}
-                    <button
-                        onClick={onClose}
-                        className="lg:hidden p-2 hover:bg-retro-red hover:text-white transition-colors border-2 border-transparent hover:border-white"
-                    >
-                        <X size={20} className="text-retro-white" />
-                    </button>
                 </div>
 
-                {/* Menu */}
-                <nav className="flex-1 px-4 space-y-4 mt-8 overflow-y-auto">
-                    <p className="px-4 text-xs font-bold text-retro-light-gray uppercase tracking-widest mb-2 border-b-2 border-retro-gray inline-block pb-1">.MODULES</p>
-                    {menuItems.map((item) => (
-                        <NavLink
-                            key={item.id}
-                            to={item.path}
-                            end={item.path === '/'}
-                            onClick={onClose}
-                            className={({ isActive }) =>
-                                `w-full flex items-center gap-3 px-4 py-3 text-sm font-bold transition-all duration-0 border-2 ${isActive
-                                    ? 'bg-retro-blue text-white border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] translate-x-1 translate-y-1'
-                                    : 'text-retro-light-gray border-transparent hover:bg-retro-gray hover:text-white hover:border-retro-white'
-                                }`
-                            }
-                        >
-                            <item.icon size={20} className="retro-icon" strokeWidth={2.5} />
-                            <span className="uppercase tracking-wide">{item.label}</span>
-                        </NavLink>
-                    ))}
+                {/* Navigation Links */}
+                <nav className="flex-1 overflow-y-auto p-4 space-y-2 custom-scrollbar">
+                    <div className="mb-4">
+                        <p className="px-4 text-[10px] font-bold text-retro-gray uppercase mb-2 tracking-wider">
+                            Main_Modules
+                        </p>
+                        {navItems.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                                <NavLink
+                                    key={item.path}
+                                    to={item.path}
+                                    onClick={handleClick}
+                                    onMouseEnter={handleMouseEnter}
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-3 px-4 py-3 transition-all duration-200 font-pixel-body uppercase tracking-wide cursor-pointer group ${isActive
+                                            ? 'bg-retro-blue text-white border-2 border-white shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]'
+                                            : 'text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-gray hover:border-2 hover:border-black'
+                                        }`
+                                    }
+                                >
+                                    {({ isActive }) => (
+                                        <>
+                                            <Icon size={18} className="shrink-0 group-hover:scale-110 transition-transform" />
+                                            <span className="font-bold text-sm md:text-base">{item.label}</span>
+                                            {isActive && <motion.span layoutId="active-dot" className="ml-auto w-2 h-2 bg-retro-green animate-blink" />}
+                                        </>
+                                    )}
+                                </NavLink>
+                            );
+                        })}
+                    </div>
 
-                    <div className="pt-4 mt-8 border-t-4 border-retro-gray">
-                        <p className="px-4 text-xs font-bold text-retro-light-gray uppercase tracking-widest mb-4">.CONFIG</p>
+                    <div className="mt-8 border-t-2 border-retro-gray pt-4">
+                        <p className="px-4 text-[10px] font-bold text-retro-gray uppercase mb-2 tracking-wider">
+                            System_Control
+                        </p>
                         <button
-                            onClick={() => setTheme(colorTheme)}
-                            className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-retro-light-gray border-2 border-transparent hover:bg-retro-yellow hover:text-black hover:border-white transition-all duration-0"
+                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-gray hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"
+                            onMouseEnter={handleMouseEnter}
+                            onClick={() => {
+                                handleClick();
+                                window.dispatchEvent(new CustomEvent('open-preferences'));
+                            }}
                         >
-                            {colorTheme === 'light' ? (
-                                <>
-                                    <Sun size={20} strokeWidth={2.5} />
-                                    <span className="uppercase">Light Mode</span>
-                                </>
-                            ) : (
-                                <>
-                                    <Moon size={20} strokeWidth={2.5} />
-                                    <span className="uppercase">Dark Mode</span>
-                                </>
-                            )}
+                            <Settings size={18} />
+                            <span>Preferences</span>
+                        </button>
+                        <button
+                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-red hover:text-white hover:bg-retro-red dark:hover:bg-retro-dark-red hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"
+                            onMouseEnter={handleMouseEnter}
+                            onClick={() => {
+                                handleClick();
+                                window.dispatchEvent(new CustomEvent('open-disclaimer'));
+                            }}
+                        >
+                            <Power size={18} />
+                            <span>Log_Out</span>
                         </button>
                     </div>
                 </nav>
 
-                {/* Footer simple credit */}
-                <div className="p-4 text-[10px] text-center text-retro-gray uppercase font-pixel-body tracking-widest">
-                    SYSTEM ONLINE_
+                {/* Footer */}
+                <div className="p-4 border-t-4 border-retro-gray bg-retro-light-gray dark:bg-retro-black">
+                    <div className="text-[10px] text-retro-gray text-center font-mono">
+                        MEM: 640K OK <br />
+                        © 2026 ECU CORP
+                    </div>
                 </div>
-            </div>
+            </aside>
         </>
     );
 };

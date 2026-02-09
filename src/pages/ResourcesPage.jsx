@@ -83,28 +83,28 @@ const ResourcesPage = () => {
     ];
 
     return (
-        <div className="space-y-8 font-pixel-body">
+        <div className="space-y-8 font-pixel-body overflow-x-hidden w-full">
             {/* Header */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-cyan border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                className="bg-retro-cyan border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
                 {/* Dithering pattern overlay */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
 
                 <div className="relative z-10">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-4 font-pixel-header tracking-widest uppercase retro-shadow">Resource Center</h1>
-                    <p className="text-white text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-blue">
+                    <h1 className="text-base xs:text-lg lg:text-fluid-2xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Resource Center</h1>
+                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
                         &gt; Download Database
                     </p>
-                    <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <FileText size={18} className="text-retro-yellow" />
+                    <div className="flex flex-wrap gap-2 xs:gap-4 text-xs xs:text-sm">
+                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-2 xs:px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <FileText size={16} className="text-retro-yellow" />
                             <span className="font-bold text-retro-yellow uppercase">25+ Resources</span>
                         </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Download size={18} className="text-retro-green" />
+                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-2 xs:px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            <Download size={16} className="text-retro-green" />
                             <span className="font-bold text-retro-green uppercase">Open Access</span>
                         </div>
                     </div>
@@ -151,38 +151,40 @@ const ResourcesPage = () => {
                         className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
                     >
                         {/* Window Title Bar style header */}
-                        <div className={`${headerColor} px-2 py-2 flex items-center border-b-4 border-retro-gray mb-4`}>
-                            <div className="w-8 h-8 bg-white border-2 border-black flex items-center justify-center mr-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <div className={`${headerColor} px-2 py-2 flex flex-nowrap items-center border-b-4 border-retro-gray mb-4 gap-2`}>
+                            <div className="w-8 h-8 bg-white border-2 border-black flex items-center justify-center mr-1 md:mr-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0">
                                 <IconComponent size={16} className="text-black" />
                             </div>
-                            <h2 className="text-white font-bold font-pixel-header text-sm uppercase tracking-wider flex-1 text-shadow-retro">
+                            <h2 className="text-white font-bold font-pixel-header text-xs md:text-sm uppercase tracking-wider flex-1 text-shadow-retro break-words min-w-[150px]">
                                 {category.title}
                             </h2>
-                            <div className="bg-black text-white text-xs px-2 py-0.5 border border-white font-bold">
+                            <div className="bg-black text-white text-[10px] md:text-xs px-2 py-0.5 border border-white font-bold ml-auto">
                                 {category.resources.length} FILES
                             </div>
                         </div>
 
-                        <div className="bg-white border-2 border-black mx-4 mb-4 p-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)]">
+                        <div className="bg-white border-2 border-black mx-2 xs:mx-4 mb-4 p-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)]">
                             <div className="space-y-1">
                                 {category.resources.map((resource, ridx) => (
                                     <div
                                         key={ridx}
-                                        className={`flex items-start justify-between p-3 hover:bg-retro-blue hover:text-white group transition-colors cursor-pointer border-b border-dashed border-gray-300 last:border-0`}
+                                        className={`grid grid-cols-[1fr_auto] gap-3 items-center p-3 hover:bg-retro-blue hover:text-white group transition-colors cursor-pointer border-b border-dashed border-gray-300 last:border-0`}
                                     >
-                                        <div className="flex-1">
-                                            <div className="flex items-center space-x-2 mb-1">
-                                                <h3 className="font-bold text-sm uppercase font-pixel-header text-black group-hover:text-retro-yellow">{resource.name}</h3>
-                                                <span className={`px-1 py-0.5 bg-retro-light-gray text-black border border-black text-xs font-bold`}>
+                                        <div className="min-w-0">
+                                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                                                <h3 className="font-bold text-xs xs:text-sm uppercase font-pixel-header text-black group-hover:text-retro-yellow break-words leading-tight">{resource.name}</h3>
+                                                <span className={`px-1 py-0.5 bg-retro-light-gray text-black border border-black text-[10px] uppercase font-bold shrink-0`}>
                                                     {resource.type}
                                                 </span>
                                             </div>
-                                            <p className="text-sm font-bold uppercase mb-1 truncate text-black">{resource.description}</p>
+                                            <p className="text-xs xs:text-sm font-bold uppercase mb-1 break-words leading-tight text-black">{resource.description}</p>
                                             <p className="text-xs font-mono text-black group-hover:text-retro-light-gray">{resource.size}</p>
                                         </div>
-                                        <button className={`ml-4 flex-shrink-0 p-2 bg-retro-light-gray text-retro-gray border-2 border-white shadow-[1px_1px_0px_0px_#000] group-hover:bg-retro-red group-hover:text-white group-hover:border-black`} title="Locked">
-                                            <Lock size={14} />
-                                        </button>
+                                        <div className="flex items-center justify-center w-10">
+                                            <button className={`p-2 bg-retro-light-gray text-retro-gray border-2 border-white shadow-[1px_1px_0px_0px_#000] group-hover:bg-retro-red group-hover:text-white group-hover:border-black`} title="Locked">
+                                                <Lock size={16} />
+                                            </button>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -200,8 +202,8 @@ const ResourcesPage = () => {
                 {/* Dithering pattern overlay */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
 
-                <div className="flex items-start space-x-4 relative z-10">
-                    <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 relative z-10 text-center md:text-left">
+                    <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mx-auto md:mx-0">
                         <Book size={32} className="text-retro-magenta" />
                     </div>
                     <div className="flex-1">

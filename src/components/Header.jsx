@@ -1,61 +1,116 @@
-import React from 'react';
-import { Search, Menu } from 'lucide-react';
-import { motion } from 'framer-motion';
-
-import NotificationCenter from './NotificationCenter';
+import React, { useState, useEffect } from 'react';
+import { Menu, Search, Bell, Mail, X, ChevronDown, Terminal, Settings } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import MessageCenter from './MessageCenter';
+import NotificationCenter from './NotificationCenter';
+import { gameAudio } from '../utils/gameAudio';
 
 const Header = ({ onMenuClick }) => {
+    const [currentTime, setCurrentTime] = useState(new Date());
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // Update time every minute
+    useEffect(() => {
+        const timer = setInterval(() => setCurrentTime(new Date()), 60000);
+        return () => clearInterval(timer);
+    }, []);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        gameAudio.playSuccess(); // Play success sound on search
+        // Open CommandPalette instead of showing modal
+        window.dispatchEvent(new Event('open-command-palette'));
+        setSearchQuery('');
+    };
+
+    const handleMouseEnter = () => {
+        gameAudio.playHover();
+    };
+
+    const handleClick = () => {
+        // gameAudio.playClick(); // Handled globally now
+    };
+
     return (
-        <header className="flex items-center justify-between py-4 lg:py-6 px-4 lg:px-8 bg-retro-black border-b-4 border-retro-white">
-            <div className="flex items-center gap-4">
-                {/* Mobile menu button */}
-                <button
-                    onClick={onMenuClick}
-                    className="lg:hidden p-2 hover:bg-retro-gray transition-colors border-2 border-transparent hover:border-white"
-                >
-                    <Menu size={24} className="text-retro-white" />
-                </button>
+        <>
+            <header className="h-16 bg-retro-light-gray dark:bg-retro-black border-b-4 border-retro-gray flex items-center justify-between px-4 sticky top-0 z-30 shadow-md">
+                <div className="flex items-center">
+                    <button
+                        onClick={(e) => { handleClick(); onMenuClick(e); }}
+                        onMouseEnter={handleMouseEnter}
+                        className="lg:hidden mr-1 p-1 border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white bg-retro-light-gray shrink-0 text-black"
+                    >
+                        <Menu size={20} />
+                    </button>
 
-                <div>
-                    <h2 className="text-xl lg:text-2xl font-bold font-pixel-header text-retro-white retro-shadow tracking-widest uppercase">Dashboard</h2>
-                    <p className="text-xs lg:text-sm text-retro-light-gray font-pixel-body hidden sm:block uppercase tracking-wide">&gt;&gt; ECU Youth Exchange System</p>
-                </div>
-            </div>
 
-            <div className="flex items-center gap-3 lg:gap-6">
-                {/* Search - Terminal Style */}
-                <div
-                    className="relative cursor-pointer group hidden md:block"
-                    onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
-                >
-                    <div className="flex items-center pl-4 pr-4 py-2 bg-black border-2 border-retro-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] w-48 lg:w-64 hover:border-retro-white transition-colors">
-                        <span className="text-retro-green font-bold mr-2 text-sm">&gt;</span>
-                        <span className="text-retro-green font-pixel-body text-sm uppercase tracking-wider">SEARCH_CMD</span>
-                        <motion.span
-                            animate={{ opacity: [1, 0] }}
-                            transition={{ duration: 0.8, repeat: Infinity }}
-                            className="ml-1 w-2.5 h-4 bg-retro-green block"
-                        />
+
+                    {/* Desktop Branding */}
+                    <div className="hidden md:flex items-center gap-3">
                     </div>
                 </div>
 
-                {/* Mobile search button */}
-                <button
-                    className="md:hidden p-2 hover:bg-retro-gray transition-colors border-2 border-transparent hover:border-white"
-                    onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
-                >
-                    <Search size={20} className="text-retro-white" />
-                </button>
+                <div className="flex items-center space-x-4">
+                    {/* Retro Search Bar */}
+                    <div className="hidden lg:block relative">
+                        <form onSubmit={handleSearch} className="relative">
+                            <input
+                                type="text"
+                                placeholder="SEARCH_CMD..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="bg-black text-retro-green font-pixel-body px-4 py-1 pr-10 w-40 lg:w-64 border-2 border-retro-gray focus:outline-none focus:border-retro-green uppercase shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] transition-all"
+                            />
+                            <button
+                                type="submit"
+                                onMouseEnter={handleMouseEnter}
+                                onClick={handleClick}
+                                className="absolute right-1 top-1 text-retro-green hover:text-white"
+                            >
+                                <Terminal size={16} />
+                            </button>
+                            <motion.span
+                                animate={{ opacity: [1, 0, 1] }}
+                                transition={{ repeat: Infinity, duration: 0.8 }}
+                                className="absolute right-8 top-1.5 w-2 h-4 bg-retro-green"
+                            />
+                        </form>
+                    </div>
 
-                <div className="flex items-center gap-2 lg:gap-4">
-                    <MessageCenter />
-                    <NotificationCenter />
+                    {/* Mobile Search Trigger */}
+                    <div className="lg:hidden">
+                        <button
+                            onClick={(e) => { handleClick(); handleSearch(e); }}
+                            className="p-1 text-black dark:text-retro-white hover:text-retro-blue transition-colors"
+                        >
+                            <Search size={20} />
+                        </button>
+                    </div>
+
+                    {/* Icons with Retro Dropdowns */}
+                    <div className="flex items-center space-x-2">
+                        <div onMouseEnter={handleMouseEnter} onClick={handleClick}>
+                            <MessageCenter />
+                        </div>
+                        <div onMouseEnter={handleMouseEnter} onClick={handleClick}>
+                            <NotificationCenter />
+                        </div>
+                    </div>
+
+                    {/* Clock */}
+                    <div className="hidden lg:flex flex-col items-end border-l-2 border-retro-gray pl-4">
+                        <span className="font-pixel-header text-xs font-bold pointer-events-none">
+                            {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </span>
+                        <span className="text-[10px] text-retro-gray uppercase pointer-events-none">
+                            Sys_Time
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </>
     );
 };
 
 export default Header;
-// Force Rebuild 1

@@ -6,7 +6,20 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'xs': '320px',    // iPhone SE, small androids
+      'sm': '375px',    // Standard Mobile (iPhone X/11/12/13/14)
+      'md': '428px',    // Large Phones (Pro Max, Plus)
+      'lg': '768px',    // Tablets
+      'xl': '1024px',   // Desktop
+      '2xl': '1280px'   // Large desktop
+    },
     extend: {
+      fontSize: {
+        'xs': ['0.85rem', { lineHeight: '1.25rem' }],   // ~13.6px -> Increased from 12px
+        'sm': ['1rem', { lineHeight: '1.5rem' }],       // 16px -> Increased from 14px
+        'base': ['1.125rem', { lineHeight: '1.75rem' }], // 18px -> Increased from 16px
+      },
       colors: {
         'retro-black': '#000000',
         'retro-white': '#ffffff',

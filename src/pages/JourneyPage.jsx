@@ -13,6 +13,17 @@ const JourneyPage = () => {
     const { dayId } = useParams();
     const days = projectData.days || projectData.project?.timetable || [];
 
+    // Color mapping for each day (7 unique retro colors)
+    const dayColors = [
+        { bg: 'bg-retro-red', border: 'border-retro-red', text: 'text-white' },      // Day 1
+        { bg: 'bg-retro-orange', border: 'border-retro-orange', text: 'text-white' }, // Day 2
+        { bg: 'bg-retro-yellow', border: 'border-retro-yellow', text: 'text-black' }, // Day 3
+        { bg: 'bg-retro-green', border: 'border-retro-green', text: 'text-white' },   // Day 4
+        { bg: 'bg-retro-cyan', border: 'border-retro-cyan', text: 'text-black' },     // Day 5
+        { bg: 'bg-retro-blue', border: 'border-retro-blue', text: 'text-white' },     // Day 6
+        { bg: 'bg-retro-magenta', border: 'border-retro-magenta', text: 'text-white' } // Day 7
+    ];
+
     // If no day is selected, show the first day
     const currentDayIndex = dayId
         ? days.findIndex(d => d.day === parseInt(dayId))
@@ -39,40 +50,50 @@ const JourneyPage = () => {
     return (
         <div className="space-y-6 font-pixel-body">
             {/* Page Header */}
-            <div className="flex items-center justify-between border-b-4 border-black pb-4">
-                <div>
-                    <h1 className="text-3xl font-bold text-black dark:text-retro-white font-pixel-header retro-shadow">The Journey</h1>
-                    <p className="text-retro-cyan mt-1 font-bold bg-black inline-block px-2 border-2 border-retro-gray">&gt; 7 Days • 7 Themes • 1 Body</p>
+            {/* Retro Box Header: THE JOURNEY */}
+            <div className="bg-[#B5F288] border-4 border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-3 mb-6 relative">
+                <div className="border-2 border-retro-gray p-2 flex flex-col items-center text-center">
+                    <h1 className="text-2xl xs:text-3xl lg:text-5xl font-bold text-black font-pixel-header uppercase tracking-widest leading-none mb-3">
+                        The Journey
+                    </h1>
+                    <div className="bg-black px-4 py-1.5 border-2 border-retro-cyan shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+                        <p className="text-retro-cyan text-xs xs:text-sm lg:text-base font-bold uppercase tracking-widest leading-none">
+                            &gt; 7 Days • 7 Themes • 1 Body
+                        </p>
+                    </div>
                 </div>
             </div>
 
             {/* Day Selector Stepper */}
             <div className="bg-retro-black border-4 border-retro-gray p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <div className="flex items-center justify-between gap-2 overflow-x-auto custom-scrollbar pb-2">
-                    {days.map((day, index) => (
-                        <button
-                            key={day.day}
-                            onClick={() => goToDay(index)}
-                            className={`flex-1 min-w-[120px] p-2 border-2 transition-all relative ${index === currentDayIndex
-                                ? `bg-white border-white -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`
-                                : 'bg-retro-gray border-black hover:bg-retro-light-gray hover:border-white text-gray-400 hover:text-black'
-                                }`}
-                        >
-                            <div className="text-center">
-                                <div className={`text-xs font-bold uppercase tracking-wider font-pixel-body ${index === currentDayIndex ? `text-black` : 'text-black'
-                                    }`}>
-                                    Day {day.day}
+                    {days.map((day, index) => {
+                        const dayColor = dayColors[index] || dayColors[0];
+                        return (
+                            <button
+                                key={day.day}
+                                onClick={() => goToDay(index)}
+                                className={`flex-1 min-w-[120px] p-2 border-2 transition-all relative ${index === currentDayIndex
+                                    ? `${dayColor.bg} ${dayColor.border} -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`
+                                    : 'bg-retro-gray border-black hover:bg-retro-light-gray hover:border-white text-gray-400 hover:text-black'
+                                    }`}
+                            >
+                                <div className="text-center">
+                                    <div className={`text-xs font-bold uppercase tracking-wider font-pixel-body ${index === currentDayIndex ? dayColor.text : 'text-black'
+                                        }`}>
+                                        Day {day.day}
+                                    </div>
+                                    <div className={`text-sm font-bold mt-1 font-pixel-header uppercase ${index === currentDayIndex ? dayColor.text : 'text-black/50'
+                                        }`}>
+                                        {['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'][index]}
+                                    </div>
                                 </div>
-                                <div className={`text-sm font-bold mt-1 font-pixel-header uppercase ${index === currentDayIndex ? 'text-black' : 'text-black/50'
-                                    }`}>
-                                    {['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon'][index]}
-                                </div>
-                            </div>
-                            {index === currentDayIndex && (
-                                <div className="absolute top-0 left-0 w-2 h-2 bg-black"></div>
-                            )}
-                        </button>
-                    ))}
+                                {index === currentDayIndex && (
+                                    <div className="absolute top-0 left-0 w-2 h-2 bg-black"></div>
+                                )}
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -90,31 +111,26 @@ const JourneyPage = () => {
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between pt-4 border-t-4 border-retro-gray border-dashed">
+            <div className="flex justify-end pt-4 border-t-4 border-retro-gray border-dashed gap-2">
                 <button
                     onClick={prevDay}
                     disabled={currentDayIndex === 0}
-                    className={`flex items-center gap-2 px-6 py-3 font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === 0
+                    className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === 0
                         ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
-                        : 'bg-white text-black border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
+                        : 'bg-white text-black border-black hover:bg-retro-yellow shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none'
                         }`}
                 >
-                    <ChevronLeft size={20} />
-                    Prev
+                    <ChevronLeft size={16} />
                 </button>
-                <div className="text-center">
-                    <p className="text-retro-light-gray text-xs uppercase pt-2">Page {currentDayIndex + 1} of {days.length}</p>
-                </div>
                 <button
                     onClick={nextDay}
                     disabled={currentDayIndex === days.length - 1}
-                    className={`flex items-center gap-2 px-6 py-3 font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === days.length - 1
+                    className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === days.length - 1
                         ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
-                        : 'bg-retro-blue text-white border-white hover:bg-retro-cyan hover:text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
+                        : 'bg-retro-blue text-white border-white hover:bg-retro-cyan hover:text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none'
                         }`}
                 >
-                    Next
-                    <ChevronRight size={20} />
+                    <ChevronRight size={16} />
                 </button>
             </div>
         </div>
@@ -126,6 +142,18 @@ const DayDetailView = ({ day }) => {
     const [activeTab, setActiveTab] = useState('overview');
     const color = day.color || 'indigo';
 
+    // Color mapping for each day (same as in JourneyPage)
+    const dayColors = [
+        { bg: 'bg-retro-red', border: 'border-retro-red', text: 'text-white' },
+        { bg: 'bg-retro-orange', border: 'border-retro-orange', text: 'text-white' },
+        { bg: 'bg-retro-yellow', border: 'border-retro-yellow', text: 'text-black' },
+        { bg: 'bg-retro-green', border: 'border-retro-green', text: 'text-white' },
+        { bg: 'bg-retro-cyan', border: 'border-retro-cyan', text: 'text-black' },
+        { bg: 'bg-retro-blue', border: 'border-retro-blue', text: 'text-white' },
+        { bg: 'bg-retro-magenta', border: 'border-retro-magenta', text: 'text-white' }
+    ];
+    const currentDayColor = dayColors[day.day - 1] || dayColors[0];
+
     const tabBorders = {
         'overview': 'border-retro-blue',
         'activities': 'border-retro-green',
@@ -134,24 +162,46 @@ const DayDetailView = ({ day }) => {
     };
 
     return (
-        <div className="bg-retro-white border-4 border-retro-gray shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
-            {/* Header */}
-            <div className={`bg-retro-light-gray border-b-4 border-retro-gray p-6 relative overflow-hidden`}>
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-                <div className="flex items-start justify-between relative z-10">
-                    <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                            <span className={`px-3 py-1 bg-black text-white text-sm font-bold border-2 border-white uppercase tracking-wide shadow-[2px_2px_0px_0px_#fff]`}>
-                                Day {day.day}
-                            </span>
-                            <span className="text-black font-bold uppercase bg-white px-2 border border-black">{day.date}</span>
+        <div className="bg-retro-white border-4 border-retro-gray shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+            {/* Header Redesigned to match ContentSlider */}
+            <div className={`${currentDayColor.bg} border-b-4 border-black pt-0 pb-6 px-4 xs:px-6 sm:p-8 relative overflow-hidden min-h-[180px] flex flex-col justify-start m-0`}>
+                {/* High-visibility Grid Pattern Overlay */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '15px 15px' }}>
+                </div>
+
+                {/* Scanlines Effect */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none"
+                    style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}>
+                </div>
+
+                <div className="relative z-10 space-y-6">
+                    {/* Badges Row */}
+                    <div className="flex flex-wrap items-center gap-3">
+                        <div className={`px-4 py-1.5 border-2 border-white ${currentDayColor.bg} shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]`}>
+                            <span className="text-sm xs:text-base font-bold text-white uppercase tracking-widest leading-none">Day {day.day}</span>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-black mb-2 font-pixel-header uppercase">{day.theme}</h2>
-                        <p className={`text-black font-bold text-lg border-l-4 border-black pl-4`}>&gt; {day.body_part}</p>
+                        <div className="px-4 py-1.5 border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]">
+                            <span className="text-sm xs:text-base font-bold text-black uppercase tracking-widest leading-none">{day.date}</span>
+                        </div>
                     </div>
-                    <div className={`hidden md:flex bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]`}>
-                        <Calendar size={40} className="text-black" />
+
+                    {/* Theme Title */}
+                    <h2 className="text-lg xs:text-xl sm:text-3xl lg:text-5xl font-bold text-white tracking-tighter leading-none uppercase break-words hyphens-auto overflow-hidden retro-shadow font-pixel-header">
+                        {day.theme}
+                    </h2>
+
+                    {/* Body Part metadata */}
+                    <div className="flex items-center gap-3 border-l-4 border-white pl-4">
+                        <span className="text-white text-base xs:text-lg font-bold uppercase tracking-widest flex items-center gap-2">
+                            <span className="animate-blink">&gt;</span> {day.body_part}
+                        </span>
                     </div>
+                </div>
+
+                {/* Optional Icon/Calendar Overlay */}
+                <div className="absolute top-4 right-4 opacity-20 hidden sm:block">
+                    <Calendar size={80} className="text-white" strokeWidth={1} />
                 </div>
             </div>
 
@@ -217,7 +267,7 @@ const OverviewTab = ({ day }) => (
                             <div className="w-6 h-6 bg-retro-blue text-white font-bold flex items-center justify-center border-2 border-black flex-shrink-0">
                                 <span className="text-xs">{i + 1}</span>
                             </div>
-                            <span className="text-black font-bold leading-relaxed">{obj}</span>
+                            <span className="text-black font-bold leading-relaxed break-words min-w-0">{obj}</span>
                         </li>
                     ))}
                 </ul>
@@ -228,13 +278,15 @@ const OverviewTab = ({ day }) => (
                 <h3 className="text-sm font-bold text-white bg-retro-green inline-block px-2 py-1 uppercase tracking-wider mb-4 border-2 border-black">
                     Lead Partner
                 </h3>
-                <div className="flex items-center gap-4 border-2 border-black p-4 bg-retro-light-gray/20">
-                    <div className="w-12 h-12 bg-white flex items-center justify-center border-2 border-black">
-                        <span className="text-2xl">{getCountryFlag(day.lead_partner?.country)}</span>
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-transparent">
+                        <span className="text-5xl filter drop-shadow-sm">{getCountryFlag(day.lead_partner?.country)}</span>
                     </div>
-                    <div>
-                        <p className="font-bold text-black text-lg font-pixel-header uppercase">{day.lead_partner?.organization}</p>
-                        <p className="text-sm text-retro-gray font-bold">{day.lead_partner?.country}</p>
+                    <div className="flex-1 min-w-0">
+                        <p className="font-bold text-black text-xs xs:text-sm sm:text-lg md:text-xl font-pixel-header uppercase leading-tight mb-1 break-words overflow-hidden">
+                            {day.lead_partner?.organization}
+                        </p>
+                        <p className="text-xs sm:text-base text-retro-gray font-bold">{day.lead_partner?.country}</p>
                     </div>
                 </div>
             </div>
@@ -279,11 +331,11 @@ const ActivitiesTab = ({ day }) => {
             <div className={`bg-white p-4 border-4 border-black hover:border-retro-blue transition-all mb-4 ${isExpanded ? 'shadow-[4px_4px_0px_0px_#000]' : 'shadow-[2px_2px_0px_0px_#aaa]'}`}>
                 {/* Session Header */}
                 <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                             <span className="text-xs font-bold bg-black text-white px-1 font-pixel-body uppercase">{session.learning_type}</span>
                         </div>
-                        <h4 className="text-lg font-bold text-black font-pixel-header uppercase">{session.title}</h4>
+                        <h4 className="text-lg font-bold text-black font-pixel-header uppercase break-words leading-tight hyphens-auto">{session.title}</h4>
                     </div>
                     <button
                         onClick={() => toggleSession(index)}
@@ -480,14 +532,14 @@ const ImpactTab = ({ day }) => (
         {day.eu_youth_goal && (
             <div className="bg-retro-blue/10 p-6 border-4 border-retro-blue">
                 <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-retro-blue flex items-center justify-center flex-shrink-0 border-2 border-black shadow-[4px_4px_0px_0px_#000]">
-                        <span className="text-xl font-bold text-white font-pixel-header">#{day.eu_youth_goal.number}</span>
+                    <div className="w-14 h-14 bg-retro-blue flex items-center justify-center flex-shrink-0 border-2 border-black shadow-[4px_4px_0px_0px_#000]">
+                        <span className="text-lg font-bold text-white font-pixel-header">#{day.eu_youth_goal.number}</span>
                     </div>
                     <div className="flex-1">
                         <h3 className="text-sm font-bold text-retro-blue uppercase tracking-wider mb-2 bg-white inline-block px-1 border border-black">
                             European Youth Goal
                         </h3>
-                        <p className="text-xl font-bold text-black mb-2 font-pixel-header uppercase">{day.eu_youth_goal.title}</p>
+                        <p className="text-xl font-bold text-black mb-2 font-pixel-header uppercase break-words leading-tight hyphens-auto">{day.eu_youth_goal.title}</p>
                         <p className="text-black font-bold font-pixel-body border-l-4 border-retro-blue pl-4">{day.eu_youth_goal.connection}</p>
                     </div>
                 </div>
@@ -497,22 +549,22 @@ const ImpactTab = ({ day }) => (
         {/* Erasmus+ Priorities Grid */}
         <div>
             <h3 className="text-sm font-bold text-retro-gray uppercase tracking-wider mb-4 border-b-2 border-retro-gray inline-block">Horizontal Priorities</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
-                    <div className="text-2xl mb-2">🌍</div>
-                    <p className="font-bold text-black text-sm uppercase">Inclusion & Diversity</p>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-6 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center">
+                    <div className="text-3xl mb-3">🌍</div>
+                    <p className="font-bold text-black text-sm uppercase tracking-tight">Inclusion & Diversity</p>
                 </div>
-                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
-                    <div className="text-2xl mb-2">♻️</div>
-                    <p className="font-bold text-black text-sm uppercase">Sustainability</p>
+                <div className="bg-white p-6 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center">
+                    <div className="text-3xl mb-3">♻️</div>
+                    <p className="font-bold text-black text-sm uppercase tracking-tight">Sustainability</p>
                 </div>
-                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
-                    <div className="text-2xl mb-2">💻</div>
-                    <p className="font-bold text-black text-sm uppercase">Digital Transf.</p>
+                <div className="bg-white p-6 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center">
+                    <div className="text-3xl mb-3">💻</div>
+                    <p className="font-bold text-black text-sm uppercase tracking-tight break-words">Digital Transf.</p>
                 </div>
-                <div className="bg-white p-4 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000]">
-                    <div className="text-2xl mb-2">🗳️</div>
-                    <p className="font-bold text-black text-sm uppercase">Democracy</p>
+                <div className="bg-white p-6 border-2 border-black text-center shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center">
+                    <div className="text-3xl mb-3">🗳️</div>
+                    <p className="font-bold text-black text-sm uppercase tracking-tight break-words">Democracy</p>
                 </div>
             </div>
         </div>
@@ -523,13 +575,13 @@ const ImpactTab = ({ day }) => (
                 <h3 className="text-sm font-bold text-black bg-retro-orange inline-block px-2 py-1 uppercase tracking-wider mb-4 border-2 border-black">
                     Competencies
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     {day.youthpass_competencies.map((comp, i) => (
-                        <div key={i} className="flex items-start gap-3 bg-white p-3 border-2 border-black">
-                            <div className="w-6 h-6 bg-black text-white flex items-center justify-center flex-shrink-0">
-                                <span className="text-xs font-bold">{i + 1}</span>
+                        <div key={i} className="flex flex-col xs:flex-row items-start xs:items-center gap-4 bg-white p-4 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <div className="w-8 h-8 bg-black text-white flex items-center justify-center flex-shrink-0 border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                <span className="text-sm font-bold">{i + 1}</span>
                             </div>
-                            <span className="text-black font-bold text-sm uppercase">{comp}</span>
+                            <span className="text-black font-bold text-sm xs:text-base uppercase tracking-tight leading-tight break-words">{comp}</span>
                         </div>
                     ))}
                 </div>

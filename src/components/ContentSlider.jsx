@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Hand, Footprints, Utensils, Heart, Brain, Hammer, User, ArrowRight } from 'lucide-react';
+import { gameAudio } from '../utils/gameAudio';
 
 const icons = {
     Hand,
@@ -54,12 +55,36 @@ const ContentSlider = ({ days, onExplore }) => {
         }),
     };
 
+    const colorMap = {
+        red: 'bg-retro-red',
+        orange: 'bg-retro-orange',
+        yellow: 'bg-retro-yellow',
+        green: 'bg-retro-green',
+        cyan: 'bg-retro-cyan',
+        blue: 'bg-retro-blue',
+        magenta: 'bg-retro-magenta',
+        purple: 'bg-retro-magenta',
+        indigo: 'bg-retro-blue',
+        emerald: 'bg-retro-green',
+        rose: 'bg-retro-red',
+        amber: 'bg-retro-orange'
+    };
+
+    const bgColor = colorMap[currentDay.color] || 'bg-retro-blue';
+
     return (
-        <div className="relative bg-retro-white border-4 border-retro-gray shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] h-[500px] overflow-hidden flex font-pixel-body">
-            {/* Left Decoration / Image Area */}
-            <div className={`w-1/3 h-full bg-${currentDay.color}-500 border-r-4 border-retro-gray flex items-center justify-center relative`}>
-                {/* Pixel Pattern Overlay */}
-                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+        <div className="relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col font-pixel-body overflow-hidden">
+            {/* Top Area: Colored Header with Badge */}
+            <div className={`w-full h-48 xs:h-56 ${bgColor} flex items-center justify-center relative border-b-4 border-black shrink-0 overflow-hidden`}>
+                {/* High-visibility Grid Pattern Overlay */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '15px 15px' }}>
+                </div>
+
+                {/* Scanlines Effect */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none"
+                    style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}>
+                </div>
 
                 <motion.div
                     key={`icon-${currentIndex}`}
@@ -67,88 +92,147 @@ const ContentSlider = ({ days, onExplore }) => {
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, ease: "steps(4)" }}
                 >
-                    <IconComponent size={120} className="text-white drop-shadow-[4px_4px_0px_rgba(0,0,0,0.5)]" strokeWidth={2} />
+                    <IconComponent size={140} className="text-white drop-shadow-[5px_5px_0px_rgba(0,0,0,0.8)]" strokeWidth={1.5} />
                 </motion.div>
 
-                <div className="absolute bottom-6 left-6 border-2 border-white bg-black p-2">
-                    <span className="text-4xl font-bold font-pixel-header text-white select-none">0{currentDay.day}</span>
+                {/* Day Badge - Repositioned to bottom-left */}
+                <div className="absolute bottom-4 left-4 border-4 border-white bg-black p-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]">
+                    <span className="text-xl xs:text-2xl font-bold font-pixel-header text-white select-none leading-none">0{currentDay.day}</span>
                 </div>
             </div>
 
-            {/* Right Content Area */}
-            <div className="w-2/3 p-10 flex flex-col justify-center relative bg-retro-white text-black">
+            {/* Bottom Content Area */}
+            <div className="p-4 xs:p-6 md:p-8 flex flex-col relative bg-white text-black shrink-0">
                 <AnimatePresence mode='wait'>
                     <motion.div
                         key={currentIndex}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
-                        transition={{ duration: 0.3 }}
-                        className="space-y-6"
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.2}
+                        onDragEnd={(_, info) => {
+                            const swipeThreshold = 50;
+                            if (info.offset.x < -swipeThreshold) {
+                                nextSlide();
+                            } else if (info.offset.x > swipeThreshold) {
+                                prevSlide();
+                            }
+                        }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="space-y-6 cursor-grab active:cursor-grabbing touch-pan-y"
                     >
-                        <div className="flex items-center space-x-3 border-b-2 border-retro-gray pb-2">
-                            <span className={`px-3 py-1 bg-black text-white text-xs font-bold border-2 border-retro-gray uppercase tracking-wider`}>
-                                Day {currentDay.day} • {currentDay.date}
+                        {/* Combined Metadata Pill */}
+                        <div className="flex items-center bg-black border-2 border-retro-gray p-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                            <span className="text-[10px] xs:text-xs font-bold text-white uppercase tracking-widest">
+                                Day {currentDay.day} • {currentDay.date} | {currentDay.body_part}
                             </span>
-                            <span className="text-retro-gray text-lg">|</span>
-                            <span className="text-retro-gray text-sm font-bold uppercase">{currentDay.body_part}</span>
                         </div>
 
-                        <h2 className="text-3xl font-bold font-pixel-header text-black tracking-tight leading-tight uppercase">
+                        {/* Theme Title - Moved back here */}
+                        <h2 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold font-pixel-header text-black tracking-tighter leading-none uppercase break-words hyphens-auto overflow-hidden border-b-2 border-black/10 pb-4">
                             {currentDay.theme}
                         </h2>
 
-                        <p className="text-retro-gray text-lg leading-relaxed max-w-lg font-bold">
-                            {currentDay.description}
-                        </p>
-
-                        <div className="pt-2 bg-retro-light-gray/20 p-4 border-2 border-retro-light-gray border-dashed">
-                            <h4 className="text-xs font-bold text-retro-gray uppercase tracking-widest mb-2">[ SESSION_LOG ]</h4>
-                            <ul className="space-y-2">
+                        {/* Session Log Box */}
+                        <div className="bg-[#f0f0f0] p-4 border-2 border-retro-gray border-dashed relative pointer-events-none select-none">
+                            <h4 className="absolute -top-3 left-4 bg-[#f0f0f0] px-2 text-[10px] font-bold text-black uppercase tracking-widest">[ SESSION_LOG ]</h4>
+                            <ul className="space-y-2 mt-1">
                                 {(currentDay.sessions || []).slice(0, 3).map((session, idx) => (
-                                    <li key={idx} className="flex items-center text-black text-sm font-bold">
-                                        <span className="w-2 h-2 bg-black mr-3"></span>
+                                    <li key={idx} className="flex items-start text-black text-xs xs:text-sm font-bold leading-tight">
+                                        <span className="w-2.5 h-2.5 bg-black mt-0.5 mr-3 shrink-0"></span>
                                         {session.title}
                                     </li>
                                 ))}
                             </ul>
                         </div>
 
-                        <div className="pt-4">
+                        {/* Explore Button (Mobile/Tablet Only) */}
+                        <div className="pt-2 lg:hidden">
                             <button
-                                onClick={() => onExplore(currentDay)}
-                                className={`group flex items-center space-x-2 bg-retro-blue text-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none transition-all`}
+                                onClick={() => {
+                                    gameAudio.playClick();
+                                    onExplore(currentDay);
+                                }}
+                                onMouseEnter={() => gameAudio.playHover()}
+                                className="group flex items-center space-x-3 bg-retro-blue text-white px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none active:translate-y-2 transition-all"
                             >
-                                <span className="uppercase font-bold">Explore Module</span>
-                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                <span className="uppercase font-bold text-sm xs:text-base tracking-wide">Explore</span>
+                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </button>
                         </div>
-
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Navigation Controls */}
-                <div className="absolute bottom-6 right-8 flex space-x-4">
+                {/* Slider Indicators (Dots) - Hidden on Destop */}
+                <div className="flex justify-center mt-8 space-x-2 lg:hidden">
+                    {days.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => {
+                                gameAudio.playClick();
+                                setCurrentIndex(idx);
+                            }}
+                            onMouseEnter={() => gameAudio.playHover()}
+                            className={`h-3 w-3 border-2 border-black transition-all ${idx === currentIndex ? 'bg-black w-6' : 'bg-white hover:bg-retro-gray'}`}
+                        />
+                    ))}
+                </div>
+
+                {/* Desktop Footer Row: Explore | Dots | Arrows */}
+                <div className="hidden lg:flex items-center justify-between mt-8 pt-4 border-t-2 border-black/10">
+                    {/* Left: Explore Button */}
                     <button
-                        onClick={prevSlide}
-                        className="p-2 bg-retro-light-gray text-black border-2 border-black hover:bg-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
+                        onClick={() => {
+                            gameAudio.playClick();
+                            onExplore(currentDay);
+                        }}
+                        onMouseEnter={() => gameAudio.playHover()}
+                        className="group flex items-center space-x-2 bg-retro-blue text-white px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-0.5 hover:shadow-none active:translate-y-1 transition-all"
                     >
-                        <ChevronLeft size={20} />
+                        <span className="uppercase font-bold text-sm tracking-wide">Explore</span>
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </button>
-                    <div className="flex items-center space-x-2">
+
+                    {/* Center: Dots */}
+                    <div className="flex space-x-2">
                         {days.map((_, idx) => (
-                            <div
+                            <button
                                 key={idx}
-                                className={`h-3 w-3 border-2 border-black transition-all duration-0 ${idx === currentIndex ? 'bg-black' : 'bg-white'}`}
+                                onClick={() => {
+                                    gameAudio.playClick();
+                                    setCurrentIndex(idx);
+                                }}
+                                onMouseEnter={() => gameAudio.playHover()}
+                                className={`h-3 w-3 border-2 border-black transition-all ${idx === currentIndex ? 'bg-black w-6' : 'bg-white hover:bg-retro-gray'}`}
                             />
                         ))}
                     </div>
-                    <button
-                        onClick={nextSlide}
-                        className="p-2 bg-retro-light-gray text-black border-2 border-black hover:bg-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none"
-                    >
-                        <ChevronRight size={20} />
-                    </button>
+
+                    {/* Right: Arrows */}
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => {
+                                gameAudio.playClick();
+                                prevSlide();
+                            }}
+                            onMouseEnter={() => gameAudio.playHover()}
+                            className="p-2 bg-white text-black border-4 border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            onClick={() => {
+                                gameAudio.playClick();
+                                nextSlide();
+                            }}
+                            onMouseEnter={() => gameAudio.playHover()}
+                            className="p-2 bg-white text-black border-4 border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

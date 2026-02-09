@@ -111,7 +111,7 @@ const CommandPalette = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.1 }}
-                        className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl bg-retro-light-gray border-4 border-retro-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden flex flex-col font-pixel-body"
+                        className="fixed top-16 left-4 right-4 w-auto md:w-full md:left-auto md:right-4 md:max-w-xl bg-[#aaaaaa] border-4 border-retro-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden flex flex-col font-pixel-body"
                     >
                         {/* Window Title Bar */}
                         <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray">
@@ -130,14 +130,14 @@ const CommandPalette = () => {
                         </div>
 
                         {/* Search Input */}
-                        <div className="p-4 bg-retro-light-gray">
-                            <div className="flex items-center px-4 py-3 bg-white border-2 border-retro-dark-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]">
-                                <Search className="text-black mr-3" size={20} />
+                        <div className="p-4 bg-[#aaaaaa]">
+                            <div className="flex items-center px-4 py-3 bg-[#ffffff] border-2 border-retro-dark-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]">
+                                <Search className="text-[#000000] mr-3" size={20} />
                                 <input
                                     autoFocus
                                     type="text"
                                     placeholder="Type a command or search..."
-                                    className="flex-1 bg-transparent border-none outline-none text-lg text-black placeholder-retro-gray font-bold font-pixel-body uppercase"
+                                    className="flex-1 bg-transparent border-none outline-none text-lg text-[#000000] placeholder-retro-gray font-bold font-pixel-body uppercase"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                 />
@@ -145,7 +145,7 @@ const CommandPalette = () => {
                         </div>
 
                         {/* Results */}
-                        <div className="max-h-[60vh] overflow-y-auto p-2 bg-retro-light-gray border-t-2 border-white">
+                        <div className="max-h-[60vh] overflow-y-auto p-2 bg-[#aaaaaa] border-t-2 border-white">
                             {filteredItems.length > 0 ? (
                                 <div className="space-y-1">
                                     {filteredItems.map((item, index) => {
