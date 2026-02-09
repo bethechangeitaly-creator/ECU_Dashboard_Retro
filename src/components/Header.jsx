@@ -52,6 +52,24 @@ const Header = ({ onMenuClick }) => {
                 </div>
 
                 <div className="flex items-center space-x-4">
+                    {/* Institutional Logos (Desktop) */}
+                    <div className="hidden lg:flex items-center gap-4 mr-2">
+                        <a href="https://agenziagioventu.gov.it/" target="_blank" rel="noopener noreferrer" className="group">
+                            <img
+                                src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
+                                alt="Agenzia Italiana per la Gioventù"
+                                className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
+                                style={{ imageRendering: 'pixelated' }}
+                            />
+                        </a>
+                        <a href="https://www.erasmusplus.it/" target="_blank" rel="noopener noreferrer" className="group">
+                            <img
+                                src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
+                                alt="Erasmus+"
+                                className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
+                            />
+                        </a>
+                    </div>
                     {/* Retro Search Bar */}
                     <div className="hidden lg:block relative">
                         <form onSubmit={handleSearch} className="relative">

@@ -7,6 +7,7 @@ import {
     Heart, Lightbulb, TrendingUp, Compass, Mountain, Anchor, Film, Target, X
 } from 'lucide-react';
 import { gameAudio } from '../utils/gameAudio';
+import RetroPageHeader from '../components/RetroPageHeader';
 
 // Icon mapping
 const iconMap = {
@@ -64,6 +65,18 @@ const getRetroColorClasses = (color) => {
             bg: 'bg-retro-orange',
             text: 'text-retro-orange',
             lightBg: 'bg-retro-light-gray',
+        },
+        indigo: {
+            border: 'border-retro-blue',
+            bg: 'bg-retro-blue',
+            text: 'text-retro-blue',
+            lightBg: 'bg-retro-light-gray',
+        },
+        purple: {
+            border: 'border-retro-magenta',
+            bg: 'bg-retro-magenta',
+            text: 'text-retro-magenta',
+            lightBg: 'bg-retro-light-gray',
         }
     };
     return variants[color] || variants.rose;
@@ -77,38 +90,22 @@ const PartnersPage = () => {
     const [selectedPartner, setSelectedPartner] = useState(null);
     const partners = partnersData.partners || [];
 
+    const headerStats = [
+        { icon: Globe, value: "8", label: "Countries", color: "text-retro-cyan" },
+        { icon: Users, value: "40", label: "Participants", color: "text-retro-green" },
+        { icon: Heart, value: "50%", label: "Fewer Opps", color: "text-retro-red" },
+    ];
+
     return (
         <div className="space-y-8 font-pixel-body relative min-h-screen">
             {/* Header Section */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-magenta border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-                {/* Dithering pattern overlay */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
+            <RetroPageHeader
+                title="Partners & People"
+                subtitle="A consortium of 8 organizations across Europe"
+                color="bg-retro-magenta"
+                stats={headerStats}
+            />
 
-                <div className="relative z-10">
-                    <h1 className="text-base xs:text-lg lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words leading-tight text-center lg:text-left overflow-hidden">Partners & People</h1>
-                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
-                        &gt; A consortium of 8 organizations across Europe
-                    </p>
-                    <div className="flex flex-wrap gap-2 xs:gap-4 text-xs md:text-sm">
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Globe size={16} className="text-retro-cyan" />
-                            <span className="font-bold text-retro-cyan uppercase">8 Countries</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Users size={16} className="text-retro-green" />
-                            <span className="font-bold text-retro-green uppercase">40 Participants</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-3 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Heart size={16} className="text-retro-red" />
-                            <span className="font-bold text-retro-red uppercase">50% Fewer Opps</span>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
 
             {/* Partners Grid */}
             <motion.div
@@ -192,6 +189,48 @@ const PartnersPage = () => {
                 })}
             </motion.div>
 
+            {/* Institutional Partners Section (Bottom) */}
+            <div className="flex flex-wrap justify-center gap-6 px-4 pt-8 border-t-4 border-black border-dashed">
+                <motion.a
+                    href="https://agenziagioventu.gov.it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="flex flex-col items-center group"
+                >
+                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-64 h-24">
+                        <img
+                            src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
+                            alt="Agenzia Italiana per la Gioventù"
+                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                        />
+                    </div>
+                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Agenzia Italiana Gioventù</span>
+                </motion.a>
+
+                <motion.a
+                    href="https://www.erasmusplus.it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ delay: 0.1 }}
+                    className="flex flex-col items-center group"
+                >
+                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-64 h-24">
+                        <img
+                            src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
+                            alt="Erasmus+"
+                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                        />
+                    </div>
+                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Erasmus+ Program</span>
+                </motion.a>
+            </div>
+
             <AnimatePresence>
                 {selectedPartner && (
                     <div className="fixed top-16 left-0 lg:left-72 right-0 bottom-0 z-40 flex items-center justify-center p-4">
@@ -219,7 +258,5 @@ const PartnersPage = () => {
         </div>
     );
 };
-
-// PartnerDetailView component has been moved to ../components/PartnerDetailView.jsx
 
 export default PartnersPage;

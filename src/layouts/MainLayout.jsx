@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import CommandPalette from '../components/CommandPalette';
 import PreferencesWindow from '../components/PreferencesWindow';
 import DisclaimerModal from '../components/DisclaimerModal';
+import CreditsModal from '../components/CreditsModal';
 
 /**
  * Main Layout Component
@@ -13,9 +14,30 @@ import DisclaimerModal from '../components/DisclaimerModal';
  */
 const MainLayout = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [showCredits, setShowCredits] = useState(false);
 
     const { pathname } = useLocation();
     const mainRef = React.useRef(null);
+
+    // Listen for open-credits event
+    React.useEffect(() => {
+        const handleOpenCredits = () => {
+            setShowCredits(true);
+            import('../utils/gameAudio').then(({ gameAudio }) => {
+                gameAudio.playClick();
+            });
+        };
+
+        window.addEventListener('open-credits', handleOpenCredits);
+        return () => window.removeEventListener('open-credits', handleOpenCredits);
+    }, []);
+
+    // Scroll to top on route change
+    React.useEffect(() => {
+        if (mainRef.current) {
+            mainRef.current.scrollTo(0, 0);
+        }
+    }, [pathname]);
 
     // Scroll to top on route change
     React.useEffect(() => {
@@ -53,6 +75,7 @@ const MainLayout = () => {
             <CommandPalette />
             <PreferencesWindow />
             <DisclaimerModal />
+            <CreditsModal isOpen={showCredits} onClose={() => setShowCredits(false)} />
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             <div className="flex-1 lg:ml-72 flex flex-col h-[100dvh] overflow-hidden border-l-4 border-retro-gray">
                 <Header onMenuClick={() => setSidebarOpen(true)} />
@@ -68,6 +91,27 @@ const MainLayout = () => {
                     <div className="max-w-7xl mx-auto relative z-10 border-2 border-retro-white p-0 xs:p-1">
                         <Outlet />
                     </div>
+
+                    {/* Mobile Institutional Footer (Fallback) */}
+                    {pathname !== '/partners' && (
+                        <div className="lg:hidden mt-8 pb-8 flex justify-center items-center gap-6 relative z-10 border-t-2 border-retro-gray/50 pt-6 mx-4">
+                            <a href="https://agenziagioventu.gov.it/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
+                                <img
+                                    src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
+                                    alt="AIG"
+                                    className="h-10 w-auto object-contain filter grayscale"
+                                    style={{ imageRendering: 'pixelated' }}
+                                />
+                            </a>
+                            <a href="https://www.erasmusplus.it/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
+                                <img
+                                    src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
+                                    alt="Erasmus+"
+                                    className="h-10 w-auto object-contain filter grayscale"
+                                />
+                            </a>
+                        </div>
+                    )}
                 </main>
             </div>
         </div>

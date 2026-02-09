@@ -18,6 +18,7 @@ import {
  */
 const DashboardPage = () => {
     const navigate = useNavigate();
+    const [selectedPartner, setSelectedPartner] = useState(null);
     const stats = projectData.project?.stats || {};
     const days = projectData.days || projectData.project?.timetable || [];
     const partners = projectData.partners || [];
@@ -97,7 +98,7 @@ const DashboardPage = () => {
                     title="Participants"
                     value={stats.total_participants || 40}
                     icon={Users}
-                    color="bg-emerald-500" // Mapped inside stats card if needed, or visually handled there
+                    color="bg-[#4338CA]" // Impact Lab Indigo
                     trend="+100%"
                     subtitle="Youth + Leaders"
                 />
@@ -105,7 +106,7 @@ const DashboardPage = () => {
                     title="Countries"
                     value={stats.partner_countries || 8}
                     icon={Globe}
-                    color="bg-blue-500"
+                    color="bg-[#A21CAF]" // Project DNA Purple/Magenta
                     trend="active"
                     subtitle="European Partners"
                 />
@@ -113,14 +114,14 @@ const DashboardPage = () => {
                     title="Duration"
                     value={`${stats.days_duration || 7} Days`}
                     icon={Calendar}
-                    color="bg-amber-500"
+                    color="bg-[#D946EF]" // Methodology Hub Bright Pink
                     subtitle="Sept 15-21, 2026"
                 />
                 <StatsCard
                     title="Inclusion"
                     value="50%"
                     icon={Heart}
-                    color="bg-rose-500"
+                    color="bg-[#E74C3C]" // Follow-Up Red/Orange
                     subtitle="Fewer Opportunities"
                 />
             </div>
@@ -164,9 +165,35 @@ const DashboardPage = () => {
 
                 {/* Right: Partnership Network (1/3) */}
                 <div className="lg:col-span-1 h-full">
-                    <PartnershipNetwork />
+                    <PartnershipNetwork onPartnerSelect={setSelectedPartner} />
                 </div>
             </div>
+
+            {/* Partner Detail Modal - Moved to end of DashboardPage for better stack handling */}
+            <AnimatePresence>
+                {selectedPartner && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.7 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedPartner(null)}
+                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            className="bg-retro-light-gray border-4 border-retro-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col font-pixel-body"
+                        >
+                            <PartnerDetailView
+                                partner={selectedPartner}
+                                onClose={() => setSelectedPartner(null)}
+                            />
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
 
             {/* Project Highlights */}
             <div className="bg-white border-4 border-black p-3 xs:p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -270,13 +297,14 @@ const RetroBadge = ({ icon, text }) => (
     </div>
 );
 
-// Partnership Network Component (FIXED)
-const PartnershipNetwork = () => {
+// Partnership Network Component
+const PartnershipNetwork = ({ onPartnerSelect }) => {
     const navigate = useNavigate();
-    const [selectedPartner, setSelectedPartner] = useState(null);
 
     // Simplified list for the dashboard view
     const dashboardPartners = [
+        { country: 'EU', flag: '🇪🇺', org: 'Agenzia Italiana per la Gioventù', role: 'Institutional', url: 'https://agenziagioventu.gov.it/' },
+        { country: 'EU', flag: '🇪🇺', org: 'Erasmus+ Program', role: 'Institutional', url: 'https://www.erasmusplus.it/' },
         { country: 'IT', flag: '🇮🇹', org: 'Be The Change', role: 'Coordinator' },
         { country: 'DE', flag: '🇩🇪', org: 'Future Makers Alliance', role: 'Partner' },
         { country: 'MK', flag: '🇲🇰', org: 'Level Up', role: 'Partner' },
@@ -287,10 +315,14 @@ const PartnershipNetwork = () => {
         { country: 'TR', flag: '🇹🇷', org: 'BEKGED', role: 'Partner' },
     ];
 
-    const handlePartnerClick = (countryCode) => {
-        const fullPartnerData = partnersData.partners.find(p => p.country_code === countryCode);
+    const handlePartnerClick = (partner) => {
+        if (partner.role === 'Institutional' && partner.url) {
+            window.open(partner.url, '_blank');
+            return;
+        }
+        const fullPartnerData = partnersData.partners.find(p => p.organization === partner.org);
         if (fullPartnerData) {
-            setSelectedPartner(fullPartnerData);
+            onPartnerSelect(fullPartnerData);
         }
     };
 
@@ -299,20 +331,20 @@ const PartnershipNetwork = () => {
             <div className="flex items-center justify-between mb-4 border-b-4 border-black pb-2">
                 <div>
                     <h3 className="text-lg font-bold text-black font-pixel-header uppercase">Partners_Net</h3>
-                    <p className="text-xs text-retro-gray font-bold uppercase">&gt; 8 Countries Consortium</p>
+                    <p className="text-xs text-retro-gray font-bold uppercase">&gt; 10 Organizations Consortium</p>
                 </div>
                 <div className="bg-retro-green px-3 py-1 border-2 border-black lg:hidden">
-                    <p className="text-black font-bold text-sm font-pixel-header">08</p>
+                    <p className="text-black font-bold text-sm font-pixel-header">10</p>
                 </div>
             </div>
 
             <div className="space-y-3 flex-1 overflow-y-auto pr-2 custom-scrollbar min-h-0">
                 {dashboardPartners.map((partner, index) => (
                     <div
-                        key={partner.country}
+                        key={partner.org}
                         onClick={() => {
                             gameAudio.playClick();
-                            handlePartnerClick(partner.country);
+                            handlePartnerClick(partner);
                         }}
                         onMouseEnter={() => gameAudio.playHover()}
                         className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-white hover:bg-retro-yellow transition border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)] cursor-pointer"
@@ -320,7 +352,11 @@ const PartnershipNetwork = () => {
                         <div className="text-xl flex p-1 border border-gray-400 bg-gray-100 self-start sm:self-center">{partner.flag}</div>
                         <div className="flex-1 min-w-0 w-full">
                             <p className="font-bold text-black text-sm uppercase break-words leading-tight h-auto overflow-visible">{partner.org}</p>
-                            <p className="text-[10px] sm:text-xs text-retro-gray font-bold line-clamp-1">{partner.country}{index === 0 && ' <COORDINATOR>'}</p>
+                            <p className="text-[10px] sm:text-xs text-retro-gray font-bold line-clamp-1">
+                                {partner.country}
+                                {partner.role === 'Coordinator' && ' <COORDINATOR>'}
+                                {partner.role === 'Institutional' && ' <INSTITUTIONAL>'}
+                            </p>
                         </div>
                     </div>
                 ))}
@@ -339,32 +375,6 @@ const PartnershipNetwork = () => {
                     <span className="uppercase">View Database</span>
                 </button>
             </div>
-
-            {/* Partner Detail Modal */}
-            <AnimatePresence>
-                {selectedPartner && (
-                    <div className="fixed top-0 left-0 right-0 bottom-0 z-[60] flex items-start pt-16 lg:pt-0 lg:items-center justify-center p-4">
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.5 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setSelectedPartner(null)}
-                            className="absolute inset-0 bg-black/80 backdrop-blur-sm z-50"
-                        />
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                            animate={{ scale: 1, opacity: 1, y: 0 }}
-                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            className="bg-retro-light-gray border-4 border-retro-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col font-pixel-body"
-                        >
-                            <PartnerDetailView
-                                partner={selectedPartner}
-                                onClose={() => setSelectedPartner(null)}
-                            />
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
         </div>
     );
 };
