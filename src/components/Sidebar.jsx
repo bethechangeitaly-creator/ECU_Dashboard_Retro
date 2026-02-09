@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {
     LayoutDashboard, Map, Users, Target, Dna, BookOpen, FileText,
-    ArrowRightLeft, Power, Settings, Heart, Volume2, VolumeX, Moon, Sun
+    ArrowRightLeft, Power, Settings, Heart, Volume2, VolumeX, Moon, Sun, Info
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
@@ -109,6 +109,17 @@ const Sidebar = ({ isOpen, onClose }) => {
                         >
                             <Settings size={18} />
                             <span>Preferences</span>
+                        </button>
+                        <button
+                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-gray hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"
+                            onMouseEnter={handleMouseEnter}
+                            onClick={() => {
+                                handleClick();
+                                window.dispatchEvent(new CustomEvent('open-credits'));
+                            }}
+                        >
+                            <Info size={18} />
+                            <span>Credits</span>
                         </button>
                         <button
                             className="w-full flex items-center gap-3 px-4 py-3 text-retro-red hover:text-white hover:bg-retro-red dark:hover:bg-retro-dark-red hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"

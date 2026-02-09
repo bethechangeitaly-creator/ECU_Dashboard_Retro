@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Calendar, Globe, TrendingUp, CheckCircle2, Sparkles, MessageSquare, Camera } from 'lucide-react';
+import RetroPageHeader from '../components/RetroPageHeader';
 
 /**
  * Follow-Up Page - Post-Exchange Actions and Local Impact - Retro Edition
@@ -131,40 +132,21 @@ const FollowUpPage = () => {
         timeline: '6 months of sustained impact (Sep 2026 - Mar 2027)'
     };
 
+    const headerStats = [
+        { icon: Globe, value: "8", label: "Local Events", color: "text-retro-cyan" },
+        { icon: Users, value: "160+", label: "Reach", color: "text-retro-green" },
+        { icon: Calendar, value: "6-Month", label: "Plan", color: "text-retro-yellow" }
+    ];
+
     return (
         <div className="space-y-8 font-pixel-body">
             {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-red border-4 border-retro-white p-4 xs:p-6 lg:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-                {/* Dithering pattern overlay */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-
-                <div className="relative z-10">
-                    <h1 className="text-base xs:text-lg sm:text-2xl lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words leading-tight overflow-hidden text-center lg:text-left">Follow-Up & Impact</h1>
-                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-yellow w-full lg:w-auto text-center lg:text-left">
-                        &gt; Post-Exchange Action Plan
-                    </p>
-                    <div className="flex flex-wrap gap-4 text-xs md:text-sm">
-                        <div className="flex flex-col sm:flex-row flex-wrap gap-2 xs:gap-4 text-xs md:text-sm">
-                            <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                                <Globe size={18} className="text-retro-cyan" />
-                                <span className="font-bold text-retro-cyan uppercase">8 Local Events</span>
-                            </div>
-                            <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                                <Users size={18} className="text-retro-green" />
-                                <span className="font-bold text-retro-green uppercase">160+ Reach</span>
-                            </div>
-                            <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                                <Calendar size={18} className="text-retro-yellow" />
-                                <span className="font-bold text-retro-yellow uppercase">6-Month Plan</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
+            <RetroPageHeader
+                title="Follow-Up & Impact"
+                subtitle="Post-Exchange Action Plan"
+                color="bg-retro-red"
+                stats={headerStats}
+            />
 
             {/* Timeline */}
             <div className="bg-retro-light-gray border-4 border-retro-white p-2 xs:p-4 lg:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">

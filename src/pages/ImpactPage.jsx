@@ -6,6 +6,7 @@ import {
     Target, TrendingUp, Users, Heart, Lightbulb, CheckCircle2,
     BarChart3, Globe, Leaf, MessageSquare, Footprints, Hammer, Sparkles
 } from 'lucide-react';
+import RetroPageHeader from '../components/RetroPageHeader';
 
 // Icon mapping for EU Youth Goals  
 const goalIcons = {
@@ -87,38 +88,21 @@ const ImpactPage = () => {
         { id: 'indicators', label: 'Impact Indicators', icon: BarChart3 }
     ];
 
+    const headerStats = [
+        { icon: Target, value: "7", label: "SMART Objectives", color: "text-retro-cyan" },
+        { icon: Globe, value: "6", label: "EU Youth Goals", color: "text-retro-green" },
+        { icon: TrendingUp, value: "100%", label: "Measurable", color: "text-retro-yellow" },
+    ];
+
     return (
         <div className="space-y-2 xs:space-y-3 font-pixel-body">
             {/* Header Section */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-blue border-4 border-retro-white p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-                {/* Dithering pattern overlay */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-
-                <div className="relative z-10">
-                    <h1 className="text-base xs:text-lg lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Impact Lab</h1>
-                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
-                        &gt; Measurable objectives & outcomes
-                    </p>
-                    <div className="flex flex-col sm:flex-row flex-wrap gap-2 xs:gap-4 text-xs md:text-sm">
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                            <Target size={18} className="text-retro-cyan" />
-                            <span className="font-bold text-retro-cyan uppercase">7 SMART Objectives</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                            <Globe size={18} className="text-retro-green" />
-                            <span className="font-bold text-retro-green uppercase">6 EU Youth Goals</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:w-auto">
-                            <TrendingUp size={18} className="text-retro-yellow" />
-                            <span className="font-bold text-retro-yellow uppercase">100% Measurable</span>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
+            <RetroPageHeader
+                title="Impact Lab"
+                subtitle="Measurable objectives & outcomes"
+                color="bg-retro-blue"
+                stats={headerStats}
+            />
 
             {/* Tabs Navigation */}
             <div className="bg-retro-black border-4 border-retro-gray p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-x-auto custom-scrollbar">

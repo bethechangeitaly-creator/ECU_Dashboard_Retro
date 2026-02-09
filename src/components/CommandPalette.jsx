@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Map, FileText, Heart, Brain, BookOpen, Rocket, X, ArrowRight, Command } from 'lucide-react';
+import { Search, Map, FileText, Heart, Brain, BookOpen, Rocket, X, ArrowRight, Command, Users, Target } from 'lucide-react';
+import partnersData from '../data/ecu_partners_data.json';
+import projectData from '../data/ecu_project_data.json';
+import impactData from '../data/ecu_impact_data.json';
 
 const CommandPalette = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +37,7 @@ const CommandPalette = () => {
 
     // Searchable Data
     const items = [
+        // Static Pages
         { category: 'Pages', name: 'Dashboard', icon: Search, path: '/' },
         { category: 'Pages', name: '7-Day Journey', icon: Map, path: '/journey' },
         { category: 'Pages', name: 'Partnership Network', icon: FileText, path: '/partners' },
@@ -43,13 +47,75 @@ const CommandPalette = () => {
         { category: 'Pages', name: 'Resource Center', icon: FileText, path: '/resources' },
         { category: 'Pages', name: 'Follow-Up Plan', icon: Rocket, path: '/followup' },
 
-        { category: 'Journey', name: 'Day 1: The Skin (Identity)', icon: Map, path: '/journey/1' },
-        { category: 'Journey', name: 'Day 2: The Feet (Movement)', icon: Map, path: '/journey/2' },
-        { category: 'Journey', name: 'Day 3: The Stomach (Emotions)', icon: Map, path: '/journey/3' },
-        { category: 'Journey', name: 'Day 4: The Heart (Connection)', icon: Map, path: '/journey/4' },
-        { category: 'Journey', name: 'Day 5: The Head (Critical Thinking)', icon: Map, path: '/journey/5' },
-        { category: 'Journey', name: 'Day 6: The Hands (Creation)', icon: Map, path: '/journey/6' },
-        { category: 'Journey', name: 'Day 7: The Full Body (Integration)', icon: Map, path: '/journey/7' },
+        // Dynamic Partners & People
+        ...partnersData.partners.flatMap(p => [
+            {
+                category: 'Partner',
+                name: `${p.organization} (${p.country_name})`,
+                icon: Users,
+                path: `/partners`,
+                keywords: `${p.city} ${p.mission} ${p.role} ${p.country_name}`
+            },
+            ...(p.key_people || []).map(person => ({
+                category: 'Person',
+                name: `${person.name} - ${p.organization}`,
+                icon: Users,
+                path: `/partners`,
+                keywords: `${person.role} ${person.bio} ${person.ecu_contribution}`
+            }))
+        ]),
+
+        // Dynamic Journey Days & Sessions & Methods
+        ...projectData.days.flatMap(d => [
+            {
+                category: 'Journey',
+                name: `Day ${d.day}: ${d.body_part} (${d.theme})`,
+                icon: Map,
+                path: `/journey/${d.day}`,
+                keywords: `${d.metaphor_explanation} ${d.body_part}`
+            },
+            ...(d.sessions || []).flatMap(s => {
+                const sessionItems = [
+                    {
+                        category: 'Session',
+                        name: `${s.title} (Day ${d.day})`,
+                        icon: Rocket,
+                        path: `/journey/${d.day}`,
+                        keywords: `${s.description} ${s.facilitator}`
+                    }
+                ];
+
+                // Add methods as separate searchable items if they exist
+                if (s.methods) {
+                    s.methods.forEach(m => {
+                        sessionItems.push({
+                            category: 'Method',
+                            name: `${m} (Day ${d.day})`,
+                            icon: BookOpen,
+                            path: `/journey/${d.day}`,
+                            keywords: `methodology non-formal education ${s.title}`
+                        });
+                    });
+                }
+                return sessionItems;
+            })
+        ]),
+
+        // Dynamic Impact Objectives & Goals
+        ...impactData.smart_objectives.map(obj => ({
+            category: 'Objective',
+            name: obj.title,
+            icon: Target,
+            path: '/impact',
+            keywords: `${obj.objective} ${obj.body_part}`
+        })),
+        ...impactData.eu_youth_goals.map(goal => ({
+            category: 'EU Goal',
+            name: `Goal ${goal.number}: ${goal.title}`,
+            icon: Heart,
+            path: '/impact',
+            keywords: goal.connection
+        })),
 
         { category: 'Resources', name: 'Full Project Application', icon: FileText, path: '/resources' },
         { category: 'Resources', name: 'Timetable', icon: FileText, path: '/resources' },
@@ -57,7 +123,8 @@ const CommandPalette = () => {
 
     const filteredItems = items.filter(item =>
         item.name.toLowerCase().includes(query.toLowerCase()) ||
-        item.category.toLowerCase().includes(query.toLowerCase())
+        item.category.toLowerCase().includes(query.toLowerCase()) ||
+        (item.keywords && item.keywords.toLowerCase().includes(query.toLowerCase()))
     ).slice(0, 8); // Limit to 8 results
 
     // Navigation Logic

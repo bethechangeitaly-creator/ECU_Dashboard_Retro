@@ -10,6 +10,8 @@ const PreferencesWindow = () => {
     const [hapticsEnabled, setHapticsEnabled] = useState(true);
     const [theme, setTheme] = useState('light');
 
+    // ... (rest of existing state/effects remain same, just ensuring showCredits is initialized) ...
+
     // Listen for open event
     useEffect(() => {
         const handleOpen = () => {

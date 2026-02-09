@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Download, ExternalLink, Book, Video, Image, FileCode, Calendar, AlertTriangle, Lock } from 'lucide-react';
+import RetroPageHeader from '../components/RetroPageHeader';
 
 /**
  * Resource Center Page - Documents, Templates, and Downloads - Retro Edition
@@ -82,34 +83,20 @@ const ResourcesPage = () => {
         }
     ];
 
+    const headerStats = [
+        { icon: FileText, value: "25+", label: "Resources", color: "text-retro-yellow" },
+        { icon: Download, value: "", label: "Open Access", color: "text-retro-green" }
+    ];
+
     return (
         <div className="space-y-8 font-pixel-body overflow-x-hidden w-full">
             {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-cyan border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-                {/* Dithering pattern overlay */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-
-                <div className="relative z-10">
-                    <h1 className="text-base xs:text-lg lg:text-fluid-2xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Resource Center</h1>
-                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
-                        &gt; Download Database
-                    </p>
-                    <div className="flex flex-wrap gap-2 xs:gap-4 text-xs xs:text-sm">
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-2 xs:px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <FileText size={16} className="text-retro-yellow" />
-                            <span className="font-bold text-retro-yellow uppercase">25+ Resources</span>
-                        </div>
-                        <div className="flex items-center space-x-2 bg-retro-black border-2 border-white px-2 xs:px-4 py-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                            <Download size={16} className="text-retro-green" />
-                            <span className="font-bold text-retro-green uppercase">Open Access</span>
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
+            <RetroPageHeader
+                title="Resource Center"
+                subtitle="Download Database"
+                color="bg-retro-cyan"
+                stats={headerStats}
+            />
 
             {/* Demo/Approval Disclaimer */}
             <motion.div

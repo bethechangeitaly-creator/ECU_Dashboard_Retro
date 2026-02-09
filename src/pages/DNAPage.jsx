@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, Heart, Users, Target, Sparkles, Calendar, MapPin, Flag, Brain, TrendingUp, Globe } from 'lucide-react';
+import RetroPageHeader from '../components/RetroPageHeader';
 
 /**
  * Project DNA Page - Genesis, Values, and Vision - Retro Edition
@@ -54,20 +55,11 @@ const DNAPage = () => {
     return (
         <div className="space-y-8 font-pixel-body">
             {/* Header Section */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-magenta border-4 border-retro-white p-4 xs:p-6 md:p-8 text-white relative shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
-            >
-                {/* Dithering pattern overlay */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '4px 4px' }}></div>
-                <div className="relative z-10">
-                    <h1 className="text-base xs:text-lg lg:text-4xl font-bold mb-4 font-pixel-header lg:tracking-widest uppercase retro-shadow break-words text-center lg:text-left overflow-hidden">Project DNA</h1>
-                    <p className="text-white text-xs xs:text-lg mb-6 font-bold bg-black inline-block px-2 border-2 border-retro-cyan break-words w-full lg:w-auto text-center lg:text-left">
-                        &gt; Genesis, Values & Vision
-                    </p>
-                </div>
-            </motion.div>
+            <RetroPageHeader
+                title="Project DNA"
+                subtitle="Genesis, Values & Vision"
+                color="bg-retro-magenta"
+            />
 
             {/* Genesis Story */}
             <motion.div
