@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import MessageCenter from './MessageCenter';
 import NotificationCenter from './NotificationCenter';
 import { gameAudio } from '../utils/gameAudio';
+import InstitutionalLogos from './InstitutionalLogos';
 
 const Header = ({ onMenuClick }) => {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -34,7 +35,7 @@ const Header = ({ onMenuClick }) => {
 
     return (
         <>
-            <header className="h-16 bg-retro-light-gray dark:bg-retro-black border-b-4 border-retro-gray flex items-center justify-between px-4 sticky top-0 z-30 shadow-md">
+            <header className="h-16 bg-retro-light-gray dark:bg-retro-dark-gray border-b-4 border-retro-gray flex items-center justify-between px-4 sticky top-0 z-30 shadow-md">
                 <div className="flex items-center">
                     <button
                         onClick={(e) => { handleClick(); onMenuClick(e); }}
@@ -47,29 +48,14 @@ const Header = ({ onMenuClick }) => {
 
 
                     {/* Desktop Branding */}
-                    <div className="hidden md:flex items-center gap-3">
+                    <div className="hidden md:flex items-center gap-6">
+                        <div className="hidden lg:block">
+                            <InstitutionalLogos variant="header" />
+                        </div>
                     </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                    {/* Institutional Logos (Desktop) */}
-                    <div className="hidden lg:flex items-center gap-4 mr-2">
-                        <a href="https://agenziagioventu.gov.it/" target="_blank" rel="noopener noreferrer" className="group">
-                            <img
-                                src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
-                                alt="Agenzia Italiana per la Gioventù"
-                                className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
-                                style={{ imageRendering: 'pixelated' }}
-                            />
-                        </a>
-                        <a href="https://www.erasmusplus.it/" target="_blank" rel="noopener noreferrer" className="group">
-                            <img
-                                src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
-                                alt="Erasmus+"
-                                className="h-8 w-auto object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
-                            />
-                        </a>
-                    </div>
                     {/* Retro Search Bar */}
                     <div className="hidden lg:block relative">
                         <form onSubmit={handleSearch} className="relative">

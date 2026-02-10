@@ -6,13 +6,22 @@ const StatsCard = ({ title, value, icon: Icon, color, trend, subtitle }) => {
     // For retro feel, we might want to map 'indigo' to 'retro-blue', etc.
     // For now, keeping original colors but changing container style is safest for data consistency.
 
-    const textColor = color.replace('bg-', 'text-');
+    // Fix: Tailwind cannot generate dynamic classes for arbitrary values (e.g. text-[#4338CA])
+    // So we extract the hex value and apply it as a style if it's an arbitrary bg color.
+    const isArbitrary = color.startsWith('bg-[#');
+    const hexColor = isArbitrary ? color.match(/#\w+/)?.[0] : null;
+    const textColor = !isArbitrary ? color.replace('bg-', 'text-') : '';
 
     return (
         <div className={`${color} p-4 xs:p-5 md:p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all duration-0 h-full`}>
             <div className="flex items-center justify-between mb-4">
                 <div className={`p-2 border-2 border-black bg-white`}>
-                    <Icon size={24} strokeWidth={2.5} className={textColor} />
+                    <Icon
+                        size={24}
+                        strokeWidth={2.5}
+                        className={!isArbitrary ? textColor : ''}
+                        style={hexColor ? { color: hexColor } : {}}
+                    />
                 </div>
                 {trend && (
                     <div className={`flex items-center text-xs font-bold font-pixel-body ${trend.includes('+') ? 'text-retro-dark-green bg-retro-green border border-black' : (trend === 'active' ? 'text-black bg-retro-light-gray border border-black' : 'text-retro-gray bg-retro-light-gray border border-black')} px-2 py-1`}>

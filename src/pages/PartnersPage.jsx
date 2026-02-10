@@ -204,7 +204,8 @@ const PartnersPage = () => {
                         <img
                             src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
                             alt="Agenzia Italiana per la Gioventù"
-                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
+                            style={{ imageRendering: 'pixelated' }}
                         />
                     </div>
                     <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Agenzia Italiana Gioventù</span>
@@ -224,7 +225,7 @@ const PartnersPage = () => {
                         <img
                             src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
                             alt="Erasmus+"
-                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                            className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
                         />
                     </div>
                     <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Erasmus+ Program</span>

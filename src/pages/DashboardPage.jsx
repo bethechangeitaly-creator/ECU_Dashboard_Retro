@@ -225,7 +225,6 @@ const DashboardPage = () => {
 
             {/* Quick Access Modules */}
             <div>
-                <h2 className="text-xl font-bold text-black dark:text-retro-white mb-4 font-pixel-header uppercase bg-retro-light-gray dark:bg-retro-black inline-block p-2 border-2 border-black dark:border-retro-gray transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Explore More</h2>
                 <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4">
                     <QuickModuleCard
                         title="Impact Lab"

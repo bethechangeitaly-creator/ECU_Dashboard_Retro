@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
+import InstitutionalLogos from '../components/InstitutionalLogos';
 import CommandPalette from '../components/CommandPalette';
 import PreferencesWindow from '../components/PreferencesWindow';
 import DisclaimerModal from '../components/DisclaimerModal';
@@ -70,7 +71,7 @@ const MainLayout = () => {
     }, []);
 
     return (
-        <div className="min-h-screen h-[100dvh] bg-retro-light-gray dark:bg-retro-black font-pixel-body flex text-black dark:text-retro-white overflow-hidden relative">
+        <div className="min-h-screen h-[100dvh] bg-retro-light-gray dark:bg-retro-dark-gray font-pixel-body flex text-black dark:text-retro-white overflow-hidden relative">
             <div className="crt-overlay pointer-events-none fixed inset-0 z-[100]"></div>
             <CommandPalette />
             <PreferencesWindow />
@@ -95,21 +96,7 @@ const MainLayout = () => {
                     {/* Mobile Institutional Footer (Fallback) */}
                     {pathname !== '/partners' && (
                         <div className="lg:hidden mt-8 pb-8 flex justify-center items-center gap-6 relative z-10 border-t-2 border-retro-gray/50 pt-6 mx-4">
-                            <a href="https://agenziagioventu.gov.it/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                                <img
-                                    src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
-                                    alt="AIG"
-                                    className="h-10 w-auto object-contain filter grayscale"
-                                    style={{ imageRendering: 'pixelated' }}
-                                />
-                            </a>
-                            <a href="https://www.erasmusplus.it/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                                <img
-                                    src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
-                                    alt="Erasmus+"
-                                    className="h-10 w-auto object-contain filter grayscale"
-                                />
-                            </a>
+                            <InstitutionalLogos variant="footer" />
                         </div>
                     )}
                 </main>

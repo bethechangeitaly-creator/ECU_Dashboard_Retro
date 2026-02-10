@@ -38,6 +38,7 @@ export default {
         'retro-dark-red': '#aa0000',
         'retro-dark-magenta': '#aa00aa',
         'retro-brown': '#aa5500',
+        'retro-dark-gray': '#444444',
       },
       fontFamily: {
         'pixel-header': ['"Press Start 2P"', 'cursive'],

@@ -148,20 +148,6 @@ const ContentSlider = ({ days, onExplore }) => {
                             </ul>
                         </div>
 
-                        {/* Explore Button (Mobile/Tablet Only) */}
-                        <div className="pt-2 lg:hidden">
-                            <button
-                                onClick={() => {
-                                    gameAudio.playClick();
-                                    onExplore(currentDay);
-                                }}
-                                onMouseEnter={() => gameAudio.playHover()}
-                                className="group flex items-center space-x-3 bg-retro-blue text-white px-6 py-3 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-y-1 hover:shadow-none active:translate-y-2 transition-all"
-                            >
-                                <span className="uppercase font-bold text-sm xs:text-base tracking-wide">Explore</span>
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </div>
                     </motion.div>
                 </AnimatePresence>
 
@@ -182,18 +168,6 @@ const ContentSlider = ({ days, onExplore }) => {
 
                 {/* Desktop Footer Row: Explore | Dots | Arrows */}
                 <div className="hidden lg:flex items-center justify-between mt-8 pt-4 border-t-2 border-black/10">
-                    {/* Left: Explore Button */}
-                    <button
-                        onClick={() => {
-                            gameAudio.playClick();
-                            onExplore(currentDay);
-                        }}
-                        onMouseEnter={() => gameAudio.playHover()}
-                        className="group flex items-center space-x-2 bg-retro-blue text-white px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-0.5 hover:shadow-none active:translate-y-1 transition-all"
-                    >
-                        <span className="uppercase font-bold text-sm tracking-wide">Explore</span>
-                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
 
                     {/* Center: Dots */}
                     <div className="flex space-x-2">
