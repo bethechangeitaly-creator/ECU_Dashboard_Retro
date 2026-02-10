@@ -287,15 +287,17 @@ const DNAPage = () => {
                             { step: '04', title: '160+ Reach', color: 'bg-retro-magenta', val: 'Local Impact', icon: TrendingUp, darkText: true }
                         ].map((node, i) => (
                             <div key={i} className="flex flex-col h-full relative group">
-                                <div className={`${node.color} border-4 border-black h-full p-3 xs:p-4 shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center text-center transition-all group-hover:-translate-y-1`}>
-                                    <div className="absolute top-1.5 right-1.5 text-[8px] sm:text-[10px] bg-black text-white px-1 font-bold">STP_{node.step}</div>
-                                    <node.icon size={20} className={`mb-2 sm:mb-3 ${node.darkText ? 'text-white' : 'text-black'}`} />
-                                    <h4 className={`text-xs sm:text-base lg:text-xl font-bold uppercase mb-1 leading-tight tracking-tighter ${node.darkText ? 'text-white' : 'text-black font-pixel-header'}`}>
-                                        {node.title}
-                                    </h4>
-                                    <p className={`text-[8px] sm:text-xs font-bold uppercase opacity-80 ${node.darkText ? 'text-white font-pixel-body' : 'text-black font-pixel-body'}`}>
-                                        {node.val}
-                                    </p>
+                                <div className={`${node.color} border-4 border-black h-full p-4 xs:p-5 shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center text-center transition-all group-hover:-translate-y-1 relative overflow-hidden`}>
+                                    <div className="absolute top-1 right-1 text-[7px] sm:text-[9px] bg-black text-white px-1 font-bold z-20">STP_{node.step}</div>
+                                    <div className="flex flex-col items-center w-full max-w-[92%] mx-auto py-1">
+                                        <node.icon size={18} className={`mb-2 sm:mb-3 shrink-0 ${node.darkText ? 'text-white' : 'text-black'}`} />
+                                        <h4 className={`text-[11px] xs:text-xs sm:text-base lg:text-xl font-bold uppercase mb-1 leading-[1.1] tracking-tighter break-words w-full ${node.darkText ? 'text-white' : 'text-black font-pixel-header'}`}>
+                                            {node.title}
+                                        </h4>
+                                        <p className={`text-[8px] sm:text-xs font-bold uppercase opacity-80 leading-tight ${node.darkText ? 'text-white font-pixel-body' : 'text-black font-pixel-body'}`}>
+                                            {node.val}
+                                        </p>
+                                    </div>
                                 </div>
                                 {i < 3 && (
                                     <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 items-center justify-center z-20 text-black font-bold text-2xl">
