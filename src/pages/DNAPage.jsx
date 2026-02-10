@@ -170,132 +170,167 @@ const DNAPage = () => {
                 </div>
             </motion.div>
 
-            {/* Methodology & Impact Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-8">
-                {/* Methodology Card */}
+            {/* 1. Methodology & Impact Grid (Top Row) - Tighter Margins */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+                {/* Methodology Card - 7/12 width */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="bg-retro-blue border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-1 h-full"
+                    className="lg:col-span-7 bg-retro-blue border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-1 flex flex-col"
                 >
-                    <div className="bg-retro-blue h-full w-full p-6 flex flex-col justify-between border-2 border-white border-dashed">
+                    <div className="bg-retro-blue h-full w-full p-4 xs:p-5 lg:p-6 flex flex-col justify-between border-2 border-white border-dashed">
                         <div>
-                            <div className="flex items-center space-x-3 mb-6 bg-black p-3 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                            <div className="flex items-center space-x-3 mb-4 bg-black p-3 border-2 border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
                                 <Brain size={24} className="text-retro-cyan" />
                                 <h2 className="text-xl font-bold text-white font-pixel-header uppercase">{methodology.approach}</h2>
                             </div>
-                            <p className="text-white font-bold leading-relaxed mb-8 text-sm md:text-base font-pixel-body">
+                            <p className="text-white font-bold leading-relaxed mb-6 text-sm md:text-base font-pixel-body">
                                 {methodology.rationale}
                             </p>
                         </div>
                         <div className="mt-auto">
-                            <div className="bg-retro-black border-2 border-white p-4 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                            <div className="bg-retro-black border-2 border-white p-3 text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
                                 <p className="font-pixel-header text-retro-yellow text-sm md:text-base tracking-wide uppercase">{methodology.structure}</p>
                             </div>
                         </div>
                     </div>
                 </motion.div>
 
-                {/* Impact Philosophy Card */}
+                {/* Impact Philosophy Card - 5/12 width */}
                 <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 md:p-8 h-full relative"
+                    className="lg:col-span-5 bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-0 flex flex-col relative"
                 >
-                    <div className="relative z-10 flex flex-col h-full">
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-                            <div className="w-14 h-14 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-2 sm:mb-0">
-                                <Target size={28} className="text-black" />
+                    {/* Window Content */}
+                    <div className="p-4 xs:p-5 lg:p-6 flex-1 flex flex-col">
+                        <div className="flex items-start gap-4 mb-4">
+                            <div className="w-12 h-12 xs:w-14 xs:h-14 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <Target size={24} className="text-black" />
                             </div>
                             <div className="min-w-0 flex-1">
-                                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-black dark:text-retro-white mb-2 font-pixel-header uppercase break-words leading-tight overflow-hidden">
-                                    <span className="md:hidden">BEYOND</span>
-                                    <span className="hidden md:inline">{impact_philosophy.title}</span>
+                                <h2 className="text-xl sm:text-2xl font-bold text-black dark:text-retro-white mb-2 font-pixel-header uppercase break-words leading-[0.9] overflow-hidden">
+                                    Beyond <br className="xs:hidden" /> Participants
                                 </h2>
-                                <div className="h-2 w-20 bg-retro-green border-2 border-black"></div>
+                                <div className="h-1.5 w-16 bg-retro-green border-2 border-black"></div>
                             </div>
                         </div>
 
-                        <p className="text-black dark:text-retro-white font-bold text-sm md:text-base leading-relaxed mb-8 flex-1 font-pixel-body">
+                        <p className="text-black dark:text-retro-white font-bold text-sm md:text-base leading-relaxed font-pixel-body mb-6">
                             {impact_philosophy.description}
                         </p>
 
-                        <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-black dark:border-dark-border p-4 xs:p-6 relative overflow-hidden">
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-3 text-black dark:text-retro-white font-bold mb-6 border-b-2 border-black dark:border-dark-border pb-4 border-dashed">
-                                    <div className="w-12 h-12 bg-retro-green border-2 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                                        <TrendingUp size={24} className="text-black" />
-                                    </div>
-                                    <div>
-                                        <h3 className="uppercase font-pixel-header text-base leading-none">Exponential Impact</h3>
-                                        <p className="text-[10px] uppercase font-bold text-retro-gray mt-1">Growth Projection Matrix</p>
-                                    </div>
-                                </div>
-
-                                {/* The Infographic Flow */}
-                                <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-1">
-                                    {/* Step 1 */}
-                                    <div className="w-full lg:flex-1 bg-retro-green border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-black text-center min-h-[100px]">
-                                        <Sparkles size={20} />
-                                        <div className="space-y-1">
-                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 01</span>
-                                            <span className="text-xs font-bold uppercase bg-white px-2 border-2 border-black leading-tight block">1 Exchange</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
-
-                                    {/* Step 2 */}
-                                    <div className="w-full lg:flex-1 bg-retro-blue border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">
-                                        <Users size={20} />
-                                        <div className="space-y-1">
-                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 02</span>
-                                            <span className="text-xs font-bold uppercase bg-black px-2 border-2 border-white leading-tight block">40 Participants</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
-
-                                    {/* Step 3 */}
-                                    <div className="w-full lg:flex-1 bg-retro-cyan border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-black text-center min-h-[100px]">
-                                        <Globe size={20} />
-                                        <div className="space-y-1">
-                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 03</span>
-                                            <span className="text-xs font-bold uppercase bg-white px-2 border-2 border-black leading-tight block">8 Countries</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
-
-                                    {/* Step 4 */}
-                                    <div className="w-full lg:flex-1 bg-retro-magenta border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">
-                                        <TrendingUp size={20} />
-                                        <div className="space-y-1">
-                                            <span className="text-[9px] font-bold uppercase font-pixel-header block opacity-70">Step 04</span>
-                                            <span className="text-xs font-bold uppercase bg-black px-2 border-2 border-white leading-tight block">160+ Local People</span>
-                                        </div>
+                        {/* Additional Widget to fill the space and balance the yellow box on the left */}
+                        <div className="mt-auto">
+                            <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-black dark:border-dark-border p-3 xs:p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden group">
+                                {/* Decorative "System" Header */}
+                                <div className="flex items-center justify-between mb-3 border-b-2 border-black dark:border-dark-border pb-2">
+                                    <span className="text-[9px] font-bold text-retro-gray uppercase tracking-widest">[ TARGET_LOCK ]</span>
+                                    <div className="flex gap-1">
+                                        <div className="w-2 h-2 bg-retro-red/80 animate-pulse"></div>
+                                        <div className="w-2 h-2 bg-retro-yellow/80 animate-pulse delay-75"></div>
+                                        <div className="w-2 h-2 bg-retro-green/80 animate-pulse delay-150"></div>
                                     </div>
                                 </div>
-
-                                {/* The Ultimate Vision */}
-                                <div className="mt-8 bg-black p-4 border-4 border-retro-magenta text-center relative shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)]">
-                                    {/* Scanline pattern */}
-                                    <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
-                                    <span className="block text-[9px] text-retro-magenta font-bold uppercase tracking-[0.3em] mb-2 font-pixel-header">Future_Horizon: Unlocked</span>
-                                    <p className="text-white font-pixel-header text-base xs:text-xl animate-pulse tracking-tighter">
-                                        &gt; <span className="text-retro-magenta">INFINITE</span> REACH & IMPACT
-                                    </p>
+                                <div className="space-y-3">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 xs:w-10 xs:h-10 bg-black flex items-center justify-center shrink-0 border-2 border-white">
+                                            <TrendingUp size={16} className="text-retro-green" />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-[8px] uppercase font-bold text-retro-gray leading-none mb-1">Impact Mode</p>
+                                            <p className="text-xs xs:text-sm font-bold text-black dark:text-retro-white uppercase font-pixel-header truncate">EXP_GROWTH_v1</p>
+                                        </div>
+                                    </div>
+                                    <div className="h-2 bg-retro-gray dark:bg-dark-surface border border-black overflow-hidden relative">
+                                        <div className="h-full bg-retro-green w-[85%] animate-pulse"></div>
+                                        {/* Scanline inside bar */}
+                                        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 50%)', backgroundSize: '100% 2px' }}></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </motion.div>
             </div>
+
+            {/* 2. Exponential Impact Section (Stand-alone Bottom Section) */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-black dark:border-dark-border p-4 xs:p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden mt-6"
+            >
+                <div className="relative z-10">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b-4 border-black dark:border-dark-border pb-4 border-dashed">
+                        <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 xs:w-12 xs:h-12 lg:w-16 lg:h-16 bg-retro-green border-2 border-black lg:border-4 flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                                <TrendingUp size={20} className="text-black lg:size-28" />
+                            </div>
+                            <div className="min-w-0">
+                                <h3 className="uppercase font-pixel-header text-base xs:text-lg md:text-2xl lg:text-3xl leading-none text-black dark:text-retro-white break-words">
+                                    Exponential Impact
+                                </h3>
+                                <p className="text-[9px] md:text-sm uppercase font-bold text-retro-gray mt-1 tracking-wider md:tracking-widest">Growth Projection Matrix (GPM-01)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* The Infographic Flow - Linear and Clean */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-stretch gap-4 md:gap-6 mb-8">
+                        {[
+                            { step: '01', title: '1 Exchange', color: 'bg-retro-green', val: 'Start Node', icon: Sparkles },
+                            { step: '02', title: '40 People', color: 'bg-retro-blue', val: 'Direct Impact', icon: Users, darkText: true },
+                            { step: '03', title: '8 Countries', color: 'bg-retro-cyan', val: 'Network Reach', icon: Globe },
+                            { step: '04', title: '160+ Reach', color: 'bg-retro-magenta', val: 'Local Impact', icon: TrendingUp, darkText: true }
+                        ].map((node, i) => (
+                            <div key={i} className="flex flex-col h-full relative group">
+                                <div className={`${node.color} border-4 border-black h-full p-4 xs:p-5 shadow-[4px_4px_0px_0px_#000] flex flex-col items-center justify-center text-center transition-all group-hover:-translate-y-1`}>
+                                    <div className="absolute top-1.5 right-1.5 text-[8px] sm:text-[10px] bg-black text-white px-1 font-bold">STP_{node.step}</div>
+                                    <node.icon size={24} className={`mb-3 ${node.darkText ? 'text-white' : 'text-black'}`} />
+                                    <h4 className={`text-sm xs:text-base lg:text-xl font-bold uppercase mb-1 leading-tight ${node.darkText ? 'text-white' : 'text-black font-pixel-header'}`}>
+                                        {node.title}
+                                    </h4>
+                                    <p className={`text-[9px] sm:text-xs font-bold uppercase opacity-80 ${node.darkText ? 'text-white font-pixel-body' : 'text-black font-pixel-body'}`}>
+                                        {node.val}
+                                    </p>
+                                </div>
+                                {i < 3 && (
+                                    <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 items-center justify-center z-20 text-black font-bold text-2xl">
+                                        &gt;
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* The Ultimate Vision Footer */}
+                    <div className="bg-black p-5 sm:p-6 border-4 border-retro-magenta text-center relative shadow-[6px_6px_0px_0px_rgba(255,0,255,0.2)]">
+                        {/* Scanline pattern */}
+                        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%)', backgroundSize: '100% 4px' }}></div>
+                        <span className="block text-[10px] sm:text-xs text-retro-magenta font-bold uppercase tracking-[0.2em] sm:tracking-[0.5em] mb-4 font-pixel-header animate-pulse">SYSTEM_VISION: UNLOCKED</span>
+                        <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8">
+                            <div className="flex flex-col items-center lg:items-end">
+                                <span className="text-white font-pixel-header text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tighter leading-none">
+                                    &gt; <span className="text-retro-magenta">INFINITE</span>
+                                </span>
+                                <span className="text-white font-pixel-header text-sm xs:text-lg sm:text-xl lg:text-2xl opacity-80 mt-1">REACH</span>
+                            </div>
+
+                            <span className="hidden lg:block text-retro-magenta text-5xl font-pixel-header opacity-50">&amp;</span>
+
+                            <div className="flex flex-col items-center lg:items-start">
+                                <span className="text-white font-pixel-header text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tighter leading-none">
+                                    <span className="text-retro-magenta">GLOBAL</span> IMPACT
+                                </span>
+                                <span className="text-[9px] sm:text-xs font-bold text-retro-gray uppercase tracking-widest mt-1">Expansion Matrix</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
         </div>
     );
 };

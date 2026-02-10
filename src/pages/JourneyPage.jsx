@@ -36,15 +36,13 @@ const JourneyPage = () => {
     };
 
     const nextDay = () => {
-        if (currentDayIndex < days.length - 1) {
-            goToDay(currentDayIndex + 1);
-        }
+        const nextIndex = (currentDayIndex + 1) % days.length;
+        goToDay(nextIndex);
     };
 
     const prevDay = () => {
-        if (currentDayIndex > 0) {
-            goToDay(currentDayIndex - 1);
-        }
+        const prevIndex = (currentDayIndex - 1 + days.length) % days.length;
+        goToDay(prevIndex);
     };
 
     return (
@@ -101,34 +99,38 @@ const JourneyPage = () => {
             <AnimatePresence mode="wait">
                 <motion.div
                     key={currentDay.day}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
+                    exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.2, ease: "steps(4)" }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(e, { offset, velocity }) => {
+                        const swipeThreshold = 50;
+                        if (offset.x < -swipeThreshold) {
+                            nextDay();
+                        } else if (offset.x > swipeThreshold) {
+                            prevDay();
+                        }
+                    }}
+                    className="touch-pan-y" // Allow vertical scrolling
                 >
                     <DayDetailView day={currentDay} />
                 </motion.div>
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-end pt-4 border-t-4 border-retro-gray border-dashed gap-2">
+            <div className="hidden md:flex justify-end pt-4 border-t-4 border-retro-gray border-dashed gap-2">
                 <button
                     onClick={prevDay}
-                    disabled={currentDayIndex === 0}
-                    className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === 0
-                        ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
-                        : 'bg-white dark:bg-dark-surface text-black dark:text-retro-white border-black dark:border-dark-border hover:bg-retro-yellow shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none'
-                        }`}
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 bg-white dark:bg-dark-surface text-black dark:text-retro-white border-black dark:border-dark-border hover:bg-retro-yellow shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none"
                 >
                     <ChevronLeft size={16} />
                 </button>
                 <button
                     onClick={nextDay}
-                    disabled={currentDayIndex === days.length - 1}
-                    className={`flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 ${currentDayIndex === days.length - 1
-                        ? 'bg-retro-gray text-retro-dark-gray border-retro-dark-gray cursor-not-allowed opacity-50'
-                        : 'bg-retro-blue text-white border-white hover:bg-retro-cyan hover:text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none'
-                        }`}
+                    className="flex items-center gap-1 px-3 py-2 text-sm font-bold uppercase font-pixel-header transition-all border-2 bg-retro-blue text-white border-white hover:bg-retro-cyan hover:text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-px active:shadow-none"
                 >
                     <ChevronRight size={16} />
                 </button>
