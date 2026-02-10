@@ -28,7 +28,7 @@ const MessageCenter = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`relative p-2 border-2 transition-all ${isOpen
                     ? 'bg-retro-blue border-white text-white shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.5)] translate-y-1'
-                    : 'bg-retro-light-gray border-white text-black hover:bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none'
+                    : 'bg-retro-light-gray border-white text-black hover:bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none dark:bg-dark-elevated dark:border-dark-border dark:text-retro-white dark:hover:bg-dark-surface dark:shadow-[4px_4px_0px_0px_#000]'
                     }`}
             >
                 <div className="relative">
