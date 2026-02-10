@@ -291,10 +291,10 @@ const DNAPage = () => {
                                     <div className="absolute top-1 right-1 text-[7px] sm:text-[9px] bg-black text-white px-1 font-bold z-20">STP_{node.step}</div>
                                     <div className="flex flex-col items-center w-full max-w-[92%] mx-auto py-1">
                                         <node.icon size={18} className={`mb-2 sm:mb-3 shrink-0 ${node.darkText ? 'text-white' : 'text-black'}`} />
-                                        <h4 className={`text-[11px] xs:text-xs sm:text-base lg:text-xl font-bold uppercase mb-1 leading-[1.1] tracking-tighter break-words w-full ${node.darkText ? 'text-white' : 'text-black font-pixel-header'}`}>
+                                        <h4 className={`text-xs sm:text-base lg:text-xl font-bold uppercase mb-1 leading-[1.1] tracking-tighter break-words w-full font-pixel-header ${node.darkText ? 'text-white' : 'text-black'}`}>
                                             {node.title}
                                         </h4>
-                                        <p className={`text-[8px] sm:text-xs font-bold uppercase opacity-80 leading-tight ${node.darkText ? 'text-white font-pixel-body' : 'text-black font-pixel-body'}`}>
+                                        <p className={`text-[8px] sm:text-xs font-bold uppercase opacity-80 leading-tight font-pixel-body ${node.darkText ? 'text-white' : 'text-black'}`}>
                                             {node.val}
                                         </p>
                                     </div>
