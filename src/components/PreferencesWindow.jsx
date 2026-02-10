@@ -132,7 +132,7 @@ const PreferencesWindow = () => {
                                             {[0, 0.25, 0.5, 0.75, 1].map((val) => (
                                                 <div key={val} className="flex flex-col items-center gap-1">
                                                     <div className="w-[2px] h-1.5 bg-black"></div>
-                                                    <span className="text-[8px] font-bold text-retro-gray uppercase">
+                                                    <span className="text-[10px] font-bold text-retro-gray uppercase">
                                                         {val === 0 ? 'OFF' : `${Math.round(val * 100)}%`}
                                                     </span>
                                                 </div>
@@ -149,7 +149,7 @@ const PreferencesWindow = () => {
                                         <span className="font-bold text-sm uppercase flex items-center gap-2">
                                             <Settings size={16} className="text-retro-gray" /> Haptic
                                         </span>
-                                        <span className="text-[8px] text-retro-gray font-bold uppercase -mt-0.5 ml-6 leading-none block">
+                                        <span className="text-[10px] text-retro-gray font-bold uppercase -mt-0.5 ml-6 leading-none block">
                                             (iOS Limited)
                                         </span>
                                     </div>

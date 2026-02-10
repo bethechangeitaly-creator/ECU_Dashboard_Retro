@@ -9,8 +9,9 @@ import ContentSlider from '../components/ContentSlider';
 import { gameAudio } from '../utils/gameAudio';
 import {
     Users, Globe, Calendar, Heart, Target, TrendingUp, MapPin,
-    Sparkles, BookOpen, Rocket, ArrowRight, ExternalLink, Brain
+    Sparkles, BookOpen, Rocket, ArrowRight, ExternalLink, Brain, Map
 } from 'lucide-react';
+import sicilyGif from '../assets/sicily_boomerang.gif';
 
 /**
  * Dashboard Home Page - Full Implementation
@@ -19,6 +20,7 @@ import {
 const DashboardPage = () => {
     const navigate = useNavigate();
     const [selectedPartner, setSelectedPartner] = useState(null);
+    const [showSicilyMap, setShowSicilyMap] = useState(false);
     const stats = projectData.project?.stats || {};
     const days = projectData.days || projectData.project?.timetable || [];
     const partners = projectData.partners || [];
@@ -59,7 +61,7 @@ const DashboardPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-retro-dark-blue border-4 border-retro-white p-4 md:p-6 lg:p-12 text-white relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                className="bg-retro-dark-blue border-4 border-black p-4 md:p-6 lg:p-12 text-white relative overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
             >
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)', backgroundSize: '10px 10px', backgroundPosition: '0 0, 5px 5px' }}></div>
@@ -85,7 +87,7 @@ const DashboardPage = () => {
                         </div>
                     </div>
                     <div className="hidden lg:block">
-                        <div className="bg-retro-red p-6 border-4 border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-pulse">
+                        <div className="bg-retro-red p-6 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] animate-pulse">
                             <Heart size={64} className="text-white fill-white" />
                         </div>
                     </div>
@@ -99,7 +101,6 @@ const DashboardPage = () => {
                     value={stats.total_participants || 40}
                     icon={Users}
                     color="bg-[#4338CA]" // Impact Lab Indigo
-                    trend="+100%"
                     subtitle="Youth + Leaders"
                 />
                 <StatsCard
@@ -107,7 +108,6 @@ const DashboardPage = () => {
                     value={stats.partner_countries || 8}
                     icon={Globe}
                     color="bg-[#A21CAF]" // Project DNA Purple/Magenta
-                    trend="active"
                     subtitle="European Partners"
                 />
                 <StatsCard
@@ -196,8 +196,8 @@ const DashboardPage = () => {
             </AnimatePresence>
 
             {/* Project Highlights */}
-            <div className="bg-white border-4 border-black p-3 xs:p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <h2 className="text-xl font-bold text-black mb-6 font-pixel-header uppercase border-b-4 border-black pb-2 inline-block">Project Highlights</h2>
+            <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-3 xs:p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <h2 className="text-xl font-bold text-black dark:text-retro-white mb-6 font-pixel-header uppercase border-b-4 border-black dark:border-dark-border pb-2 inline-block">Project Highlights</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     <HighlightCard
                         icon={Sparkles}
@@ -257,34 +257,118 @@ const DashboardPage = () => {
                 </div>
             </div>
             {/* Location styled in retro way */}
-            <div className="bg-retro-cyan border-8 border-black p-4 xs:p-5 sm:p-8 lg:p-10 text-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+            <div className="bg-retro-cyan border-4 sm:border-8 border-black p-3 xs:p-4 sm:p-6 lg:p-8 text-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                 {/* Scanline Effect */}
                 <div className="absolute inset-0 opacity-10 pointer-events-none"
                     style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%)', backgroundSize: '100% 4px' }}>
                 </div>
 
-                <div className="relative z-10 block space-y-8">
-                    <div className="flex-1 min-w-0">
-                        <h3 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-pixel-header uppercase tracking-tighter leading-none border-b-4 border-black pb-4 inline-block">
-                            Venue: Furnari, Sicily
-                        </h3>
-                        <p className="text-sm xs:text-base lg:text-lg leading-relaxed mb-8 font-bold border-l-4 border-black pl-4 xs:pl-6 max-w-2xl">
-                            The Youth Exchange will take place at <strong className="uppercase decoration-4 underline underline-offset-4">Tindari Village</strong> in Furnari,
-                            Messina, Sicily, Italy.
-                        </p>
-                        <div className="flex flex-col sm:flex-row flex-wrap gap-4 xs:gap-6">
-                            <div className="px-6 py-4 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:min-w-[160px] sm:w-auto">
-                                <p className="text-[10px] xs:text-xs font-bold uppercase tracking-widest text-retro-gray mb-1">Arrival Day</p>
-                                <p className="text-lg xs:text-xl font-bold font-pixel-header">Sept 14, 2026</p>
-                            </div>
-                            <div className="px-6 py-4 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full sm:min-w-[160px] sm:w-auto">
-                                <p className="text-[10px] xs:text-xs font-bold uppercase tracking-widest text-retro-gray mb-1">Departure Day</p>
-                                <p className="text-lg xs:text-xl font-bold font-pixel-header">Sept 22, 2026</p>
-                            </div>
+                <div className="relative z-10 space-y-4 sm:space-y-5">
+                    {/* Title row */}
+                    <h3 className="text-xl xs:text-2xl sm:text-4xl lg:text-5xl font-bold font-pixel-header uppercase tracking-tighter leading-tight border-b-4 border-black pb-3 break-words">
+                        <span className="hidden sm:inline">Venue: Furnari, Sicily</span>
+                        <span className="sm:hidden">Venue:<br />Furnari, Sicily</span>
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm xs:text-base lg:text-lg leading-relaxed font-bold border-l-4 border-black pl-4 xs:pl-6">
+                        The Youth Exchange will take place at <strong className="uppercase decoration-4 underline underline-offset-4">Tindari Village</strong> in Furnari,
+                        Messina, Sicily, Italy.
+                    </p>
+
+                    {/* Bottom row: dates + map button aligned */}
+                    <div className="flex flex-wrap items-stretch gap-3 xs:gap-4 sm:gap-5">
+                        <div className="px-3 xs:px-4 py-3 bg-white dark:bg-dark-surface border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex-1 min-w-0">
+                            <p className="text-[9px] xs:text-[10px] font-bold uppercase tracking-widest text-retro-gray mb-0.5">Arrival</p>
+                            <p className="text-base xs:text-lg sm:text-xl font-bold font-pixel-header dark:text-retro-white">
+                                <span className="hidden sm:inline">Sept 14, 2026</span>
+                                <span className="sm:hidden">14/09</span>
+                            </p>
                         </div>
+                        <div className="px-3 xs:px-4 py-3 bg-white dark:bg-dark-surface border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex-1 min-w-0">
+                            <p className="text-[9px] xs:text-[10px] font-bold uppercase tracking-widest text-retro-gray mb-0.5">Departure</p>
+                            <p className="text-base xs:text-lg sm:text-xl font-bold font-pixel-header dark:text-retro-white">
+                                <span className="hidden sm:inline">Sept 22, 2026</span>
+                                <span className="sm:hidden">22/09</span>
+                            </p>
+                        </div>
+                        <button
+                            onClick={() => {
+                                gameAudio.playClick();
+                                setShowSicilyMap(true);
+                            }}
+                            onMouseEnter={() => gameAudio.playHover()}
+                            className="flex-shrink-0 w-full sm:w-auto order-last flex flex-col items-center justify-center gap-1 px-4 xs:px-5 sm:px-6 py-3 sm:py-0 bg-black text-white border-4 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,0.4)] hover:bg-retro-yellow hover:text-black active:translate-y-1 active:shadow-none transition-all cursor-pointer"
+                        >
+                            <Map size={24} className="sm:w-7 sm:h-7" />
+                            <span className="text-[10px] xs:text-xs font-bold font-pixel-body uppercase tracking-wider">Map</span>
+                        </button>
                     </div>
                 </div>
             </div>
+
+            {/* Sicily Map Retro Monitor Modal */}
+            <AnimatePresence>
+                {showSicilyMap && (
+                    <div
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 cursor-pointer"
+                        onClick={() => setShowSicilyMap(false)}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 0.8 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black"
+                        />
+                        <motion.div
+                            initial={{ scale: 0.7, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.7, opacity: 0 }}
+                            transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+                            className="relative z-10 w-full max-w-md cursor-default"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Monitor outer shell */}
+                            <div className="bg-[#b0b0b0] rounded-lg p-3 sm:p-4 border-4 border-[#888] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                                style={{ boxShadow: 'inset 2px 2px 0px #d0d0d0, inset -2px -2px 0px #808080, 8px 8px 0px 0px rgba(0,0,0,1)' }}>
+                                {/* Title bar */}
+                                <div className="bg-[#000080] px-3 py-1.5 mb-2 flex items-center justify-between border-2 border-[#444]">
+                                    <span className="text-white text-xs font-bold font-pixel-body tracking-wide flex items-center gap-2">
+                                        <MapPin size={12} /> sicily_map.gif
+                                    </span>
+                                    <button
+                                        onClick={() => setShowSicilyMap(false)}
+                                        className="bg-[#c0c0c0] text-black text-xs font-bold px-2 py-0.5 border-2 hover:bg-red-400 transition"
+                                        style={{ borderColor: '#fff #808080 #808080 #fff' }}
+                                    >
+                                        X
+                                    </button>
+                                </div>
+                                {/* Screen area */}
+                                <div className="bg-black border-4 border-[#333] p-1 relative overflow-hidden rounded-sm">
+                                    {/* CRT scanline overlay */}
+                                    <div className="absolute inset-0 z-10 pointer-events-none opacity-15"
+                                        style={{ backgroundImage: 'linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.3) 50%)', backgroundSize: '100% 3px' }}>
+                                    </div>
+                                    {/* CRT vignette */}
+                                    <div className="absolute inset-0 z-10 pointer-events-none rounded-sm"
+                                        style={{ boxShadow: 'inset 0 0 60px rgba(0,0,0,0.6)' }}>
+                                    </div>
+                                    <img
+                                        src={sicilyGif}
+                                        alt="Sicily - Messina location"
+                                        className="w-full h-auto block relative z-0"
+                                    />
+                                </div>
+                                {/* Monitor bottom label */}
+                                <div className="mt-2 flex items-center justify-center">
+                                    <span className="text-[10px] text-[#555] font-bold font-pixel-body tracking-widest uppercase">RetroVision CRT</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -326,7 +410,7 @@ const PartnershipNetwork = ({ onPartnerSelect }) => {
     };
 
     return (
-        <div className="bg-retro-white border-4 border-retro-gray p-4 lg:p-6 h-full flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
+        <div className="bg-retro-white dark:bg-dark-surface border-4 border-retro-gray dark:border-dark-border p-4 lg:p-6 h-full flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
             <div className="flex items-center justify-between mb-4 border-b-4 border-black pb-2">
                 <div>
                     <h3 className="text-lg font-bold text-black font-pixel-header uppercase">Partners_Net</h3>
@@ -346,7 +430,7 @@ const PartnershipNetwork = ({ onPartnerSelect }) => {
                             handlePartnerClick(partner);
                         }}
                         onMouseEnter={() => gameAudio.playHover()}
-                        className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-white hover:bg-retro-yellow transition border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)] cursor-pointer"
+                        className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-white dark:bg-dark-elevated hover:bg-retro-yellow transition border-2 border-black dark:border-dark-border shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)] cursor-pointer"
                     >
                         <div className="text-xl flex p-1 border border-gray-400 bg-gray-100 self-start sm:self-center">{partner.flag}</div>
                         <div className="flex-1 min-w-0 w-full">
@@ -399,13 +483,13 @@ const HighlightCard = ({ icon: Icon, title, description, color, onClick }) => {
                 onClick();
             }}
             onMouseEnter={() => gameAudio.playHover()}
-            className={`p-4 lg:p-6 bg-white border-4 ${borderColor} h-full transition-all duration-0 hover:translate-y-1 hover:shadow-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] cursor-pointer`}
+            className={`p-4 lg:p-6 bg-white dark:bg-dark-elevated border-4 ${borderColor} h-full transition-all duration-0 hover:translate-y-1 hover:shadow-none shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] cursor-pointer`}
         >
             <div className={`mb-4 p-3 bg-black text-white border-2 border-gray-500 inline-block`}>
                 <Icon size={32} />
             </div>
-            <h4 className="font-bold text-black mb-2 text-lg font-pixel-header uppercase break-words leading-tight">{title}</h4>
-            <p className="text-sm text-retro-gray font-bold font-pixel-body leading-relaxed">{description}</p>
+            <h4 className="font-bold text-black dark:text-retro-white mb-2 text-lg font-pixel-header uppercase break-words leading-tight">{title}</h4>
+            <p className="text-sm text-retro-gray dark:text-retro-light-gray font-bold font-pixel-body leading-relaxed">{description}</p>
         </div>
     );
 };
@@ -429,7 +513,7 @@ const QuickModuleCard = ({ title, description, icon: Icon, href, color }) => {
                 navigate(href);
             }}
             onMouseEnter={() => gameAudio.playHover()}
-            className={`cursor-pointer ${bgColor} border-4 border-white p-4 lg:p-6 text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 transition-all`}
+            className={`cursor-pointer ${bgColor} border-4 border-black p-4 lg:p-6 text-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-y-1 transition-all`}
         >
             <Icon size={32} className="mb-3" />
             <h3 className="font-bold text-lg mb-1 font-pixel-header uppercase break-words leading-tight">{title}</h3>

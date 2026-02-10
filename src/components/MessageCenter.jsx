@@ -56,7 +56,7 @@ const MessageCenter = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
                             transition={{ duration: 0.1 }}
-                            className="absolute right-0 mt-4 w-80 bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden"
+                            className="absolute right-0 mt-4 w-80 max-w-[calc(100vw-2rem)] bg-retro-light-gray dark:bg-dark-surface border-4 border-retro-white dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden"
                         >
                             {/* Window Title Bar */}
                             <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray">
@@ -68,7 +68,7 @@ const MessageCenter = () => {
                                 )}
                             </div>
 
-                            <div className="bg-white border-2 border-black border-t-0 max-h-[300px] overflow-y-auto p-2">
+                            <div className="bg-white dark:bg-dark-elevated border-2 border-black dark:border-dark-border border-t-0 max-h-[300px] overflow-y-auto p-2">
                                 {messages.length > 0 ? (
                                     messages.map((msg) => {
                                         const Icon = msg.icon;
@@ -97,7 +97,7 @@ const MessageCenter = () => {
                             </div>
 
                             {messages.length > 0 && (
-                                <div className="bg-retro-light-gray p-2 border-t-4 border-retro-white text-center">
+                                <div className="bg-retro-light-gray dark:bg-dark-surface p-2 border-t-4 border-retro-white dark:border-dark-border text-center">
                                     <button
                                         onClick={markAllAsRead}
                                         className="px-4 py-1 bg-retro-gray text-white text-xs font-bold uppercase border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-white hover:text-black hover:border-black active:translate-y-1 active:shadow-none"

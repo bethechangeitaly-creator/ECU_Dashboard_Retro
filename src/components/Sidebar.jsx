@@ -47,13 +47,13 @@ const Sidebar = ({ isOpen, onClose }) => {
 
             {/* Sidebar Container */}
             <aside
-                className={`fixed top-0 left-0 z-50 h-screen w-72 bg-retro-light-gray dark:bg-retro-dark-gray border-r-4 border-retro-gray transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+                className={`fixed top-0 left-0 z-50 h-screen w-72 bg-retro-light-gray dark:bg-dark-surface border-r-4 border-retro-gray dark:border-dark-border transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
                     } flex flex-col shadow-2xl`}
             >
                 {/* Header */}
-                <div className="h-16 flex items-center justify-between px-6 bg-retro-light-gray dark:bg-retro-dark-gray border-b-4 border-retro-gray">
+                <div className="h-16 flex items-center justify-between px-6 bg-retro-light-gray dark:bg-dark-surface border-b-4 border-retro-gray dark:border-dark-border">
                     <div className="flex items-center gap-3">
-                        <div className="bg-retro-red p-2 border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]">
+                        <div className="bg-retro-red p-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]">
                             <Heart size={20} className="text-white fill-white" />
                         </div>
                         <h1 className="font-pixel-header font-bold text-sm uppercase tracking-wider text-black dark:text-white">
@@ -78,8 +78,8 @@ const Sidebar = ({ isOpen, onClose }) => {
                                     onMouseEnter={handleMouseEnter}
                                     className={({ isActive }) =>
                                         `flex items-center gap-3 px-4 py-3 transition-all duration-200 font-pixel-body uppercase tracking-wide cursor-pointer group ${isActive
-                                            ? 'bg-retro-blue text-white border-2 border-white shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]'
-                                            : 'text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-gray hover:border-2 hover:border-black'
+                                            ? 'bg-retro-blue text-white border-2 border-white shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5),0_0_8px_rgba(0,255,255,0.3)]'
+                                            : 'text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-dark-elevated hover:border-2 hover:border-black dark:hover:border-dark-border'
                                         }`
                                     }
                                 >
@@ -95,12 +95,12 @@ const Sidebar = ({ isOpen, onClose }) => {
                         })}
                     </div>
 
-                    <div className="mt-8 border-t-2 border-retro-gray pt-4">
+                    <div className="mt-8 border-t-2 border-retro-gray dark:border-dark-border pt-4">
                         <p className="px-4 text-[10px] font-bold text-retro-gray uppercase mb-2 tracking-wider">
                             System_Control
                         </p>
                         <button
-                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-dark-gray hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"
+                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-dark-elevated hover:border-2 hover:border-black dark:hover:border-dark-border transition-all font-pixel-body uppercase font-bold"
                             onMouseEnter={handleMouseEnter}
                             onClick={() => {
                                 handleClick();
@@ -111,7 +111,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                             <span>Preferences</span>
                         </button>
                         <button
-                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-retro-dark-gray hover:border-2 hover:border-black transition-all font-pixel-body uppercase font-bold"
+                            className="w-full flex items-center gap-3 px-4 py-3 text-retro-gray hover:text-black dark:hover:text-white hover:bg-white dark:hover:bg-dark-elevated hover:border-2 hover:border-black dark:hover:border-dark-border transition-all font-pixel-body uppercase font-bold"
                             onMouseEnter={handleMouseEnter}
                             onClick={() => {
                                 handleClick();
@@ -136,7 +136,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                 </nav>
 
                 {/* Footer */}
-                <div className="p-4 border-t-4 border-retro-gray bg-retro-light-gray dark:bg-retro-dark-gray">
+                <div className="p-4 border-t-4 border-retro-gray dark:border-dark-border bg-retro-light-gray dark:bg-dark-surface">
                     <div className="text-[10px] text-retro-gray text-center font-mono">
                         MEM: 640K OK <br />
                         © 2026 ECU CORP

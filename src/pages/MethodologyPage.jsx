@@ -78,7 +78,7 @@ const MethodologyPage = () => {
             />
 
             {/* Search & Filter */}
-            <div className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6">
+            <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6">
                 {/* Window Title Bar */}
                 <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-2 -mt-2">
                     <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider pl-2">
@@ -92,14 +92,14 @@ const MethodologyPage = () => {
                 <div className="flex flex-col md:flex-row gap-4 mb-6">
                     <div className="flex-1 relative min-w-0">
                         <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                            <Search className="text-black" size={20} />
+                            <Search className="text-black dark:text-retro-white" size={20} />
                         </div>
                         <input
                             type="text"
                             placeholder="SEARCH DATABASE..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full pl-10 pr-4 py-3 border-2 border-black bg-white text-black font-bold uppercase placeholder-retro-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)] focus:outline-none focus:bg-retro-yellow focus:text-black"
+                            className="w-full pl-10 pr-4 py-3 border-2 border-black dark:border-dark-border bg-white dark:bg-dark-surface text-black dark:text-retro-white font-bold uppercase placeholder-retro-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)] focus:outline-none focus:bg-retro-yellow focus:text-black"
                         />
                     </div>
                 </div>
@@ -155,7 +155,7 @@ const MethodologyPage = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ delay: idx * 0.05 }}
-                                className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col"
+                                className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all flex flex-col"
                             >
                                 <div className={`h-6 ${headerColor} border-b-4 border-black flex items-center px-2`}>
                                     <div className="w-2 h-2 bg-white rounded-full mr-1"></div>
@@ -164,9 +164,9 @@ const MethodologyPage = () => {
                                 </div>
 
                                 <div className="p-4 xs:p-6 flex-1 flex flex-col">
-                                    <h3 className="text-lg font-bold text-black mb-3 font-pixel-header uppercase leading-tight break-words">{method.name}</h3>
-                                    <div className="bg-retro-light-gray border-2 border-black p-3 mb-4 flex-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1)]">
-                                        <p className="text-sm text-black font-bold leading-relaxed font-pixel-body">
+                                    <h3 className="text-lg font-bold text-black dark:text-retro-white mb-3 font-pixel-header uppercase leading-tight break-words">{method.name}</h3>
+                                    <div className="bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border p-3 mb-4 flex-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1)]">
+                                        <p className="text-sm text-black dark:text-retro-white font-bold leading-relaxed font-pixel-body">
                                             {method.description}
                                         </p>
                                     </div>
@@ -185,7 +185,7 @@ const MethodologyPage = () => {
             </motion.div>
 
             {filteredMethods.length === 0 && (
-                <div className="text-center py-12 bg-retro-light-gray border-4 border-retro-white border-dashed">
+                <div className="text-center py-12 bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white dark:border-dark-border border-dashed">
                     <p className="text-retro-gray font-bold font-pixel-header uppercase text-sm">No data found in sector.</p>
                 </div>
             )}

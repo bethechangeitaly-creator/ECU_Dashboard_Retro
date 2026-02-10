@@ -128,14 +128,14 @@ const PartnersPage = () => {
                                 setSelectedPartner(partner);
                             }}
                             onMouseEnter={() => gameAudio.playHover()}
-                            className={`group cursor-pointer bg-white border-4 border-black hover:border-retro-white hover:-translate-y-1 transition-all duration-0 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full`}
+                            className={`group cursor-pointer bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border hover:border-retro-blue hover:-translate-y-1 transition-all duration-0 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full`}
                         >
                             {/* Header Stripe */}
                             <div className={`h-4 ${colors.bg} border-b-4 border-black`}></div>
 
                             <div className="p-3 flex flex-col flex-grow">
                                 {/* Pixel Art Logo - Compact */}
-                                <div className={`w-16 h-16 ${colors.lightBg} border-2 border-black flex items-center justify-center mb-2 group-hover:scale-105 transition-transform duration-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] mx-auto overflow-hidden`}>
+                                <div className={`w-16 h-16 ${colors.lightBg} dark:bg-dark-elevated border-2 border-black dark:border-dark-border flex items-center justify-center mb-2 group-hover:scale-105 transition-transform duration-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] mx-auto overflow-hidden`}>
                                     {partner.logo_url ? (
                                         <img
                                             src={`${import.meta.env.BASE_URL}${partner.logo_url}`}
@@ -151,7 +151,7 @@ const PartnersPage = () => {
                                 {/* Country & Role - Compact */}
                                 <div className="mb-1 text-center">
                                     <div className="flex items-center justify-center gap-2 mb-0.5">
-                                        <span className="text-xl font-bold text-black font-pixel-header">{partner.country_code}</span>
+                                        <span className="text-xl font-bold text-black dark:text-retro-white font-pixel-header">{partner.country_code}</span>
                                         {partner.role === 'Coordinator' && (
                                             <span className="px-1.5 py-0.5 bg-retro-yellow border-2 border-black text-black text-[9px] font-bold uppercase tracking-wide">
                                                 Coord
@@ -162,7 +162,7 @@ const PartnersPage = () => {
                                 </div>
 
                                 {/* Organization Name - Compact */}
-                                <h3 className="text-[10px] xs:text-xs font-bold text-black mb-1 font-pixel-header uppercase min-h-[2.5rem] break-words hyphens-auto leading-tight overflow-hidden text-center flex items-center justify-center">
+                                <h3 className="text-[10px] xs:text-xs font-bold text-black dark:text-retro-white mb-1 font-pixel-header uppercase min-h-[2.5rem] break-words hyphens-auto leading-tight overflow-hidden text-center flex items-center justify-center">
                                     {partner.organization}
                                 </h3>
 
@@ -174,7 +174,7 @@ const PartnersPage = () => {
 
                                 <div className="mt-auto pt-2 border-t-2 border-dashed border-gray-400">
                                     <div className={`flex items-center justify-between`}>
-                                        <div className="flex items-center space-x-1 text-black font-bold text-[9px]">
+                                        <div className="flex items-center space-x-1 text-black dark:text-retro-white font-bold text-[9px]">
                                             <Users size={10} />
                                             <span>{partner.participants} PAX</span>
                                         </div>
@@ -190,7 +190,7 @@ const PartnersPage = () => {
             </motion.div>
 
             {/* Institutional Partners Section (Bottom) */}
-            <div className="flex flex-wrap justify-center gap-6 px-4 pt-8 border-t-4 border-black border-dashed">
+            <div className="flex flex-wrap justify-center gap-6 px-4 pt-8 border-t-4 border-black dark:border-dark-border border-dashed">
                 <motion.a
                     href="https://agenziagioventu.gov.it/"
                     target="_blank"
@@ -200,7 +200,7 @@ const PartnersPage = () => {
                     whileHover={{ scale: 1.05 }}
                     className="flex flex-col items-center group"
                 >
-                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-64 h-24">
+                    <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-full max-w-[16rem] h-24">
                         <img
                             src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/Logo-AIG-small.png"
                             alt="Agenzia Italiana per la Gioventù"
@@ -208,7 +208,7 @@ const PartnersPage = () => {
                             style={{ imageRendering: 'pixelated' }}
                         />
                     </div>
-                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Agenzia Italiana Gioventù</span>
+                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black dark:group-hover:text-retro-white">Agenzia Italiana Gioventù</span>
                 </motion.a>
 
                 <motion.a
@@ -221,14 +221,14 @@ const PartnersPage = () => {
                     transition={{ delay: 0.1 }}
                     className="flex flex-col items-center group"
                 >
-                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-64 h-24">
+                    <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center w-full max-w-[16rem] h-24">
                         <img
                             src="https://raw.githubusercontent.com/bethechangeitaly-creator/brand/3c08146a330acceb4964a5359a415c6951ddfb26/ErasmusPlus_Small.svg"
                             alt="Erasmus+"
                             className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
                         />
                     </div>
-                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black">Erasmus+ Program</span>
+                    <span className="text-[10px] mt-2 font-bold uppercase text-retro-gray group-hover:text-black dark:group-hover:text-retro-white">Erasmus+ Program</span>
                 </motion.a>
             </div>
 
@@ -246,7 +246,7 @@ const PartnersPage = () => {
                             initial={{ scale: 0.9, opacity: 0, y: 20 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                            className="bg-retro-light-gray border-4 border-retro-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col font-pixel-body"
+                            className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-gray shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 flex flex-col font-pixel-body"
                         >
                             <PartnerDetailView
                                 partner={selectedPartner}

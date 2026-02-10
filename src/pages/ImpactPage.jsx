@@ -128,7 +128,7 @@ const ImpactPage = () => {
 
             {/* Tab Content */}
             <AnimatePresence mode="wait">
-                <div className="bg-retro-light-gray border-4 border-retro-white p-3 xs:p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] min-h-[400px]">
+                <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white p-3 xs:p-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] min-h-[400px]">
                     {activeTab === 'objectives' && <ObjectivesTab objectives={smart_objectives} />}
                     {activeTab === 'goals' && <GoalsTab goals={eu_youth_goals} />}
                     {activeTab === 'priorities' && <PrioritiesTab priorities={erasmus_priorities} />}
@@ -159,7 +159,7 @@ const ObjectivesTab = ({ objectives }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className={`bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all`}
+                        className={`bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all`}
                     >
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex-1 min-w-0">
@@ -169,8 +169,8 @@ const ObjectivesTab = ({ objectives }) => {
                                     </span>
                                     <span className="text-sm text-retro-gray font-bold uppercase">&gt; {obj.body_part}</span>
                                 </div>
-                                <h3 className="text-lg md:text-xl font-bold text-black mb-2 font-pixel-header uppercase break-words hyphens-auto leading-tight">{obj.title}</h3>
-                                <p className="text-black leading-relaxed mb-4 font-bold border-l-4 border-retro-light-gray pl-4 break-words">
+                                <h3 className="text-lg md:text-xl font-bold text-black dark:text-retro-white mb-2 font-pixel-header uppercase break-words hyphens-auto leading-tight">{obj.title}</h3>
+                                <p className="text-black dark:text-retro-white leading-relaxed mb-4 font-bold border-l-4 border-retro-light-gray pl-4 break-words">
                                     {obj.objective}
                                 </p>
                             </div>
@@ -191,17 +191,17 @@ const ObjectivesTab = ({ objectives }) => {
 
                         {/* Metrics Grid */}
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                            <div className="bg-retro-light-gray border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                            <div className="bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
                                 <p className="text-xs font-bold text-retro-dark-gray uppercase tracking-wider mb-1 underline">Baseline</p>
-                                <p className="text-xs font-bold text-black font-mono break-words hyphens-auto">{obj.metrics.baseline}</p>
+                                <p className="text-xs font-bold text-black dark:text-retro-white font-mono break-words hyphens-auto">{obj.metrics.baseline}</p>
                             </div>
-                            <div className="bg-retro-light-gray border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                            <div className="bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
                                 <p className="text-xs font-bold text-retro-dark-gray uppercase tracking-wider mb-1 underline">Measurement</p>
-                                <p className="text-xs font-bold text-black font-mono break-words hyphens-auto">{obj.metrics.measurement}</p>
+                                <p className="text-xs font-bold text-black dark:text-retro-white font-mono break-words hyphens-auto">{obj.metrics.measurement}</p>
                             </div>
-                            <div className="bg-white border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
+                            <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
                                 <p className="text-xs font-bold text-retro-green uppercase tracking-wider mb-1 underline">Success Criteria</p>
-                                <p className="text-xs font-bold text-black font-mono break-words hyphens-auto">{obj.metrics.success_criteria}</p>
+                                <p className="text-xs font-bold text-black dark:text-retro-white font-mono break-words hyphens-auto">{obj.metrics.success_criteria}</p>
                             </div>
                         </div>
 
@@ -210,7 +210,7 @@ const ObjectivesTab = ({ objectives }) => {
                             <p className="text-xs font-bold text-retro-gray uppercase tracking-wider mb-2">[ Methods Used ]</p>
                             <div className="flex flex-wrap gap-2">
                                 {obj.methods.map((method, midx) => (
-                                    <span key={midx} className="px-2 py-1 bg-white border border-black text-black text-xs font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
+                                    <span key={midx} className="px-2 py-1 bg-white dark:bg-dark-surface border border-black dark:border-dark-border text-black dark:text-retro-white text-xs font-bold shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
                                         {method}
                                     </span>
                                 ))}
@@ -244,7 +244,7 @@ const GoalsTab = ({ goals }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full"
+                        className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full"
                     >
                         <div className={`h-4 ${colors.bg} border-b-4 border-black`}></div>
 
@@ -255,13 +255,13 @@ const GoalsTab = ({ goals }) => {
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-black mb-6 font-pixel-header uppercase leading-tight break-words hyphens-auto text-center max-w-[95%] overflow-hidden">
+                            <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-black dark:text-retro-white mb-6 font-pixel-header uppercase leading-tight break-words hyphens-auto text-center max-w-[95%] overflow-hidden">
                                 {goal.title}
                             </h3>
 
                             {/* Description Box */}
-                            <div className="w-full bg-retro-light-gray/30 border-2 border-black p-4 flex-1 text-left relative shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]">
-                                <p className="text-black font-bold font-pixel-body leading-relaxed text-sm">
+                            <div className="w-full bg-retro-light-gray/30 dark:bg-dark-elevated border-2 border-black dark:border-dark-border p-4 flex-1 text-left relative shadow-[2px_2px_0px_0px_rgba(0,0,0,0.1)]">
+                                <p className="text-black dark:text-retro-white font-bold font-pixel-body leading-relaxed text-sm">
                                     {goal.connection}
                                 </p>
                             </div>
@@ -293,18 +293,18 @@ const PrioritiesTab = ({ priorities }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-5 flex flex-col h-full relative"
+                        className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-5 flex flex-col h-full relative"
                     >
                         {/* Header: Title */}
                         <div className="mb-6">
-                            <h3 className="text-xl xs:text-2xl font-bold text-black font-pixel-header uppercase leading-none break-words hyphens-auto w-full">
+                            <h3 className="text-xl xs:text-2xl font-bold text-black dark:text-retro-white font-pixel-header uppercase leading-none break-words hyphens-auto w-full">
                                 {priority.name}
                             </h3>
                         </div>
 
                         {/* Body: Description with Left Border */}
-                        <div className="flex-1 pl-4 border-l-4 border-black mb-6">
-                            <p className="text-black font-bold font-pixel-body leading-relaxed text-sm">
+                        <div className="flex-1 pl-4 border-l-4 border-black dark:border-dark-border mb-6">
+                            <p className="text-black dark:text-retro-white font-bold font-pixel-body leading-relaxed text-sm">
                                 {priority.description}
                             </p>
                         </div>
@@ -318,7 +318,7 @@ const PrioritiesTab = ({ priorities }) => {
                             </div>
 
                             {/* Retro Progress Bar - Bottom */}
-                            <div className="w-full h-8 bg-retro-light-gray border-4 border-black relative">
+                            <div className="w-full h-8 bg-retro-light-gray dark:bg-dark-elevated border-4 border-black dark:border-dark-border relative">
                                 {/* Grid lines */}
                                 <div className="absolute inset-0 flex pointer-events-none">
                                     {[...Array(10)].map((_, i) => (
@@ -351,8 +351,8 @@ const IndicatorsTab = ({ indicators }) => (
         className="space-y-6 xs:space-y-8"
     >
         {/* Direct Participants Section - Kept for context but adjusted padding */}
-        <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
-            <h3 className="text-xl font-bold text-black mb-8 flex items-center space-x-3 border-b-4 border-retro-blue pb-2">
+        <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
+            <h3 className="text-xl font-bold text-black dark:text-retro-white mb-8 flex items-center space-x-3 border-b-4 border-retro-blue pb-2">
                 <Users size={28} className="text-retro-blue" />
                 <span className="font-pixel-header uppercase">Direct Participants</span>
             </h3>
@@ -367,8 +367,8 @@ const IndicatorsTab = ({ indicators }) => (
         </div>
 
         {/* Expected Outcomes Section - Refactored to Vertical Cards */}
-        <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
-            <h3 className="text-xl font-bold text-black mb-10 flex items-center space-x-3 border-b-4 border-retro-green pb-2">
+        <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6">
+            <h3 className="text-xl font-bold text-black dark:text-retro-white mb-10 flex items-center space-x-3 border-b-4 border-retro-green pb-2">
                 <CheckCircle2 size={28} className="text-retro-green" />
                 <span className="font-pixel-header uppercase">Expected Outcomes</span>
             </h3>
@@ -386,12 +386,12 @@ const IndicatorsTab = ({ indicators }) => (
                     };
 
                     return (
-                        <div key={key} className="bg-retro-light-gray/20 border-4 border-black p-6 hover:bg-retro-green/5 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                        <div key={key} className="bg-retro-light-gray/20 dark:bg-dark-elevated border-4 border-black dark:border-dark-border p-6 hover:bg-retro-green/5 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                             <div className="flex items-center space-x-4 mb-4">
                                 <div className="w-8 h-8 bg-retro-green border-2 border-black flex items-center justify-center flex-shrink-0">
                                     <div className="w-4 h-2.5 bg-transparent border-b-4 border-l-4 border-white -rotate-45 -mt-1"></div>
                                 </div>
-                                <h4 className="text-xl font-bold text-black font-pixel-body underline underline-offset-4 decoration-retro-gray uppercase break-words leading-tight">
+                                <h4 className="text-xl font-bold text-black dark:text-retro-white font-pixel-body underline underline-offset-4 decoration-retro-gray uppercase break-words leading-tight">
                                     {key.replace(/_/g, ' ')}
                                 </h4>
                             </div>
@@ -403,7 +403,7 @@ const IndicatorsTab = ({ indicators }) => (
                             </div>
 
                             <div className="border-t-2 border-dashed border-retro-gray pt-3">
-                                <p className="text-sm text-black font-bold font-pixel-body leading-relaxed">
+                                <p className="text-sm text-black dark:text-retro-white font-bold font-pixel-body leading-relaxed">
                                     &gt; {descriptions[key] || "Measurable outcomes and targets achieveable"}
                                 </p>
                             </div>

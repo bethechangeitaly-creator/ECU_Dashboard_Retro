@@ -71,25 +71,25 @@ const MainLayout = () => {
     }, []);
 
     return (
-        <div className="min-h-screen h-[100dvh] bg-retro-light-gray dark:bg-retro-dark-gray font-pixel-body flex text-black dark:text-retro-white overflow-hidden relative">
+        <div className="min-h-screen h-[100dvh] bg-retro-light-gray dark:bg-dark-base font-pixel-body flex text-black dark:text-retro-white overflow-hidden relative">
             <div className="crt-overlay pointer-events-none fixed inset-0 z-[100]"></div>
             <CommandPalette />
             <PreferencesWindow />
             <DisclaimerModal />
             <CreditsModal isOpen={showCredits} onClose={() => setShowCredits(false)} />
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-            <div className="flex-1 lg:ml-72 flex flex-col h-[100dvh] overflow-hidden border-l-4 border-retro-gray">
+            <div className="flex-1 lg:ml-72 flex flex-col h-[100dvh] overflow-hidden border-l-4 border-retro-gray dark:border-dark-border">
                 <Header onMenuClick={() => setSidebarOpen(true)} />
-                <main ref={mainRef} className="flex-1 overflow-y-auto overflow-x-hidden p-0.5 xs:p-1 lg:p-8 pb-24 lg:pb-8 bg-retro-light-gray dark:bg-retro-dark-blue relative has-retro-scrollbar">
+                <main ref={mainRef} className="flex-1 overflow-y-auto overflow-x-hidden p-0.5 xs:p-1 lg:p-8 pb-24 lg:pb-8 bg-retro-light-gray dark:bg-dark-base relative has-retro-scrollbar">
                     {/* Grid Background Effect */}
-                    <div className="absolute inset-0 pointer-events-none opacity-20"
+                    <div className="absolute inset-0 pointer-events-none opacity-5 dark:opacity-10"
                         style={{
-                            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+                            backgroundImage: 'linear-gradient(rgba(42, 42, 94, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(42, 42, 94, 0.3) 1px, transparent 1px)',
                             backgroundSize: '20px 20px'
                         }}
                     ></div>
 
-                    <div className="max-w-7xl mx-auto relative z-10 border-2 border-retro-white p-0 xs:p-1">
+                    <div className="max-w-7xl mx-auto relative z-10">
                         <Outlet />
                     </div>
 

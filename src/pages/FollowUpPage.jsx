@@ -149,7 +149,7 @@ const FollowUpPage = () => {
             />
 
             {/* Timeline */}
-            <div className="bg-retro-light-gray border-4 border-retro-white p-2 xs:p-4 lg:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white dark:border-dark-border p-2 xs:p-4 lg:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-2 -mt-2">
                     <span className="text-white font-bold font-pixel-header text-xs uppercase tracking-wider pl-2">
                         Timeline_Viewer.exe
@@ -159,7 +159,7 @@ const FollowUpPage = () => {
                     </div>
                 </div>
 
-                <div className="space-y-6 relative border-l-4 border-black ml-4 pl-4 md:ml-8 md:pl-8">
+                <div className="space-y-6 relative border-l-4 border-black dark:border-dark-border ml-4 pl-4 md:ml-8 md:pl-8">
                     {timeline.map((phase, idx) => {
                         const IconComponent = phase.icon;
 
@@ -180,9 +180,9 @@ const FollowUpPage = () => {
                                 transition={{ delay: idx * 0.1 }}
                                 className="relative"
                             >
-                                <div className={`absolute -left-[44px] md:-left-[60px] top-4 w-6 h-6 bg-white border-2 border-black rounded-full z-10 box-shadow-hard`}></div>
+                                <div className={`absolute -left-[44px] md:-left-[60px] top-4 w-6 h-6 bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border rounded-full z-10 box-shadow-hard`}></div>
 
-                                <div className="bg-white border-4 border-black p-3 xs:p-4 lg:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative flex flex-col">
+                                <div className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-3 xs:p-4 lg:p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] relative flex flex-col">
                                     <div className="mb-4">
                                         <div className={`bg-black text-white px-2 py-1 text-[10px] font-bold uppercase border-2 border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] w-fit`}>
                                             Phase {idx + 1}
@@ -190,18 +190,18 @@ const FollowUpPage = () => {
                                     </div>
 
                                     <div className="flex flex-col lg:flex-row items-start gap-4">
-                                        <div className="w-12 h-12 bg-white border-4 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-2 lg:mb-0">
+                                        <div className="w-12 h-12 bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-2 lg:mb-0">
                                             <IconComponent size={24} className={colorClass} />
                                         </div>
                                         <div className="flex-1 min-w-0 w-full">
-                                            <h3 className="text-lg xs:text-xl lg:text-2xl font-bold text-black mb-4 font-pixel-header break-words leading-tight overflow-hidden hyphens-auto uppercase">{phase.phase}</h3>
+                                            <h3 className="text-lg xs:text-xl lg:text-2xl font-bold text-black dark:text-retro-white mb-4 font-pixel-header break-words leading-tight overflow-hidden hyphens-auto uppercase">{phase.phase}</h3>
                                             <ul className="space-y-4">
                                                 {phase.actions.map((action, aidx) => (
                                                     <li key={aidx} className="flex items-start gap-3">
                                                         <div className="mt-1.5 shrink-0">
-                                                            <div className="w-2 h-2 bg-black"></div>
+                                                            <div className="w-2 h-2 bg-black dark:bg-retro-white"></div>
                                                         </div>
-                                                        <span className="text-black font-bold text-sm leading-tight break-words">{action}</span>
+                                                        <span className="text-black dark:text-retro-white font-bold text-sm leading-tight break-words">{action}</span>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -240,19 +240,19 @@ const FollowUpPage = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.05 }}
-                                className={`bg-white border-4 border-black p-4 lg:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all`}
+                                className={`bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-4 lg:p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all`}
                             >
-                                <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 mb-3 border-b-2 border-black pb-3 border-dashed">
+                                <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 mb-3 border-b-2 border-black dark:border-dark-border pb-3 border-dashed">
                                     <span className={`px-2 py-1 bg-black text-white text-xs font-bold font-pixel-header uppercase border-2 border-gray-400`}>
                                         {event.country}
                                     </span>
-                                    <div className={`flex items-center space-x-2 border border-black px-2 py-1 bg-retro-light-gray shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
-                                        <Users size={14} className="text-black" />
-                                        <span className="text-xs font-bold text-black uppercase tracking-tight">{event.expected_reach}+ REACH</span>
+                                    <div className={`flex items-center space-x-2 border border-black dark:border-dark-border px-2 py-1 bg-retro-light-gray dark:bg-dark-elevated shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]`}>
+                                        <Users size={14} className="text-black dark:text-retro-white" />
+                                        <span className="text-xs font-bold text-black dark:text-retro-white uppercase tracking-tight">{event.expected_reach}+ REACH</span>
                                     </div>
                                 </div>
-                                <h3 className={`text-lg font-bold text-black mb-2 font-pixel-header uppercase break-words leading-tight ${colorClass}`}>{event.title}</h3>
-                                <p className="text-sm text-black font-bold leading-relaxed font-pixel-body">
+                                <h3 className={`text-lg font-bold text-black dark:text-retro-white mb-2 font-pixel-header uppercase break-words leading-tight ${colorClass}`}>{event.title}</h3>
+                                <p className="text-sm text-black dark:text-retro-white font-bold leading-relaxed font-pixel-body">
                                     {event.description}
                                 </p>
                             </motion.div>

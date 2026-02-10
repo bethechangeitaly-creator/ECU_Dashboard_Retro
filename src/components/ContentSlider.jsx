@@ -20,8 +20,8 @@ const ContentSlider = ({ days, onExplore }) => {
     // Guard clause for empty or undefined days
     if (!days || days.length === 0) {
         return (
-            <div className="bg-white rounded-2xl p-12 text-center border border-slate-200">
-                <p className="text-slate-500">No journey data available</p>
+            <div className="bg-white dark:bg-dark-surface rounded-2xl p-12 text-center border border-slate-200 dark:border-dark-border">
+                <p className="text-slate-500 dark:text-retro-light-gray">No journey data available</p>
             </div>
         );
     }
@@ -73,7 +73,7 @@ const ContentSlider = ({ days, onExplore }) => {
     const bgColor = colorMap[currentDay.color] || 'bg-retro-blue';
 
     return (
-        <div className="relative bg-white border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col font-pixel-body overflow-hidden">
+        <div className="relative bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col font-pixel-body overflow-hidden">
             {/* Top Area: Colored Header with Badge */}
             <div className={`w-full h-48 xs:h-56 ${bgColor} flex items-center justify-center relative border-b-4 border-black shrink-0 overflow-hidden`}>
                 {/* High-visibility Grid Pattern Overlay */}
@@ -102,7 +102,7 @@ const ContentSlider = ({ days, onExplore }) => {
             </div>
 
             {/* Bottom Content Area */}
-            <div className="p-4 xs:p-6 md:p-8 flex flex-col relative bg-white text-black shrink-0">
+            <div className="p-4 xs:p-6 md:p-8 flex flex-col relative bg-white dark:bg-dark-surface text-black dark:text-retro-white shrink-0">
                 <AnimatePresence mode='wait'>
                     <motion.div
                         key={currentIndex}
@@ -136,8 +136,8 @@ const ContentSlider = ({ days, onExplore }) => {
                         </h2>
 
                         {/* Session Log Box */}
-                        <div className="bg-[#f0f0f0] p-4 border-2 border-retro-gray border-dashed relative pointer-events-none select-none">
-                            <h4 className="absolute -top-3 left-4 bg-[#f0f0f0] px-2 text-[10px] font-bold text-black uppercase tracking-widest">[ SESSION_LOG ]</h4>
+                        <div className="bg-[#f0f0f0] dark:bg-dark-elevated p-4 border-2 border-retro-gray dark:border-dark-border border-dashed relative pointer-events-none select-none">
+                            <h4 className="absolute -top-3 left-4 bg-[#f0f0f0] dark:bg-dark-elevated px-2 text-[10px] font-bold text-black dark:text-retro-white uppercase tracking-widest">[ SESSION_LOG ]</h4>
                             <ul className="space-y-2 mt-1">
                                 {(currentDay.sessions || []).slice(0, 3).map((session, idx) => (
                                     <li key={idx} className="flex items-start text-black text-xs xs:text-sm font-bold leading-tight">
@@ -192,7 +192,7 @@ const ContentSlider = ({ days, onExplore }) => {
                                 prevSlide();
                             }}
                             onMouseEnter={() => gameAudio.playHover()}
-                            className="p-2 bg-white text-black border-4 border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
+                            className="p-2 bg-white dark:bg-dark-elevated text-black dark:text-retro-white border-4 border-black dark:border-dark-border hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
                         >
                             <ChevronLeft size={20} />
                         </button>
@@ -202,7 +202,7 @@ const ContentSlider = ({ days, onExplore }) => {
                                 nextSlide();
                             }}
                             onMouseEnter={() => gameAudio.playHover()}
-                            className="p-2 bg-white text-black border-4 border-black hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
+                            className="p-2 bg-white dark:bg-dark-elevated text-black dark:text-retro-white border-4 border-black dark:border-dark-border hover:bg-retro-yellow shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all"
                         >
                             <ChevronRight size={20} />
                         </button>

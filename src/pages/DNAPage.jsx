@@ -66,7 +66,7 @@ const DNAPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 relative"
+                className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 relative"
             >
                 {/* Window Title Bar */}
                 <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray mb-6 -mx-4 xs:-mx-6 -mt-4 xs:-mt-6">
@@ -80,29 +80,29 @@ const DNAPage = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0 mb-2 sm:mb-0">
+                    <div className="w-16 h-16 bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center flex-shrink-0 mb-2 sm:mb-0">
                         <Sparkles size={32} className="text-retro-magenta" />
                     </div>
                     <div className="min-w-0 flex-1">
-                        <h2 className="text-2xl font-bold text-black mb-1 md:mb-2 font-pixel-header uppercase truncate sm:whitespace-normal">The Genesis</h2>
+                        <h2 className="text-2xl font-bold text-black dark:text-retro-white mb-1 md:mb-2 font-pixel-header uppercase truncate sm:whitespace-normal">The Genesis</h2>
                         <p className="text-retro-dark-gray font-bold uppercase text-[10px] sm:text-xs tracking-wider">Where it all began</p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 xs:gap-6 mb-6">
-                    <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
-                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black pb-2">
+                    <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black dark:border-dark-border pb-2">
                             <Flag size={20} className="text-retro-blue" />
-                            <p className="font-bold text-black font-pixel-header text-sm uppercase">Origin Event</p>
+                            <p className="font-bold text-black dark:text-retro-white font-pixel-header text-sm uppercase">Origin Event</p>
                         </div>
-                        <p className="text-black font-bold text-sm leading-relaxed">{genesis.origin}</p>
+                        <p className="text-black dark:text-retro-white font-bold text-sm leading-relaxed">{genesis.origin}</p>
                     </div>
-                    <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
-                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black pb-2">
+                    <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center space-x-2 mb-3 border-b-2 border-black dark:border-dark-border pb-2">
                             <MapPin size={20} className="text-retro-red" />
-                            <p className="font-bold text-black font-pixel-header text-sm uppercase">Location & Time</p>
+                            <p className="font-bold text-black dark:text-retro-white font-pixel-header text-sm uppercase">Location & Time</p>
                         </div>
-                        <p className="text-black font-bold text-sm leading-relaxed">{genesis.location}</p>
+                        <p className="text-black dark:text-retro-white font-bold text-sm leading-relaxed">{genesis.location}</p>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@ const DNAPage = () => {
                         "{genesis.spark}"
                     </p>
                     <h3 className="font-bold text-retro-magenta mb-2 uppercase font-pixel-header">Vision</h3>
-                    <p className="text-black font-bold leading-relaxed font-pixel-body text-sm bg-white p-2 border-2 border-black">
+                    <p className="text-black dark:text-retro-white font-bold leading-relaxed font-pixel-body text-sm bg-white dark:bg-dark-surface p-2 border-2 border-black dark:border-dark-border">
                         {genesis.vision}
                     </p>
                 </div>
@@ -155,13 +155,13 @@ const DNAPage = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 + idx * 0.1 }}
-                                className="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
+                                className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all"
                             >
                                 <div className={`w-12 h-12 bg-black border-2 border-white flex items-center justify-center mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)]`}>
                                     <IconComponent size={24} className={textColor} />
                                 </div>
-                                <h3 className="text-lg font-bold text-black mb-3 font-pixel-header uppercase border-b-2 border-gray-300 pb-2">{value.title}</h3>
-                                <p className="text-black font-bold text-sm leading-relaxed font-pixel-body">
+                                <h3 className="text-lg font-bold text-black dark:text-retro-white mb-3 font-pixel-header uppercase border-b-2 border-gray-300 pb-2">{value.title}</h3>
+                                <p className="text-black dark:text-retro-white font-bold text-sm leading-relaxed font-pixel-body">
                                     {value.description}
                                 </p>
                             </motion.div>
@@ -202,7 +202,7 @@ const DNAPage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.7 }}
-                    className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 md:p-8 h-full relative"
+                    className="bg-white dark:bg-dark-surface border-4 border-black dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-4 xs:p-6 md:p-8 h-full relative"
                 >
                     <div className="relative z-10 flex flex-col h-full">
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6">
@@ -210,7 +210,7 @@ const DNAPage = () => {
                                 <Target size={28} className="text-black" />
                             </div>
                             <div className="min-w-0 flex-1">
-                                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-black mb-2 font-pixel-header uppercase break-words leading-tight overflow-hidden">
+                                <h2 className="text-lg xs:text-xl sm:text-2xl font-bold text-black dark:text-retro-white mb-2 font-pixel-header uppercase break-words leading-tight overflow-hidden">
                                     <span className="md:hidden">BEYOND</span>
                                     <span className="hidden md:inline">{impact_philosophy.title}</span>
                                 </h2>
@@ -218,13 +218,13 @@ const DNAPage = () => {
                             </div>
                         </div>
 
-                        <p className="text-black font-bold text-sm md:text-base leading-relaxed mb-8 flex-1 font-pixel-body">
+                        <p className="text-black dark:text-retro-white font-bold text-sm md:text-base leading-relaxed mb-8 flex-1 font-pixel-body">
                             {impact_philosophy.description}
                         </p>
 
-                        <div className="bg-retro-light-gray border-4 border-black p-4 xs:p-6 relative overflow-hidden">
+                        <div className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-black dark:border-dark-border p-4 xs:p-6 relative overflow-hidden">
                             <div className="relative z-10">
-                                <div className="flex items-center gap-3 text-black font-bold mb-6 border-b-2 border-black pb-4 border-dashed">
+                                <div className="flex items-center gap-3 text-black dark:text-retro-white font-bold mb-6 border-b-2 border-black dark:border-dark-border pb-4 border-dashed">
                                     <div className="w-12 h-12 bg-retro-green border-2 border-black flex items-center justify-center shrink-0 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                                         <TrendingUp size={24} className="text-black" />
                                     </div>
@@ -246,7 +246,7 @@ const DNAPage = () => {
                                     </div>
 
                                     {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
 
                                     {/* Step 2 */}
                                     <div className="w-full lg:flex-1 bg-retro-blue border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">
@@ -258,7 +258,7 @@ const DNAPage = () => {
                                     </div>
 
                                     {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
 
                                     {/* Step 3 */}
                                     <div className="w-full lg:flex-1 bg-retro-cyan border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-black text-center min-h-[100px]">
@@ -270,7 +270,7 @@ const DNAPage = () => {
                                     </div>
 
                                     {/* Connection Arrow */}
-                                    <div className="rotate-90 lg:rotate-0 text-black font-bold text-xl h-6 flex items-center">&gt;</div>
+                                    <div className="rotate-90 lg:rotate-0 text-black dark:text-retro-white font-bold text-xl h-6 flex items-center">&gt;</div>
 
                                     {/* Step 4 */}
                                     <div className="w-full lg:flex-1 bg-retro-magenta border-4 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center gap-2 text-white text-center min-h-[100px]">

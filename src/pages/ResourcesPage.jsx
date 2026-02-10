@@ -135,7 +135,7 @@ const ResourcesPage = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="bg-retro-light-gray border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
+                        className="bg-retro-light-gray dark:bg-dark-elevated border-4 border-retro-white dark:border-dark-border shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative"
                     >
                         {/* Window Title Bar style header */}
                         <div className={`${headerColor} px-2 py-2 flex flex-nowrap items-center border-b-4 border-retro-gray mb-4 gap-2`}>
@@ -150,25 +150,25 @@ const ResourcesPage = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white border-2 border-black mx-2 xs:mx-4 mb-4 p-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)]">
+                        <div className="bg-white dark:bg-dark-surface border-2 border-black mx-2 xs:mx-4 mb-4 p-1 shadow-[inset_2px_2px_4px_rgba(0,0,0,0.2)]">
                             <div className="space-y-1">
                                 {category.resources.map((resource, ridx) => (
                                     <div
                                         key={ridx}
-                                        className={`grid grid-cols-[1fr_auto] gap-3 items-center p-3 hover:bg-retro-blue hover:text-white group transition-colors cursor-pointer border-b border-dashed border-gray-300 last:border-0`}
+                                        className={`grid grid-cols-[1fr_auto] gap-3 items-center p-3 hover:bg-retro-blue hover:text-white group transition-colors cursor-pointer border-b border-dashed border-gray-300 dark:border-dark-border last:border-0`}
                                     >
                                         <div className="min-w-0">
                                             <div className="flex flex-wrap items-center gap-2 mb-1">
-                                                <h3 className="font-bold text-xs xs:text-sm uppercase font-pixel-header text-black group-hover:text-retro-yellow break-words leading-tight">{resource.name}</h3>
-                                                <span className={`px-1 py-0.5 bg-retro-light-gray text-black border border-black text-[10px] uppercase font-bold shrink-0`}>
+                                                <h3 className="font-bold text-xs xs:text-sm uppercase font-pixel-header text-black dark:text-retro-white group-hover:text-retro-yellow break-words leading-tight">{resource.name}</h3>
+                                                <span className={`px-1 py-0.5 bg-retro-light-gray dark:bg-dark-elevated text-black dark:text-retro-white border border-black text-[10px] uppercase font-bold shrink-0`}>
                                                     {resource.type}
                                                 </span>
                                             </div>
-                                            <p className="text-xs xs:text-sm font-bold uppercase mb-1 break-words leading-tight text-black">{resource.description}</p>
-                                            <p className="text-xs font-mono text-black group-hover:text-retro-light-gray">{resource.size}</p>
+                                            <p className="text-xs xs:text-sm font-bold uppercase mb-1 break-words leading-tight text-black dark:text-retro-white">{resource.description}</p>
+                                            <p className="text-xs font-mono text-black dark:text-retro-white group-hover:text-retro-light-gray">{resource.size}</p>
                                         </div>
                                         <div className="flex items-center justify-center w-10">
-                                            <button className={`p-2 bg-retro-light-gray text-retro-gray border-2 border-white shadow-[1px_1px_0px_0px_#000] group-hover:bg-retro-red group-hover:text-white group-hover:border-black`} title="Locked">
+                                            <button className={`p-2 bg-retro-light-gray dark:bg-dark-elevated text-retro-gray border-2 border-white dark:border-dark-border shadow-[1px_1px_0px_0px_#000] group-hover:bg-retro-red group-hover:text-white group-hover:border-black`} title="Locked">
                                                 <Lock size={16} />
                                             </button>
                                         </div>

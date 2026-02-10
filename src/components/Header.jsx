@@ -35,12 +35,12 @@ const Header = ({ onMenuClick }) => {
 
     return (
         <>
-            <header className="h-16 bg-retro-light-gray dark:bg-retro-dark-gray border-b-4 border-retro-gray flex items-center justify-between px-4 sticky top-0 z-30 shadow-md">
+            <header className="h-16 bg-retro-light-gray dark:bg-dark-surface border-b-4 border-retro-gray dark:border-dark-border flex items-center justify-between px-4 sticky top-0 z-30 shadow-md">
                 <div className="flex items-center">
                     <button
                         onClick={(e) => { handleClick(); onMenuClick(e); }}
                         onMouseEnter={handleMouseEnter}
-                        className="lg:hidden mr-2 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white bg-retro-light-gray shrink-0 text-black relative z-50"
+                        className="lg:hidden mr-2 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center border-2 border-t-white border-l-white border-b-black border-r-black active:border-t-black active:border-l-black active:border-b-white active:border-r-white bg-retro-light-gray dark:bg-dark-elevated dark:border-dark-border dark:text-retro-white shrink-0 text-black relative z-50"
                     >
                         <Menu size={24} />
                     </button>
@@ -103,8 +103,8 @@ const Header = ({ onMenuClick }) => {
                     </div>
 
                     {/* Clock */}
-                    <div className="hidden lg:flex flex-col items-end border-l-2 border-retro-gray pl-4">
-                        <span className="font-pixel-header text-xs font-bold pointer-events-none">
+                    <div className="hidden lg:flex flex-col items-end border-l-2 border-retro-gray dark:border-dark-border pl-4">
+                        <span className="font-pixel-header text-xs font-bold pointer-events-none dark:text-neon-cyan">
                             {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
                         <span className="text-[10px] text-retro-gray uppercase pointer-events-none">

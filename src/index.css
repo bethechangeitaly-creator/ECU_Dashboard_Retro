@@ -10,6 +10,24 @@
     image-rendering: pixelated;
   }
 
+  /* Dark mode body: deep navy with subtle purple grid */
+  .dark body,
+  body.dark {
+    background-color: #0d0f1a;
+    background-image:
+      linear-gradient(rgba(42, 42, 94, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42, 42, 94, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  :root.dark body {
+    background-color: #0d0f1a;
+    background-image:
+      linear-gradient(rgba(42, 42, 94, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42, 42, 94, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
   /* Retro Scrollbar */
   ::-webkit-scrollbar {
     width: 16px;
@@ -26,8 +44,8 @@
   ::-webkit-scrollbar-thumb {
     background: #555555;
     /* retro-gray */
-    border: 2px solid #ffffff;
-    /* retro-white */
+    border: 2px solid #aaaaaa;
+    /* retro-light-gray */
     box-shadow: inset 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
   }
 
@@ -38,6 +56,26 @@
 
   ::-webkit-scrollbar-corner {
     background: #aaaaaa;
+  }
+
+  /* Dark mode scrollbar: neon-tinted on dark track */
+  :root.dark ::-webkit-scrollbar-track {
+    background: #0d0f1a;
+    border-left: 2px solid #2a2a5e;
+  }
+
+  :root.dark ::-webkit-scrollbar-thumb {
+    background: #2a2a5e;
+    border: 2px solid #1a1a2e;
+    box-shadow: inset 2px 2px 0px 0px rgba(0, 255, 255, 0.15);
+  }
+
+  :root.dark ::-webkit-scrollbar-thumb:hover {
+    background: #00ffff;
+  }
+
+  :root.dark ::-webkit-scrollbar-corner {
+    background: #0d0f1a;
   }
 }
 
@@ -257,9 +295,26 @@
   }
 }
 
+/* Mobile shadow reduction: shrink large retro box-shadows on small screens */
+@media (max-width: 428px) {
+  [class*="shadow-[12px_12px"] {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+  }
+
+  [class*="shadow-[8px_8px"] {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1) !important;
+  }
+}
+
 /* Custom Selection Color */
 ::selection {
   background: #5555ff;
   /* retro-blue */
   color: white;
+}
+
+/* Dark mode selection: neon magenta */
+:root.dark ::selection {
+  background: #ff00ff;
+  color: #0d0f1a;
 }

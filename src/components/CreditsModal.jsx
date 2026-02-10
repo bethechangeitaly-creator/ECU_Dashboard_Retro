@@ -51,7 +51,7 @@ const CreditsModal = ({ isOpen, onClose }) => {
                         initial={{ scale: 0.9, opacity: 0, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                        className="bg-retro-light-gray border-4 border-retro-gray shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
+                        className="bg-retro-light-gray dark:bg-dark-surface border-4 border-retro-gray dark:border-dark-border shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]
                         w-full max-w-md relative z-10 font-pixel-body flex flex-col pointer-events-auto"
                     >
                         {/* Header */}

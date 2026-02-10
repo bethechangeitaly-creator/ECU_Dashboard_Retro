@@ -39,6 +39,15 @@ export default {
         'retro-dark-magenta': '#aa00aa',
         'retro-brown': '#aa5500',
         'retro-dark-gray': '#444444',
+        // Midnight Arcade dark mode palette
+        'dark-base':     '#0d0f1a',
+        'dark-surface':  '#1a1a2e',
+        'dark-elevated': '#252545',
+        'dark-border':   '#2a2a5e',
+        'neon-cyan':     '#00ffff',
+        'neon-magenta':  '#ff00ff',
+        'neon-green':    '#39ff14',
+        'neon-pink':     '#ff6ec7',
       },
       fontFamily: {
         'pixel-header': ['"Press Start 2P"', 'cursive'],

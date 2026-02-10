@@ -140,30 +140,30 @@ const PartnerDetailView = ({ partner, onClose }) => {
                     {/* Main Content Area */}
                     <div className="lg:col-span-2 space-y-6">
                         {/* About Box */}
-                        <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
-                            <h3 className="text-sm font-bold text-black uppercase mb-4 bg-retro-light-gray border-2 border-black inline-block px-2 py-1">
+                        <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                            <h3 className="text-sm font-bold text-black dark:text-retro-white uppercase mb-4 bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border inline-block px-2 py-1">
                                 [ Organization Profile ]
                             </h3>
-                            <p className="text-black text-sm md:text-base leading-relaxed font-bold">
+                            <p className="text-black dark:text-retro-white text-sm md:text-base leading-relaxed font-bold">
                                 {partner.description}
                             </p>
 
-                            <div className="mt-4 pt-4 border-t-2 border-black border-dashed">
+                            <div className="mt-4 pt-4 border-t-2 border-black dark:border-dark-border border-dashed">
                                 <h4 className="text-xs font-bold text-retro-gray uppercase mb-2">Primary Mission:</h4>
-                                <p className="text-black italic font-bold border-l-4 border-retro-gray pl-4">
+                                <p className="text-black dark:text-retro-white italic font-bold border-l-4 border-retro-gray pl-4">
                                     "{partner.mission}"
                                 </p>
                             </div>
                         </div>
 
                         {/* Focus Areas */}
-                        <div className="bg-retro-light-gray border-2 border-black p-4">
-                            <h4 className="text-xs font-bold text-black uppercase mb-3 border-b-2 border-black pb-1">Focus Areas</h4>
+                        <div className="bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border p-4">
+                            <h4 className="text-xs font-bold text-black dark:text-retro-white uppercase mb-3 border-b-2 border-black dark:border-dark-border pb-1">Focus Areas</h4>
                             <div className="flex flex-wrap gap-2">
                                 {partner.focus_areas.map((area, idx) => (
                                     <span
                                         key={idx}
-                                        className={`px-2 py-1 bg-white border-2 border-black text-black text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-px hover:shadow-none transition-all cursor-default`}
+                                        className={`px-2 py-1 bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border text-black dark:text-retro-white text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-px hover:shadow-none transition-all cursor-default`}
                                     >
                                         {area}
                                     </span>
@@ -173,8 +173,8 @@ const PartnerDetailView = ({ partner, onClose }) => {
 
                         {/* Contact Info - Polished Version */}
                         {(partner.website || partner.instagram || partner.email) && (
-                            <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
-                                <h3 className="text-sm font-bold text-black uppercase mb-4 flex items-center gap-2 border-b-2 border-black pb-2">
+                            <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                                <h3 className="text-sm font-bold text-black dark:text-retro-white uppercase mb-4 flex items-center gap-2 border-b-2 border-black dark:border-dark-border pb-2">
                                     <div className="bg-retro-blue p-1 border border-black text-white">
                                         <Target size={12} />
                                     </div>
@@ -188,9 +188,9 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                             rel="noopener noreferrer"
                                             onClick={() => gameAudio.playClick()}
                                             onMouseEnter={() => gameAudio.playHover()}
-                                            className="group flex flex-col p-0 bg-retro-light-gray border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
+                                            className="group flex flex-col p-0 bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
                                         >
-                                            <div className="bg-retro-blue text-white px-2 py-1 text-[8px] font-bold border-b-2 border-black flex justify-between items-center">
+                                            <div className="bg-retro-blue text-white px-2 py-1 text-[10px] font-bold border-b-2 border-black flex justify-between items-center">
                                                 <span>WEB_PORTAL</span>
                                                 <Globe size={10} />
                                             </div>
@@ -199,10 +199,10 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                                     <Globe size={18} />
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
-                                                    <span className="text-[10px] xs:text-xs font-bold text-black truncate uppercase tracking-tight">
+                                                    <span className="text-[10px] xs:text-xs font-bold text-black dark:text-retro-white truncate uppercase tracking-tight">
                                                         {partner.website.replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0]}
                                                     </span>
-                                                    <div className="flex items-center gap-1 text-[8px] font-bold text-retro-gray uppercase mt-0.5">
+                                                    <div className="flex items-center gap-1 text-[10px] font-bold text-retro-gray uppercase mt-0.5">
                                                         <span>Browse Node</span>
                                                         <ExternalLink size={8} />
                                                     </div>
@@ -217,9 +217,9 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                             rel="noopener noreferrer"
                                             onClick={() => gameAudio.playClick()}
                                             onMouseEnter={() => gameAudio.playHover()}
-                                            className="group flex flex-col p-0 bg-retro-light-gray border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
+                                            className="group flex flex-col p-0 bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
                                         >
-                                            <div className="bg-retro-magenta text-white px-2 py-1 text-[8px] font-bold border-b-2 border-black flex justify-between items-center">
+                                            <div className="bg-retro-magenta text-white px-2 py-1 text-[10px] font-bold border-b-2 border-black flex justify-between items-center">
                                                 <span>SOCIAL_ID</span>
                                                 <Instagram size={10} />
                                             </div>
@@ -228,10 +228,10 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                                     <Instagram size={18} />
                                                 </div>
                                                 <div className="flex flex-col min-w-0">
-                                                    <span className="text-[10px] xs:text-xs font-bold text-black truncate uppercase tracking-tight">
+                                                    <span className="text-[10px] xs:text-xs font-bold text-black dark:text-retro-white truncate uppercase tracking-tight">
                                                         @{partner.instagram.split('instagram.com/')[1]?.replace('/', '')}
                                                     </span>
-                                                    <div className="flex items-center gap-1 text-[8px] font-bold text-retro-gray uppercase mt-0.5">
+                                                    <div className="flex items-center gap-1 text-[10px] font-bold text-retro-gray uppercase mt-0.5">
                                                         <span>View Profile</span>
                                                         <ExternalLink size={8} />
                                                     </div>
@@ -244,9 +244,9 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                             href={`mailto:${partner.email}`}
                                             onClick={() => gameAudio.playClick()}
                                             onMouseEnter={() => gameAudio.playHover()}
-                                            className="group flex flex-col p-0 bg-retro-light-gray border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
+                                            className="group flex flex-col p-0 bg-retro-light-gray dark:bg-dark-elevated border-2 border-black dark:border-dark-border shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:bg-gray-300 transition-all overflow-hidden"
                                         >
-                                            <div className="bg-retro-green text-white px-2 py-1 text-[8px] font-bold border-b-2 border-black flex justify-between items-center">
+                                            <div className="bg-retro-green text-white px-2 py-1 text-[10px] font-bold border-b-2 border-black flex justify-between items-center">
                                                 <span>DATA_RELAY</span>
                                                 <Mail size={10} />
                                             </div>
@@ -258,7 +258,7 @@ const PartnerDetailView = ({ partner, onClose }) => {
                                                     <span className="text-[10px] xs:text-xs font-bold text-black truncate tracking-tight lowercase">
                                                         {partner.email}
                                                     </span>
-                                                    <div className="flex items-center gap-1 text-[8px] font-bold text-retro-gray uppercase mt-0.5">
+                                                    <div className="flex items-center gap-1 text-[10px] font-bold text-retro-gray uppercase mt-0.5">
                                                         <span>Send Packet</span>
                                                         <ExternalLink size={8} />
                                                     </div>
@@ -296,19 +296,19 @@ const PartnerDetailView = ({ partner, onClose }) => {
                         </div>
 
                         {/* Key Personnel */}
-                        <div className="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
-                            <h3 className="text-sm font-bold text-black uppercase mb-4 flex items-center gap-2">
+                        <div className="bg-white dark:bg-dark-surface border-2 border-black dark:border-dark-border p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]">
+                            <h3 className="text-sm font-bold text-black dark:text-retro-white uppercase mb-4 flex items-center gap-2">
                                 <Users size={16} />
                                 Team Roster
                             </h3>
                             <div className="space-y-4">
                                 {partner.key_people.map((person, idx) => (
-                                    <div key={idx} className="bg-retro-light-gray p-3 border-2 border-black">
+                                    <div key={idx} className="bg-retro-light-gray dark:bg-dark-elevated p-3 border-2 border-black dark:border-dark-border">
                                         <div className="flex items-center justify-between mb-1">
-                                            <span className="font-bold text-black uppercase text-sm">{person.name}</span>
+                                            <span className="font-bold text-black dark:text-retro-white uppercase text-sm">{person.name}</span>
                                         </div>
-                                        <div className={`text-[10px] font-bold ${colors.text} uppercase mb-2 border-b border-black pb-1`}>{person.role}</div>
-                                        <p className="text-xs text-black leading-tight mb-2">
+                                        <div className={`text-[10px] font-bold ${colors.text} uppercase mb-2 border-b border-black dark:border-dark-border pb-1`}>{person.role}</div>
+                                        <p className="text-xs text-black dark:text-retro-white leading-tight mb-2">
                                             {person.bio}
                                         </p>
                                     </div>

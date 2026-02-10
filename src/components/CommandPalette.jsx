@@ -178,7 +178,7 @@ const CommandPalette = () => {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.1 }}
-                        className="fixed top-16 left-4 right-4 w-auto md:w-full md:left-auto md:right-4 md:max-w-xl bg-[#aaaaaa] border-4 border-retro-white shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden flex flex-col font-pixel-body"
+                        className="fixed top-16 left-4 right-4 w-auto md:w-full md:left-auto md:right-4 md:max-w-xl bg-[#aaaaaa] dark:bg-dark-surface border-4 border-retro-white dark:border-dark-border shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] z-50 overflow-hidden flex flex-col font-pixel-body"
                     >
                         {/* Window Title Bar */}
                         <div className="bg-retro-blue px-2 py-1 flex items-center justify-between border-b-4 border-retro-gray">
@@ -197,14 +197,14 @@ const CommandPalette = () => {
                         </div>
 
                         {/* Search Input */}
-                        <div className="p-4 bg-[#aaaaaa]">
-                            <div className="flex items-center px-4 py-3 bg-[#ffffff] border-2 border-retro-dark-gray shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]">
-                                <Search className="text-[#000000] mr-3" size={20} />
+                        <div className="p-4 bg-[#aaaaaa] dark:bg-dark-surface">
+                            <div className="flex items-center px-4 py-3 bg-[#ffffff] dark:bg-dark-base border-2 border-retro-dark-gray dark:border-dark-border shadow-[inset_2px_2px_4px_rgba(0,0,0,0.5)]">
+                                <Search className="text-[#000000] dark:text-neon-cyan mr-3" size={20} />
                                 <input
                                     autoFocus
                                     type="text"
                                     placeholder="Type a command or search..."
-                                    className="flex-1 bg-transparent border-none outline-none text-lg text-[#000000] placeholder-retro-gray font-bold font-pixel-body uppercase"
+                                    className="flex-1 bg-transparent border-none outline-none text-lg text-[#000000] dark:text-retro-white placeholder-retro-gray font-bold font-pixel-body uppercase"
                                     value={query}
                                     onChange={(e) => setQuery(e.target.value)}
                                 />
@@ -212,7 +212,7 @@ const CommandPalette = () => {
                         </div>
 
                         {/* Results */}
-                        <div className="max-h-[60vh] overflow-y-auto p-2 bg-[#aaaaaa] border-t-2 border-white">
+                        <div className="max-h-[60vh] overflow-y-auto p-2 bg-[#aaaaaa] dark:bg-dark-surface border-t-2 border-white dark:border-dark-border">
                             {filteredItems.length > 0 ? (
                                 <div className="space-y-1">
                                     {filteredItems.map((item, index) => {
@@ -228,7 +228,7 @@ const CommandPalette = () => {
                                                 onMouseEnter={() => setSelectedIndex(index)}
                                                 className={`flex items-center px-4 py-2 cursor-pointer transition-colors border-2 ${isSelected
                                                     ? 'bg-retro-blue border-white text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
-                                                    : 'bg-transparent border-transparent text-black hover:bg-white hover:border-black'
+                                                    : 'bg-transparent border-transparent text-black dark:text-retro-white hover:bg-white dark:hover:bg-dark-elevated hover:border-black dark:hover:border-dark-border'
                                                     }`}
                                             >
                                                 <div className={`mr-4 ${isSelected ? 'text-retro-yellow' : 'text-black'}`}>
@@ -248,14 +248,14 @@ const CommandPalette = () => {
                                     })}
                                 </div>
                             ) : (
-                                <div className="px-6 py-12 text-center text-retro-dark-gray">
+                                <div className="px-6 py-12 text-center text-retro-dark-gray dark:text-retro-light-gray">
                                     <p className="font-bold font-pixel-body uppercase">No matching files found.</p>
                                 </div>
                             )}
                         </div>
 
                         {/* Footer Hints */}
-                        <div className="px-4 py-2 bg-retro-light-gray border-t-2 border-retro-gray flex items-center justify-between text-xs text-black font-bold font-pixel-body">
+                        <div className="px-4 py-2 bg-retro-light-gray dark:bg-dark-elevated border-t-2 border-retro-gray dark:border-dark-border flex items-center justify-between text-xs text-black dark:text-retro-white font-bold font-pixel-body">
                             <div className="flex gap-4">
                                 <span className="flex items-center uppercase"><span className="bg-white border border-black px-1 mr-1 shadow-[1px_1px_0px_0px_#000]">↑↓</span> Navigate</span>
                                 <span className="flex items-center uppercase"><span className="bg-white border border-black px-1 mr-1 shadow-[1px_1px_0px_0px_#000]">↵</span> Select</span>
